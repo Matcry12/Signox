@@ -146,12 +146,13 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Whitenoise for serving static files in production
+# Use simpler storage for Vercel compatibility
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
 

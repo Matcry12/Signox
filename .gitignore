@@ -17,7 +17,7 @@ env/
 *.log
 local_settings.py
 db.sqlite3
-staticfiles/
+# staticfiles/  # Include for Vercel deployment
 # media/  # Include media for demo deployment
 
 # IDE
