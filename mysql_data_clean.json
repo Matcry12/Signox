@@ -1,0 +1,3440 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$I6pW4TzJsB58GVus0VmRFW$D+CnbRWLNz0Dm6XIXKazU3VJRJp6miaV2XyEX/hYfYA=",
+    "last_login": "2025-12-08T07:22:54.823Z",
+    "is_superuser": false,
+    "username": "Matcry",
+    "first_name": "Nguyen",
+    "last_name": "Triet",
+    "email": "fdtywadw@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-30T13:44:06.884Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$M1k6mz8VK90RmUbgy2P01Z$G9b+oNX2cD4TE7iCThELGP8tBEFSCMAxY3jFIZF77Xc=",
+    "last_login": "2025-12-25T15:52:26.217Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "fdtywadw@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-30T13:45:07.651Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$heFHLcBMIYPZgjiQtN1dj5$TTF8Gj43vgBwolubqQkW/jA/pv321fVVkRD9y8M1OD4=",
+    "last_login": "2025-12-22T02:52:28.119Z",
+    "is_superuser": false,
+    "username": "Thuy",
+    "first_name": "Thuy",
+    "last_name": "Nguyen",
+    "email": "nthuytin@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-22T02:51:20.929Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Mw9AZNfVte2Q0Vnjz3pGaX$E2QWzm7fmuXN977yPxD4EiwSDFJNcFWdH7LzBM3Jl9Q=",
+    "last_login": "2025-12-23T15:03:11.305Z",
+    "is_superuser": false,
+    "username": "necoraw",
+    "first_name": "Ngọc Hà",
+    "last_name": "Phạm",
+    "email": "jukirachan@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-23T06:13:52.959Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$GMV3EcC3D3y38CttG61clN$faVsBQvNG+vnhsx891jlW1vTnAtK6Y+zGTkTA2rSJjc=",
+    "last_login": "2025-12-23T07:25:38.489Z",
+    "is_superuser": false,
+    "username": "missma",
+    "first_name": "Ma",
+    "last_name": "Huyền",
+    "email": "mth.csdl@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-23T07:24:08.041Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$EG40l3EXB82i5z0TJdAcvN$RryQfjRK65B+KCav7JGZdwbnNMXO4bz0px2pqDFhmj8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "hathisen",
+    "first_name": "Sen",
+    "last_name": "Hà",
+    "email": "hasen8584ts@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-23T07:54:11.607Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$YbBz75CuVAGq01gSRKzWZ4$t5POrvLMvukg2N6BNZFZf7ZUD33CeEMpATzvqJlQWeU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "hathisen1985",
+    "first_name": "Sen",
+    "last_name": "Hà",
+    "email": "hasen8584ts@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-23T07:56:44.365Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$BQjG86MwcQbiEUm1N4I43L$lReFvZpMaAq1LCzWm64lropI1dYhr/V25xNRhbetA5o=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "hasen85",
+    "first_name": "Sen",
+    "last_name": "Hà",
+    "email": "hasen8584ts@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-23T07:58:14.505Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$WvEbGI6zyrbv7CEIb6F11y$rLkjo3i5GbFs6WHh/BObbP39Po5AC4tSa38KoL68SvA=",
+    "last_login": "2025-12-25T15:22:51.252Z",
+    "is_superuser": false,
+    "username": "shorekeeper",
+    "first_name": "Duy",
+    "last_name": "Nguyễn",
+    "email": "duykingdemon@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-25T15:22:50.787Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$5sXl1A1eRXenlwHk1uoB9U$0HKh5bjSz04wNoyRpW0OI1/b9SkyFmOa7EI8H66S2yA=",
+    "last_login": "2025-12-25T15:23:53.740Z",
+    "is_superuser": false,
+    "username": "suslord",
+    "first_name": "Nguyen",
+    "last_name": "Triet",
+    "email": "sasd@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-25T15:23:53.193Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "signlang.category",
+  "pk": 1,
+  "fields": {
+    "name": "Giới thiệu",
+    "slug": "gioi-thieu",
+    "description": "Học những kí hiệu cơ bản trong giao tiếp",
+    "icon": "fa-hand-wave",
+    "order": 1
+  }
+},
+{
+  "model": "signlang.category",
+  "pk": 3,
+  "fields": {
+    "name": "Gia đình",
+    "slug": "gia-dinh",
+    "description": "Kí hiệu dùng trong gia đình.",
+    "icon": "fa-users",
+    "order": 3
+  }
+},
+{
+  "model": "signlang.category",
+  "pk": 4,
+  "fields": {
+    "name": "Sinh hoạt",
+    "slug": "sinh-hoat",
+    "description": "Kí hiệu thường dùng trong sinh hoạt",
+    "icon": "fa-calendar-day",
+    "order": 4
+  }
+},
+{
+  "model": "signlang.category",
+  "pk": 5,
+  "fields": {
+    "name": "Trường học",
+    "slug": "truong-hoc",
+    "description": "Kí hiệu dỳng trong môi trường học tập.",
+    "icon": "fa-school",
+    "order": 5
+  }
+},
+{
+  "model": "signlang.category",
+  "pk": 6,
+  "fields": {
+    "name": "Công việc",
+    "slug": "cong-viec",
+    "description": "Kí hiệu thường dùng trong công việc/ công sở.",
+    "icon": "fa-briefcase",
+    "order": 6
+  }
+},
+{
+  "model": "signlang.category",
+  "pk": 8,
+  "fields": {
+    "name": "Những bài học đầu tiên",
+    "slug": "nhung-bai-hoc-dau-tien",
+    "description": "Cần nắm vững những bài học cơ bản trước tiên",
+    "icon": "",
+    "order": 0
+  }
+},
+{
+  "model": "signlang.category",
+  "pk": 12,
+  "fields": {
+    "name": "Đồ ăn",
+    "slug": "do-an",
+    "description": "Các kí tự về ẩm thực",
+    "icon": "",
+    "order": 7
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 1,
+  "fields": {
+    "title": "Giới thiệu bản thân",
+    "slug": "gioi-thieu-ban-than",
+    "category": 1,
+    "description": "Chào hỏi và giới thiệu tên, tuổi của bản thân.",
+    "content": "## Giới thiệu\r\nTrong bài học này. bạn sẽ được mẫu câu giao tiếp thông thường.\r\n\r\n## Kí hiệu\r\n1. **Xin chào** - Giơ hai tay lên hai bên trán và lắc, biểu cảm vui mừng\r\n2. **Rất vui được gặp bạn** - Để tay tương tự xin chào nhưng đặt ngang vai, lắc nhẹ sau đó để nắm tay chỉ giữ ngón trỏ, đưa 2 tay chạm vào nhau. Biểu cảm vui vẻ.\r\n3. **Hẹn gặp lại** - Lần lượt làm chữ cái H và I rồi nắm tay chỉ giữ ngón trỏ, đưa 2 tay chạm vào nhau. Biểu cảm vui vẻ.\r\n4. **Tôi tên ...** - Tay khép, hướng vào bản thân. Nắm tay chỉ mở ngón trỏ và ngón giữa, tương tự chữ U. Đập vào nhau 2 lần rồi sử dụng từng chữ cái để nói tên của mình.\r\n5. **Tôi ... tuổi** - Tay trái nắm, tay phải hướng ngón cái vào giữa, xoay 1 vòng rồi nắm lại, đặt lên tay trái.\r\n\r\n## Lời khuyên\r\n- Tập luyện trước gương\r\n- Chú ý biểu cảm gương mặt\r\n- Thực hành cùng bạn bè\r\n        ",
+    "video_url": "https://youtu.be/kMwToNb1AXA",
+    "thumbnail": "lessons/thumbnails/mau-gioi-thieu-ban-than-bang-tieng-viet.png",
+    "difficulty": "easy",
+    "order": 1,
+    "is_published": true,
+    "created_at": "2025-12-04T14:14:43.806Z",
+    "updated_at": "2025-12-25T14:54:18.539Z"
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 6,
+  "fields": {
+    "title": "Trường học",
+    "slug": "classroom-basics",
+    "category": 5,
+    "description": "Những kí hiệu trong trường học",
+    "content": "## Giới thiệu\r\nNhững kí hiệu cần thiết trong trường học \r\n\r\n## Kí hiệu chính\r\n- Nhà trường\r\n- Hiệu trưởng\r\n- Bảo vệ\r\n- Môn học\r\n- Hiểu\r\n- Kiểm tra\r\n- Ra chơi\r\n        ",
+    "video_url": "https://youtu.be/HJgc3Eppi94",
+    "thumbnail": "lessons/thumbnails/pngtree-high-school-building-in-vector-illustration-a-perfect-represe_g4AoupY.png",
+    "difficulty": "medium",
+    "order": 1,
+    "is_published": true,
+    "created_at": "2025-12-04T14:14:43.956Z",
+    "updated_at": "2025-12-23T09:14:06.735Z"
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 8,
+  "fields": {
+    "title": "Bảng chữ cái",
+    "slug": "bang-chu-cai",
+    "category": 8,
+    "description": "Bảng chữ cái theo hệ chữ Tiếng Việt",
+    "content": "Bài học đầu tiên",
+    "video_url": "https://youtu.be/SCreLbtUoLU",
+    "thumbnail": "lessons/thumbnails/istockphoto-1449459492-612x612_VkiUJl2.jpg",
+    "difficulty": "easy",
+    "order": 0,
+    "is_published": true,
+    "created_at": "2025-12-22T08:57:54.829Z",
+    "updated_at": "2025-12-23T09:21:50.627Z"
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 10,
+  "fields": {
+    "title": "Số đếm & tiền tệ",
+    "slug": "so-dem-tien-te",
+    "category": 8,
+    "description": "Số từ 1-10 và đơn vị chục nghìn, trăm nghìn",
+    "content": "# Số đếm & tiền tệ\r\n## Các kí hiệu \r\n1. Số 1 -10\r\n2. Đơn vị chục nghìn/trăm nghìn : Số + kí hiệu chữ cái N",
+    "video_url": "https://youtu.be/HOrAZblphu8",
+    "thumbnail": "lessons/thumbnails/pngtree-cute-number-counting-png-image_14815975_wMQzRF1.png",
+    "difficulty": "easy",
+    "order": 0,
+    "is_published": true,
+    "created_at": "2025-12-23T01:18:07.730Z",
+    "updated_at": "2025-12-23T09:21:28.929Z"
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 11,
+  "fields": {
+    "title": "Món ăn",
+    "slug": "am-thuc",
+    "category": 12,
+    "description": "Các kí tự về đồ ăn.",
+    "content": "## Các kí tự chính\r\n1. Cơm rang\r\n2. Xôi gấc\r\n3. Xôi gà\r\n4. Bún đậu",
+    "video_url": "https://youtu.be/pS4fK7zZw5A",
+    "thumbnail": "lessons/thumbnails/hinh-anh-minh-hoa-mon-an-thai-ve-tay-thiet-ke-phang_1149263-13601.avif",
+    "difficulty": "medium",
+    "order": 0,
+    "is_published": true,
+    "created_at": "2025-12-23T01:24:21.872Z",
+    "updated_at": "2025-12-23T09:21:12.336Z"
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 12,
+  "fields": {
+    "title": "Gia đình",
+    "slug": "gia-dinh",
+    "category": 3,
+    "description": "Các kí hiệu trong gia đình",
+    "content": "# Các kí hiệu chính\r\n1. Ông\r\n2. Bà\r\n3. Bố\r\n4. Mẹ\r\n5. Em trai/ anh trai\r\n6. Em gái/ chị gái",
+    "video_url": "https://youtu.be/t8uzPweAPuI",
+    "thumbnail": "lessons/thumbnails/ve-tranh-gia-dinh-dep-nhat-15.jpg",
+    "difficulty": "easy",
+    "order": 0,
+    "is_published": true,
+    "created_at": "2025-12-23T01:29:16.532Z",
+    "updated_at": "2025-12-23T09:23:09.466Z"
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 13,
+  "fields": {
+    "title": "Rau củ",
+    "slug": "do-an",
+    "category": 12,
+    "description": "Các kí tự về đồ ăn",
+    "content": "# Các kí hiệu chính \r\n1. Rau củ\r\n2. Cà chua\r\n3. Dưa chuột\r\n4. Khoai tây",
+    "video_url": "https://youtu.be/jAbXlqzDX8M",
+    "thumbnail": "lessons/thumbnails/pngtree-vegetarian-clipart-cartoon-character-of-vegetables-and-fruit-_MD5v2yU.png",
+    "difficulty": "easy",
+    "order": 0,
+    "is_published": true,
+    "created_at": "2025-12-23T01:31:12.355Z",
+    "updated_at": "2025-12-23T09:15:27.549Z"
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 14,
+  "fields": {
+    "title": "Tính từ",
+    "slug": "tinh-tu",
+    "category": 8,
+    "description": "Những tính từ cơ bản",
+    "content": "## Các kí hiệu chính\r\n1. Nhớ\r\n2. Yêu\r\n3. Hiền\r\n4. Thông minh\r\n5. Khó chịu\r\n6. Sợ hãi\r\n5. Khỏe mạnh\r\n6. Đáng yêu",
+    "video_url": "https://youtu.be/nA_9pQU_yMk",
+    "thumbnail": "lessons/thumbnails/Cách-nhớ-thứ-tự-tính-từ-trong-tiếng-Anh-nhanh-nhất.jpg",
+    "difficulty": "medium",
+    "order": 0,
+    "is_published": true,
+    "created_at": "2025-12-23T01:43:42.339Z",
+    "updated_at": "2025-12-23T09:16:11.645Z"
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 15,
+  "fields": {
+    "title": "Bệnh viện",
+    "slug": "hospital",
+    "category": 6,
+    "description": "Các kí hiệu thường dùng trong bệnh viện",
+    "content": "# Các kí hiệu chính \r\n1. Bệnh viện \r\n2. Bác sĩ\r\n3. Ống nghe\r\n4. Tiêm \r\n5. Khám bệnh",
+    "video_url": "https://youtu.be/snh4JsXsMcs",
+    "thumbnail": "lessons/thumbnails/images.png",
+    "difficulty": "medium",
+    "order": 0,
+    "is_published": true,
+    "created_at": "2025-12-23T01:59:48.208Z",
+    "updated_at": "2025-12-23T09:13:04.606Z"
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 1,
+  "fields": {
+    "lesson": 1,
+    "word": "Hello",
+    "meaning": "Xin chào",
+    "description": "Basic greeting sign",
+    "image": "",
+    "video": "",
+    "order": 1
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 2,
+  "fields": {
+    "lesson": 1,
+    "word": "Goodbye",
+    "meaning": "Tạm biệt",
+    "description": "Farewell sign",
+    "image": "",
+    "video": "",
+    "order": 2
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 3,
+  "fields": {
+    "lesson": 1,
+    "word": "Nice to meet you",
+    "meaning": "Rất vui được gặp bạn",
+    "description": "Formal introduction",
+    "image": "",
+    "video": "",
+    "order": 3
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 20,
+  "fields": {
+    "lesson": 6,
+    "word": "Teacher",
+    "meaning": "Giáo viên",
+    "description": "Knowledge sharing gesture",
+    "image": "",
+    "video": "",
+    "order": 1
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 21,
+  "fields": {
+    "lesson": 6,
+    "word": "Student",
+    "meaning": "Học sinh",
+    "description": "Learning gesture",
+    "image": "",
+    "video": "",
+    "order": 2
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 22,
+  "fields": {
+    "lesson": 6,
+    "word": "Book",
+    "meaning": "Sách",
+    "description": "Opening book motion",
+    "image": "",
+    "video": "",
+    "order": 3
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 23,
+  "fields": {
+    "lesson": 6,
+    "word": "Question",
+    "meaning": "Câu hỏi",
+    "description": "Questioning gesture",
+    "image": "",
+    "video": "",
+    "order": 4
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "lesson": 6,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-04T14:46:34.429Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-04T15:51:05.908Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 6,
+  "fields": {
+    "user": 1,
+    "lesson": 1,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-12T06:43:21.295Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 9,
+  "fields": {
+    "user": 3,
+    "lesson": 1,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-22T02:53:23.446Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 11,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-22T15:08:57.097Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 12,
+  "fields": {
+    "user": 5,
+    "lesson": 8,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-23T07:25:48.107Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 13,
+  "fields": {
+    "user": 5,
+    "lesson": 10,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-23T07:25:55.794Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 14,
+  "fields": {
+    "user": 5,
+    "lesson": 14,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-23T07:26:30.923Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 15,
+  "fields": {
+    "user": 2,
+    "lesson": 10,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-25T14:31:50.524Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 16,
+  "fields": {
+    "user": 10,
+    "lesson": 8,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-25T15:25:59.344Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 17,
+  "fields": {
+    "user": 10,
+    "lesson": 10,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-25T15:26:05.330Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 18,
+  "fields": {
+    "user": 10,
+    "lesson": 11,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-25T15:26:08.095Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 19,
+  "fields": {
+    "user": 10,
+    "lesson": 13,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-25T15:33:15.069Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.userprogress",
+  "pk": 20,
+  "fields": {
+    "user": 10,
+    "lesson": 1,
+    "status": "in_progress",
+    "score": 0,
+    "time_spent": 0,
+    "last_accessed": "2025-12-25T15:33:22.791Z",
+    "completed_at": null
+  }
+},
+{
+  "model": "signlang.savedlesson",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "saved_at": "2025-12-25T14:31:42.474Z"
+  }
+},
+{
+  "model": "signlang.savedlesson",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "lesson": 10,
+    "saved_at": "2025-12-25T14:31:51.705Z"
+  }
+},
+{
+  "model": "signlang.quiz",
+  "pk": 1,
+  "fields": {
+    "lesson": 12,
+    "title": "ÔN TẬP CHỦ ĐỀ GIA ĐÌNH",
+    "description": "Luyện tập",
+    "passing_score": 70,
+    "time_limit": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "signlang.quiz",
+  "pk": 6,
+  "fields": {
+    "lesson": 6,
+    "title": "ÔN TẬP CHỦ ĐỀ TRƯỜNG HỌC",
+    "description": "Luyện tập",
+    "passing_score": 70,
+    "time_limit": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "signlang.quiz",
+  "pk": 8,
+  "fields": {
+    "lesson": 11,
+    "title": "ÔN TẬP CHỦ ĐỀ ĐỒ ĂN",
+    "description": "",
+    "passing_score": 70,
+    "time_limit": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 1,
+  "fields": {
+    "quiz": 1,
+    "question_text": "Ký hiệu “bố” trong ngôn ngữ ký hiệu Việt Nam được làm như thế nào?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 1,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 2,
+  "fields": {
+    "quiz": 1,
+    "question_text": "Ký hiệu “mẹ” là gì?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 2,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 3,
+  "fields": {
+    "quiz": 1,
+    "question_text": "Ký hiệu “ông” là gì?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 3,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 4,
+  "fields": {
+    "quiz": 1,
+    "question_text": "Ký hiệu “bà” trong ngôn ngữ ký hiệu Việt Nam được làm như thế nào?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 4,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 20,
+  "fields": {
+    "quiz": 6,
+    "question_text": "Đâu là kí hiệu trường học ?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 1,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 21,
+  "fields": {
+    "quiz": 6,
+    "question_text": "Đâu là kí hiệu \" môn học \"?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 2,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 22,
+  "fields": {
+    "quiz": 6,
+    "question_text": "Đâu là kí hiệu \" kiểm tra \" ?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 3,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 23,
+  "fields": {
+    "quiz": 6,
+    "question_text": "Đâu là kí hiệu \" ra chơi \" ?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 4,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 24,
+  "fields": {
+    "quiz": 8,
+    "question_text": "Ký hiệu “xôi gà” là gì?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 0,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 25,
+  "fields": {
+    "quiz": 8,
+    "question_text": "Ký hiệu “xôi gấc” là gì?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 0,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 26,
+  "fields": {
+    "quiz": 8,
+    "question_text": "Ký hiệu “bún đậu” là gì?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 0,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 27,
+  "fields": {
+    "quiz": 8,
+    "question_text": "Ký hiệu “cơm rang” là gì?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 0,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 95,
+  "fields": {
+    "question": 20,
+    "answer_text": "Hai tay khép lại, hướng vào nhau tạo thành hình mũi tên rồi hất ra.",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 96,
+  "fields": {
+    "question": 20,
+    "answer_text": "Hai tay khép lại, đặt lên trán rồi lắc.",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 97,
+  "fields": {
+    "question": 20,
+    "answer_text": "Tay phải khép hờ, đưa lên trán.",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 98,
+  "fields": {
+    "question": 20,
+    "answer_text": "Tay trái nắm, tay phải đặt lên chính giữa, giữ ngón cái rồi xoay 1 vòng",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 99,
+  "fields": {
+    "question": 21,
+    "answer_text": "Đặt ngón trỏ tay phải lên cổ tay trái, gõ 2 lần",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 100,
+  "fields": {
+    "question": 21,
+    "answer_text": "Hai tay khép lại, đặt lên trán rồi lắc.",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 101,
+  "fields": {
+    "question": 21,
+    "answer_text": "Tay trái khép, hơi cong. Tay phải để 3 ngón vướt từ bàn tay trái lên",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 102,
+  "fields": {
+    "question": 21,
+    "answer_text": "Tay phải giơ ngón trỏ lên, chỉ lắc ngón đó 2-3 lần",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 103,
+  "fields": {
+    "question": 22,
+    "answer_text": "Tay nắm lại, giơ ngón trỏ",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 104,
+  "fields": {
+    "question": 22,
+    "answer_text": "Tay phải giơ ngón trỏ đặt lên trước ngực trái rồi từ từ duỗi hết các ngón ra, nắm ngón cái lại.",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 105,
+  "fields": {
+    "question": 22,
+    "answer_text": "Hai tay để ngang vai, hất nhẹ",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 106,
+  "fields": {
+    "question": 23,
+    "answer_text": "Ký hiệu chữ N",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 107,
+  "fields": {
+    "question": 23,
+    "answer_text": "Hai tay ký hiệu chữ N rồi đưa lên trán, lắc nhẹ",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 108,
+  "fields": {
+    "question": 23,
+    "answer_text": "Ký hiệu chữ V",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 109,
+  "fields": {
+    "question": 23,
+    "answer_text": "Ký hiệu chữ H rồi ký hiệu dấu nặng.",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 110,
+  "fields": {
+    "question": 1,
+    "answer_text": "Một tay chạm vào cằm, rồi di chuyển ra phía trước",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 111,
+  "fields": {
+    "question": 1,
+    "answer_text": "Một tay chạm vào ngực, rồi di chuyển ra phía trước",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 112,
+  "fields": {
+    "question": 1,
+    "answer_text": "Một tay chạm vào trán, rồi di chuyển ra phía trước",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 113,
+  "fields": {
+    "question": 1,
+    "answer_text": "Một tay chạm vào vai, rồi di chuyển ra phía trước",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 114,
+  "fields": {
+    "question": 2,
+    "answer_text": "Một tay chạm vào ngực, rồi di chuyển ra phía trước",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 115,
+  "fields": {
+    "question": 2,
+    "answer_text": "Một tay chạm vào trán, rồi di chuyển ra phía trước",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 116,
+  "fields": {
+    "question": 2,
+    "answer_text": "Một tay chạm vào vai, rồi di chuyển ra phía trước",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 117,
+  "fields": {
+    "question": 2,
+    "answer_text": "Một tay chạm vào má rồi di chuyển ra phía trước",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 118,
+  "fields": {
+    "question": 3,
+    "answer_text": "Một tay làm hình mái nhà, rồi di chuyển lên xuống",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 119,
+  "fields": {
+    "question": 3,
+    "answer_text": "Một tay chạm vào cằm, rồi di chuyển lên phía trên",
+    "is_correct": false,
+    "explanation": "“Ông” thường được làm bằng tay chạm vào cằm (vị trí râu) rồi di chuyển lên phía trên, tượng trưng cho người đàn ông lớn tuổi"
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 120,
+  "fields": {
+    "question": 3,
+    "answer_text": "Một tay chạm vào trán, rồi di chuyển lên phía trên.",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 121,
+  "fields": {
+    "question": 3,
+    "answer_text": "Một tay chạm vào vai, rồi di chuyển lên phía trên",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 122,
+  "fields": {
+    "question": 4,
+    "answer_text": "Một tay chạm vào rãnh cười, rồi di chuyển xuống phía dưới.",
+    "is_correct": true,
+    "explanation": "Bà thường hay cười nên có rãnh cười sâu hơn"
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 123,
+  "fields": {
+    "question": 4,
+    "answer_text": "Một tay chạm vào ngực, rồi di chuyển lên phía trên.",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 124,
+  "fields": {
+    "question": 4,
+    "answer_text": "Một tay chạm vào cằm, rồi di chuyển lên phía trên",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 125,
+  "fields": {
+    "question": 4,
+    "answer_text": "Một tay chạm vào vai, rồi di chuyển lên phía trên",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 126,
+  "fields": {
+    "question": 24,
+    "answer_text": "Một tay làm hình nồi, tay kia làm hình con gà rồi đưa vào nồi.",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 127,
+  "fields": {
+    "question": 24,
+    "answer_text": "Một tay làm hình con gà, tay kia làm hình cơm rồi gõ nhẹ",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 128,
+  "fields": {
+    "question": 24,
+    "answer_text": "Một tay làm hình con gà, tay kia làm hình xôi rồi di chuyển về phía trước",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 129,
+  "fields": {
+    "question": 24,
+    "answer_text": "Một tay làm hình chiếc thuyền, tay còn lại dùng ngón trỏ gõ nhẹ lên giữa lòng bàn tay",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 134,
+  "fields": {
+    "question": 25,
+    "answer_text": "Một tay làm hình xôi, tay kia xoa vào má để chỉ màu đỏ.",
+    "is_correct": true,
+    "explanation": "“Xôi gấc” thường được làm bằng tay làm hình xôi (bàn tay khép lại như nắm cơm) và tay kia xoa vào má để chỉ màu đỏ (màu gấc), tượng trưng cho xôi đỏ."
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 135,
+  "fields": {
+    "question": 25,
+    "answer_text": "Một tay làm hình xôi, tay kia xoa vào môi để chỉ màu đỏ",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 136,
+  "fields": {
+    "question": 25,
+    "answer_text": "Một tay làm hình xôi, tay kia xoa vào trán để chỉ màu đỏ",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 137,
+  "fields": {
+    "question": 25,
+    "answer_text": "Một tay làm hình xôi, tay kia xoa vào ngực để chỉ màu đỏ",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 138,
+  "fields": {
+    "question": 26,
+    "answer_text": "Một tay làm hình sợi bún (ngón tay rung nhẹ), tay kia làm hình miếng đậu rồi chạm vào nhau.",
+    "is_correct": true,
+    "explanation": "“Bún đậu” thường được làm bằng tay làm hình sợi bún (ngón tay rung nhẹ như sợi bún) và tay kia làm hình miếng đậu (bàn tay phẳng, hơi cong), rồi hai tay chạm vào nhau để chỉ “bún với đậu”"
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 139,
+  "fields": {
+    "question": 26,
+    "answer_text": "Một tay làm hình sợi bún, tay kia làm hình miếng đậu rồi di chuyển về phía trước",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 140,
+  "fields": {
+    "question": 26,
+    "answer_text": "Một tay làm hình sợi bún, tay kia làm hình miếng đậu rồi gõ nhẹ",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 141,
+  "fields": {
+    "question": 26,
+    "answer_text": "Một tay làm hình sợi bún, tay kia làm hình miếng đậu rồi vẫy nhẹ",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 142,
+  "fields": {
+    "question": 27,
+    "answer_text": "Một tay làm hình nồi, tay kia làm hình muỗng rồi khuấy.",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 143,
+  "fields": {
+    "question": 27,
+    "answer_text": "Một tay làm hình cơm, tay kia làm hình muỗng rồi khuấy.",
+    "is_correct": true,
+    "explanation": "“Cơm rang” thường được làm bằng tay làm hình cơm (bàn tay khép lại như nắm cơm) và tay kia làm hình muỗng (ngón trỏ và ngón cái hình vòng tròn), rồi di chuyển như đang khuấy trong nồi để chỉ “cơm được rang”"
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 144,
+  "fields": {
+    "question": 27,
+    "answer_text": "Một tay làm hình cơm, tay kia làm hình muỗng rồi gõ nhẹ.",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 145,
+  "fields": {
+    "question": 27,
+    "answer_text": "Một tay làm hình cơm, tay kia làm hình muỗng rồi vẫy nhẹ.",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.quizattempt",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "quiz": 1,
+    "score": 5,
+    "max_score": 7,
+    "passed": true,
+    "started_at": "2025-12-08T03:45:17.148Z",
+    "completed_at": "2025-12-08T03:45:17.147Z"
+  }
+},
+{
+  "model": "signlang.quizattempt",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "quiz": 1,
+    "score": 5,
+    "max_score": 7,
+    "passed": true,
+    "started_at": "2025-12-18T14:13:02.713Z",
+    "completed_at": "2025-12-18T14:13:02.713Z"
+  }
+},
+{
+  "model": "signlang.quizattempt",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "quiz": 1,
+    "score": 7,
+    "max_score": 7,
+    "passed": true,
+    "started_at": "2025-12-18T14:13:30.050Z",
+    "completed_at": "2025-12-18T14:13:30.050Z"
+  }
+},
+{
+  "model": "signlang.quizattempt",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "quiz": 1,
+    "score": 2,
+    "max_score": 7,
+    "passed": false,
+    "started_at": "2025-12-19T14:14:41.522Z",
+    "completed_at": "2025-12-19T14:14:41.522Z"
+  }
+},
+{
+  "model": "signlang.videocategory",
+  "pk": 1,
+  "fields": {
+    "name": "CHỢ",
+    "slug": "market",
+    "description": "Mua bán",
+    "icon": ""
+  }
+},
+{
+  "model": "signlang.videocategory",
+  "pk": 2,
+  "fields": {
+    "name": "BỆNH VIỆN",
+    "slug": "hospital",
+    "description": "Hỏi han, nhắc nhở và biểu đạt.",
+    "icon": ""
+  }
+},
+{
+  "model": "signlang.videocategory",
+  "pk": 3,
+  "fields": {
+    "name": "GIAO THÔNG",
+    "slug": "transportation",
+    "description": "Phương hướng.",
+    "icon": ""
+  }
+},
+{
+  "model": "signlang.videocategory",
+  "pk": 4,
+  "fields": {
+    "name": "GIAO TIẾP",
+    "slug": "giao-tiep",
+    "description": "Các đoạn hội thoại giao tiếp thường ngày thường gặp",
+    "icon": ""
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 13,
+  "fields": {
+    "title": "Hỏi thăm 1",
+    "slug": "hoi-tham",
+    "category": 4,
+    "description": "## Các kí hiệu chính\r\n- Bạn có người yêu chưa ?\r\n- Có\r\n- Đẹp, dễ thương, tốt bụng",
+    "video_file": "",
+    "video_url": "https://youtu.be/GUErK3uIM3M",
+    "thumbnail": "videos/thumbnails/Từ-vựng-tiếng-Anh-về-sức-khỏe-4_Vt1wI9X.jpg",
+    "difficulty": "easy",
+    "view_count": 2,
+    "is_published": true,
+    "created_at": "2025-12-23T01:36:20.333Z"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 14,
+  "fields": {
+    "title": "Hỏi thăm 2",
+    "slug": "hoi-tham2",
+    "category": 4,
+    "description": "## Các kí hiệu chính\r\n- Bạn có người yêu chưa ?\r\n- Chưa, buồn",
+    "video_file": "",
+    "video_url": "https://youtu.be/U15jcV6Rl5I",
+    "thumbnail": "videos/thumbnails/Từ-vựng-tiếng-Anh-về-sức-khỏe-4.jpg",
+    "difficulty": "easy",
+    "view_count": 2,
+    "is_published": true,
+    "created_at": "2025-12-23T01:38:30.196Z"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 15,
+  "fields": {
+    "title": "Hỏi giá",
+    "slug": "hoi-gia",
+    "category": 1,
+    "description": "## Các kí hiệu chính\r\n- Cái này bao nhiêu ? \r\n- Cái này ... VND \r\n- Lấy",
+    "video_file": "",
+    "video_url": "https://youtu.be/fC2-cAoRfbA",
+    "thumbnail": "videos/thumbnails/pngtree-cartoon-mother-and-child-go-to-the-vegetable-market-png-materi_5VslPs2.jpg",
+    "difficulty": "easy",
+    "view_count": 2,
+    "is_published": true,
+    "created_at": "2025-12-23T01:40:13.196Z"
+  }
+},
+{
+  "model": "signlang.forumpost",
+  "pk": 2,
+  "fields": {
+    "author": 2,
+    "title": "VỀ CHÚNG TÔI",
+    "content": "NGÔN NGỮ KÍ HIỆU- Một ngôn ngữ đặc biệt chẳng cần phát âm hay ngữ pháp khó nhằn mà thông qua cử chỉ, biểu cảm để giao tiếp. Tuy đã hình thành và phát triển từ lâu nhưng trên thực tế thủ ngữ lại chưa được phổ biến rộng rãi. \r\n    May mắn thay dạo gần đây, ngôn ngữ kí hiệu đã được giới trẻ quan tâm đến nhiều hơn, thông qua các trend hát, dịch những thoại phim hấp dẫn bằng ngôn ngữ kí hiệu.✨️\r\n    Như vậy, đứng trước làn sóng lan tỏa giá trị tích cực của cộng đồng mạng. Chúng mình cũng muốn được góp chút sức nhỏ bé của mình cho hành trình lan tỏa yêu thương đó !❤️‍🔥\r\n    Dựa trên những kiến thức về NNKH đã được học và sự giúp đỡ của mọi người. Trang web \"Học ngôn ngữ kí hiệu trực tuyến Signox\" được ra đời với hi vọng giúp các bạn học có thể sử dụng thủ ngữ trong giao tiếp hàng ngày và đặc biệt là giúp người Việt Nam có thể kết nối với nhau nhiều hơn, để không ai bị bỏ lại phía sau‼️\r\n    Đây sẽ là nơi để chúng ta làm quen với một ngôn ngữ mới theo cách nhẹ nhàng, dễ hiểu và cực kỳ thực tế, lại còn có cả không gian trò chuyện, chia sẻ thông qua diễn đàn tại trang web. Bài học ngắn gọn, video rõ ràng, chủ đề thì siêu gần gũi như trường lớp, bạn bè hay cảm xúc hằng ngày. Học lúc rảnh, luyện lúc chill, vừa có thêm kỹ năng xịn vừa góp phần tạo nên một môi trường giao tiếp không rào cản.🫵\r\n  🤟Hãy cùng đồng hành với chúng mình trong quá trình học ngôn ngữ kí hiệu nhé🤟\r\n   ~Mọi thông tin chi tiết về trang web sẽ được chúng mình cập nhật trong thời gian gần nhất~\r\n#NgonngukihieuVietnam\r\n#Signox\r\n#RythymOfSign",
+    "image": "forum/images/quality_restoration_20251218072849587.png",
+    "video": "",
+    "created_at": "2025-12-22T03:14:47.062Z",
+    "updated_at": "2025-12-23T06:19:36.861Z",
+    "is_pinned": false
+  }
+},
+{
+  "model": "signlang.comment",
+  "pk": 3,
+  "fields": {
+    "post": 2,
+    "author": 2,
+    "content": "abcdxyz",
+    "created_at": "2025-12-22T03:15:13.620Z"
+  }
+},
+{
+  "model": "signlang.comment",
+  "pk": 4,
+  "fields": {
+    "post": 2,
+    "author": 10,
+    "content": "Wowow",
+    "created_at": "2025-12-25T15:25:45.923Z"
+  }
+},
+{
+  "model": "signlang.like",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "post": 2,
+    "created_at": "2025-12-23T06:19:49.579Z"
+  }
+},
+{
+  "model": "signlang.like",
+  "pk": 3,
+  "fields": {
+    "user": 10,
+    "post": 2,
+    "created_at": "2025-12-25T15:25:41.041Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "lesson": 6,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-04T14:46:34.437Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 6,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-04T15:51:05.914Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 7,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-04T15:51:18.411Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 8,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-04T15:51:28.118Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 10,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-04T15:51:30.565Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 12,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-04T15:51:32.069Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 14,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-04T15:51:32.491Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 19,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-07T15:27:42.559Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 20,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "quiz_pass",
+    "weight": 2.5,
+    "created_at": "2025-12-08T03:45:17.152Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 21,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-08T03:45:22.330Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 22,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-08T06:52:51.793Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 23,
+  "fields": {
+    "user": 1,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-12T06:43:21.301Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 24,
+  "fields": {
+    "user": 1,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-12T06:49:44.968Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 25,
+  "fields": {
+    "user": 1,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-12T06:49:45.804Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 27,
+  "fields": {
+    "user": 2,
+    "lesson": 6,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-12T07:55:38.609Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 28,
+  "fields": {
+    "user": 2,
+    "lesson": 6,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-12T08:09:46.746Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 31,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-17T13:15:35.836Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 34,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-18T13:55:12.869Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 35,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-18T13:55:34.584Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 42,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-18T14:11:19.512Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 43,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "quiz_pass",
+    "weight": 2.5,
+    "created_at": "2025-12-18T14:13:02.718Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 44,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "quiz_pass",
+    "weight": 2.5,
+    "created_at": "2025-12-18T14:13:30.058Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 52,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "quiz_fail",
+    "weight": 0.5,
+    "created_at": "2025-12-19T14:14:41.529Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 53,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-19T14:14:43.217Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 54,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-19T14:14:48.769Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 58,
+  "fields": {
+    "user": 2,
+    "lesson": 6,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-19T15:18:32.084Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 59,
+  "fields": {
+    "user": 2,
+    "lesson": 6,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-19T15:18:35.843Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 69,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-20T13:44:22.920Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 70,
+  "fields": {
+    "user": 3,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-22T02:53:23.450Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 71,
+  "fields": {
+    "user": 3,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-22T02:53:56.732Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 72,
+  "fields": {
+    "user": 3,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-22T02:54:33.423Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 74,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-22T15:08:57.089Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 75,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T01:18:15.441Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 76,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T02:11:14.565Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 77,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T03:45:44.427Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 78,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T03:48:55.122Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 79,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T03:52:05.712Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 80,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T03:54:54.049Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 81,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T04:03:02.614Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 82,
+  "fields": {
+    "user": 2,
+    "lesson": 6,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T05:41:23.548Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 83,
+  "fields": {
+    "user": 2,
+    "lesson": 6,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T05:42:14.185Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 84,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T05:42:24.972Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 85,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T05:42:37.572Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 86,
+  "fields": {
+    "user": 5,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T07:25:48.101Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 87,
+  "fields": {
+    "user": 5,
+    "lesson": 10,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T07:25:55.784Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 88,
+  "fields": {
+    "user": 5,
+    "lesson": 14,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-23T07:26:30.914Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 89,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:20:35.692Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 90,
+  "fields": {
+    "user": 2,
+    "lesson": 6,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:22:40.510Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 91,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:22:51.001Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 92,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:22:54.561Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 93,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:22:56.408Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 94,
+  "fields": {
+    "user": 2,
+    "lesson": 6,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:23:02.726Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 95,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:31:40.988Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 96,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "save",
+    "weight": 1.5,
+    "created_at": "2025-12-25T14:31:42.485Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 97,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:31:42.603Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 98,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:31:45.111Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 99,
+  "fields": {
+    "user": 2,
+    "lesson": 10,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:31:50.519Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 100,
+  "fields": {
+    "user": 2,
+    "lesson": 10,
+    "interaction_type": "save",
+    "weight": 1.5,
+    "created_at": "2025-12-25T14:31:51.708Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 101,
+  "fields": {
+    "user": 2,
+    "lesson": 10,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:31:51.819Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 102,
+  "fields": {
+    "user": 2,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:53:17.964Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 103,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:53:22.740Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 104,
+  "fields": {
+    "user": 2,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T14:54:22.171Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 105,
+  "fields": {
+    "user": 10,
+    "lesson": 8,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T15:25:59.333Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 106,
+  "fields": {
+    "user": 10,
+    "lesson": 10,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T15:26:05.323Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 107,
+  "fields": {
+    "user": 10,
+    "lesson": 11,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T15:26:08.099Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 108,
+  "fields": {
+    "user": 10,
+    "lesson": 10,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T15:26:11.784Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 109,
+  "fields": {
+    "user": 10,
+    "lesson": 13,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T15:33:15.059Z"
+  }
+},
+{
+  "model": "signlang.userinteraction",
+  "pk": 110,
+  "fields": {
+    "user": 10,
+    "lesson": 1,
+    "interaction_type": "view",
+    "weight": 1.0,
+    "created_at": "2025-12-25T15:33:22.794Z"
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 1,
+  "fields": {
+    "name": "First Steps",
+    "description": "Complete your first lesson",
+    "badge_type": "lesson",
+    "icon": "fa-book",
+    "color": "bronze",
+    "points_reward": 25,
+    "requirement_type": "lessons_completed",
+    "requirement_value": 1,
+    "is_active": true,
+    "order": 1
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 2,
+  "fields": {
+    "name": "Getting Started",
+    "description": "Complete 5 lessons",
+    "badge_type": "lesson",
+    "icon": "fa-book",
+    "color": "bronze",
+    "points_reward": 50,
+    "requirement_type": "lessons_completed",
+    "requirement_value": 5,
+    "is_active": true,
+    "order": 2
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 3,
+  "fields": {
+    "name": "Dedicated Learner",
+    "description": "Complete 10 lessons",
+    "badge_type": "lesson",
+    "icon": "fa-graduation-cap",
+    "color": "silver",
+    "points_reward": 100,
+    "requirement_type": "lessons_completed",
+    "requirement_value": 10,
+    "is_active": true,
+    "order": 3
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 4,
+  "fields": {
+    "name": "Knowledge Seeker",
+    "description": "Complete 25 lessons",
+    "badge_type": "lesson",
+    "icon": "fa-brain",
+    "color": "gold",
+    "points_reward": 250,
+    "requirement_type": "lessons_completed",
+    "requirement_value": 25,
+    "is_active": true,
+    "order": 4
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 5,
+  "fields": {
+    "name": "Master Student",
+    "description": "Complete 50 lessons",
+    "badge_type": "lesson",
+    "icon": "fa-crown",
+    "color": "platinum",
+    "points_reward": 500,
+    "requirement_type": "lessons_completed",
+    "requirement_value": 50,
+    "is_active": true,
+    "order": 5
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 6,
+  "fields": {
+    "name": "Quiz Taker",
+    "description": "Pass your first quiz",
+    "badge_type": "quiz",
+    "icon": "fa-star",
+    "color": "bronze",
+    "points_reward": 25,
+    "requirement_type": "quizzes_passed",
+    "requirement_value": 1,
+    "is_active": true,
+    "order": 1
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 7,
+  "fields": {
+    "name": "Quiz Master",
+    "description": "Pass 10 quizzes",
+    "badge_type": "quiz",
+    "icon": "fa-trophy",
+    "color": "silver",
+    "points_reward": 100,
+    "requirement_type": "quizzes_passed",
+    "requirement_value": 10,
+    "is_active": true,
+    "order": 2
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 8,
+  "fields": {
+    "name": "Perfect Score",
+    "description": "Get 100% on any quiz",
+    "badge_type": "quiz",
+    "icon": "fa-gem",
+    "color": "gold",
+    "points_reward": 75,
+    "requirement_type": "perfect_quiz",
+    "requirement_value": 1,
+    "is_active": true,
+    "order": 3
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 9,
+  "fields": {
+    "name": "Quiz Champion",
+    "description": "Pass 25 quizzes",
+    "badge_type": "quiz",
+    "icon": "fa-medal",
+    "color": "gold",
+    "points_reward": 250,
+    "requirement_type": "quizzes_passed",
+    "requirement_value": 25,
+    "is_active": true,
+    "order": 4
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 10,
+  "fields": {
+    "name": "On Fire",
+    "description": "Maintain a 3-day streak",
+    "badge_type": "streak",
+    "icon": "fa-fire",
+    "color": "bronze",
+    "points_reward": 30,
+    "requirement_type": "streak_days",
+    "requirement_value": 3,
+    "is_active": true,
+    "order": 1
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 11,
+  "fields": {
+    "name": "Week Warrior",
+    "description": "Maintain a 7-day streak",
+    "badge_type": "streak",
+    "icon": "fa-fire",
+    "color": "silver",
+    "points_reward": 75,
+    "requirement_type": "streak_days",
+    "requirement_value": 7,
+    "is_active": true,
+    "order": 2
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 12,
+  "fields": {
+    "name": "Consistency King",
+    "description": "Maintain a 30-day streak",
+    "badge_type": "streak",
+    "icon": "fa-fire",
+    "color": "gold",
+    "points_reward": 300,
+    "requirement_type": "streak_days",
+    "requirement_value": 30,
+    "is_active": true,
+    "order": 3
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 13,
+  "fields": {
+    "name": "Unstoppable",
+    "description": "Maintain a 100-day streak",
+    "badge_type": "streak",
+    "icon": "fa-fire",
+    "color": "diamond",
+    "points_reward": 1000,
+    "requirement_type": "streak_days",
+    "requirement_value": 100,
+    "is_active": true,
+    "order": 4
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 14,
+  "fields": {
+    "name": "Social Butterfly",
+    "description": "Create your first forum post",
+    "badge_type": "special",
+    "icon": "fa-comments",
+    "color": "bronze",
+    "points_reward": 20,
+    "requirement_type": "forum_posts",
+    "requirement_value": 1,
+    "is_active": true,
+    "order": 1
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 15,
+  "fields": {
+    "name": "Bookworm",
+    "description": "Save 10 lessons to your collection",
+    "badge_type": "special",
+    "icon": "fa-bookmark",
+    "color": "silver",
+    "points_reward": 50,
+    "requirement_type": "saved_lessons",
+    "requirement_value": 10,
+    "is_active": true,
+    "order": 2
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 16,
+  "fields": {
+    "name": "Early Bird",
+    "description": "Complete a lesson before 8 AM",
+    "badge_type": "special",
+    "icon": "fa-sun",
+    "color": "gold",
+    "points_reward": 40,
+    "requirement_type": "early_learner",
+    "requirement_value": 1,
+    "is_active": true,
+    "order": 3
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 17,
+  "fields": {
+    "name": "Night Owl",
+    "description": "Complete a lesson after 10 PM",
+    "badge_type": "special",
+    "icon": "fa-moon",
+    "color": "silver",
+    "points_reward": 40,
+    "requirement_type": "night_learner",
+    "requirement_value": 1,
+    "is_active": true,
+    "order": 4
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 18,
+  "fields": {
+    "name": "Explorer",
+    "description": "Study lessons from 5 different categories",
+    "badge_type": "special",
+    "icon": "fa-compass",
+    "color": "gold",
+    "points_reward": 100,
+    "requirement_type": "categories_explored",
+    "requirement_value": 5,
+    "is_active": true,
+    "order": 5
+  }
+},
+{
+  "model": "signlang.userbadge",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "badge": 6,
+    "earned_at": "2025-12-08T03:45:17.182Z",
+    "is_new": false
+  }
+},
+{
+  "model": "signlang.userbadge",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "badge": 1,
+    "earned_at": "2025-12-18T14:08:56.970Z",
+    "is_new": false
+  }
+},
+{
+  "model": "signlang.userbadge",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "badge": 8,
+    "earned_at": "2025-12-18T14:13:30.093Z",
+    "is_new": false
+  }
+},
+{
+  "model": "signlang.userbadge",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "badge": 10,
+    "earned_at": "2025-12-20T13:28:13.562Z",
+    "is_new": false
+  }
+},
+{
+  "model": "signlang.userbadge",
+  "pk": 5,
+  "fields": {
+    "user": 2,
+    "badge": 14,
+    "earned_at": "2025-12-22T03:14:47.083Z",
+    "is_new": false
+  }
+},
+{
+  "model": "signlang.userbadge",
+  "pk": 6,
+  "fields": {
+    "user": 2,
+    "badge": 16,
+    "earned_at": "2025-12-22T03:15:37.497Z",
+    "is_new": false
+  }
+},
+{
+  "model": "signlang.userbadge",
+  "pk": 7,
+  "fields": {
+    "user": 5,
+    "badge": 16,
+    "earned_at": "2025-12-23T07:25:48.151Z",
+    "is_new": true
+  }
+},
+{
+  "model": "signlang.userbadge",
+  "pk": 8,
+  "fields": {
+    "user": 5,
+    "badge": 1,
+    "earned_at": "2025-12-23T07:25:48.183Z",
+    "is_new": true
+  }
+},
+{
+  "model": "signlang.userbadge",
+  "pk": 9,
+  "fields": {
+    "user": 10,
+    "badge": 1,
+    "earned_at": "2025-12-25T15:25:59.383Z",
+    "is_new": true
+  }
+},
+{
+  "model": "signlang.userstreak",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "current_streak": 0,
+    "longest_streak": 0,
+    "last_activity_date": null,
+    "streak_started_at": null,
+    "freeze_count": 2,
+    "freeze_used_date": null,
+    "freeze_last_reset": null
+  }
+},
+{
+  "model": "signlang.userstreak",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "current_streak": 1,
+    "longest_streak": 3,
+    "last_activity_date": "2025-12-25",
+    "streak_started_at": "2025-12-25",
+    "freeze_count": 2,
+    "freeze_used_date": null,
+    "freeze_last_reset": "2025-12-18"
+  }
+},
+{
+  "model": "signlang.userstreak",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "current_streak": 0,
+    "longest_streak": 0,
+    "last_activity_date": null,
+    "streak_started_at": null,
+    "freeze_count": 2,
+    "freeze_used_date": null,
+    "freeze_last_reset": null
+  }
+},
+{
+  "model": "signlang.userstreak",
+  "pk": 4,
+  "fields": {
+    "user": 5,
+    "current_streak": 1,
+    "longest_streak": 1,
+    "last_activity_date": "2025-12-23",
+    "streak_started_at": "2025-12-23",
+    "freeze_count": 2,
+    "freeze_used_date": null,
+    "freeze_last_reset": "2025-12-23"
+  }
+},
+{
+  "model": "signlang.userstreak",
+  "pk": 5,
+  "fields": {
+    "user": 4,
+    "current_streak": 0,
+    "longest_streak": 0,
+    "last_activity_date": null,
+    "streak_started_at": null,
+    "freeze_count": 2,
+    "freeze_used_date": null,
+    "freeze_last_reset": null
+  }
+},
+{
+  "model": "signlang.userstreak",
+  "pk": 6,
+  "fields": {
+    "user": 9,
+    "current_streak": 0,
+    "longest_streak": 0,
+    "last_activity_date": null,
+    "streak_started_at": null,
+    "freeze_count": 2,
+    "freeze_used_date": null,
+    "freeze_last_reset": null
+  }
+},
+{
+  "model": "signlang.userstreak",
+  "pk": 7,
+  "fields": {
+    "user": 10,
+    "current_streak": 1,
+    "longest_streak": 1,
+    "last_activity_date": "2025-12-25",
+    "streak_started_at": "2025-12-25",
+    "freeze_count": 2,
+    "freeze_used_date": null,
+    "freeze_last_reset": "2025-12-25"
+  }
+},
+{
+  "model": "signlang.userpoints",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "total_points": 0,
+    "weekly_points": 0,
+    "monthly_points": 0,
+    "last_weekly_reset": null,
+    "last_monthly_reset": null,
+    "points_from_lessons": 0,
+    "points_from_quizzes": 0,
+    "points_from_streaks": 0,
+    "points_from_badges": 0
+  }
+},
+{
+  "model": "signlang.userpoints",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "total_points": 621,
+    "weekly_points": 621,
+    "monthly_points": 621,
+    "last_weekly_reset": null,
+    "last_monthly_reset": null,
+    "points_from_lessons": 106,
+    "points_from_quizzes": 285,
+    "points_from_streaks": 0,
+    "points_from_badges": 215
+  }
+},
+{
+  "model": "signlang.userpoints",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "total_points": 4,
+    "weekly_points": 4,
+    "monthly_points": 4,
+    "last_weekly_reset": null,
+    "last_monthly_reset": null,
+    "points_from_lessons": 4,
+    "points_from_quizzes": 0,
+    "points_from_streaks": 0,
+    "points_from_badges": 0
+  }
+},
+{
+  "model": "signlang.userpoints",
+  "pk": 4,
+  "fields": {
+    "user": 5,
+    "total_points": 125,
+    "weekly_points": 125,
+    "monthly_points": 125,
+    "last_weekly_reset": null,
+    "last_monthly_reset": null,
+    "points_from_lessons": 60,
+    "points_from_quizzes": 0,
+    "points_from_streaks": 0,
+    "points_from_badges": 65
+  }
+},
+{
+  "model": "signlang.userpoints",
+  "pk": 5,
+  "fields": {
+    "user": 4,
+    "total_points": 0,
+    "weekly_points": 0,
+    "monthly_points": 0,
+    "last_weekly_reset": null,
+    "last_monthly_reset": null,
+    "points_from_lessons": 0,
+    "points_from_quizzes": 0,
+    "points_from_streaks": 0,
+    "points_from_badges": 0
+  }
+},
+{
+  "model": "signlang.userpoints",
+  "pk": 6,
+  "fields": {
+    "user": 9,
+    "total_points": 0,
+    "weekly_points": 0,
+    "monthly_points": 0,
+    "last_weekly_reset": null,
+    "last_monthly_reset": null,
+    "points_from_lessons": 0,
+    "points_from_quizzes": 0,
+    "points_from_streaks": 0,
+    "points_from_badges": 0
+  }
+},
+{
+  "model": "signlang.userpoints",
+  "pk": 7,
+  "fields": {
+    "user": 10,
+    "total_points": 85,
+    "weekly_points": 85,
+    "monthly_points": 85,
+    "last_weekly_reset": null,
+    "last_monthly_reset": null,
+    "points_from_lessons": 60,
+    "points_from_quizzes": 0,
+    "points_from_streaks": 0,
+    "points_from_badges": 25
+  }
+},
+{
+  "model": "signlang.notification",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "notification_type": "badge",
+    "title": "Badge Earned: Quiz Taker",
+    "message": "Pass your first quiz. +25 XP",
+    "icon": "fa-star",
+    "color": "bronze",
+    "link": "/achievements/",
+    "is_read": false,
+    "created_at": "2025-12-08T03:45:17.188Z"
+  }
+},
+{
+  "model": "signlang.notification",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "notification_type": "level_up",
+    "title": "Level Up! You are now Level 2",
+    "message": "Congratulations! You've reached the rank of Learner!",
+    "icon": "fa-arrow-up",
+    "color": "success",
+    "link": "",
+    "is_read": false,
+    "created_at": "2025-12-18T14:08:56.991Z"
+  }
+},
+{
+  "model": "signlang.notification",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "notification_type": "badge",
+    "title": "Badge Earned: First Steps",
+    "message": "Complete your first lesson. +25 XP",
+    "icon": "fa-book",
+    "color": "bronze",
+    "link": "/achievements/",
+    "is_read": false,
+    "created_at": "2025-12-18T14:08:56.995Z"
+  }
+},
+{
+  "model": "signlang.notification",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "notification_type": "badge",
+    "title": "Badge Earned: Perfect Score",
+    "message": "Get 100% on any quiz. +75 XP",
+    "icon": "fa-gem",
+    "color": "gold",
+    "link": "/achievements/",
+    "is_read": false,
+    "created_at": "2025-12-18T14:13:30.110Z"
+  }
+},
+{
+  "model": "signlang.notification",
+  "pk": 5,
+  "fields": {
+    "user": 2,
+    "notification_type": "level_up",
+    "title": "Level Up! You are now Level 3",
+    "message": "Congratulations! You've reached the rank of Student!",
+    "icon": "fa-arrow-up",
+    "color": "success",
+    "link": "",
+    "is_read": false,
+    "created_at": "2025-12-20T13:28:13.587Z"
+  }
+},
+{
+  "model": "signlang.notification",
+  "pk": 6,
+  "fields": {
+    "user": 2,
+    "notification_type": "badge",
+    "title": "Badge Earned: On Fire",
+    "message": "Maintain a 3-day streak. +30 XP",
+    "icon": "fa-fire",
+    "color": "bronze",
+    "link": "/achievements/",
+    "is_read": false,
+    "created_at": "2025-12-20T13:28:13.591Z"
+  }
+},
+{
+  "model": "signlang.notification",
+  "pk": 7,
+  "fields": {
+    "user": 2,
+    "notification_type": "badge",
+    "title": "Badge Earned: Social Butterfly",
+    "message": "Create your first forum post. +20 XP",
+    "icon": "fa-comments",
+    "color": "bronze",
+    "link": "/achievements/",
+    "is_read": false,
+    "created_at": "2025-12-22T03:14:47.095Z"
+  }
+},
+{
+  "model": "signlang.notification",
+  "pk": 8,
+  "fields": {
+    "user": 2,
+    "notification_type": "badge",
+    "title": "Badge Earned: Early Bird",
+    "message": "Complete a lesson before 8 AM. +40 XP",
+    "icon": "fa-sun",
+    "color": "gold",
+    "link": "/achievements/",
+    "is_read": false,
+    "created_at": "2025-12-22T03:15:37.507Z"
+  }
+},
+{
+  "model": "signlang.notification",
+  "pk": 9,
+  "fields": {
+    "user": 2,
+    "notification_type": "level_up",
+    "title": "Level Up! You are now Level 4",
+    "message": "Congratulations! You've reached the rank of Practitioner!",
+    "icon": "fa-arrow-up",
+    "color": "success",
+    "link": "",
+    "is_read": false,
+    "created_at": "2025-12-22T15:08:57.119Z"
+  }
+},
+{
+  "model": "signlang.notification",
+  "pk": 10,
+  "fields": {
+    "user": 5,
+    "notification_type": "badge",
+    "title": "Badge Earned: Early Bird",
+    "message": "Complete a lesson before 8 AM. +40 XP",
+    "icon": "fa-sun",
+    "color": "gold",
+    "link": "/achievements/",
+    "is_read": false,
+    "created_at": "2025-12-23T07:25:48.173Z"
+  }
+},
+{
+  "model": "signlang.notification",
+  "pk": 11,
+  "fields": {
+    "user": 5,
+    "notification_type": "badge",
+    "title": "Badge Earned: First Steps",
+    "message": "Complete your first lesson. +25 XP",
+    "icon": "fa-book",
+    "color": "bronze",
+    "link": "/achievements/",
+    "is_read": false,
+    "created_at": "2025-12-23T07:25:48.203Z"
+  }
+},
+{
+  "model": "signlang.notification",
+  "pk": 12,
+  "fields": {
+    "user": 5,
+    "notification_type": "level_up",
+    "title": "Level Up! You are now Level 2",
+    "message": "Congratulations! You've reached the rank of Learner!",
+    "icon": "fa-arrow-up",
+    "color": "success",
+    "link": "",
+    "is_read": false,
+    "created_at": "2025-12-23T07:25:55.811Z"
+  }
+},
+{
+  "model": "signlang.notification",
+  "pk": 13,
+  "fields": {
+    "user": 10,
+    "notification_type": "badge",
+    "title": "Badge Earned: First Steps",
+    "message": "Complete your first lesson. +25 XP",
+    "icon": "fa-book",
+    "color": "bronze",
+    "link": "/achievements/",
+    "is_read": false,
+    "created_at": "2025-12-25T15:25:59.430Z"
+  }
+},
+{
+  "model": "signlang.dailyactivity",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "date": "2025-12-08",
+    "lessons_viewed": 0,
+    "lessons_completed": 0,
+    "quizzes_taken": 1,
+    "quizzes_passed": 1,
+    "flashcards_reviewed": 0,
+    "points_earned": 0,
+    "time_spent_minutes": 0
+  }
+},
+{
+  "model": "signlang.dailyactivity",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "date": "2025-12-18",
+    "lessons_viewed": 0,
+    "lessons_completed": 1,
+    "quizzes_taken": 2,
+    "quizzes_passed": 2,
+    "flashcards_reviewed": 0,
+    "points_earned": 200,
+    "time_spent_minutes": 0
+  }
+},
+{
+  "model": "signlang.dailyactivity",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "date": "2025-12-19",
+    "lessons_viewed": 0,
+    "lessons_completed": 1,
+    "quizzes_taken": 1,
+    "quizzes_passed": 0,
+    "flashcards_reviewed": 6,
+    "points_earned": 31,
+    "time_spent_minutes": 0
+  }
+},
+{
+  "model": "signlang.dailyactivity",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "date": "2025-12-20",
+    "lessons_viewed": 0,
+    "lessons_completed": 0,
+    "quizzes_taken": 6,
+    "quizzes_passed": 4,
+    "flashcards_reviewed": 0,
+    "points_earned": 200,
+    "time_spent_minutes": 0
+  }
+},
+{
+  "model": "signlang.dailyactivity",
+  "pk": 5,
+  "fields": {
+    "user": 3,
+    "date": "2025-12-22",
+    "lessons_viewed": 0,
+    "lessons_completed": 0,
+    "quizzes_taken": 0,
+    "quizzes_passed": 0,
+    "flashcards_reviewed": 4,
+    "points_earned": 4,
+    "time_spent_minutes": 0
+  }
+},
+{
+  "model": "signlang.dailyactivity",
+  "pk": 6,
+  "fields": {
+    "user": 2,
+    "date": "2025-12-22",
+    "lessons_viewed": 0,
+    "lessons_completed": 2,
+    "quizzes_taken": 0,
+    "quizzes_passed": 0,
+    "flashcards_reviewed": 0,
+    "points_earned": 115,
+    "time_spent_minutes": 0
+  }
+},
+{
+  "model": "signlang.dailyactivity",
+  "pk": 7,
+  "fields": {
+    "user": 5,
+    "date": "2025-12-23",
+    "lessons_viewed": 0,
+    "lessons_completed": 3,
+    "quizzes_taken": 0,
+    "quizzes_passed": 0,
+    "flashcards_reviewed": 0,
+    "points_earned": 125,
+    "time_spent_minutes": 0
+  }
+},
+{
+  "model": "signlang.dailyactivity",
+  "pk": 8,
+  "fields": {
+    "user": 2,
+    "date": "2025-12-25",
+    "lessons_viewed": 0,
+    "lessons_completed": 1,
+    "quizzes_taken": 0,
+    "quizzes_passed": 0,
+    "flashcards_reviewed": 0,
+    "points_earned": 20,
+    "time_spent_minutes": 0
+  }
+},
+{
+  "model": "signlang.dailyactivity",
+  "pk": 9,
+  "fields": {
+    "user": 10,
+    "date": "2025-12-25",
+    "lessons_viewed": 0,
+    "lessons_completed": 3,
+    "quizzes_taken": 0,
+    "quizzes_passed": 0,
+    "flashcards_reviewed": 0,
+    "points_earned": 85,
+    "time_spent_minutes": 0
+  }
+},
+{
+  "model": "signlang.vocabularyreview",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "vocabulary": 20,
+    "ease_factor": 2.5,
+    "interval": 0,
+    "repetitions": 0,
+    "next_review": "2025-12-19",
+    "last_reviewed": null,
+    "total_reviews": 0,
+    "correct_reviews": 0,
+    "last_rating": null
+  }
+},
+{
+  "model": "signlang.vocabularyreview",
+  "pk": 5,
+  "fields": {
+    "user": 2,
+    "vocabulary": 21,
+    "ease_factor": 2.5,
+    "interval": 0,
+    "repetitions": 0,
+    "next_review": "2025-12-19",
+    "last_reviewed": null,
+    "total_reviews": 0,
+    "correct_reviews": 0,
+    "last_rating": null
+  }
+},
+{
+  "model": "signlang.vocabularyreview",
+  "pk": 6,
+  "fields": {
+    "user": 2,
+    "vocabulary": 22,
+    "ease_factor": 2.5,
+    "interval": 0,
+    "repetitions": 0,
+    "next_review": "2025-12-19",
+    "last_reviewed": null,
+    "total_reviews": 0,
+    "correct_reviews": 0,
+    "last_rating": null
+  }
+},
+{
+  "model": "signlang.vocabularyreview",
+  "pk": 7,
+  "fields": {
+    "user": 2,
+    "vocabulary": 23,
+    "ease_factor": 2.5,
+    "interval": 0,
+    "repetitions": 0,
+    "next_review": "2025-12-19",
+    "last_reviewed": null,
+    "total_reviews": 0,
+    "correct_reviews": 0,
+    "last_rating": null
+  }
+},
+{
+  "model": "signlang.vocabularyreview",
+  "pk": 8,
+  "fields": {
+    "user": 2,
+    "vocabulary": 1,
+    "ease_factor": 2.5,
+    "interval": 0,
+    "repetitions": 0,
+    "next_review": "2025-12-20",
+    "last_reviewed": null,
+    "total_reviews": 0,
+    "correct_reviews": 0,
+    "last_rating": null
+  }
+},
+{
+  "model": "signlang.vocabularyreview",
+  "pk": 9,
+  "fields": {
+    "user": 2,
+    "vocabulary": 2,
+    "ease_factor": 2.5,
+    "interval": 0,
+    "repetitions": 0,
+    "next_review": "2025-12-20",
+    "last_reviewed": null,
+    "total_reviews": 0,
+    "correct_reviews": 0,
+    "last_rating": null
+  }
+},
+{
+  "model": "signlang.vocabularyreview",
+  "pk": 10,
+  "fields": {
+    "user": 2,
+    "vocabulary": 3,
+    "ease_factor": 2.5,
+    "interval": 0,
+    "repetitions": 0,
+    "next_review": "2025-12-20",
+    "last_reviewed": null,
+    "total_reviews": 0,
+    "correct_reviews": 0,
+    "last_rating": null
+  }
+},
+{
+  "model": "signlang.vocabularyreview",
+  "pk": 11,
+  "fields": {
+    "user": 3,
+    "vocabulary": 1,
+    "ease_factor": 2.35,
+    "interval": 0,
+    "repetitions": 0,
+    "next_review": "2025-12-22",
+    "last_reviewed": "2025-12-22T02:55:34.973Z",
+    "total_reviews": 2,
+    "correct_reviews": 0,
+    "last_rating": 1
+  }
+},
+{
+  "model": "signlang.vocabularyreview",
+  "pk": 12,
+  "fields": {
+    "user": 3,
+    "vocabulary": 2,
+    "ease_factor": 2.5,
+    "interval": 1,
+    "repetitions": 1,
+    "next_review": "2025-12-23",
+    "last_reviewed": "2025-12-22T02:55:11.938Z",
+    "total_reviews": 1,
+    "correct_reviews": 1,
+    "last_rating": 3
+  }
+},
+{
+  "model": "signlang.vocabularyreview",
+  "pk": 13,
+  "fields": {
+    "user": 3,
+    "vocabulary": 3,
+    "ease_factor": 2.6,
+    "interval": 4,
+    "repetitions": 1,
+    "next_review": "2025-12-26",
+    "last_reviewed": "2025-12-22T02:55:23.856Z",
+    "total_reviews": 1,
+    "correct_reviews": 1,
+    "last_rating": 4
+  }
+},
+{
+  "model": "signlang.featuredcard",
+  "pk": 1,
+  "fields": {
+    "title": "Giao tiếp hàng ngày",
+    "description": "",
+    "section": "common_sentences",
+    "icon": "fa-comment-dots",
+    "color": "blue",
+    "link": "/lessons/?category=daily",
+    "order": 1,
+    "is_active": true,
+    "created_at": "2025-12-04T13:32:59.257Z"
+  }
+},
+{
+  "model": "signlang.featuredcard",
+  "pk": 2,
+  "fields": {
+    "title": "Giao tiếp trong trường học",
+    "description": "",
+    "section": "common_sentences",
+    "icon": "fa-graduation-cap",
+    "color": "teal",
+    "link": "/lessons/?category=school",
+    "order": 2,
+    "is_active": true,
+    "created_at": "2025-12-04T13:32:59.264Z"
+  }
+},
+{
+  "model": "signlang.featuredcard",
+  "pk": 3,
+  "fields": {
+    "title": "Giao tiếp trong công việc",
+    "description": "",
+    "section": "common_sentences",
+    "icon": "fa-briefcase",
+    "color": "indigo",
+    "link": "/lessons/?category=work",
+    "order": 3,
+    "is_active": true,
+    "created_at": "2025-12-04T13:32:59.270Z"
+  }
+}
+]

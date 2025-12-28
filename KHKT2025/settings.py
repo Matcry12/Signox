@@ -88,19 +88,34 @@ TEMPLATES = [
 WSGI_APPLICATION = 'KHKT2025.wsgi.application'
 
 # Database configuration - use environment variables
-# Railway provides DATABASE_URL automatically when you add PostgreSQL
-# For local development, SQLite is used as default
+# Priority: DATABASE_URL > DB_ENGINE (MySQL) > SQLite (default)
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
+DB_ENGINE = os.environ.get('DB_ENGINE', '')
 
 if DATABASE_URL:
-    # Use PostgreSQL from Railway (or any DATABASE_URL)
+    # Use PostgreSQL from Railway/Vercel/Neon (or any DATABASE_URL)
     DATABASES = {
         'default': dj_database_url.config(
             default=DATABASE_URL,
             conn_max_age=600,
             conn_health_checks=True,
         )
+    }
+elif 'mysql' in DB_ENGINE:
+    # Use MySQL (local development with existing data)
+    DATABASES = {
+        'default': {
+            'ENGINE': DB_ENGINE,
+            'NAME': os.environ.get('DB_NAME', 'signlang_db'),
+            'USER': os.environ.get('DB_USER', ''),
+            'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+            'HOST': os.environ.get('DB_HOST', 'localhost'),
+            'PORT': os.environ.get('DB_PORT', '3306'),
+            'OPTIONS': {
+                'charset': 'utf8mb4',
+            },
+        }
     }
 else:
     # Default to SQLite for local development
