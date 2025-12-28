@@ -1,0 +1,2244 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$B79xcigT2YriTlDdNwnHCY$Ne5buu/v9O6sUr3Dybd0cChVecm7RlzyaQXE7TtQhWU=",
+    "last_login": "2025-11-30T04:12:53.122Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "fdtywadw@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-30T03:43:27.391Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "signlang.category",
+  "pk": 1,
+  "fields": {
+    "name": "Greetings",
+    "slug": "greetings",
+    "description": "Learn basic greetings and introductions in sign language",
+    "icon": "fa-hand-wave",
+    "order": 1
+  }
+},
+{
+  "model": "signlang.category",
+  "pk": 2,
+  "fields": {
+    "name": "Numbers",
+    "slug": "numbers",
+    "description": "Learn to count and express numbers in sign language",
+    "icon": "fa-hashtag",
+    "order": 2
+  }
+},
+{
+  "model": "signlang.category",
+  "pk": 3,
+  "fields": {
+    "name": "Family",
+    "slug": "family",
+    "description": "Signs for family members and relationships",
+    "icon": "fa-users",
+    "order": 3
+  }
+},
+{
+  "model": "signlang.category",
+  "pk": 4,
+  "fields": {
+    "name": "Daily Life",
+    "slug": "daily",
+    "description": "Common signs for everyday activities",
+    "icon": "fa-calendar-day",
+    "order": 4
+  }
+},
+{
+  "model": "signlang.category",
+  "pk": 5,
+  "fields": {
+    "name": "School",
+    "slug": "school",
+    "description": "Signs for school and academic settings",
+    "icon": "fa-school",
+    "order": 5
+  }
+},
+{
+  "model": "signlang.category",
+  "pk": 6,
+  "fields": {
+    "name": "Work",
+    "slug": "work",
+    "description": "Professional and workplace signs",
+    "icon": "fa-briefcase",
+    "order": 6
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 1,
+  "fields": {
+    "title": "Hello and Goodbye",
+    "slug": "hello-goodbye",
+    "category": 1,
+    "description": "Learn the most common greeting signs",
+    "content": "\n## Introduction\nIn this lesson, you will learn the fundamental greeting signs used in everyday communication.\n\n## Key Signs\n1. **Hello** - Wave your hand with palm facing outward\n2. **Goodbye** - Similar to hello, but with a closing motion\n3. **Nice to meet you** - A warm greeting for first meetings\n\n## Practice Tips\n- Practice in front of a mirror\n- Pay attention to facial expressions\n- Greetings often include eye contact\n        ",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "easy",
+    "order": 1,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:17.724Z",
+    "updated_at": "2025-12-28T13:38:17.725Z"
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 2,
+  "fields": {
+    "title": "How Are You?",
+    "slug": "how-are-you",
+    "category": 1,
+    "description": "Learn to ask and respond about well-being",
+    "content": "\n## Introduction\nLearn how to ask someone how they are doing and respond appropriately.\n\n## Key Phrases\n1. **How are you?** - Common conversation starter\n2. **I am fine** - Positive response\n3. **Thank you** - Expressing gratitude\n\n## Cultural Note\nIn sign language, facial expressions are very important when expressing emotions.\n        ",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "easy",
+    "order": 2,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:17.754Z",
+    "updated_at": "2025-12-28T13:38:17.754Z"
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 3,
+  "fields": {
+    "title": "Numbers 1-10",
+    "slug": "numbers-1-10",
+    "category": 2,
+    "description": "Master counting from 1 to 10",
+    "content": "\n## Introduction\nNumbers are essential for everyday communication. Let's start with 1-10.\n\n## Hand Positions\n- Numbers 1-5 use one hand\n- Numbers 6-10 typically combine hand positions\n\n## Practice\nTry counting objects around you using these signs!\n        ",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "easy",
+    "order": 1,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:17.777Z",
+    "updated_at": "2025-12-28T13:38:17.777Z"
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 4,
+  "fields": {
+    "title": "Immediate Family",
+    "slug": "immediate-family",
+    "category": 3,
+    "description": "Signs for parents, siblings, and close family",
+    "content": "\n## Introduction\nFamily signs are among the most commonly used in daily conversation.\n\n## Key Signs\n1. **Mother/Mom** - Thumb touches chin\n2. **Father/Dad** - Thumb touches forehead\n3. **Brother/Sister** - Variations of family signs\n\n## Memory Tip\nMale family members: signs near forehead\nFemale family members: signs near chin\n        ",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "easy",
+    "order": 1,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:17.824Z",
+    "updated_at": "2025-12-28T13:38:17.824Z"
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 5,
+  "fields": {
+    "title": "Morning Routine",
+    "slug": "morning-routine",
+    "category": 4,
+    "description": "Signs for common morning activities",
+    "content": "\n## Introduction\nStart your day with these essential signs for morning routines.\n\n## Activities\n1. Wake up\n2. Brush teeth\n3. Eat breakfast\n4. Go to school/work\n\n## Practice Scenario\nTry signing your entire morning routine!\n        ",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "medium",
+    "order": 1,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:17.852Z",
+    "updated_at": "2025-12-28T13:38:17.852Z"
+  }
+},
+{
+  "model": "signlang.lesson",
+  "pk": 6,
+  "fields": {
+    "title": "Classroom Basics",
+    "slug": "classroom-basics",
+    "category": 5,
+    "description": "Essential signs for the classroom",
+    "content": "\n## Introduction\nLearn signs commonly used in educational settings.\n\n## Key Vocabulary\n- Teacher\n- Student\n- Book\n- Question\n- Answer\n\n## Useful Phrases\n\"I have a question\"\n\"I understand\"\n\"Please repeat\"\n        ",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "medium",
+    "order": 1,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:17.891Z",
+    "updated_at": "2025-12-28T13:38:17.891Z"
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 1,
+  "fields": {
+    "lesson": 1,
+    "word": "Hello",
+    "meaning": "Xin chào",
+    "description": "Basic greeting sign",
+    "image": "",
+    "video": "",
+    "order": 1
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 2,
+  "fields": {
+    "lesson": 1,
+    "word": "Goodbye",
+    "meaning": "Tạm biệt",
+    "description": "Farewell sign",
+    "image": "",
+    "video": "",
+    "order": 2
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 3,
+  "fields": {
+    "lesson": 1,
+    "word": "Nice to meet you",
+    "meaning": "Rất vui được gặp bạn",
+    "description": "Formal introduction",
+    "image": "",
+    "video": "",
+    "order": 3
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 4,
+  "fields": {
+    "lesson": 2,
+    "word": "How are you?",
+    "meaning": "Bạn khỏe không?",
+    "description": "Question about well-being",
+    "image": "",
+    "video": "",
+    "order": 1
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 5,
+  "fields": {
+    "lesson": 2,
+    "word": "I am fine",
+    "meaning": "Tôi khỏe",
+    "description": "Positive response",
+    "image": "",
+    "video": "",
+    "order": 2
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 6,
+  "fields": {
+    "lesson": 2,
+    "word": "Thank you",
+    "meaning": "Cảm ơn",
+    "description": "Expression of gratitude",
+    "image": "",
+    "video": "",
+    "order": 3
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 7,
+  "fields": {
+    "lesson": 3,
+    "word": "One",
+    "meaning": "Một",
+    "description": "Index finger up",
+    "image": "",
+    "video": "",
+    "order": 1
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 8,
+  "fields": {
+    "lesson": 3,
+    "word": "Two",
+    "meaning": "Hai",
+    "description": "Index and middle finger",
+    "image": "",
+    "video": "",
+    "order": 2
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 9,
+  "fields": {
+    "lesson": 3,
+    "word": "Three",
+    "meaning": "Ba",
+    "description": "Add ring finger",
+    "image": "",
+    "video": "",
+    "order": 3
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 10,
+  "fields": {
+    "lesson": 3,
+    "word": "Five",
+    "meaning": "Năm",
+    "description": "All fingers open",
+    "image": "",
+    "video": "",
+    "order": 4
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 11,
+  "fields": {
+    "lesson": 3,
+    "word": "Ten",
+    "meaning": "Mười",
+    "description": "Thumbs up, shake",
+    "image": "",
+    "video": "",
+    "order": 5
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 12,
+  "fields": {
+    "lesson": 4,
+    "word": "Mother",
+    "meaning": "Mẹ",
+    "description": "Thumb on chin, fingers spread",
+    "image": "",
+    "video": "",
+    "order": 1
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 13,
+  "fields": {
+    "lesson": 4,
+    "word": "Father",
+    "meaning": "Bố",
+    "description": "Thumb on forehead, fingers spread",
+    "image": "",
+    "video": "",
+    "order": 2
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 14,
+  "fields": {
+    "lesson": 4,
+    "word": "Brother",
+    "meaning": "Anh/Em trai",
+    "description": "Male sibling sign",
+    "image": "",
+    "video": "",
+    "order": 3
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 15,
+  "fields": {
+    "lesson": 4,
+    "word": "Sister",
+    "meaning": "Chị/Em gái",
+    "description": "Female sibling sign",
+    "image": "",
+    "video": "",
+    "order": 4
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 16,
+  "fields": {
+    "lesson": 5,
+    "word": "Wake up",
+    "meaning": "Thức dậy",
+    "description": "Opening eyes gesture",
+    "image": "",
+    "video": "",
+    "order": 1
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 17,
+  "fields": {
+    "lesson": 5,
+    "word": "Brush teeth",
+    "meaning": "Đánh răng",
+    "description": "Finger mimics toothbrush",
+    "image": "",
+    "video": "",
+    "order": 2
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 18,
+  "fields": {
+    "lesson": 5,
+    "word": "Eat",
+    "meaning": "Ăn",
+    "description": "Hand to mouth motion",
+    "image": "",
+    "video": "",
+    "order": 3
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 19,
+  "fields": {
+    "lesson": 5,
+    "word": "Go",
+    "meaning": "Đi",
+    "description": "Directional movement",
+    "image": "",
+    "video": "",
+    "order": 4
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 20,
+  "fields": {
+    "lesson": 6,
+    "word": "Teacher",
+    "meaning": "Giáo viên",
+    "description": "Knowledge sharing gesture",
+    "image": "",
+    "video": "",
+    "order": 1
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 21,
+  "fields": {
+    "lesson": 6,
+    "word": "Student",
+    "meaning": "Học sinh",
+    "description": "Learning gesture",
+    "image": "",
+    "video": "",
+    "order": 2
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 22,
+  "fields": {
+    "lesson": 6,
+    "word": "Book",
+    "meaning": "Sách",
+    "description": "Opening book motion",
+    "image": "",
+    "video": "",
+    "order": 3
+  }
+},
+{
+  "model": "signlang.vocabulary",
+  "pk": 23,
+  "fields": {
+    "lesson": 6,
+    "word": "Question",
+    "meaning": "Câu hỏi",
+    "description": "Questioning gesture",
+    "image": "",
+    "video": "",
+    "order": 4
+  }
+},
+{
+  "model": "signlang.quiz",
+  "pk": 1,
+  "fields": {
+    "lesson": 1,
+    "title": "Greeting Signs Quiz",
+    "description": "Test your knowledge of greeting signs!",
+    "passing_score": 70,
+    "time_limit": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "signlang.quiz",
+  "pk": 2,
+  "fields": {
+    "lesson": 2,
+    "title": "Asking About Feelings Quiz",
+    "description": "Learn how to ask and respond to \"How are you?\"",
+    "passing_score": 70,
+    "time_limit": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "signlang.quiz",
+  "pk": 3,
+  "fields": {
+    "lesson": 3,
+    "title": "Counting Signs Quiz",
+    "description": "Can you recognize number signs from 1 to 10?",
+    "passing_score": 80,
+    "time_limit": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "signlang.quiz",
+  "pk": 4,
+  "fields": {
+    "lesson": 4,
+    "title": "Family Members Quiz",
+    "description": "Identify signs for family members",
+    "passing_score": 70,
+    "time_limit": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "signlang.quiz",
+  "pk": 5,
+  "fields": {
+    "lesson": 5,
+    "title": "Daily Activities Quiz",
+    "description": "Test your knowledge of morning routine signs",
+    "passing_score": 70,
+    "time_limit": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "signlang.quiz",
+  "pk": 6,
+  "fields": {
+    "lesson": 6,
+    "title": "School Signs Quiz",
+    "description": "Learn classroom-related signs",
+    "passing_score": 70,
+    "time_limit": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 1,
+  "fields": {
+    "quiz": 1,
+    "question_text": "Which hand gesture represents \"Hello\" in sign language?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 1,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 2,
+  "fields": {
+    "quiz": 1,
+    "question_text": "Waving goodbye uses the same motion as saying hello.",
+    "question_type": "true_false",
+    "image": "",
+    "video": "",
+    "order": 2,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 3,
+  "fields": {
+    "quiz": 1,
+    "question_text": "What is the sign for \"Nice to meet you\"?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 3,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 4,
+  "fields": {
+    "quiz": 1,
+    "question_text": "How do you sign \"Good morning\" in Vietnamese Sign Language?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 4,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 5,
+  "fields": {
+    "quiz": 2,
+    "question_text": "What is the sign for \"How are you?\"",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 1,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 6,
+  "fields": {
+    "quiz": 2,
+    "question_text": "The sign for \"I'm fine\" involves touching your chest.",
+    "question_type": "true_false",
+    "image": "",
+    "video": "",
+    "order": 2,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 7,
+  "fields": {
+    "quiz": 2,
+    "question_text": "How do you sign \"I'm tired\"?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 3,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 8,
+  "fields": {
+    "quiz": 3,
+    "question_text": "Which finger do you hold up for the number 1?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 1,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 9,
+  "fields": {
+    "quiz": 3,
+    "question_text": "The number 5 is shown with all fingers extended on one hand.",
+    "question_type": "true_false",
+    "image": "",
+    "video": "",
+    "order": 2,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 10,
+  "fields": {
+    "quiz": 3,
+    "question_text": "How do you sign the number 10?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 3,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 11,
+  "fields": {
+    "quiz": 3,
+    "question_text": "For number 3, which fingers are typically used?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 4,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 12,
+  "fields": {
+    "quiz": 3,
+    "question_text": "Number 0 is signed the same as the letter O.",
+    "question_type": "true_false",
+    "image": "",
+    "video": "",
+    "order": 5,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 13,
+  "fields": {
+    "quiz": 4,
+    "question_text": "Where is the sign for \"mother\" typically made?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 1,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 14,
+  "fields": {
+    "quiz": 4,
+    "question_text": "The sign for \"father\" is made in the same location as \"mother\".",
+    "question_type": "true_false",
+    "image": "",
+    "video": "",
+    "order": 2,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 15,
+  "fields": {
+    "quiz": 4,
+    "question_text": "How do you sign \"brother\"?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 3,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 16,
+  "fields": {
+    "quiz": 4,
+    "question_text": "What is the sign for \"baby\"?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 4,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 17,
+  "fields": {
+    "quiz": 5,
+    "question_text": "What is the sign for \"wake up\"?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 1,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 18,
+  "fields": {
+    "quiz": 5,
+    "question_text": "The sign for \"brush teeth\" mimics the actual action.",
+    "question_type": "true_false",
+    "image": "",
+    "video": "",
+    "order": 2,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 19,
+  "fields": {
+    "quiz": 5,
+    "question_text": "How do you sign \"eat breakfast\"?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 3,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 20,
+  "fields": {
+    "quiz": 6,
+    "question_text": "What is the sign for \"teacher\"?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 1,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 21,
+  "fields": {
+    "quiz": 6,
+    "question_text": "The sign for \"book\" looks like opening a book.",
+    "question_type": "true_false",
+    "image": "",
+    "video": "",
+    "order": 2,
+    "points": 1
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 22,
+  "fields": {
+    "quiz": 6,
+    "question_text": "How do you sign \"study\"?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 3,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.question",
+  "pk": 23,
+  "fields": {
+    "quiz": 6,
+    "question_text": "What is the sign for \"homework\"?",
+    "question_type": "multiple_choice",
+    "image": "",
+    "video": "",
+    "order": 4,
+    "points": 2
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 1,
+  "fields": {
+    "question": 1,
+    "answer_text": "Open palm waving side to side",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 2,
+  "fields": {
+    "question": 1,
+    "answer_text": "Closed fist raised up",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 3,
+  "fields": {
+    "question": 1,
+    "answer_text": "Both hands crossed",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 4,
+  "fields": {
+    "question": 1,
+    "answer_text": "Pointing finger",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 5,
+  "fields": {
+    "question": 2,
+    "answer_text": "True",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 6,
+  "fields": {
+    "question": 2,
+    "answer_text": "False",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 7,
+  "fields": {
+    "question": 3,
+    "answer_text": "Touch chest then extend hand outward",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 8,
+  "fields": {
+    "question": 3,
+    "answer_text": "Wave both hands",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 9,
+  "fields": {
+    "question": 3,
+    "answer_text": "Shake your own hands together",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 10,
+  "fields": {
+    "question": 3,
+    "answer_text": "Point to yourself then the other person",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 11,
+  "fields": {
+    "question": 4,
+    "answer_text": "Sign for \"good\" + sign for \"morning sun rising\"",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 12,
+  "fields": {
+    "question": 4,
+    "answer_text": "Just wave hello",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 13,
+  "fields": {
+    "question": 4,
+    "answer_text": "Clap twice",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 14,
+  "fields": {
+    "question": 4,
+    "answer_text": "Touch your head",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 15,
+  "fields": {
+    "question": 5,
+    "answer_text": "Point to person, then sign question with raised eyebrows",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 16,
+  "fields": {
+    "question": 5,
+    "answer_text": "Wave hello twice",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 17,
+  "fields": {
+    "question": 5,
+    "answer_text": "Shake hands in air",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 18,
+  "fields": {
+    "question": 5,
+    "answer_text": "Cross arms and bow",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 19,
+  "fields": {
+    "question": 6,
+    "answer_text": "True",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 20,
+  "fields": {
+    "question": 6,
+    "answer_text": "False",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 21,
+  "fields": {
+    "question": 7,
+    "answer_text": "Both hands drooping down from shoulders",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 22,
+  "fields": {
+    "question": 7,
+    "answer_text": "Jumping motion",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 23,
+  "fields": {
+    "question": 7,
+    "answer_text": "Clapping hands",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 24,
+  "fields": {
+    "question": 7,
+    "answer_text": "Waving arms",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 25,
+  "fields": {
+    "question": 8,
+    "answer_text": "Index finger",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 26,
+  "fields": {
+    "question": 8,
+    "answer_text": "Thumb",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 27,
+  "fields": {
+    "question": 8,
+    "answer_text": "Pinky finger",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 28,
+  "fields": {
+    "question": 8,
+    "answer_text": "Middle finger",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 29,
+  "fields": {
+    "question": 9,
+    "answer_text": "True",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 30,
+  "fields": {
+    "question": 9,
+    "answer_text": "False",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 31,
+  "fields": {
+    "question": 10,
+    "answer_text": "Show both hands with all fingers (5+5)",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 32,
+  "fields": {
+    "question": 10,
+    "answer_text": "Hold up 10 fingers one by one",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 33,
+  "fields": {
+    "question": 10,
+    "answer_text": "Make a circle with hands",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 34,
+  "fields": {
+    "question": 10,
+    "answer_text": "Clap 10 times",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 35,
+  "fields": {
+    "question": 11,
+    "answer_text": "Thumb, index, and middle finger",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 36,
+  "fields": {
+    "question": 11,
+    "answer_text": "Index, middle, and ring finger",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 37,
+  "fields": {
+    "question": 11,
+    "answer_text": "Last three fingers",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 38,
+  "fields": {
+    "question": 11,
+    "answer_text": "Any three fingers",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 39,
+  "fields": {
+    "question": 12,
+    "answer_text": "True",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 40,
+  "fields": {
+    "question": 12,
+    "answer_text": "False",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 41,
+  "fields": {
+    "question": 13,
+    "answer_text": "Near the chin/cheek area",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 42,
+  "fields": {
+    "question": 13,
+    "answer_text": "Above the head",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 43,
+  "fields": {
+    "question": 13,
+    "answer_text": "On the shoulder",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 44,
+  "fields": {
+    "question": 13,
+    "answer_text": "On the stomach",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 45,
+  "fields": {
+    "question": 14,
+    "answer_text": "False",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 46,
+  "fields": {
+    "question": 14,
+    "answer_text": "True",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 47,
+  "fields": {
+    "question": 15,
+    "answer_text": "Male sign + sibling sign at forehead level",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 48,
+  "fields": {
+    "question": 15,
+    "answer_text": "Wave at someone",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 49,
+  "fields": {
+    "question": 15,
+    "answer_text": "Point to yourself",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 50,
+  "fields": {
+    "question": 15,
+    "answer_text": "Cross your arms",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 51,
+  "fields": {
+    "question": 16,
+    "answer_text": "Cradle arms and rock back and forth",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 52,
+  "fields": {
+    "question": 16,
+    "answer_text": "Pat your head",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 53,
+  "fields": {
+    "question": 16,
+    "answer_text": "Clap hands together",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 54,
+  "fields": {
+    "question": 16,
+    "answer_text": "Make small circles",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 55,
+  "fields": {
+    "question": 17,
+    "answer_text": "Open eyes motion with fingers near eyes",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 56,
+  "fields": {
+    "question": 17,
+    "answer_text": "Stretch arms above head",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 57,
+  "fields": {
+    "question": 17,
+    "answer_text": "Clap hands",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 58,
+  "fields": {
+    "question": 17,
+    "answer_text": "Wave goodbye",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 59,
+  "fields": {
+    "question": 18,
+    "answer_text": "True",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 60,
+  "fields": {
+    "question": 18,
+    "answer_text": "False",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 61,
+  "fields": {
+    "question": 19,
+    "answer_text": "Eat sign + morning sign",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 62,
+  "fields": {
+    "question": 19,
+    "answer_text": "Just point to mouth",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 63,
+  "fields": {
+    "question": 19,
+    "answer_text": "Rub stomach",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 64,
+  "fields": {
+    "question": 19,
+    "answer_text": "Clap then eat",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 65,
+  "fields": {
+    "question": 20,
+    "answer_text": "Teaching motion from forehead outward + person sign",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 66,
+  "fields": {
+    "question": 20,
+    "answer_text": "Just point to someone",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 67,
+  "fields": {
+    "question": 20,
+    "answer_text": "Clap hands together",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 68,
+  "fields": {
+    "question": 20,
+    "answer_text": "Wave at the board",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 69,
+  "fields": {
+    "question": 21,
+    "answer_text": "True",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 70,
+  "fields": {
+    "question": 21,
+    "answer_text": "False",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 71,
+  "fields": {
+    "question": 22,
+    "answer_text": "Wiggle fingers toward open palm (like reading)",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 72,
+  "fields": {
+    "question": 22,
+    "answer_text": "Tap head twice",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 73,
+  "fields": {
+    "question": 22,
+    "answer_text": "Draw in the air",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 74,
+  "fields": {
+    "question": 22,
+    "answer_text": "Close your eyes",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 75,
+  "fields": {
+    "question": 23,
+    "answer_text": "Home sign + work sign",
+    "is_correct": true,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 76,
+  "fields": {
+    "question": 23,
+    "answer_text": "Just the book sign",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 77,
+  "fields": {
+    "question": 23,
+    "answer_text": "Writing motion",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.answer",
+  "pk": 78,
+  "fields": {
+    "question": 23,
+    "answer_text": "Pointing to a desk",
+    "is_correct": false,
+    "explanation": ""
+  }
+},
+{
+  "model": "signlang.videocategory",
+  "pk": 1,
+  "fields": {
+    "name": "At the Market",
+    "slug": "market",
+    "description": "Shopping scenarios",
+    "icon": "fa-shopping-cart"
+  }
+},
+{
+  "model": "signlang.videocategory",
+  "pk": 2,
+  "fields": {
+    "name": "At the Hospital",
+    "slug": "hospital",
+    "description": "Medical situations",
+    "icon": "fa-hospital"
+  }
+},
+{
+  "model": "signlang.videocategory",
+  "pk": 3,
+  "fields": {
+    "name": "Transportation",
+    "slug": "transportation",
+    "description": "Getting around",
+    "icon": "fa-bus"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 1,
+  "fields": {
+    "title": "Buying Vegetables at the Market",
+    "slug": "buying-vegetables-at-the-market",
+    "category": 1,
+    "description": "Learn essential sign language phrases for buying vegetables. This video covers signs for common vegetables like carrots, tomatoes, lettuce, and how to ask about prices and quantities.",
+    "video_file": "",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "easy",
+    "view_count": 0,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:20.006Z"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 2,
+  "fields": {
+    "title": "Asking for Prices",
+    "slug": "asking-for-prices",
+    "category": 1,
+    "description": "Master the art of price negotiation in sign language. Learn how to ask \"How much?\", understand number signs for prices, and common responses from vendors.",
+    "video_file": "",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "easy",
+    "view_count": 0,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:20.014Z"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 3,
+  "fields": {
+    "title": "Bargaining and Negotiating",
+    "slug": "bargaining-and-negotiating",
+    "category": 1,
+    "description": "Advanced market communication skills. Learn signs for \"too expensive\", \"discount\", \"cheaper\", and polite negotiation phrases.",
+    "video_file": "",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "medium",
+    "view_count": 0,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:20.022Z"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 4,
+  "fields": {
+    "title": "Fruit Shopping Vocabulary",
+    "slug": "fruit-shopping-vocabulary",
+    "category": 1,
+    "description": "Complete guide to fruit-related signs. Learn signs for apples, bananas, oranges, mangoes, and how to describe freshness.",
+    "video_file": "",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "easy",
+    "view_count": 0,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:20.029Z"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 5,
+  "fields": {
+    "title": "Describing Pain and Symptoms",
+    "slug": "describing-pain-and-symptoms",
+    "category": 2,
+    "description": "Essential medical signs for describing your symptoms. Learn signs for headache, stomachache, fever, cough, and how to indicate pain levels and duration.",
+    "video_file": "",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "medium",
+    "view_count": 0,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:20.036Z"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 6,
+  "fields": {
+    "title": "Emergency Signs",
+    "slug": "emergency-signs",
+    "category": 2,
+    "description": "Critical emergency vocabulary in sign language. Learn signs for \"help\", \"emergency\", \"ambulance\", \"hospital\", and how to communicate urgency.",
+    "video_file": "",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "medium",
+    "view_count": 0,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:20.041Z"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 7,
+  "fields": {
+    "title": "At the Pharmacy",
+    "slug": "at-the-pharmacy",
+    "category": 2,
+    "description": "Navigate pharmacy visits with confidence. Learn signs for common medications, dosage instructions, and how to ask for specific medicine.",
+    "video_file": "",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "medium",
+    "view_count": 0,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:20.045Z"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 8,
+  "fields": {
+    "title": "Doctor Appointment Dialogue",
+    "slug": "doctor-appointment-dialogue",
+    "category": 2,
+    "description": "Complete dialogue practice for medical appointments. Learn how to explain medical history, current symptoms, and understand doctor instructions.",
+    "video_file": "",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "hard",
+    "view_count": 0,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:20.055Z"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 9,
+  "fields": {
+    "title": "Taking a Bus",
+    "slug": "taking-a-bus",
+    "category": 3,
+    "description": "Essential bus travel signs. Learn how to ask about routes, bus stops, fares, and common phrases for public transportation.",
+    "video_file": "",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "easy",
+    "view_count": 0,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:20.061Z"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 10,
+  "fields": {
+    "title": "Asking for Directions",
+    "slug": "asking-for-directions",
+    "category": 3,
+    "description": "Navigation vocabulary in sign language. Learn directional signs like left, right, straight, and how to ask \"Where is...?\"",
+    "video_file": "",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "easy",
+    "view_count": 0,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:20.068Z"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 11,
+  "fields": {
+    "title": "At the Train Station",
+    "slug": "at-the-train-station",
+    "category": 3,
+    "description": "Train travel vocabulary and phrases. Learn signs for platform, ticket, schedule, departure, and arrival.",
+    "video_file": "",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "medium",
+    "view_count": 0,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:20.075Z"
+  }
+},
+{
+  "model": "signlang.video",
+  "pk": 12,
+  "fields": {
+    "title": "Taxi and Ride Services",
+    "slug": "taxi-and-ride-services",
+    "category": 3,
+    "description": "Modern transportation signs. Learn how to communicate with taxi drivers, give destination addresses, and discuss fares.",
+    "video_file": "",
+    "video_url": "",
+    "thumbnail": "",
+    "difficulty": "medium",
+    "view_count": 0,
+    "is_published": true,
+    "created_at": "2025-12-28T13:38:20.082Z"
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 1,
+  "fields": {
+    "name": "First Steps",
+    "description": "Complete your first lesson",
+    "badge_type": "lesson",
+    "icon": "fa-book",
+    "color": "bronze",
+    "points_reward": 25,
+    "requirement_type": "lessons_completed",
+    "requirement_value": 1,
+    "is_active": true,
+    "order": 1
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 2,
+  "fields": {
+    "name": "Getting Started",
+    "description": "Complete 5 lessons",
+    "badge_type": "lesson",
+    "icon": "fa-book",
+    "color": "bronze",
+    "points_reward": 50,
+    "requirement_type": "lessons_completed",
+    "requirement_value": 5,
+    "is_active": true,
+    "order": 2
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 3,
+  "fields": {
+    "name": "Dedicated Learner",
+    "description": "Complete 10 lessons",
+    "badge_type": "lesson",
+    "icon": "fa-graduation-cap",
+    "color": "silver",
+    "points_reward": 100,
+    "requirement_type": "lessons_completed",
+    "requirement_value": 10,
+    "is_active": true,
+    "order": 3
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 4,
+  "fields": {
+    "name": "Knowledge Seeker",
+    "description": "Complete 25 lessons",
+    "badge_type": "lesson",
+    "icon": "fa-brain",
+    "color": "gold",
+    "points_reward": 250,
+    "requirement_type": "lessons_completed",
+    "requirement_value": 25,
+    "is_active": true,
+    "order": 4
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 5,
+  "fields": {
+    "name": "Master Student",
+    "description": "Complete 50 lessons",
+    "badge_type": "lesson",
+    "icon": "fa-crown",
+    "color": "platinum",
+    "points_reward": 500,
+    "requirement_type": "lessons_completed",
+    "requirement_value": 50,
+    "is_active": true,
+    "order": 5
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 6,
+  "fields": {
+    "name": "Quiz Taker",
+    "description": "Pass your first quiz",
+    "badge_type": "quiz",
+    "icon": "fa-star",
+    "color": "bronze",
+    "points_reward": 25,
+    "requirement_type": "quizzes_passed",
+    "requirement_value": 1,
+    "is_active": true,
+    "order": 1
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 7,
+  "fields": {
+    "name": "Quiz Master",
+    "description": "Pass 10 quizzes",
+    "badge_type": "quiz",
+    "icon": "fa-trophy",
+    "color": "silver",
+    "points_reward": 100,
+    "requirement_type": "quizzes_passed",
+    "requirement_value": 10,
+    "is_active": true,
+    "order": 2
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 8,
+  "fields": {
+    "name": "Perfect Score",
+    "description": "Get 100% on any quiz",
+    "badge_type": "quiz",
+    "icon": "fa-gem",
+    "color": "gold",
+    "points_reward": 75,
+    "requirement_type": "perfect_quiz",
+    "requirement_value": 1,
+    "is_active": true,
+    "order": 3
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 9,
+  "fields": {
+    "name": "Quiz Champion",
+    "description": "Pass 25 quizzes",
+    "badge_type": "quiz",
+    "icon": "fa-medal",
+    "color": "gold",
+    "points_reward": 250,
+    "requirement_type": "quizzes_passed",
+    "requirement_value": 25,
+    "is_active": true,
+    "order": 4
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 10,
+  "fields": {
+    "name": "On Fire",
+    "description": "Maintain a 3-day streak",
+    "badge_type": "streak",
+    "icon": "fa-fire",
+    "color": "bronze",
+    "points_reward": 30,
+    "requirement_type": "streak_days",
+    "requirement_value": 3,
+    "is_active": true,
+    "order": 1
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 11,
+  "fields": {
+    "name": "Week Warrior",
+    "description": "Maintain a 7-day streak",
+    "badge_type": "streak",
+    "icon": "fa-fire",
+    "color": "silver",
+    "points_reward": 75,
+    "requirement_type": "streak_days",
+    "requirement_value": 7,
+    "is_active": true,
+    "order": 2
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 12,
+  "fields": {
+    "name": "Consistency King",
+    "description": "Maintain a 30-day streak",
+    "badge_type": "streak",
+    "icon": "fa-fire",
+    "color": "gold",
+    "points_reward": 300,
+    "requirement_type": "streak_days",
+    "requirement_value": 30,
+    "is_active": true,
+    "order": 3
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 13,
+  "fields": {
+    "name": "Unstoppable",
+    "description": "Maintain a 100-day streak",
+    "badge_type": "streak",
+    "icon": "fa-fire",
+    "color": "diamond",
+    "points_reward": 1000,
+    "requirement_type": "streak_days",
+    "requirement_value": 100,
+    "is_active": true,
+    "order": 4
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 14,
+  "fields": {
+    "name": "Social Butterfly",
+    "description": "Create your first forum post",
+    "badge_type": "special",
+    "icon": "fa-comments",
+    "color": "bronze",
+    "points_reward": 20,
+    "requirement_type": "forum_posts",
+    "requirement_value": 1,
+    "is_active": true,
+    "order": 1
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 15,
+  "fields": {
+    "name": "Bookworm",
+    "description": "Save 10 lessons to your collection",
+    "badge_type": "special",
+    "icon": "fa-bookmark",
+    "color": "silver",
+    "points_reward": 50,
+    "requirement_type": "saved_lessons",
+    "requirement_value": 10,
+    "is_active": true,
+    "order": 2
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 16,
+  "fields": {
+    "name": "Early Bird",
+    "description": "Complete a lesson before 8 AM",
+    "badge_type": "special",
+    "icon": "fa-sun",
+    "color": "gold",
+    "points_reward": 40,
+    "requirement_type": "early_learner",
+    "requirement_value": 1,
+    "is_active": true,
+    "order": 3
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 17,
+  "fields": {
+    "name": "Night Owl",
+    "description": "Complete a lesson after 10 PM",
+    "badge_type": "special",
+    "icon": "fa-moon",
+    "color": "silver",
+    "points_reward": 40,
+    "requirement_type": "night_learner",
+    "requirement_value": 1,
+    "is_active": true,
+    "order": 4
+  }
+},
+{
+  "model": "signlang.badge",
+  "pk": 18,
+  "fields": {
+    "name": "Explorer",
+    "description": "Study lessons from 5 different categories",
+    "badge_type": "special",
+    "icon": "fa-compass",
+    "color": "gold",
+    "points_reward": 100,
+    "requirement_type": "categories_explored",
+    "requirement_value": 5,
+    "is_active": true,
+    "order": 5
+  }
+},
+{
+  "model": "signlang.userstreak",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "current_streak": 0,
+    "longest_streak": 0,
+    "last_activity_date": null,
+    "streak_started_at": null,
+    "freeze_count": 2,
+    "freeze_used_date": null,
+    "freeze_last_reset": null
+  }
+},
+{
+  "model": "signlang.userpoints",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "total_points": 0,
+    "weekly_points": 0,
+    "monthly_points": 0,
+    "last_weekly_reset": null,
+    "last_monthly_reset": null,
+    "points_from_lessons": 0,
+    "points_from_quizzes": 0,
+    "points_from_streaks": 0,
+    "points_from_badges": 0
+  }
+},
+{
+  "model": "signlang.featuredcard",
+  "pk": 1,
+  "fields": {
+    "title": "Daily Communication",
+    "description": "",
+    "section": "common_sentences",
+    "icon": "fa-comment-dots",
+    "color": "blue",
+    "link": "/lessons/?category=daily",
+    "order": 1,
+    "is_active": true,
+    "created_at": "2025-12-28T13:38:18.703Z"
+  }
+},
+{
+  "model": "signlang.featuredcard",
+  "pk": 2,
+  "fields": {
+    "title": "School Communication",
+    "description": "",
+    "section": "common_sentences",
+    "icon": "fa-graduation-cap",
+    "color": "teal",
+    "link": "/lessons/?category=school",
+    "order": 2,
+    "is_active": true,
+    "created_at": "2025-12-28T13:38:18.709Z"
+  }
+},
+{
+  "model": "signlang.featuredcard",
+  "pk": 3,
+  "fields": {
+    "title": "Work Communication",
+    "description": "",
+    "section": "common_sentences",
+    "icon": "fa-briefcase",
+    "color": "indigo",
+    "link": "/lessons/?category=work",
+    "order": 3,
+    "is_active": true,
+    "created_at": "2025-12-28T13:38:18.714Z"
+  }
+}
+]
