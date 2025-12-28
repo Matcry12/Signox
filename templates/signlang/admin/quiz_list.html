@@ -1,0 +1,117 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Quizzes" %}{% endblock %}
+{% block page_title %}{% trans "Quizzes" %}{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+    <h2>{% trans "All Quizzes" %}</h2>
+    <div class="flex gap-1">
+        <form method="get" class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" name="search" placeholder="{% trans "Search quizzes..." %}"
+                   value="{{ request.GET.search }}" autocomplete="off">
+        </form>
+        <a href="{% url 'export_quiz_results_csv' %}" class="btn btn-secondary">
+            <i class="fas fa-download"></i> {% trans "Export Results" %}
+        </a>
+        <a href="{% url 'admin_quiz_create' %}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> {% trans "Add Quiz" %}
+        </a>
+    </div>
+</div>
+
+<div class="table-container">
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>{% trans "Title" %}</th>
+                <th>{% trans "Lesson" %}</th>
+                <th>{% trans "Questions" %}</th>
+                <th>{% trans "Pass Score" %}</th>
+                <th>{% trans "Status" %}</th>
+                <th style="width: 160px;">{% trans "Actions" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for quiz in quizzes %}
+            <tr>
+                <td>
+                    <strong>{{ quiz.title }}</strong>
+                    <br><small style="color: var(--gray-500);">{{ quiz.description|truncatewords:10 }}</small>
+                </td>
+                <td>{{ quiz.lesson.title|default:'No lesson' }}</td>
+                <td>
+                    <span class="badge badge-secondary">{{ quiz.question_count }}</span>
+                </td>
+                <td>{{ quiz.passing_score }}%</td>
+                <td>
+                    {% if quiz.is_active %}
+                        <span class="badge badge-success">{% trans "Active" %}</span>
+                    {% else %}
+                        <span class="badge badge-warning">{% trans "Inactive" %}</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a href="{% url 'admin_question_create' quiz.id %}" class="btn btn-secondary btn-sm" title="Questions">
+                            <i class="fas fa-list"></i>
+                        </a>
+                        <a href="{% url 'admin_quiz_edit' quiz.id %}" class="btn btn-secondary btn-sm" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="{% url 'admin_quiz_delete' quiz.id %}" class="btn btn-danger btn-sm" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">
+                    <div class="empty-state">
+                        <i class="fas fa-clipboard-list"></i>
+                        <p>{% trans "No quizzes found" %}</p>
+                        <a href="{% url 'admin_quiz_create' %}" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> {% trans "Create Quiz" %}
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include 'signlang/admin/includes/pagination.html' %}
+
+<style>
+    .search-box {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--card-bg);
+        border: 1px solid var(--gray-200);
+        border-radius: 8px;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .search-box i {
+        color: var(--gray-400);
+        font-size: 0.875rem;
+    }
+
+    .search-box input {
+        border: none;
+        outline: none;
+        font-size: 0.875rem;
+        width: 200px;
+        background: transparent;
+    }
+
+    .search-box input::placeholder {
+        color: var(--gray-400);
+    }
+</style>
+{% endblock %}

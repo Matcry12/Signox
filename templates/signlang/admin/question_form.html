@@ -1,0 +1,106 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block title %}{{ action }} {% trans "Question" %}{% endblock %}
+{% block page_title %}{{ action }} {% trans "Question" %} - {{ quiz.title }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Question Text" %} *</label>
+                <textarea name="question_text" class="form-control" rows="3" required>{{ question.question_text|default:'' }}</textarea>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label class="form-label">{% trans "Question Type" %} *</label>
+                    <select name="question_type" class="form-control" required>
+                        <option value="multiple_choice" {% if question.question_type == 'multiple_choice' %}selected{% endif %}>{% trans "Multiple Choice" %}</option>
+                        <option value="true_false" {% if question.question_type == 'true_false' %}selected{% endif %}>{% trans "True/False" %}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">{% trans "Points" %}</label>
+                    <input type="number" name="points" class="form-control" value="{{ question.points|default:1 }}" min="1">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Order" %}</label>
+                <input type="number" name="order" class="form-control" value="{{ question.order|default:0 }}">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Image (Optional)" %}</label>
+                {% if question.image %}
+                <div class="file-current">
+                    <img src="{{ question.image.url }}" alt="Current image">
+                    <div class="file-current-info">
+                        <div class="file-current-label">{% trans "Current Image" %}</div>
+                        <div class="file-current-name">{{ question.image.name }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                <input type="file" name="image" class="form-control" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Video File (Optional)" %}</label>
+                {% if question.video %}
+                <div class="file-current">
+                    <div class="file-current-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <div class="file-current-info">
+                        <div class="file-current-label">{% trans "Current Video" %}</div>
+                        <div class="file-current-name">{{ question.video.name }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                <input type="file" name="video" class="form-control" accept="video/*">
+            </div>
+
+            <hr style="margin: 1.5rem 0; border-color: var(--gray-200);">
+
+            <h3 style="margin-bottom: 1rem;">{% trans "Answers" %}</h3>
+            <p style="color: var(--gray-500); margin-bottom: 1rem;">{% trans "Add up to 4 answer options. Select the correct answer." %}</p>
+
+            {% for i in "1234" %}
+            <div class="card" style="margin-bottom: 1rem; background: var(--gray-50);">
+                <div class="card-body" style="padding: 1rem;">
+                    <div class="flex gap-1" style="align-items: center;">
+                        <div style="flex: 1;">
+                            <label class="form-label">{% trans "Answer" %} {{ i }}</label>
+                            <input type="text" name="answer_{{ i }}" class="form-control"
+                                value="{% if answers %}{% for a in answers %}{% if forloop.counter == i|add:0 %}{{ a.answer_text }}{% endif %}{% endfor %}{% endif %}">
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            <label class="form-check">
+                                <input type="radio" name="correct_answer" value="{{ i }}"
+                                    {% if answers %}{% for a in answers %}{% if forloop.counter == i|add:0 %}{% if a.is_correct %}checked{% endif %}{% endif %}{% endfor %}{% endif %}>
+                                {% trans "Correct" %}
+                            </label>
+                        </div>
+                    </div>
+                    <div style="margin-top: 0.5rem;">
+                        <label class="form-label" style="font-size: 0.8rem; color: var(--gray-500);">{% trans "Explanation (shown after quiz)" %}</label>
+                        <input type="text" name="explanation_{{ i }}" class="form-control" placeholder="{% trans "Why this answer is correct/incorrect..." %}"
+                            value="{% if answers %}{% for a in answers %}{% if forloop.counter == i|add:0 %}{{ a.explanation }}{% endif %}{% endfor %}{% endif %}">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="flex gap-1 mt-2">
+                <button type="submit" class="btn btn-primary">{{ action }} {% trans "Question" %}</button>
+                <a href="{% url 'admin_quiz_edit' quiz.id %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

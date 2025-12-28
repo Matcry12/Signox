@@ -1,0 +1,201 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block page_title %}{{ action }} {% trans "Featured Card" %}{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+    <h2>{{ action }} {% trans "Featured Card" %}</h2>
+</div>
+
+<form method="post" class="admin-form">
+    {% csrf_token %}
+
+    <div class="form-section">
+        <h3><i class="fas fa-info-circle"></i> {% trans "Basic Information" %}</h3>
+
+        <div class="form-group">
+            <label for="title">{% trans "Title" %} *</label>
+            <input type="text" id="title" name="title" class="form-control"
+                   value="{{ card.title|default:'' }}" required maxlength="100"
+                   placeholder="{% trans "e.g., Daily Communication" %}">
+        </div>
+
+        <div class="form-group">
+            <label for="description">{% trans "Description" %}</label>
+            <input type="text" id="description" name="description" class="form-control"
+                   value="{{ card.description|default:'' }}" maxlength="200"
+                   placeholder="{% trans "Short description (optional)" %}">
+        </div>
+
+        <div class="form-group">
+            <label for="section">{% trans "Section" %} *</label>
+            <select id="section" name="section" class="form-control" required>
+                <option value="common_sentences" {% if card.section == 'common_sentences' %}selected{% endif %}>{% trans "Common Sentences" %}</option>
+                <option value="featured" {% if card.section == 'featured' %}selected{% endif %}>{% trans "Featured Content" %}</option>
+                <option value="quick_links" {% if card.section == 'quick_links' %}selected{% endif %}>{% trans "Quick Links" %}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="link">{% trans "Link URL" %} *</label>
+            <input type="text" id="link" name="link" class="form-control"
+                   value="{{ card.link|default:'' }}" required maxlength="255"
+                   placeholder="{% trans "e.g., /lessons/?category=daily" %}">
+            <small class="form-text">{% trans "Can be relative (/lessons/) or absolute (https://...)" %}</small>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3><i class="fas fa-palette"></i> {% trans "Appearance" %}</h3>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="icon">{% trans "Icon" %}</label>
+                <select id="icon" name="icon" class="form-control">
+                    <option value="fa-comment-dots" {% if card.icon == 'fa-comment-dots' %}selected{% endif %}>{% trans "Comment Dots" %}</option>
+                    <option value="fa-graduation-cap" {% if card.icon == 'fa-graduation-cap' %}selected{% endif %}>{% trans "Graduation Cap" %}</option>
+                    <option value="fa-briefcase" {% if card.icon == 'fa-briefcase' %}selected{% endif %}>{% trans "Briefcase" %}</option>
+                    <option value="fa-home" {% if card.icon == 'fa-home' %}selected{% endif %}>{% trans "Home" %}</option>
+                    <option value="fa-heart" {% if card.icon == 'fa-heart' %}selected{% endif %}>{% trans "Heart" %}</option>
+                    <option value="fa-users" {% if card.icon == 'fa-users' %}selected{% endif %}>{% trans "Users" %}</option>
+                    <option value="fa-book" {% if card.icon == 'fa-book' %}selected{% endif %}>{% trans "Book" %}</option>
+                    <option value="fa-star" {% if card.icon == 'fa-star' %}selected{% endif %}>{% trans "Star" %}</option>
+                    <option value="fa-music" {% if card.icon == 'fa-music' %}selected{% endif %}>{% trans "Music" %}</option>
+                    <option value="fa-utensils" {% if card.icon == 'fa-utensils' %}selected{% endif %}>{% trans "Food/Utensils" %}</option>
+                    <option value="fa-plane" {% if card.icon == 'fa-plane' %}selected{% endif %}>{% trans "Travel/Plane" %}</option>
+                    <option value="fa-hospital" {% if card.icon == 'fa-hospital' %}selected{% endif %}>{% trans "Hospital/Medical" %}</option>
+                    <option value="fa-shopping-cart" {% if card.icon == 'fa-shopping-cart' %}selected{% endif %}>{% trans "Shopping" %}</option>
+                    <option value="fa-futbol" {% if card.icon == 'fa-futbol' %}selected{% endif %}>{% trans "Sports" %}</option>
+                    <option value="fa-palette" {% if card.icon == 'fa-palette' %}selected{% endif %}>{% trans "Art/Palette" %}</option>
+                    <option value="fa-car" {% if card.icon == 'fa-car' %}selected{% endif %}>{% trans "Car/Transport" %}</option>
+                    <option value="fa-phone" {% if card.icon == 'fa-phone' %}selected{% endif %}>{% trans "Phone" %}</option>
+                    <option value="fa-calendar" {% if card.icon == 'fa-calendar' %}selected{% endif %}>{% trans "Calendar" %}</option>
+                    <option value="fa-clock" {% if card.icon == 'fa-clock' %}selected{% endif %}>{% trans "Clock/Time" %}</option>
+                    <option value="fa-map-marker-alt" {% if card.icon == 'fa-map-marker-alt' %}selected{% endif %}>{% trans "Location" %}</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="color">{% trans "Color" %}</label>
+                <select id="color" name="color" class="form-control">
+                    <option value="blue" {% if card.color == 'blue' %}selected{% endif %}>{% trans "Blue" %}</option>
+                    <option value="teal" {% if card.color == 'teal' %}selected{% endif %}>{% trans "Teal" %}</option>
+                    <option value="indigo" {% if card.color == 'indigo' %}selected{% endif %}>{% trans "Indigo" %}</option>
+                    <option value="purple" {% if card.color == 'purple' %}selected{% endif %}>{% trans "Purple" %}</option>
+                    <option value="green" {% if card.color == 'green' %}selected{% endif %}>{% trans "Green" %}</option>
+                    <option value="orange" {% if card.color == 'orange' %}selected{% endif %}>{% trans "Orange" %}</option>
+                    <option value="red" {% if card.color == 'red' %}selected{% endif %}>{% trans "Red" %}</option>
+                    <option value="pink" {% if card.color == 'pink' %}selected{% endif %}>{% trans "Pink" %}</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Preview -->
+        <div class="form-group">
+            <label>{% trans "Preview" %}</label>
+            <div id="card-preview" style="width: 200px; height: 100px; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; color: white; font-weight: bold;">
+                <span id="preview-title">{{ card.title|default:'Card Title' }}</span>
+                <i id="preview-icon" class="fas {{ card.icon|default:'fa-comment-dots' }}" style="position: absolute; right: -10px; bottom: -10px; font-size: 4rem; opacity: 0.2;"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3><i class="fas fa-cog"></i> {% trans "Settings" %}</h3>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="order">{% trans "Display Order" %}</label>
+                <input type="number" id="order" name="order" class="form-control"
+                       value="{{ card.order|default:0 }}" min="0">
+                <small class="form-text">{% trans "Lower numbers appear first" %}</small>
+            </div>
+
+            <div class="form-group col-md-6">
+                <div class="form-check" style="margin-top: 2rem;">
+                    <input type="checkbox" id="is_active" name="is_active" class="form-check-input"
+                           {% if card.is_active or not card %}checked{% endif %}>
+                    <label for="is_active" class="form-check-label">{% trans "Active (visible on site)" %}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> {% trans "Save Card" %}
+        </button>
+        <a href="{% url 'admin_featured_card_list' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+    </div>
+</form>
+
+<style>
+    .form-section {
+        background: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow);
+    }
+    .form-section h3 {
+        font-size: 1rem;
+        color: var(--gray-700);
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--gray-200);
+    }
+    .form-section h3 i {
+        margin-right: 0.5rem;
+        color: var(--primary-500);
+    }
+    .form-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    .form-row .form-group {
+        flex: 1;
+        min-width: 200px;
+    }
+    .form-actions {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+</style>
+
+<script>
+    // Live preview
+    const colorMap = {
+        'blue': 'linear-gradient(135deg, #60A5FA, #2563EB)',
+        'teal': 'linear-gradient(135deg, #2DD4BF, #0D9488)',
+        'indigo': 'linear-gradient(135deg, #818CF8, #4F46E5)',
+        'purple': 'linear-gradient(135deg, #A78BFA, #7C3AED)',
+        'green': 'linear-gradient(135deg, #4ADE80, #16A34A)',
+        'orange': 'linear-gradient(135deg, #FB923C, #EA580C)',
+        'red': 'linear-gradient(135deg, #F87171, #DC2626)',
+        'pink': 'linear-gradient(135deg, #F472B6, #DB2777)'
+    };
+
+    function updatePreview() {
+        const preview = document.getElementById('card-preview');
+        const previewTitle = document.getElementById('preview-title');
+        const previewIcon = document.getElementById('preview-icon');
+        const title = document.getElementById('title').value || 'Card Title';
+        const color = document.getElementById('color').value;
+        const icon = document.getElementById('icon').value;
+
+        previewTitle.textContent = title;
+        preview.style.background = colorMap[color] || colorMap['blue'];
+        previewIcon.className = 'fas ' + icon;
+    }
+
+    document.getElementById('title').addEventListener('input', updatePreview);
+    document.getElementById('color').addEventListener('change', updatePreview);
+    document.getElementById('icon').addEventListener('change', updatePreview);
+
+    // Initialize preview
+    updatePreview();
+</script>
+{% endblock %}

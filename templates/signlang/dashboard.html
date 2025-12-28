@@ -1,0 +1,1063 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Dashboard" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .dashboard-header {
+        background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
+        color: white;
+        padding: 3rem 1rem;
+    }
+
+    .dashboard-header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: white;
+    }
+
+    .dashboard-header p {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-top: -2rem;
+        position: relative;
+        z-index: 10;
+    }
+
+    .stat-card {
+        background: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow-md);
+        text-align: center;
+    }
+
+    .stat-value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-600);
+    }
+
+    .stat-label {
+        color: var(--gray-500);
+        font-size: 0.875rem;
+    }
+
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        .dashboard-grid {
+            grid-template-columns: 1fr;
+        }
+        .xp-streak-grid {
+            grid-template-columns: 1fr !important;
+        }
+        .dashboard-header {
+            padding: 2rem 1rem;
+        }
+        .dashboard-header h1 {
+            font-size: 1.5rem;
+        }
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .stat-card {
+            padding: 1rem;
+        }
+        .stat-value {
+            font-size: 1.75rem;
+        }
+        .section-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .section-header h2 {
+            font-size: 1.125rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .dashboard-header {
+            padding: 1.5rem 1rem;
+        }
+        .dashboard-header h1 {
+            font-size: 1.375rem;
+        }
+        .stats-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-top: -1.5rem;
+        }
+        .stat-card {
+            padding: 0.875rem;
+            border-radius: 0.5rem;
+        }
+        .stat-value {
+            font-size: 1.5rem;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+        }
+        .xp-card {
+            padding: 1.25rem;
+        }
+        .level-badge {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+        .level-info h4 {
+            font-size: 0.6875rem;
+        }
+        .level-info .title {
+            font-size: 0.875rem;
+        }
+        .xp-amount .value {
+            font-size: 1.25rem;
+        }
+        .streak-widget {
+            padding: 0.875rem 1rem;
+        }
+        .streak-icon {
+            font-size: 1.5rem;
+        }
+        .streak-info .days {
+            font-size: 1.25rem;
+        }
+        .quick-stats {
+            gap: 0.5rem;
+        }
+        .quick-stat {
+            min-width: 80px;
+            padding: 0.75rem 0.5rem;
+        }
+        .quick-stat i {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        .quick-stat .value {
+            font-size: 1rem;
+        }
+        .quick-stat .label {
+            font-size: 0.625rem;
+        }
+        .recommendation-card {
+            padding: 0.75rem;
+        }
+        .rec-thumbnail {
+            width: 60px;
+            height: 45px;
+        }
+        .rec-info h4 {
+            font-size: 0.875rem;
+        }
+        .activity-item {
+            padding: 0.5rem 0;
+        }
+        .activity-icon {
+            width: 32px;
+            height: 32px;
+        }
+        .activity-info h4 {
+            font-size: 0.8125rem;
+        }
+    }
+
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        gap: 1rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.25rem;
+        color: var(--gray-800);
+        margin: 0;
+    }
+
+    .card-header-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .recommendation-card {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem;
+        border-bottom: 1px solid var(--gray-100);
+        transition: background 0.2s;
+    }
+
+    .recommendation-card:last-child {
+        border-bottom: none;
+    }
+
+    .recommendation-card:hover {
+        background: var(--gray-50);
+    }
+
+    .rec-thumbnail {
+        width: 80px;
+        height: 60px;
+        background: var(--gray-200);
+        border-radius: 0.375rem;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rec-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0.375rem;
+    }
+
+    .rec-info h4 {
+        font-size: 0.9375rem;
+        margin-bottom: 0.25rem;
+        color: var(--gray-800);
+    }
+
+    .rec-meta {
+        font-size: 0.8125rem;
+        color: var(--gray-500);
+    }
+
+    .activity-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--gray-100);
+    }
+
+    .activity-item:last-child {
+        border-bottom: none;
+    }
+
+    .activity-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--gray-100);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .activity-info {
+        flex: 1;
+    }
+
+    .activity-info h4 {
+        font-size: 0.875rem;
+        margin-bottom: 0.125rem;
+        color: var(--gray-800);
+    }
+
+    .activity-time {
+        font-size: 0.75rem;
+        color: var(--gray-500);
+    }
+
+    /* Gamification Widgets */
+    .xp-card {
+        background: linear-gradient(135deg, #6366F1 0%, #4F46E5 50%, #4338CA 100%);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(99, 102, 241, 0.35), 0 4px 12px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .xp-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    }
+
+    .xp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        position: relative;
+    }
+
+    .xp-level {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .level-badge {
+        width: 48px;
+        height: 48px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    .level-info h4 {
+        font-size: 0.75rem;
+        opacity: 0.9;
+        margin-bottom: 0.125rem;
+    }
+
+    .level-info .title {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .xp-amount {
+        text-align: right;
+    }
+
+    .xp-amount .value {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .xp-amount .label {
+        font-size: 0.75rem;
+        opacity: 0.8;
+    }
+
+    .xp-progress {
+        background: rgba(255,255,255,0.2);
+        height: 6px;
+        border-radius: 9999px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .xp-progress-fill {
+        background: var(--card-bg);
+        height: 100%;
+        border-radius: 9999px;
+        transition: width 0.5s ease;
+    }
+
+    .xp-progress-text {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.6875rem;
+        margin-top: 0.375rem;
+        opacity: 0.8;
+    }
+
+    .streak-widget {
+        background: linear-gradient(135deg, #F59E0B, #EA580C);
+        color: white;
+        padding: 1rem 1.25rem;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .streak-icon {
+        font-size: 2rem;
+    }
+
+    .streak-info .days {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .streak-info .label {
+        font-size: 0.75rem;
+        opacity: 0.9;
+    }
+
+    .badges-preview {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .badge-mini {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.875rem;
+        color: white;
+    }
+
+    .badge-mini.bronze { background: linear-gradient(135deg, #CD7F32, #8B4513); }
+    .badge-mini.silver { background: linear-gradient(135deg, #C0C0C0, #808080); }
+    .badge-mini.gold { background: linear-gradient(135deg, #FFD700, #FFA500); }
+    .badge-mini.platinum { background: linear-gradient(135deg, #E5E4E2, #A0B2C6); }
+    .badge-mini.diamond { background: linear-gradient(135deg, #B9F2FF, #87CEEB); }
+
+    .quick-stats {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .quick-stat {
+        flex: 1;
+        min-width: 100px;
+        background: var(--card-bg);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .quick-stat i {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .quick-stat .value {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--gray-800);
+    }
+
+    .quick-stat .label {
+        font-size: 0.6875rem;
+        color: var(--gray-500);
+    }
+
+    /* Dark Mode Styles */
+    [data-theme="dark"] .stat-card {
+        background: #1E293B;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .stat-value {
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .stat-label {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .section-header h2 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .recommendation-card {
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .recommendation-card:hover {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .rec-thumbnail {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .rec-info h4 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .rec-meta {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .activity-item {
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .activity-icon {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .activity-info h4 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .activity-time {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .quick-stat {
+        background: #1E293B;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    [data-theme="dark"] .quick-stat .value {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .quick-stat .label {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .card-header h2 {
+        color: #F1F5F9;
+    }
+
+    /* Activity Calendar / Heatmap Styles */
+    .activity-calendar {
+        background: var(--card-bg);
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        box-shadow: var(--shadow);
+        margin-bottom: 1.5rem;
+    }
+
+    .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .calendar-header h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .calendar-stats {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 0.8125rem;
+        color: var(--gray-600);
+    }
+
+    .calendar-stats span {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+    }
+
+    .calendar-stats strong {
+        color: var(--primary-600);
+        font-weight: 600;
+    }
+
+    .heatmap-container {
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+
+    .heatmap {
+        display: flex;
+        gap: 3px;
+        min-width: fit-content;
+    }
+
+    .heatmap-week {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .heatmap-day {
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+        background: var(--gray-100);
+        cursor: pointer;
+        transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .heatmap-day:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 0 2px var(--primary-300);
+    }
+
+    .heatmap-day.level-0 { background: var(--gray-100); }
+    .heatmap-day.level-1 { background: #c6e48b; }
+    .heatmap-day.level-2 { background: #7bc96f; }
+    .heatmap-day.level-3 { background: #239a3b; }
+    .heatmap-day.level-4 { background: #196127; }
+
+    .heatmap-legend {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+        font-size: 0.6875rem;
+        color: var(--gray-500);
+    }
+
+    .heatmap-legend-scale {
+        display: flex;
+        gap: 2px;
+    }
+
+    .heatmap-legend-scale .heatmap-day {
+        width: 10px;
+        height: 10px;
+    }
+
+    .heatmap-tooltip {
+        position: fixed;
+        background: var(--gray-900);
+        color: white;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.375rem;
+        font-size: 0.75rem;
+        pointer-events: none;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.15s;
+        white-space: nowrap;
+    }
+
+    .heatmap-tooltip.visible {
+        opacity: 1;
+    }
+
+    .heatmap-months {
+        display: flex;
+        gap: 3px;
+        margin-bottom: 4px;
+        padding-left: 0;
+    }
+
+    .heatmap-month {
+        font-size: 0.625rem;
+        color: var(--gray-400);
+        flex-shrink: 0;
+    }
+
+    /* Dark Mode */
+    [data-theme="dark"] .activity-calendar {
+        background: #1E293B;
+    }
+
+    [data-theme="dark"] .calendar-header h3 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .calendar-stats {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .calendar-stats strong {
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .heatmap-day.level-0 {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .heatmap-tooltip {
+        background: #0F172A;
+        border: 1px solid #334155;
+    }
+
+    [data-theme="dark"] .heatmap-legend {
+        color: #64748B;
+    }
+
+    [data-theme="dark"] .heatmap-month {
+        color: #64748B;
+    }
+
+    /* Mobile styles for activity calendar */
+    @media (max-width: 768px) {
+        .activity-calendar {
+            padding: 1rem;
+        }
+        .calendar-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .calendar-stats {
+            font-size: 0.75rem;
+            gap: 1rem;
+        }
+        .heatmap-day {
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .activity-calendar {
+            padding: 0.875rem;
+            border-radius: 0.625rem;
+        }
+        .calendar-header h3 {
+            font-size: 0.9375rem;
+        }
+        .calendar-stats {
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .heatmap-day {
+            width: 8px;
+            height: 8px;
+        }
+        .heatmap-legend {
+            font-size: 0.625rem;
+        }
+        .heatmap-legend-scale .heatmap-day {
+            width: 8px;
+            height: 8px;
+        }
+        .card-header-flex {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <div class="container">
+        <h1>{% trans "Welcome back" %}, {{ user.first_name|default:user.username }}!</h1>
+        <p>{% trans "Continue your learning journey" %}</p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- XP & Level Card -->
+    <div class="xp-streak-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; margin-top: -2rem; position: relative; z-index: 10; margin-bottom: 1.5rem;">
+        <div class="xp-card">
+            <div class="xp-header">
+                <div class="xp-level">
+                    <div class="level-badge">{{ user_points.level }}</div>
+                    <div class="level-info">
+                        <h4>{% trans "Level" %} {{ user_points.level }}</h4>
+                        <div class="title">{{ user_points.level_title }}</div>
+                    </div>
+                </div>
+                <div class="xp-amount">
+                    <div class="value">{{ user_points.total_points }}</div>
+                    <div class="label">{% trans "Total XP" %}</div>
+                </div>
+            </div>
+            <div class="xp-progress">
+                <div class="xp-progress-fill" style="width: {{ user_points.level_progress_percent }}%;"></div>
+            </div>
+            <div class="xp-progress-text">
+                <span>{{ user_points.level_progress_percent }}%</span>
+                <span>{{ user_points.points_to_next_level }} {% trans "XP to Level" %} {{ user_points.level|add:1 }}</span>
+            </div>
+        </div>
+        <div class="streak-widget">
+            <div class="streak-icon"><i class="fas fa-fire"></i></div>
+            <div class="streak-info">
+                <div class="days">{{ user_streak.current_streak }}</div>
+                <div class="label">{% trans "Day Streak" %}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="quick-stats mb-3">
+        <div class="quick-stat">
+            <i class="fas fa-book" style="color: var(--primary-500);"></i>
+            <div class="value">{{ completed_count }}</div>
+            <div class="label">{% trans "Lessons Done" %}</div>
+        </div>
+        <div class="quick-stat">
+            <i class="fas fa-spinner" style="color: #F59E0B;"></i>
+            <div class="value">{{ in_progress_count }}</div>
+            <div class="label">{% trans "In Progress" %}</div>
+        </div>
+        <div class="quick-stat">
+            <i class="fas fa-chart-line" style="color: var(--success);"></i>
+            <div class="value">{{ progress_percentage }}%</div>
+            <div class="label">{% trans "Progress" %}</div>
+        </div>
+        <div class="quick-stat">
+            <i class="fas fa-medal" style="color: var(--purple-500);"></i>
+            <div class="value">{{ recent_badges|length }}</div>
+            <div class="label">{% trans "Badges" %}</div>
+        </div>
+    </div>
+
+    <!-- Activity Calendar / Heatmap -->
+    <div class="activity-calendar">
+        <div class="calendar-header">
+            <h3><i class="fas fa-calendar-alt"></i> {% trans "Learning Activity" %}</h3>
+            <div class="calendar-stats">
+                <span><strong>{{ activity_calendar.total_active_days }}</strong> {% trans "active days" %}</span>
+                <span><strong>{{ activity_calendar.total_points }}</strong> {% trans "XP earned" %}</span>
+            </div>
+        </div>
+        <div class="heatmap-container">
+            <div class="heatmap" id="activity-heatmap">
+                <!-- Heatmap will be rendered by JavaScript -->
+            </div>
+        </div>
+        <div class="heatmap-legend">
+            <span>{% trans "Less" %}</span>
+            <div class="heatmap-legend-scale">
+                <div class="heatmap-day level-0"></div>
+                <div class="heatmap-day level-1"></div>
+                <div class="heatmap-day level-2"></div>
+                <div class="heatmap-day level-3"></div>
+                <div class="heatmap-day level-4"></div>
+            </div>
+            <span>{% trans "More" %}</span>
+        </div>
+    </div>
+    <div class="heatmap-tooltip" id="heatmap-tooltip"></div>
+
+    <!-- Main Content -->
+    <div class="dashboard-grid">
+        <!-- Recommended Lessons -->
+        <div class="card">
+            <div class="card-header">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <h2>{% trans "Recommended For You" %}</h2>
+                    <a href="{% url 'lesson_list' %}" class="btn btn-secondary" style="padding: 0.5rem 1rem;">{% trans "View All" %}</a>
+                </div>
+            </div>
+            <div class="card-body" style="padding: 0;">
+                {% for lesson in recommended_lessons %}
+                <a href="{% url 'lesson_detail' lesson.slug %}" class="recommendation-card">
+                    <div class="rec-thumbnail">
+                        {% if lesson.thumbnail %}
+                            <img src="{{ lesson.thumbnail.url }}" alt="{{ lesson.title }}">
+                        {% else %}
+                            <svg width="24" height="24" fill="none" stroke="var(--gray-400)" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        {% endif %}
+                    </div>
+                    <div class="rec-info">
+                        <h4>{{ lesson.title }}</h4>
+                        <div class="rec-meta">
+                            <span class="badge badge-{% if lesson.difficulty == 'easy' %}success{% elif lesson.difficulty == 'medium' %}warning{% else %}danger{% endif %}">
+                                {{ lesson.get_difficulty_display }}
+                            </span>
+                            {{ lesson.category.name }}
+                        </div>
+                    </div>
+                </a>
+                {% empty %}
+                <div style="padding: 2rem; text-align: center; color: var(--gray-500);">
+                    <p>{% trans "No recommendations yet. Start learning to get personalized suggestions!" %}</p>
+                    <a href="{% url 'lesson_list' %}" class="btn btn-primary mt-2">{% trans "Browse Lessons" %}</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div>
+            <!-- Recent Activity -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h2 style="font-size: 1.125rem;">{% trans "Recent Activity" %}</h2>
+                </div>
+                <div class="card-body">
+                    {% for progress in recent_progress %}
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            {% if progress.status == 'completed' %}
+                                <svg width="20" height="20" fill="none" stroke="#10B981" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            {% else %}
+                                <svg width="20" height="20" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            {% endif %}
+                        </div>
+                        <div class="activity-info">
+                            <h4>{{ progress.lesson.title|truncatewords:5 }}</h4>
+                            <span class="activity-time">{{ progress.last_accessed|timesince }} {% trans "ago" %}</span>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p style="color: var(--gray-500); text-align: center;">{% trans "No recent activity" %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Saved Lessons -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-header-flex">
+                        <h2 style="font-size: 1.125rem; margin: 0;">{% trans "Saved Lessons" %}</h2>
+                        <a href="{% url 'saved_lessons' %}" class="btn btn-secondary btn-sm">{% trans "View All" %}</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {% for saved in saved_lessons %}
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <svg width="20" height="20" fill="#F59E0B" stroke="#F59E0B" viewBox="0 0 24 24">
+                                <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                            </svg>
+                        </div>
+                        <div class="activity-info">
+                            <a href="{% url 'lesson_detail' saved.lesson.slug %}">
+                                <h4>{{ saved.lesson.title|truncatewords:5 }}</h4>
+                            </a>
+                            <span class="activity-time">{% trans "Saved" %} {{ saved.saved_at|timesince }} {% trans "ago" %}</span>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p style="color: var(--gray-500); text-align: center;">{% trans "No saved lessons" %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="flex gap-2" style="flex-wrap: wrap;">
+                <a href="{% url 'lesson_list' %}" class="btn btn-primary">{% trans "Browse Lessons" %}</a>
+                <a href="{% url 'quiz_list' %}" class="btn btn-secondary">{% trans "Take a Quiz" %}</a>
+                <a href="{% url 'achievements' %}" class="btn btn-secondary"><i class="fas fa-trophy"></i> {% trans "Achievements" %}</a>
+                <a href="{% url 'leaderboard' %}" class="btn btn-secondary"><i class="fas fa-crown"></i> {% trans "Leaderboard" %}</a>
+                <a href="{% url 'my_stats' %}" class="btn btn-secondary"><i class="fas fa-chart-bar"></i> {% trans "My Stats" %}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    // Activity calendar data from Django (properly JSON encoded)
+    const calendarData = {{ activity_calendar_json|safe }};
+
+    // Render heatmap
+    function renderHeatmap() {
+        const container = document.getElementById('activity-heatmap');
+        const tooltip = document.getElementById('heatmap-tooltip');
+        if (!container || !calendarData || calendarData.length === 0) return;
+
+        // Group data by weeks
+        const weeks = [];
+        let currentWeek = [];
+
+        calendarData.forEach((day, index) => {
+            const date = new Date(day.date);
+            const dayOfWeek = date.getDay();
+
+            // Adjust for Monday start (0 = Monday, 6 = Sunday)
+            const adjustedDay = (dayOfWeek + 6) % 7;
+
+            // If this is a new week (Monday) and we have days, start a new week
+            if (adjustedDay === 0 && currentWeek.length > 0) {
+                weeks.push(currentWeek);
+                currentWeek = [];
+            }
+
+            currentWeek.push(day);
+
+            // Last item
+            if (index === calendarData.length - 1) {
+                weeks.push(currentWeek);
+            }
+        });
+
+        // Render weeks
+        weeks.forEach(week => {
+            const weekEl = document.createElement('div');
+            weekEl.className = 'heatmap-week';
+
+            // Pad the first week if needed
+            if (weeks.indexOf(week) === 0) {
+                const firstDate = new Date(week[0].date);
+                const firstDay = (firstDate.getDay() + 6) % 7; // Monday = 0
+                for (let i = 0; i < firstDay; i++) {
+                    const emptyDay = document.createElement('div');
+                    emptyDay.className = 'heatmap-day level-0';
+                    emptyDay.style.visibility = 'hidden';
+                    weekEl.appendChild(emptyDay);
+                }
+            }
+
+            week.forEach(day => {
+                const dayEl = document.createElement('div');
+                dayEl.className = `heatmap-day level-${day.level}`;
+                dayEl.dataset.date = day.date;
+                dayEl.dataset.points = day.points;
+                dayEl.dataset.lessons = day.lessons;
+                dayEl.dataset.quizzes = day.quizzes;
+
+                // Tooltip events
+                dayEl.addEventListener('mouseenter', (e) => {
+                    const date = new Date(day.date);
+                    const dateStr = date.toLocaleDateString('en-US', {
+                        weekday: 'short',
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric'
+                    });
+
+                    let content = `<strong>${dateStr}</strong><br>`;
+                    if (day.points > 0) {
+                        content += `${day.points} {% trans "XP earned" %}`;
+                        if (day.lessons > 0) content += ` · ${day.lessons} {% trans "lesson" %}${day.lessons > 1 ? 's' : ''}`;
+                        if (day.quizzes > 0) content += ` · ${day.quizzes} {% trans "quiz" %}${day.quizzes > 1 ? 'zes' : ''}`;
+                    } else {
+                        content += '{% trans "No activity" %}';
+                    }
+
+                    tooltip.innerHTML = content;
+                    tooltip.classList.add('visible');
+
+                    // Position tooltip
+                    const rect = e.target.getBoundingClientRect();
+                    tooltip.style.left = `${rect.left + rect.width / 2 - tooltip.offsetWidth / 2}px`;
+                    tooltip.style.top = `${rect.top - tooltip.offsetHeight - 8}px`;
+                });
+
+                dayEl.addEventListener('mouseleave', () => {
+                    tooltip.classList.remove('visible');
+                });
+
+                weekEl.appendChild(dayEl);
+            });
+
+            container.appendChild(weekEl);
+        });
+    }
+
+    // Run on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', renderHeatmap);
+    } else {
+        renderHeatmap();
+    }
+})();
+</script>
+{% endblock %}

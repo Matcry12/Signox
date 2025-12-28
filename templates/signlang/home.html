@@ -1,0 +1,1045 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}Signox - {% trans "Learn Sign Language" %}{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Hero Section */
+    .hero {
+        position: relative;
+        min-height: 420px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #EC4899 100%);
+    }
+
+    .hero-bg::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 30%, rgba(255,255,255,0.08) 0%, transparent 40%);
+    }
+
+    .hero-bg::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3rem;
+    }
+
+    .hero-text {
+        flex: 1;
+        max-width: 560px;
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        color: white;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+    }
+
+    .hero-title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 3.5rem;
+        color: white;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+
+    .hero-subtitle {
+        color: rgba(255,255,255,0.9);
+        font-size: 1.125rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .hero-actions .btn {
+        padding: 0.875rem 1.75rem;
+    }
+
+    .btn-white {
+        background: var(--card-bg);
+        color: var(--primary-600);
+        box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+
+    .btn-white:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    [data-theme="dark"] .btn-white {
+        background: #1E293B;
+        color: #A5B4FC;
+        border: 1px solid #475569;
+    }
+
+    [data-theme="dark"] .btn-white:hover {
+        background: #334155;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    .btn-glass {
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        color: white;
+        border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .btn-glass:hover {
+        background: rgba(255,255,255,0.25);
+    }
+
+    .hero-visual {
+        flex: 1;
+        max-width: 400px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-illustration {
+        width: 100%;
+        max-width: 320px;
+        aspect-ratio: 1;
+        background: rgba(255,255,255,0.1);
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 900px) {
+        .hero-content {
+            flex-direction: column;
+            text-align: center;
+        }
+        .hero-text {
+            max-width: 100%;
+        }
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        .hero-actions {
+            justify-content: center;
+        }
+        .hero-visual {
+            display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero {
+            min-height: 350px;
+        }
+        .hero-content {
+            padding: 2rem 1rem;
+        }
+        .hero-badge {
+            font-size: 0.75rem;
+            padding: 0.375rem 0.75rem;
+        }
+        .hero-title {
+            font-size: 2rem;
+        }
+        .hero-subtitle {
+            font-size: 0.9375rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero-actions {
+            flex-direction: column;
+            width: 100%;
+        }
+        .hero-actions .btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+    /* Quick Nav Section */
+    .quick-nav {
+        position: relative;
+        z-index: 20;
+        margin-top: -3rem;
+        padding: 0 1.5rem;
+    }
+
+    .quick-nav-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        max-width: 900px;
+        margin: 4rem auto 0;
+    }
+
+    .quick-nav-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+
+    @media (max-width: 640px) {
+        .quick-nav-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .quick-nav {
+            margin-top: -2rem;
+            padding: 0 1rem;
+        }
+        .quick-nav-card {
+            padding: 1.25rem;
+            margin-top: 3rem;
+            border-radius: 16px;
+        }
+        .quick-nav-grid {
+            gap: 0.75rem;
+        }
+        .quick-nav-item {
+            padding: 1rem 0.5rem;
+        }
+        .quick-nav-icon {
+            width: 48px;
+            height: 48px;
+            font-size: 1.25rem;
+        }
+        .quick-nav-item span {
+            font-size: 0.75rem;
+        }
+    }
+
+    .quick-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1.5rem 1rem;
+        border-radius: 16px;
+        transition: all 0.2s ease;
+        text-align: center;
+    }
+
+    .quick-nav-item:hover {
+        background: var(--gray-50);
+        transform: translateY(-2px);
+    }
+
+    .quick-nav-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+
+    .quick-nav-icon.indigo { background: var(--primary-100); color: var(--primary-600); }
+    .quick-nav-icon.teal { background: var(--teal-100); color: var(--teal-500); }
+    .quick-nav-icon.purple { background: var(--purple-100); color: var(--purple-500); }
+    .quick-nav-icon.orange { background: var(--orange-100); color: var(--orange-400); }
+
+    .quick-nav-item span {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--gray-700);
+    }
+
+    /* Category Books Section */
+    .categories-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin-bottom: 0.5rem;
+    }
+
+    .section-header p {
+        color: var(--gray-500);
+        font-size: 1rem;
+    }
+
+    .books-shelf {
+        background: linear-gradient(180deg, #F5F0E8 0%, #E8E0D4 100%);
+        border-radius: 20px;
+        padding: 2rem 1.5rem 2.5rem;
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+        box-shadow:
+            inset 0 4px 8px rgba(0,0,0,0.05),
+            0 8px 32px rgba(0,0,0,0.08);
+    }
+
+    .books-shelf::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 20px;
+        background: linear-gradient(180deg, #8B7355, #6D5A45);
+        border-radius: 0 0 20px 20px;
+        box-shadow: inset 0 2px 4px rgba(255,255,255,0.2);
+    }
+
+    .books-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 1.25rem;
+        padding-bottom: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .book {
+        position: relative;
+        width: 80px;
+        height: 200px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        flex-shrink: 0;
+    }
+
+    .book:hover {
+        transform: translateY(-24px) rotate(-2deg);
+        z-index: 10;
+    }
+
+    .book-spine {
+        position: absolute;
+        inset: 0;
+        border-radius: 4px 2px 2px 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        writing-mode: vertical-rl;
+        box-shadow:
+            4px 4px 12px rgba(0,0,0,0.25),
+            inset -2px 0 4px rgba(0,0,0,0.1),
+            inset 3px 0 6px rgba(255,255,255,0.15);
+        overflow: hidden;
+    }
+
+    .book-spine span {
+        transform: rotate(180deg);
+        color: white;
+        font-weight: 700;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        text-transform: uppercase;
+        padding: 0.5rem 0;
+        white-space: nowrap;
+        max-height: 180px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .book-pages {
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        right: 0;
+        width: 10px;
+        background: linear-gradient(to right, #E8E4DC, #FAFAFA);
+        border-radius: 0 2px 2px 0;
+    }
+
+    .book.indigo .book-spine { background: linear-gradient(180deg, #818CF8, #4F46E5); }
+    .book.purple .book-spine { background: linear-gradient(180deg, #A78BFA, #7C3AED); }
+    .book.pink .book-spine { background: linear-gradient(180deg, #F472B6, #DB2777); }
+    .book.red .book-spine { background: linear-gradient(180deg, #F87171, #DC2626); }
+    .book.orange .book-spine { background: linear-gradient(180deg, #FB923C, #EA580C); }
+    .book.teal .book-spine { background: linear-gradient(180deg, #2DD4BF, #0D9488); }
+    .book.blue .book-spine { background: linear-gradient(180deg, #60A5FA, #2563EB); }
+
+    @media (max-width: 768px) {
+        .categories-section {
+            padding: 3rem 1rem;
+        }
+        .books-shelf {
+            padding: 1.5rem 1rem 2rem;
+            border-radius: 16px;
+        }
+        .books-container {
+            gap: 0.75rem;
+        }
+        .book {
+            width: 60px;
+            height: 160px;
+        }
+        .book-spine span {
+            font-size: 0.625rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .categories-section {
+            padding: 2.5rem 1rem;
+        }
+        .section-header h2 {
+            font-size: 1.375rem;
+        }
+        .section-header p {
+            font-size: 0.875rem;
+        }
+        .book {
+            width: 50px;
+            height: 140px;
+        }
+        .book-spine span {
+            font-size: 0.5625rem;
+            max-height: 120px;
+        }
+    }
+
+    /* Featured Cards Section */
+    .featured-section {
+        padding: 0 1.5rem 4rem;
+    }
+
+    .featured-scroll {
+        display: flex;
+        gap: 1.25rem;
+        overflow-x: auto;
+        padding: 0.5rem 0 1rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: 1000px;
+        margin: 0 auto;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .featured-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    .featured-card {
+        min-width: 220px;
+        max-width: 260px;
+        height: 140px;
+        border-radius: 16px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        scroll-snap-align: center;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+
+    .featured-card:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    .featured-card.blue { background: linear-gradient(135deg, #3B82F6, #1D4ED8); }
+    .featured-card.teal { background: linear-gradient(135deg, #14B8A6, #0D9488); }
+    .featured-card.indigo { background: linear-gradient(135deg, #6366F1, #4338CA); }
+    .featured-card.purple { background: linear-gradient(135deg, #8B5CF6, #6D28D9); }
+    .featured-card.green { background: linear-gradient(135deg, #22C55E, #16A34A); }
+    .featured-card.orange { background: linear-gradient(135deg, #F97316, #EA580C); }
+    .featured-card.red { background: linear-gradient(135deg, #EF4444, #DC2626); }
+    .featured-card.pink { background: linear-gradient(135deg, #EC4899, #BE185D); }
+
+    @media (max-width: 768px) {
+        .featured-section {
+            padding: 0 1rem 3rem;
+        }
+        .featured-scroll {
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        .featured-card {
+            min-width: 200px;
+            max-width: 200px;
+            height: 120px;
+            padding: 1.25rem;
+        }
+        .featured-card h4 {
+            font-size: 0.9375rem;
+        }
+        .featured-card .description {
+            font-size: 0.75rem;
+        }
+        .featured-card .bg-icon {
+            font-size: 4rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .featured-card {
+            min-width: 180px;
+            max-width: 180px;
+            height: 110px;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+        .featured-card h4 {
+            font-size: 0.875rem;
+        }
+    }
+
+    .featured-card h4 {
+        color: white;
+        font-size: 1.0625rem;
+        font-weight: 600;
+        z-index: 2;
+        line-height: 1.4;
+    }
+
+    .featured-card .description {
+        color: rgba(255,255,255,0.85);
+        font-size: 0.8125rem;
+        z-index: 2;
+    }
+
+    .featured-card .bg-icon {
+        position: absolute;
+        right: -10px;
+        bottom: -10px;
+        font-size: 5rem;
+        opacity: 0.15;
+        color: white;
+        transform: rotate(-15deg);
+    }
+
+    /* Latest Lessons Section */
+    .lessons-section {
+        padding: 0 1.5rem 4rem;
+    }
+
+    .lessons-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .lessons-header h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gray-900);
+    }
+
+    .lesson-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .lesson-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        transition: all 0.3s ease;
+        border: 1px solid var(--gray-100);
+    }
+
+    .lesson-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+        border-color: var(--gray-200);
+    }
+
+    .lesson-thumb {
+        height: 140px;
+        background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .lesson-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .lesson-thumb i {
+        font-size: 3rem;
+        color: var(--gray-300);
+    }
+
+    .lesson-thumb::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.03) 100%);
+    }
+
+    .lesson-info {
+        padding: 1.25rem;
+    }
+
+    .lesson-info h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 0.75rem;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .lesson-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+        .lessons-section {
+            padding: 0 1rem 3rem;
+        }
+        .lessons-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        .lessons-header h2 {
+            font-size: 1.25rem;
+        }
+        .lesson-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .lesson-thumb {
+            height: 120px;
+        }
+        .lesson-info {
+            padding: 1rem;
+        }
+        .lesson-info h4 {
+            font-size: 0.9375rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .lesson-grid {
+            grid-template-columns: 1fr;
+        }
+        .lesson-card {
+            border-radius: 12px;
+        }
+        .lesson-thumb {
+            height: 140px;
+        }
+        .lesson-meta {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+    }
+
+    /* CTA Section */
+    .cta-section {
+        background: linear-gradient(135deg, var(--primary-50) 0%, var(--purple-100) 100%);
+        padding: 3rem 1.5rem;
+        margin: 0 1.5rem 3rem;
+        border-radius: 24px;
+        text-align: center;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-section h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin-bottom: 0.75rem;
+    }
+
+    .cta-section p {
+        color: var(--gray-600);
+        font-size: 1.0625rem;
+        margin-bottom: 1.5rem;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media (max-width: 768px) {
+        .cta-section {
+            padding: 2.5rem 1.25rem;
+            margin: 0 1rem 2.5rem;
+            border-radius: 20px;
+        }
+        .cta-section h2 {
+            font-size: 1.5rem;
+        }
+        .cta-section p {
+            font-size: 0.9375rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .cta-section {
+            padding: 2rem 1rem;
+            margin: 0 0.75rem 2rem;
+            border-radius: 16px;
+        }
+        .cta-section h2 {
+            font-size: 1.25rem;
+        }
+        .cta-section p {
+            font-size: 0.875rem;
+            margin-bottom: 1.25rem;
+        }
+    }
+
+    /* Empty State */
+    .empty-state {
+        text-align: center;
+        padding: 3rem 2rem;
+        color: var(--gray-400);
+        background: var(--gray-50);
+        border-radius: 16px;
+        border: 2px dashed var(--gray-200);
+    }
+
+    .empty-state i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        display: block;
+        opacity: 0.4;
+    }
+
+    .empty-state p {
+        font-size: 0.9375rem;
+        color: var(--gray-500);
+    }
+
+    /* Dark Mode Styles */
+    [data-theme="dark"] .quick-nav-card {
+        background: #1E293B;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .quick-nav-item:hover {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .quick-nav-item span {
+        color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .quick-nav-icon.indigo {
+        background: rgba(99, 102, 241, 0.2);
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .quick-nav-icon.teal {
+        background: rgba(20, 184, 166, 0.2);
+        color: #5EEAD4;
+    }
+
+    [data-theme="dark"] .quick-nav-icon.purple {
+        background: rgba(139, 92, 246, 0.2);
+        color: #C4B5FD;
+    }
+
+    [data-theme="dark"] .quick-nav-icon.orange {
+        background: rgba(249, 115, 22, 0.2);
+        color: #FDBA74;
+    }
+
+    [data-theme="dark"] .section-header h2 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .section-header p {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .books-shelf {
+        background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
+        box-shadow:
+            inset 0 4px 8px rgba(0,0,0,0.2),
+            0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    [data-theme="dark"] .books-shelf::after {
+        background: linear-gradient(180deg, #475569, #334155);
+    }
+
+    [data-theme="dark"] .book-pages {
+        background: linear-gradient(to right, #475569, #64748B);
+    }
+
+    [data-theme="dark"] .lesson-card {
+        background: #1E293B;
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .lesson-card:hover {
+        box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+        border-color: #475569;
+    }
+
+    [data-theme="dark"] .lesson-thumb {
+        background: linear-gradient(135deg, #334155, #475569);
+    }
+
+    [data-theme="dark"] .lesson-thumb i {
+        color: #64748B;
+    }
+
+    [data-theme="dark"] .lesson-info h4 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .lessons-header h2 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .cta-section {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+    }
+
+    [data-theme="dark"] .cta-section h2 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .cta-section p {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .empty-state {
+        background: #1E293B;
+        border-color: #334155;
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .empty-state p {
+        color: #94A3B8;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <div class="hero-text">
+            <div class="hero-badge">
+                <i class="fas fa-hand-peace"></i>
+                {% trans "Learn Sign Language Online" %}
+            </div>
+            <h1 class="hero-title">Signox</h1>
+            <p class="hero-subtitle">
+                {% trans "Master sign language at your own pace. Interactive lessons, practice quizzes, and a supportive community to help you communicate without barriers." %}
+            </p>
+            <div class="hero-actions">
+                <a href="{% url 'lesson_list' %}" class="btn btn-white btn-lg">
+                    <i class="fas fa-play"></i> {% trans "Start Learning" %}
+                </a>
+                <a href="{% url 'about' %}" class="btn btn-glass btn-lg">
+                    {% trans "Learn More" %}
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-illustration">
+                <i class="fas fa-hands" style="color: rgba(255,255,255,0.9);"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Navigation -->
+<div class="quick-nav">
+    <div class="quick-nav-card">
+        <div class="quick-nav-grid">
+            <a href="{% url 'forum_list' %}" class="quick-nav-item">
+                <div class="quick-nav-icon indigo">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <span>{% trans "Community" %}</span>
+            </a>
+            <a href="{% url 'lesson_list' %}" class="quick-nav-item">
+                <div class="quick-nav-icon teal">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <span>{% trans "Lessons" %}</span>
+            </a>
+            <a href="{% url 'video_list' %}" class="quick-nav-item">
+                <div class="quick-nav-icon purple">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+                <span>{% trans "Videos" %}</span>
+            </a>
+            <a href="{% url 'quiz_list' %}" class="quick-nav-item">
+                <div class="quick-nav-icon orange">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <span>{% trans "Quizzes" %}</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Categories as Books -->
+<section class="categories-section">
+    <div class="section-header">
+        <h2>{% trans "Browse by Topic" %}</h2>
+        <p>{% trans "Choose a category to start your learning journey" %}</p>
+    </div>
+
+    <div class="books-shelf">
+        <div class="books-container">
+            {% for category in categories %}
+            <a href="{% url 'lesson_list_by_category' category.slug %}" class="book {% cycle 'indigo' 'purple' 'pink' 'red' 'orange' 'teal' 'blue' %}">
+                <div class="book-spine">
+                    <span>{{ category.name }}</span>
+                </div>
+                <div class="book-pages"></div>
+            </a>
+            {% empty %}
+            <div class="empty-state" style="width: 100%;">
+                <i class="fas fa-folder-open"></i>
+                <p>{% trans "No topics available yet. Check back soon!" %}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Featured Cards -->
+{% if common_sentences %}
+<section class="featured-section">
+    <div class="section-header">
+        <h2>{% trans "Quick Start Phrases" %}</h2>
+        <p>{% trans "Essential phrases for everyday communication" %}</p>
+    </div>
+    <div class="featured-scroll">
+        {% for card in common_sentences %}
+        <a href="{{ card.link }}" class="featured-card {{ card.color }}">
+            <h4>{{ card.title }}</h4>
+            {% if card.description %}
+            <span class="description">{{ card.description }}</span>
+            {% endif %}
+            <i class="fas {{ card.icon }} bg-icon"></i>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<!-- Latest Lessons -->
+<section class="lessons-section">
+    <div class="lessons-header">
+        <h2>{% trans "Latest Lessons" %}</h2>
+        <a href="{% url 'lesson_list' %}" class="btn btn-secondary">{% trans "View All" %}</a>
+    </div>
+    <div class="lesson-grid">
+        {% for lesson in latest_lessons %}
+        <a href="{% url 'lesson_detail' lesson.slug %}" class="lesson-card">
+            <div class="lesson-thumb">
+                {% if lesson.thumbnail %}
+                <img src="{{ lesson.thumbnail.url }}" alt="{{ lesson.title }}">
+                {% else %}
+                <i class="fas fa-book"></i>
+                {% endif %}
+            </div>
+            <div class="lesson-info">
+                <h4>{{ lesson.title }}</h4>
+                <div class="lesson-meta">
+                    <span class="badge badge-{% if lesson.difficulty == 'easy' %}success{% elif lesson.difficulty == 'medium' %}warning{% else %}danger{% endif %}">
+                        {{ lesson.get_difficulty_display }}
+                    </span>
+                    <span style="font-size: 0.8125rem; color: var(--gray-500);">{{ lesson.category.name }}</span>
+                </div>
+            </div>
+        </a>
+        {% empty %}
+        <div class="empty-state" style="grid-column: 1/-1;">
+            <i class="fas fa-graduation-cap"></i>
+            <p>{% trans "No lessons available yet. New lessons coming soon!" %}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- CTA Section -->
+{% if not user.is_authenticated %}
+<section class="cta-section">
+    <h2>{% trans "Ready to Start Learning?" %}</h2>
+    <p>{% trans "Join thousands of learners and master sign language at your own pace." %}</p>
+    <a href="{% url 'register' %}" class="btn btn-primary btn-lg">
+        <i class="fas fa-user-plus"></i> {% trans "Create Free Account" %}
+    </a>
+</section>
+{% endif %}
+{% endblock %}

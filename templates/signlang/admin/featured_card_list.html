@@ -1,0 +1,147 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block page_title %}{% trans "Featured Cards" %}{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+    <h2>{% trans "Featured Cards" %}</h2>
+    <a href="{% url 'admin_featured_card_create' %}" class="btn btn-primary">
+        <i class="fas fa-plus"></i> {% trans "Add Card" %}
+    </a>
+</div>
+
+<div class="admin-info">
+    <i class="fas fa-info-circle"></i>
+    <span>{% trans "Featured cards appear on the home page in sections like \"Quick Start Phrases\". You can customize the icon, color, and link for each card." %}</span>
+</div>
+
+<div class="table-container">
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th style="width: 80px;">{% trans "Preview" %}</th>
+                <th>{% trans "Title" %}</th>
+                <th>{% trans "Section" %}</th>
+                <th>{% trans "Link" %}</th>
+                <th style="width: 70px;">{% trans "Order" %}</th>
+                <th style="width: 90px;">{% trans "Status" %}</th>
+                <th style="width: 100px;">{% trans "Actions" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for card in cards %}
+            <tr>
+                <td>
+                    <div class="card-preview card-preview-{{ card.color }}">
+                        <i class="fas {{ card.icon }}"></i>
+                    </div>
+                </td>
+                <td>
+                    <div class="card-title">{{ card.title }}</div>
+                    {% if card.description %}
+                    <div class="card-desc">{{ card.description|truncatechars:50 }}</div>
+                    {% endif %}
+                </td>
+                <td>
+                    <span class="badge badge-{% if card.section == 'common_sentences' %}primary{% elif card.section == 'featured' %}info{% else %}secondary{% endif %}">
+                        {{ card.get_section_display }}
+                    </span>
+                </td>
+                <td>
+                    <code>{{ card.link|truncatechars:35 }}</code>
+                </td>
+                <td>
+                    <span class="order-badge">{{ card.order }}</span>
+                </td>
+                <td>
+                    {% if card.is_active %}
+                    <span class="badge badge-success">
+                        <i class="fas fa-check-circle"></i> {% trans "Active" %}
+                    </span>
+                    {% else %}
+                    <span class="badge badge-secondary">
+                        <i class="fas fa-pause-circle"></i> {% trans "Inactive" %}
+                    </span>
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a href="{% url 'admin_featured_card_edit' card.id %}" class="btn btn-sm btn-secondary" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="{% url 'admin_featured_card_delete' card.id %}" class="btn btn-sm btn-danger" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">
+                    <div class="empty-state">
+                        <i class="fas fa-star"></i>
+                        <p>{% trans "No featured cards yet" %}</p>
+                        <a href="{% url 'admin_featured_card_create' %}" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> {% trans "Create your first card" %}
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .card-preview {
+        width: 56px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.125rem;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .card-preview-blue { background: linear-gradient(135deg, #3B82F6, #1D4ED8); }
+    .card-preview-teal { background: linear-gradient(135deg, #14B8A6, #0D9488); }
+    .card-preview-indigo { background: linear-gradient(135deg, #6366F1, #4338CA); }
+    .card-preview-purple { background: linear-gradient(135deg, #8B5CF6, #6D28D9); }
+    .card-preview-green { background: linear-gradient(135deg, #22C55E, #16A34A); }
+    .card-preview-orange { background: linear-gradient(135deg, #F97316, #EA580C); }
+    .card-preview-red { background: linear-gradient(135deg, #EF4444, #DC2626); }
+    .card-preview-pink { background: linear-gradient(135deg, #EC4899, #BE185D); }
+
+    .card-title {
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 0.25rem;
+    }
+
+    .card-desc {
+        font-size: 0.8125rem;
+        color: var(--gray-500);
+    }
+
+    .order-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        background: var(--gray-100);
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.8125rem;
+        color: var(--gray-600);
+    }
+
+    .badge i {
+        margin-right: 0.25rem;
+        font-size: 0.625rem;
+    }
+</style>
+{% endblock %}

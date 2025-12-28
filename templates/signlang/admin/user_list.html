@@ -1,0 +1,157 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Users" %}{% endblock %}
+{% block page_title %}{% trans "Users" %}{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+    <h2>{% trans "All Users" %}{% if page_obj %} ({{ page_obj.paginator.count }}){% endif %}</h2>
+    <div class="flex gap-1">
+        <form method="get" class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" name="search" placeholder="{% trans "Search users..." %}"
+                   value="{{ request.GET.search }}" autocomplete="off">
+        </form>
+        <a href="{% url 'export_users_csv' %}" class="btn btn-secondary">
+            <i class="fas fa-download"></i> {% trans "Export CSV" %}
+        </a>
+        <a href="{% url 'export_progress_csv' %}" class="btn btn-secondary">
+            <i class="fas fa-chart-line"></i> {% trans "Export Progress" %}
+        </a>
+    </div>
+</div>
+
+<div class="table-container">
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>{% trans "User" %}</th>
+                <th>{% trans "Email" %}</th>
+                <th>{% trans "Role" %}</th>
+                <th>{% trans "Joined" %}</th>
+                <th>{% trans "Status" %}</th>
+                {% if request.user.is_staff %}
+                <th>{% trans "Actions" %}</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>
+                    <div class="user-info">
+                        <div class="user-avatar">{{ user.username.0|upper }}</div>
+                        <div>
+                            <strong>{{ user.username }}</strong>
+                            {% if user.first_name or user.last_name %}
+                            <br><small style="color: var(--gray-500);">{{ user.get_full_name }}</small>
+                            {% endif %}
+                        </div>
+                    </div>
+                </td>
+                <td>{{ user.email|default:'-' }}</td>
+                <td>
+                    {% if user.is_superuser %}
+                        <span class="badge badge-danger">{% trans "Admin" %}</span>
+                    {% elif user.is_staff %}
+                        <span class="badge badge-primary">{% trans "Staff" %}</span>
+                    {% elif user.profile and user.profile.is_teacher %}
+                        <span class="badge badge-warning">{% trans "Teacher" %}</span>
+                    {% else %}
+                        <span class="badge badge-secondary">{% trans "User" %}</span>
+                    {% endif %}
+                </td>
+                <td>{{ user.date_joined|date:"M d, Y" }}</td>
+                <td>
+                    {% if user.is_active %}
+                        <span class="badge badge-success">{% trans "Active" %}</span>
+                    {% else %}
+                        <span class="badge badge-danger">{% trans "Inactive" %}</span>
+                    {% endif %}
+                </td>
+                {% if request.user.is_staff %}
+                <td>
+                    {% if not user.is_staff and not user.is_superuser and user != request.user %}
+                    <form method="post" action="{% url 'admin_toggle_teacher' user.id %}" style="display: inline;">
+                        {% csrf_token %}
+                        {% if user.profile and user.profile.is_teacher %}
+                        <button type="submit" class="btn btn-sm btn-outline-danger" title="{% trans 'Remove Teacher Role' %}">
+                            <i class="fas fa-user-minus"></i>
+                        </button>
+                        {% else %}
+                        <button type="submit" class="btn btn-sm btn-outline-success" title="{% trans 'Make Teacher' %}">
+                            <i class="fas fa-user-plus"></i>
+                        </button>
+                        {% endif %}
+                    </form>
+                    {% else %}
+                    <span style="color: var(--gray-400);">-</span>
+                    {% endif %}
+                </td>
+                {% endif %}
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="{% if request.user.is_staff %}6{% else %}5{% endif %}">
+                    <div class="empty-state">
+                        <i class="fas fa-users"></i>
+                        <p>{% trans "No users found" %}</p>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include 'signlang/admin/includes/pagination.html' %}
+
+<style>
+    .search-box {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--card-bg);
+        border: 1px solid var(--gray-200);
+        border-radius: 8px;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .search-box i {
+        color: var(--gray-400);
+        font-size: 0.875rem;
+    }
+
+    .search-box input {
+        border: none;
+        outline: none;
+        font-size: 0.875rem;
+        width: 200px;
+        background: transparent;
+    }
+
+    .search-box input::placeholder {
+        color: var(--gray-400);
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .user-avatar {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--primary-400), var(--primary-600));
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+</style>
+{% endblock %}

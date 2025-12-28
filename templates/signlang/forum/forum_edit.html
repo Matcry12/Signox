@@ -1,0 +1,390 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Edit Post" %} - {% trans "Forum" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .edit-post-container {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    .page-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--gray-800);
+    }
+
+    .post-form-card {
+        background: var(--card-bg);
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+    }
+
+    .post-form-card .card-body {
+        padding: 1.5rem;
+    }
+
+    /* File Upload Styles */
+    .file-upload-group {
+        margin-bottom: 1rem;
+    }
+
+    .file-upload-area {
+        border: 2px dashed var(--gray-300);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        text-align: center;
+        background: var(--gray-50);
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+
+    .file-upload-area:hover {
+        border-color: var(--primary-400);
+        background: rgba(99, 102, 241, 0.05);
+    }
+
+    .file-upload-area.dragover {
+        border-color: var(--primary-500);
+        background: rgba(99, 102, 241, 0.1);
+    }
+
+    .file-upload-area i {
+        font-size: 2rem;
+        color: var(--gray-400);
+        margin-bottom: 0.5rem;
+    }
+
+    .file-upload-area p {
+        color: var(--gray-600);
+        font-size: 0.875rem;
+        margin: 0;
+    }
+
+    .file-upload-area small {
+        color: var(--gray-400);
+        font-size: 0.75rem;
+    }
+
+    .current-file {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        background: var(--gray-50);
+        border: 1px solid var(--gray-200);
+        border-radius: 0.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .current-file-thumb {
+        width: 60px;
+        height: 60px;
+        border-radius: 0.375rem;
+        object-fit: cover;
+        background: var(--gray-200);
+    }
+
+    .current-file-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 0.375rem;
+        background: var(--gray-200);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray-500);
+        font-size: 1.5rem;
+    }
+
+    .current-file-info {
+        flex: 1;
+    }
+
+    .current-file-label {
+        font-size: 0.75rem;
+        color: var(--gray-500);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .current-file-name {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--gray-700);
+        word-break: break-all;
+    }
+
+    .current-file-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .current-file-actions label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8125rem;
+        color: var(--gray-600);
+        cursor: pointer;
+    }
+
+    .current-file-actions input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+
+    .file-preview {
+        display: none;
+        margin-top: 0.75rem;
+        padding: 0.75rem;
+        background: var(--card-bg);
+        border: 1px solid var(--gray-200);
+        border-radius: 0.5rem;
+    }
+
+    .file-preview.active {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .file-preview-thumb {
+        width: 60px;
+        height: 60px;
+        border-radius: 0.375rem;
+        object-fit: cover;
+        background: var(--gray-100);
+    }
+
+    .file-preview-info {
+        flex: 1;
+    }
+
+    .file-preview-name {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--gray-700);
+        word-break: break-all;
+    }
+
+    .file-preview-size {
+        font-size: 0.75rem;
+        color: var(--gray-500);
+    }
+
+    .file-preview-remove {
+        padding: 0.375rem;
+        color: var(--gray-400);
+        cursor: pointer;
+        border-radius: 0.25rem;
+        transition: all 0.2s;
+    }
+
+    .file-preview-remove:hover {
+        color: #EF4444;
+        background: rgba(239, 68, 68, 0.1);
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--gray-100);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="edit-post-container">
+    <div class="page-header">
+        <h1>{% trans "Edit Post" %}</h1>
+    </div>
+
+    <div class="post-form-card card">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" id="postForm">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label class="form-label">{% trans "Title" %}</label>
+                    <input type="text" name="title" class="form-control"
+                           value="{{ post.title }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">{% trans "Content" %}</label>
+                    <textarea name="content" class="form-control" rows="6" required>{{ post.content }}</textarea>
+                </div>
+
+                <div class="file-upload-group">
+                    <label class="form-label">{% trans "Image" %}</label>
+
+                    {% if post.image %}
+                    <div class="current-file" id="current-image">
+                        <img class="current-file-thumb" src="{{ post.image.url }}" alt="Current image">
+                        <div class="current-file-info">
+                            <div class="current-file-label">{% trans "Current Image" %}</div>
+                            <div class="current-file-name">{{ post.image.name|slice:"-30:" }}</div>
+                        </div>
+                        <div class="current-file-actions">
+                            <label>
+                                <input type="checkbox" name="image-clear" onchange="toggleCurrentFile('image')">
+                                {% trans "Remove" %}
+                            </label>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="file-upload-area" onclick="document.getElementById('image-input').click()">
+                        <i class="fas fa-image"></i>
+                        <p>{% if post.image %}{% trans "Replace" %} image{% else %}{% trans "Click to upload" %} an image{% endif %}</p>
+                        <small>JPG, PNG, GIF up to 10MB</small>
+                    </div>
+                    <input type="file" name="image" id="image-input" accept="image/*"
+                           style="display: none;" onchange="previewFile(this, 'image-preview')">
+                    <div class="file-preview" id="image-preview">
+                        <img class="file-preview-thumb" id="image-preview-thumb" src="" alt="">
+                        <div class="file-preview-info">
+                            <div class="file-preview-name" id="image-preview-name"></div>
+                            <div class="file-preview-size" id="image-preview-size"></div>
+                        </div>
+                        <span class="file-preview-remove" onclick="removeFile('image-input', 'image-preview')">
+                            <i class="fas fa-times"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="file-upload-group">
+                    <label class="form-label">{% trans "Video" %}</label>
+
+                    {% if post.video %}
+                    <div class="current-file" id="current-video">
+                        <div class="current-file-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <div class="current-file-info">
+                            <div class="current-file-label">{% trans "Current Video" %}</div>
+                            <div class="current-file-name">{{ post.video.name|slice:"-30:" }}</div>
+                        </div>
+                        <div class="current-file-actions">
+                            <label>
+                                <input type="checkbox" name="video-clear" onchange="toggleCurrentFile('video')">
+                                {% trans "Remove" %}
+                            </label>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="file-upload-area" onclick="document.getElementById('video-input').click()">
+                        <i class="fas fa-video"></i>
+                        <p>{% if post.video %}{% trans "Replace" %} video{% else %}{% trans "Click to upload" %} a video{% endif %}</p>
+                        <small>MP4, WebM up to 100MB</small>
+                    </div>
+                    <input type="file" name="video" id="video-input" accept="video/*"
+                           style="display: none;" onchange="previewFile(this, 'video-preview')">
+                    <div class="file-preview" id="video-preview">
+                        <div class="file-preview-thumb" style="display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-film" style="font-size: 1.5rem; color: var(--gray-400);"></i>
+                        </div>
+                        <div class="file-preview-info">
+                            <div class="file-preview-name" id="video-preview-name"></div>
+                            <div class="file-preview-size" id="video-preview-size"></div>
+                        </div>
+                        <span class="file-preview-remove" onclick="removeFile('video-input', 'video-preview')">
+                            <i class="fas fa-times"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> {% trans "Save Changes" %}
+                    </button>
+                    <a href="{% url 'forum_detail' post.id %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+function previewFile(input, previewId) {
+    const preview = document.getElementById(previewId);
+    const file = input.files[0];
+
+    if (file) {
+        const nameEl = document.getElementById(previewId + '-name');
+        const sizeEl = document.getElementById(previewId + '-size');
+
+        nameEl.textContent = file.name;
+        sizeEl.textContent = formatFileSize(file.size);
+
+        // For images, show thumbnail
+        if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById(previewId + '-thumb').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        preview.classList.add('active');
+    }
+}
+
+function removeFile(inputId, previewId) {
+    document.getElementById(inputId).value = '';
+    document.getElementById(previewId).classList.remove('active');
+}
+
+function toggleCurrentFile(type) {
+    const currentFile = document.getElementById('current-' + type);
+    if (currentFile) {
+        const checkbox = currentFile.querySelector('input[type="checkbox"]');
+        currentFile.style.opacity = checkbox.checked ? '0.5' : '1';
+        currentFile.style.textDecoration = checkbox.checked ? 'line-through' : 'none';
+    }
+}
+
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+// Drag and drop support
+document.querySelectorAll('.file-upload-area').forEach(area => {
+    area.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        area.classList.add('dragover');
+    });
+
+    area.addEventListener('dragleave', () => {
+        area.classList.remove('dragover');
+    });
+
+    area.addEventListener('drop', (e) => {
+        e.preventDefault();
+        area.classList.remove('dragover');
+        const input = area.nextElementSibling;
+        if (e.dataTransfer.files.length) {
+            input.files = e.dataTransfer.files;
+            input.dispatchEvent(new Event('change'));
+        }
+    });
+});
+</script>
+{% endblock %}

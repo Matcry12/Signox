@@ -1,0 +1,36 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block title %}{{ action }} {% trans "Video Category" %}{% endblock %}
+{% block page_title %}{{ action }} {% trans "Video Category" %}{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width: 600px;">
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Name" %} *</label>
+                <input type="text" name="name" class="form-control" value="{{ category.name|default:'' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Slug" %} *</label>
+                <input type="text" name="slug" class="form-control" value="{{ category.slug|default:'' }}" required>
+                <small style="color: var(--gray-500);">{% trans "URL-friendly name (e.g., \"tutorials\")" %}</small>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Description" %}</label>
+                <textarea name="description" class="form-control" rows="3">{{ category.description|default:'' }}</textarea>
+            </div>
+
+            <div class="flex gap-1 mt-2">
+                <button type="submit" class="btn btn-primary">{{ action }} {% trans "Category" %}</button>
+                <a href="{% url 'admin_video_category_list' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block title %}{{ action }} {% trans "Video" %}{% endblock %}
+{% block page_title %}{{ action }} {% trans "Video" %}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label class="form-label">{% trans "Title" %} *</label>
+                    <input type="text" name="title" class="form-control" value="{{ video.title|default:'' }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">{% trans "Slug" %} *</label>
+                    <input type="text" name="slug" class="form-control" value="{{ video.slug|default:'' }}" required>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label class="form-label">{% trans "Category" %} *</label>
+                    <select name="category" class="form-control" required>
+                        <option value="">{% trans "Select Category" %}</option>
+                        {% for cat in categories %}
+                        <option value="{{ cat.id }}" {% if video.category_id == cat.id %}selected{% endif %}>{{ cat.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">{% trans "Difficulty" %} *</label>
+                    <select name="difficulty" class="form-control" required>
+                        <option value="easy" {% if video.difficulty == 'easy' %}selected{% endif %}>{% trans "Easy" %}</option>
+                        <option value="medium" {% if video.difficulty == 'medium' %}selected{% endif %}>{% trans "Medium" %}</option>
+                        <option value="hard" {% if video.difficulty == 'hard' %}selected{% endif %}>{% trans "Hard" %}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Description" %} * ({% trans "Markdown supported" %})</label>
+                <div class="markdown-help" style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 0.75rem; font-size: 0.875rem;">
+                    <strong>{% trans "Formatting Guide:" %}</strong>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; margin-top: 0.5rem;">
+                        <div><code>## Heading</code> → {% trans "Section header" %}</div>
+                        <div><code>**bold**</code> → <strong>{% trans "bold" %}</strong></div>
+                        <div><code>*italic*</code> → <em>{% trans "italic" %}</em></div>
+                        <div><code>- item</code> → {% trans "Bullet list" %}</div>
+                        <div><code>1. item</code> → {% trans "Numbered list" %}</div>
+                        <div><code>> quote</code> → {% trans "Blockquote" %}</div>
+                    </div>
+                </div>
+                <textarea name="description" class="form-control" rows="6" required style="font-family: 'Consolas', 'Monaco', monospace; line-height: 1.6;">{{ video.description|default:'' }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Video URL (YouTube embed)" %}</label>
+                <input type="url" name="video_url" class="form-control" value="{{ video.video_url|default:'' }}" placeholder="https://www.youtube.com/embed/...">
+                <small style="color: var(--gray-500);">{% trans "Or upload a video file below" %}</small>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Video File" %}</label>
+                {% if video.video_file %}
+                <div class="file-current">
+                    <div class="file-current-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <div class="file-current-info">
+                        <div class="file-current-label">{% trans "Current Video" %}</div>
+                        <div class="file-current-name">{{ video.video_file.name }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                <input type="file" name="video_file" class="form-control" accept="video/*">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Thumbnail" %}</label>
+                {% if video.thumbnail %}
+                <div class="file-current">
+                    <img src="{{ video.thumbnail.url }}" alt="Current thumbnail">
+                    <div class="file-current-info">
+                        <div class="file-current-label">{% trans "Current Thumbnail" %}</div>
+                        <div class="file-current-name">{{ video.thumbnail.name }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                <input type="file" name="thumbnail" class="form-control" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label class="form-check">
+                    <input type="checkbox" name="is_published" {% if video.is_published %}checked{% elif not video %}checked{% endif %}>
+                    {% trans "Published" %}
+                </label>
+            </div>
+
+            <div class="flex gap-1 mt-2">
+                <button type="submit" class="btn btn-primary">{{ action }} {% trans "Video" %}</button>
+                <a href="{% url 'admin_video_list' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

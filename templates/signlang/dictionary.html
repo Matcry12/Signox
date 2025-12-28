@@ -1,0 +1,320 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load quiz_extras %}
+
+{% block title %}{% trans "Dictionary" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .dictionary-header {
+        background: linear-gradient(135deg, var(--primary-color) 0%, #7C3AED 100%);
+        color: white;
+        padding: 3rem 1rem;
+        text-align: center;
+    }
+
+    .dictionary-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        color: white;
+    }
+
+    .dictionary-header p {
+        opacity: 0.9;
+        margin-bottom: 1.5rem;
+    }
+
+    .search-box {
+        max-width: 500px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .search-box input {
+        padding-left: 3rem;
+        height: 50px;
+        font-size: 1rem;
+        border: none;
+        border-radius: var(--radius-lg);
+    }
+
+    .search-box .search-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-secondary);
+    }
+
+    .filters-bar {
+        background: var(--bg-secondary);
+        padding: 1rem;
+        border-bottom: 1px solid var(--bg-tertiary);
+    }
+
+    .filters-container {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .filter-label {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    .letter-nav {
+        display: flex;
+        gap: 0.25rem;
+        flex-wrap: wrap;
+        padding: 1rem;
+        background: var(--bg-primary);
+        border-bottom: 1px solid var(--bg-tertiary);
+        justify-content: center;
+    }
+
+    .letter-link {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-md);
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: all 0.2s;
+    }
+
+    .letter-link:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    .letter-link.active {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    .letter-link.disabled {
+        color: var(--text-secondary);
+        opacity: 0.5;
+        cursor: default;
+    }
+
+    .letter-section {
+        padding: 2rem 0;
+        border-bottom: 1px solid var(--bg-tertiary);
+    }
+
+    .letter-section:last-child {
+        border-bottom: none;
+    }
+
+    .letter-heading {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        position: sticky;
+        top: 70px;
+        background: var(--bg-primary);
+        padding: 0.5rem 0;
+        z-index: 10;
+    }
+
+    .vocab-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+
+    .vocab-card {
+        background: var(--bg-secondary);
+        border-radius: var(--radius-md);
+        padding: 1rem;
+        transition: all 0.2s;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .vocab-card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .vocab-word {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        color: var(--text-primary);
+    }
+
+    .vocab-meaning {
+        color: var(--text-secondary);
+        font-size: 0.9375rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .vocab-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+    }
+
+    .vocab-meta .category-tag {
+        background: var(--bg-tertiary);
+        padding: 0.125rem 0.5rem;
+        border-radius: 999px;
+    }
+
+    .stats-bar {
+        text-align: center;
+        padding: 1rem;
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+    }
+
+    .no-results {
+        text-align: center;
+        padding: 3rem;
+        color: var(--text-secondary);
+    }
+
+    .no-results i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        opacity: 0.5;
+    }
+
+    /* Dark Mode */
+    [data-theme="dark"] .filters-bar {
+        background: #1E293B;
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .letter-nav {
+        background: #0F172A;
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .letter-link {
+        color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .letter-heading {
+        background: #0F172A;
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .vocab-card {
+        background: #1E293B;
+    }
+
+    [data-theme="dark"] .vocab-card:hover {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .vocab-word {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .vocab-meta .category-tag {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .letter-section {
+        border-color: #334155;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="dictionary-header">
+    <h1><i class="fas fa-book-open"></i> {% trans "Dictionary" %}</h1>
+    <p>{% trans "Browse all" %} {{ total_count }} {% trans "vocabulary words" %}</p>
+    <form class="search-box" method="get">
+        {% if selected_category %}
+        <input type="hidden" name="category" value="{{ selected_category }}">
+        {% endif %}
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" name="q" class="form-control" value="{{ search }}" placeholder="{% trans 'Search for a word or meaning...' %}">
+    </form>
+</div>
+
+<div class="filters-bar">
+    <div class="container" style="padding: 0;">
+        <div class="filters-container">
+            <span class="filter-label">{% trans "Filter by category:" %}</span>
+            <a href="{% url 'dictionary' %}{% if search %}?q={{ search }}{% endif %}" class="btn btn-sm {% if not selected_category %}btn-primary{% else %}btn-outline{% endif %}">
+                {% trans "All" %}
+            </a>
+            {% for cat in categories %}
+            <a href="{% url 'dictionary' %}?category={{ cat.slug }}{% if search %}&q={{ search }}{% endif %}" class="btn btn-sm {% if selected_category == cat.slug %}btn-primary{% else %}btn-outline{% endif %}">
+                {{ cat.name }} ({{ cat.vocab_count }})
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% if sorted_letters %}
+<div class="letter-nav">
+    {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
+        {% if letter in sorted_letters %}
+        <a href="#letter-{{ letter }}" class="letter-link">{{ letter }}</a>
+        {% else %}
+        <span class="letter-link disabled">{{ letter }}</span>
+        {% endif %}
+    {% endfor %}
+    {% if '#' in sorted_letters %}
+    <a href="#letter-other" class="letter-link">#</a>
+    {% endif %}
+</div>
+{% endif %}
+
+<div class="container">
+    {% if total_count > 0 %}
+    <div class="stats-bar">
+        {% trans "Showing" %} {{ total_count }} {% trans "word" %}{% if total_count != 1 %}s{% endif %}
+        {% if search %} {% trans "matching" %} "<strong>{{ search }}</strong>"{% endif %}
+        {% if selected_category %} {% trans "in selected category" %}{% endif %}
+    </div>
+
+    {% for letter in sorted_letters %}
+    <div class="letter-section" id="letter-{% if letter == '#' %}other{% else %}{{ letter }}{% endif %}">
+        <h2 class="letter-heading">{{ letter }}</h2>
+        <div class="vocab-grid">
+            {% for vocab in vocab_by_letter|get_item:letter %}
+            <a href="{% url 'lesson_detail' vocab.lesson.slug %}" class="vocab-card">
+                <div class="vocab-word">{{ vocab.word }}</div>
+                <div class="vocab-meaning">{{ vocab.meaning }}</div>
+                <div class="vocab-meta">
+                    <span class="category-tag">{{ vocab.lesson.category.name }}</span>
+                    <span><i class="fas fa-book"></i> {{ vocab.lesson.title|truncatewords:4 }}</span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <div class="no-results">
+        <i class="fas fa-search"></i>
+        <h2>{% trans "No vocabulary found" %}</h2>
+        {% if search %}
+        <p>{% trans "No words matching" %} "{{ search }}"</p>
+        <a href="{% url 'dictionary' %}" class="btn btn-primary">{% trans "Clear Search" %}</a>
+        {% else %}
+        <p>{% trans "No vocabulary has been added yet." %}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

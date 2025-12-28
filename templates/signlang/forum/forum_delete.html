@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}Delete Post - Forum - Signox{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div style="max-width: 500px; margin: 0 auto; text-align: center;">
+        <div class="card">
+            <div class="card-body" style="padding: 3rem;">
+                <svg width="64" height="64" fill="none" stroke="var(--danger-color)" stroke-width="1.5" viewBox="0 0 24 24" style="margin: 0 auto 1.5rem;">
+                    <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                </svg>
+
+                <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">{% trans "Delete Post" %}?</h1>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                    {% trans "Are you sure" %} you want to delete "{{ post.title }}"? {% trans "This action cannot be undone" %}.
+                </p>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="flex gap-1" style="justify-content: center;">
+                        <button type="submit" class="btn btn-danger">{% trans "Yes, Delete" %}</button>
+                        <a href="{% url 'forum_detail' post.id %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

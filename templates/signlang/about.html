@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "About Us" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .about-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+
+    .about-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .about-header h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-700);
+        margin-bottom: 0.5rem;
+    }
+
+    .about-header .divider {
+        width: 64px;
+        height: 4px;
+        background: var(--orange-400);
+        margin: 0 auto;
+        border-radius: 9999px;
+    }
+
+    .mission-card {
+        background: var(--card-bg);
+        border-radius: 1rem;
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+    }
+
+    .mission-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .mission-content {
+        padding: 1.5rem;
+    }
+
+    .mission-content h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--gray-800);
+        margin-bottom: 0.75rem;
+    }
+
+    .mission-content p {
+        font-size: 0.9375rem;
+        color: var(--gray-600);
+        line-height: 1.7;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .info-card {
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+    }
+
+    .info-card.teal {
+        background: var(--primary-50);
+    }
+
+    .info-card.orange {
+        background: var(--orange-100);
+    }
+
+    .info-card h3 {
+        font-size: 0.875rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .info-card.teal h3 { color: var(--primary-700); }
+    .info-card.orange h3 { color: #C2410C; }
+
+    .info-card p {
+        font-size: 0.8125rem;
+        line-height: 1.6;
+    }
+
+    .info-card.teal p { color: var(--primary-600); }
+    .info-card.orange p { color: #EA580C; }
+
+    /* Team Section */
+    .team-section {
+        margin-top: 2rem;
+    }
+
+    .team-section h2 {
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--gray-700);
+        margin-bottom: 1.5rem;
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .team-member {
+        text-align: center;
+    }
+
+    .team-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary-400), var(--primary-600));
+        margin: 0 auto 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+        box-shadow: var(--shadow-md);
+    }
+
+    .team-member h4 {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 0.25rem;
+    }
+
+    .team-member p {
+        font-size: 0.75rem;
+        color: var(--gray-500);
+    }
+
+    /* Features Section */
+    .features-section {
+        background: var(--card-bg);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        margin-top: 2rem;
+    }
+
+    .features-section h2 {
+        text-align: center;
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--gray-700);
+        margin-bottom: 1.5rem;
+    }
+
+    .feature-list {
+        display: grid;
+        gap: 1rem;
+    }
+
+    .feature-item {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .feature-icon.teal { background: var(--primary-100); color: var(--primary-600); }
+    .feature-icon.blue { background: var(--blue-100); color: var(--blue-500); }
+    .feature-icon.purple { background: var(--purple-100); color: var(--purple-500); }
+    .feature-icon.orange { background: var(--orange-100); color: var(--orange-400); }
+
+    .feature-item h4 {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 0.25rem;
+    }
+
+    .feature-item p {
+        font-size: 0.8125rem;
+        color: var(--gray-500);
+    }
+
+    @media (max-width: 640px) {
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="about-container">
+    <!-- Header -->
+    <div class="about-header">
+        <h1>{% trans "About The Project" %}</h1>
+        <div class="divider"></div>
+    </div>
+
+    <!-- Mission Card -->
+    <div class="mission-card">
+        <div class="mission-image" style="background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%); display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-hands" style="font-size: 4rem; color: rgba(255,255,255,0.3);"></i>
+        </div>
+        <div class="mission-content">
+            <h2>{% trans "Our Mission" %}</h2>
+            <p>
+                {% trans "The \"Signox\" project was established with the goal of breaking down language barriers. We want to spread the beauty of Sign Language to the community, helping everyone understand and connect with each other more easily. Our platform provides a free, friendly, and open learning environment for all." %}
+            </p>
+        </div>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="info-grid">
+        <div class="info-card teal">
+            <h3>{% trans "Our Goal" %}</h3>
+            <p>{% trans "Build an open, friendly, and free learning community where everyone can learn sign language at their own pace." %}</p>
+        </div>
+        <div class="info-card orange">
+            <h3>{% trans "Our Vision" %}</h3>
+            <p>{% trans "Develop AI-powered gesture recognition and expand our vocabulary database to serve more learners." %}</p>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section">
+        <h2>{% trans "What We Offer" %}</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <div class="feature-icon teal">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <div>
+                    <h4>{% trans "Comprehensive Library" %}</h4>
+                    <p>{% trans "Access hundreds of sign language vocabulary with video demonstrations and detailed explanations." %}</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon blue">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div>
+                    <h4>{% trans "Community Forum" %}</h4>
+                    <p>{% trans "Connect with other learners, ask questions, and share your learning journey." %}</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon purple">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h4>{% trans "Structured Learning" %}</h4>
+                    <p>{% trans "Follow organized lessons by topic with quizzes to test your knowledge." %}</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon orange">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div>
+                    <h4>{% trans "Progress Tracking" %}</h4>
+                    <p>{% trans "Monitor your learning progress and get personalized recommendations." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="team-section">
+        <h2>{% trans "Our Team" %}</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h4>{% trans "Team Member 1" %}</h4>
+                <p>{% trans "Developer" %}</p>
+            </div>
+            <div class="team-member">
+                <div class="team-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h4>{% trans "Team Member 2" %}</h4>
+                <p>{% trans "Designer" %}</p>
+            </div>
+            <div class="team-member">
+                <div class="team-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h4>{% trans "Team Member 3" %}</h4>
+                <p>{% trans "Content Creator" %}</p>
+            </div>
+            <div class="team-member">
+                <div class="team-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h4>{% trans "Team Member 4" %}</h4>
+                <p>{% trans "Researcher" %}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

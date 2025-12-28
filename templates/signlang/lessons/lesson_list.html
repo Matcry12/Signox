@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% if category %}{{ category.name }} - {% endif %}{% trans "Lessons" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .page-header {
+        background: var(--bg-primary);
+        padding: 2rem 1rem;
+        border-bottom: 1px solid var(--bg-tertiary);
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .filter-bar {
+        background: var(--bg-primary);
+        padding: 1rem;
+        border-radius: var(--radius-lg);
+        margin-bottom: 1.5rem;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .search-input {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .lesson-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .lesson-card {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .lesson-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .lesson-thumbnail {
+        height: 160px;
+        background: var(--bg-tertiary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .lesson-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .lesson-content {
+        padding: 1rem;
+    }
+
+    .lesson-content h3 {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .lesson-content p {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+    }
+
+    .lesson-meta {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .category-filter {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+    }
+
+    .category-btn {
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        background: var(--bg-tertiary);
+        color: var(--text-primary);
+        font-size: 0.875rem;
+        transition: all 0.2s;
+    }
+
+    .category-btn:hover, .category-btn.active {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 2rem;
+    }
+
+    .pagination a, .pagination span {
+        padding: 0.5rem 1rem;
+        border-radius: var(--radius-md);
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+    }
+
+    .pagination .current {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+        .page-header {
+            padding: 1.5rem 1rem;
+        }
+        .page-header h1 {
+            font-size: 1.5rem;
+        }
+        .filter-bar {
+            padding: 0.75rem;
+            gap: 0.75rem;
+        }
+        .search-input {
+            min-width: 100%;
+            flex: none;
+        }
+        .lesson-grid {
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+        .category-filter {
+            gap: 0.375rem;
+        }
+        .category-btn {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.8125rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .page-header {
+            padding: 1.25rem 1rem;
+        }
+        .page-header h1 {
+            font-size: 1.375rem;
+        }
+        .filter-bar {
+            flex-direction: column;
+        }
+        .filter-bar .form-control,
+        .filter-bar .btn {
+            width: 100%;
+        }
+        .lesson-grid {
+            grid-template-columns: 1fr;
+        }
+        .lesson-thumbnail {
+            height: 180px;
+        }
+        .lesson-content {
+            padding: 0.875rem;
+        }
+        .lesson-content h3 {
+            font-size: 1rem;
+        }
+        .pagination {
+            flex-wrap: wrap;
+        }
+        .pagination a, .pagination span {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container" style="padding: 0;">
+        <h1>{% if category %}{{ category.name }}{% else %}{% trans "All Lessons" %}{% endif %}</h1>
+        {% if category %}
+        <p>{{ category.description }}</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container">
+    <!-- Category Filter -->
+    <div class="category-filter">
+        <a href="{% url 'lesson_list' %}" class="category-btn {% if not category %}active{% endif %}">{% trans "All" %}</a>
+        {% for cat in categories %}
+        <a href="{% url 'lesson_list_by_category' cat.slug %}" class="category-btn {% if category.slug == cat.slug %}active{% endif %}">
+            {{ cat.name }}
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- Filter Bar -->
+    <form class="filter-bar" method="get">
+        <input type="text" name="search" class="form-control search-input" placeholder="{% trans 'Search lessons...' %}" value="{{ request.GET.search }}">
+        <select name="difficulty" class="form-control" style="width: auto;">
+            <option value="">{% trans "All Levels" %}</option>
+            <option value="easy" {% if request.GET.difficulty == 'easy' %}selected{% endif %}>{% trans "Easy" %}</option>
+            <option value="medium" {% if request.GET.difficulty == 'medium' %}selected{% endif %}>{% trans "Medium" %}</option>
+            <option value="hard" {% if request.GET.difficulty == 'hard' %}selected{% endif %}>{% trans "Hard" %}</option>
+        </select>
+        <button type="submit" class="btn btn-primary">{% trans "Filter" %}</button>
+    </form>
+
+    <!-- Lessons Grid -->
+    <div class="lesson-grid">
+        {% for lesson in lessons %}
+        <a href="{% url 'lesson_detail' lesson.slug %}" class="card lesson-card">
+            <div class="lesson-thumbnail">
+                {% if lesson.thumbnail %}
+                    <img src="{{ lesson.thumbnail.url }}" alt="{{ lesson.title }}">
+                {% else %}
+                    <svg width="48" height="48" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                {% endif %}
+            </div>
+            <div class="lesson-content">
+                <h3>{{ lesson.title }}</h3>
+                <p>{{ lesson.description|truncatewords:15 }}</p>
+                <div class="lesson-meta">
+                    <span class="badge badge-{% if lesson.difficulty == 'easy' %}success{% elif lesson.difficulty == 'medium' %}warning{% else %}danger{% endif %}">
+                        {{ lesson.get_difficulty_display }}
+                    </span>
+                    <span style="font-size: 0.875rem; color: var(--text-secondary);">{{ lesson.category.name }}</span>
+                </div>
+            </div>
+        </a>
+        {% empty %}
+        <div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+            <svg width="64" height="64" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" viewBox="0 0 24 24" style="margin: 0 auto 1rem;">
+                <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+            <h3>{% trans "No lessons found" %}</h3>
+            <p style="color: var(--text-secondary);">{% trans "Try adjusting your search or filters" %}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if lessons.has_other_pages %}
+    <div class="pagination">
+        {% if lessons.has_previous %}
+        <a href="?page={{ lessons.previous_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if request.GET.difficulty %}&difficulty={{ request.GET.difficulty }}{% endif %}">{% trans "Previous" %}</a>
+        {% endif %}
+
+        {% for num in lessons.paginator.page_range %}
+            {% if lessons.number == num %}
+            <span class="current">{{ num }}</span>
+            {% elif num > lessons.number|add:'-3' and num < lessons.number|add:'3' %}
+            <a href="?page={{ num }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if request.GET.difficulty %}&difficulty={{ request.GET.difficulty }}{% endif %}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if lessons.has_next %}
+        <a href="?page={{ lessons.next_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if request.GET.difficulty %}&difficulty={{ request.GET.difficulty }}{% endif %}">{% trans "Next" %}</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

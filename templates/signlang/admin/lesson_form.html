@@ -1,0 +1,111 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block title %}{{ action }} {% trans "Lesson" %}{% endblock %}
+{% block page_title %}{{ action }} {% trans "Lesson" %}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label class="form-label">{% trans "Title" %} *</label>
+                    <input type="text" name="title" class="form-control" value="{{ lesson.title|default:'' }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">{% trans "Slug" %} *</label>
+                    <input type="text" name="slug" class="form-control" value="{{ lesson.slug|default:'' }}" required>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label class="form-label">{% trans "Category" %} *</label>
+                    <select name="category" class="form-control" required>
+                        <option value="">{% trans "Select Category" %}</option>
+                        {% for cat in categories %}
+                        <option value="{{ cat.id }}" {% if lesson.category_id == cat.id %}selected{% endif %}>{{ cat.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">{% trans "Difficulty" %} *</label>
+                    <select name="difficulty" class="form-control" required>
+                        <option value="easy" {% if lesson.difficulty == 'easy' %}selected{% endif %}>{% trans "Easy" %}</option>
+                        <option value="medium" {% if lesson.difficulty == 'medium' %}selected{% endif %}>{% trans "Medium" %}</option>
+                        <option value="hard" {% if lesson.difficulty == 'hard' %}selected{% endif %}>{% trans "Hard" %}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Description" %} *</label>
+                <textarea name="description" class="form-control" rows="3" required>{{ lesson.description|default:'' }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Content" %} * ({% trans "Markdown supported" %})</label>
+                <div class="markdown-help" style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 0.75rem; font-size: 0.875rem;">
+                    <strong>{% trans "Formatting Guide:" %}</strong>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; margin-top: 0.5rem;">
+                        <div><code># Heading 1</code> → {% trans "Large header" %}</div>
+                        <div><code>## Heading 2</code> → {% trans "Medium header" %}</div>
+                        <div><code>### Heading 3</code> → {% trans "Small header" %}</div>
+                        <div><code>**bold**</code> → <strong>{% trans "bold" %}</strong></div>
+                        <div><code>*italic*</code> → <em>{% trans "italic" %}</em></div>
+                        <div><code>- item</code> → {% trans "Bullet list" %}</div>
+                        <div><code>1. item</code> → {% trans "Numbered list" %}</div>
+                        <div><code>> quote</code> → {% trans "Blockquote" %}</div>
+                        <div><code>`code`</code> → <code>{% trans "inline code" %}</code></div>
+                        <div><code>---</code> → {% trans "Horizontal line" %}</div>
+                    </div>
+                </div>
+                <textarea name="content" class="form-control" rows="12" required style="font-family: 'Consolas', 'Monaco', monospace; line-height: 1.6;">{{ lesson.content|default:'' }}</textarea>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label class="form-label">{% trans "Video URL (YouTube embed)" %}</label>
+                    <input type="url" name="video_url" class="form-control" value="{{ lesson.video_url|default:'' }}" placeholder="https://www.youtube.com/embed/...">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">{% trans "Order" %}</label>
+                    <input type="number" name="order" class="form-control" value="{{ lesson.order|default:0 }}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Thumbnail" %}</label>
+                {% if lesson.thumbnail %}
+                <div class="file-current">
+                    <img src="{{ lesson.thumbnail.url }}" alt="Current thumbnail">
+                    <div class="file-current-info">
+                        <div class="file-current-label">{% trans "Current Thumbnail" %}</div>
+                        <div class="file-current-name">{{ lesson.thumbnail.name }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                <input type="file" name="thumbnail" class="form-control" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label class="form-check">
+                    <input type="checkbox" name="is_published" {% if lesson.is_published %}checked{% elif not lesson %}checked{% endif %}>
+                    {% trans "Published" %}
+                </label>
+            </div>
+
+            <div class="flex gap-1 mt-2">
+                <button type="submit" class="btn btn-primary">{{ action }} {% trans "Lesson" %}</button>
+                <a href="{% url 'admin_lesson_list' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

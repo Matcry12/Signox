@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load quiz_extras %}
+
+{% block title %}{% trans "Quizzes" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 1.5rem !important;
+        }
+        .grid-3 {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 1.375rem !important;
+        }
+        .grid-3 {
+            grid-template-columns: 1fr !important;
+        }
+        .card-body h3 {
+            font-size: 1rem !important;
+        }
+        .card-body p {
+            font-size: 0.8125rem !important;
+        }
+    }
+
+    /* Dark Mode Styles */
+    [data-theme="dark"] h1 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .card-body h3 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .card-body > div[style*="background: var(--bg-secondary)"] {
+        background: #334155 !important;
+    }
+
+    [data-theme="dark"] .text-center h2 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .best-score-box {
+        background: #334155;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">{% trans "Quizzes" %}</h1>
+    <p style="color: var(--text-secondary); margin-bottom: 2rem;">{% trans "Test your knowledge and track your progress" %}</p>
+
+    <div class="grid grid-3">
+        {% for quiz in quizzes %}
+        <div class="card">
+            <div class="card-body">
+                <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">{{ quiz.title }}</h3>
+                <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem;">{{ quiz.description|truncatewords:15|default:_("Test your knowledge") }}</p>
+
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                    <span class="badge badge-primary">{{ quiz.questions.count }} {% trans "Questions" %}</span>
+                    <span class="badge badge-secondary">{{ quiz.passing_score }}% {% trans "to pass" %}</span>
+                    {% if quiz.time_limit %}
+                    <span class="badge badge-secondary">{{ quiz.time_limit }} {% trans "min" %}</span>
+                    {% endif %}
+                </div>
+
+                {% if quiz.id in attempts_dict %}
+                <div style="background: var(--bg-secondary); padding: 0.75rem; border-radius: var(--radius-md); margin-bottom: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                        <span style="font-size: 0.75rem; color: var(--text-secondary);"><i class="fas fa-crown" style="color: #F59E0B;"></i> {% trans "Best Score" %}</span>
+                        {% if attempts_dict|get_item:quiz.id|get_item:'has_passed' %}
+                        <span class="badge badge-success"><i class="fas fa-check"></i> {% trans "Passed" %}</span>
+                        {% endif %}
+                    </div>
+                    <div style="font-size: 1.25rem; font-weight: 600; color: {% if attempts_dict|get_item:quiz.id|get_item:'has_passed' %}var(--secondary-color){% else %}var(--primary-color){% endif %};">{{ attempts_dict|get_item:quiz.id|get_item:'best_score'|floatformat:0 }}/{{ attempts_dict|get_item:quiz.id|get_item:'max_score'|floatformat:0 }}</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary);">{{ attempts_dict|get_item:quiz.id|get_item:'attempts' }} {% trans "attempt" %}{% if attempts_dict|get_item:quiz.id|get_item:'attempts' != 1 %}s{% endif %}</div>
+                </div>
+                {% endif %}
+
+                <a href="{% url 'quiz_detail' quiz.id %}" class="btn btn-primary" style="width: 100%;">
+                    {% if quiz.id in attempts_dict %}{% trans "Retry Quiz" %}{% else %}{% trans "Start Quiz" %}{% endif %}
+                </a>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'lesson_detail' quiz.lesson.slug %}" style="font-size: 0.875rem; color: var(--primary-color);">
+                    {% trans "Related" %}: {{ quiz.lesson.title|truncatewords:5 }}
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <div style="grid-column: 1/-1;" class="card">
+            <div class="card-body text-center" style="padding: 3rem;">
+                <svg width="64" height="64" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" viewBox="0 0 24 24" style="margin: 0 auto 1rem;">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                </svg>
+                <h2>{% trans "No Quizzes Available" %}</h2>
+                <p style="color: var(--text-secondary);">{% trans "Quizzes will appear here as you progress through lessons." %}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

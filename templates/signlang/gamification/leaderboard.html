@@ -1,0 +1,656 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Leaderboard" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .leaderboard-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    .leaderboard-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .leaderboard-header h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--gray-800);
+        margin-bottom: 0.5rem;
+    }
+
+    /* Period Tabs */
+    .period-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .period-tab {
+        padding: 0.5rem 1.25rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        border: 1px solid var(--gray-200);
+        background: var(--card-bg);
+        color: var(--gray-600);
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .period-tab:hover {
+        background: var(--gray-50);
+    }
+
+    .period-tab.active {
+        background: var(--primary-600);
+        color: white;
+        border-color: var(--primary-600);
+    }
+
+    /* User Rank Card */
+    .user-rank-card {
+        background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+        border-radius: 1rem;
+        padding: 1.5rem;
+        color: white;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .user-rank-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .user-rank-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .user-rank-number span {
+        font-size: 1rem;
+        opacity: 0.8;
+    }
+
+    .user-rank-details h3 {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .user-rank-details p {
+        font-size: 0.875rem;
+        opacity: 0.8;
+    }
+
+    .user-rank-xp {
+        text-align: right;
+    }
+
+    .user-rank-xp .xp-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .user-rank-xp .xp-label {
+        font-size: 0.75rem;
+        opacity: 0.8;
+    }
+
+    /* Top 3 Podium */
+    .podium {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+
+    .podium-spot {
+        flex: 1;
+        max-width: 140px;
+        text-align: center;
+    }
+
+    .podium-avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: var(--gray-200);
+        margin: 0 auto 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        position: relative;
+    }
+
+    .podium-spot.first .podium-avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+        background: linear-gradient(135deg, #FFD700, #FFA500);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+
+    .podium-spot.second .podium-avatar {
+        background: linear-gradient(135deg, #C0C0C0, #808080);
+    }
+
+    .podium-spot.third .podium-avatar {
+        background: linear-gradient(135deg, #CD7F32, #8B4513);
+    }
+
+    .podium-crown {
+        position: absolute;
+        top: -16px;
+        font-size: 1.5rem;
+        color: #FFD700;
+    }
+
+    .podium-name {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 0.25rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .podium-xp {
+        font-size: 0.75rem;
+        color: var(--gray-500);
+    }
+
+    .podium-base {
+        margin-top: 0.5rem;
+        padding: 0.75rem 0.5rem;
+        border-radius: 0.5rem 0.5rem 0 0;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: white;
+    }
+
+    .podium-spot.first .podium-base {
+        background: linear-gradient(135deg, #FFD700, #FFA500);
+        height: 80px;
+    }
+
+    .podium-spot.second .podium-base {
+        background: linear-gradient(135deg, #C0C0C0, #808080);
+        height: 60px;
+    }
+
+    .podium-spot.third .podium-base {
+        background: linear-gradient(135deg, #CD7F32, #8B4513);
+        height: 40px;
+    }
+
+    /* Leaderboard Table */
+    .leaderboard-card {
+        background: var(--card-bg);
+        border-radius: 1rem;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+    }
+
+    .leaderboard-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .leaderboard-table th {
+        background: var(--gray-50);
+        padding: 1rem;
+        text-align: left;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--gray-500);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .leaderboard-table td {
+        padding: 1rem;
+        border-top: 1px solid var(--gray-100);
+    }
+
+    .leaderboard-table tr:hover td {
+        background: var(--gray-50);
+    }
+
+    .leaderboard-table tr.current-user td {
+        background: var(--primary-50);
+    }
+
+    .rank-cell {
+        font-weight: 700;
+        color: var(--gray-400);
+        width: 50px;
+    }
+
+    .rank-cell.top-3 {
+        font-size: 1.25rem;
+    }
+
+    .rank-cell .rank-1 { color: #FFD700; }
+    .rank-cell .rank-2 { color: #C0C0C0; }
+    .rank-cell .rank-3 { color: #CD7F32; }
+
+    .user-cell {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .user-avatar-small {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--primary-500);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+
+    .user-avatar-small img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .user-info h4 {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--gray-800);
+    }
+
+    .user-info p {
+        font-size: 0.75rem;
+        color: var(--gray-500);
+    }
+
+    .level-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.25rem 0.5rem;
+        background: var(--primary-100);
+        color: var(--primary-700);
+        border-radius: 9999px;
+        font-size: 0.6875rem;
+        font-weight: 600;
+    }
+
+    .xp-cell {
+        font-weight: 700;
+        color: var(--gray-800);
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 3rem;
+        color: var(--gray-500);
+    }
+
+    @media (max-width: 640px) {
+        .podium {
+            flex-direction: row;
+            gap: 0.25rem;
+        }
+
+        .podium-spot {
+            max-width: 100px;
+        }
+
+        .podium-avatar {
+            width: 48px;
+            height: 48px;
+            font-size: 1rem;
+        }
+
+        .podium-spot.first .podium-avatar {
+            width: 56px;
+            height: 56px;
+        }
+
+        .user-rank-card {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .user-rank-info {
+            flex-direction: column;
+        }
+
+        .user-rank-xp {
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .leaderboard-container {
+            padding: 1.5rem 0.75rem;
+        }
+        .leaderboard-header h1 {
+            font-size: 1.375rem;
+        }
+        .period-tabs {
+            gap: 0.25rem;
+        }
+        .period-tab {
+            padding: 0.375rem 0.875rem;
+            font-size: 0.75rem;
+        }
+        .user-rank-card {
+            padding: 1.25rem;
+        }
+        .user-rank-number {
+            font-size: 2rem;
+        }
+        .podium-spot {
+            max-width: 85px;
+        }
+        .podium-name {
+            font-size: 0.6875rem;
+        }
+        .podium-xp {
+            font-size: 0.625rem;
+        }
+        .podium-base {
+            font-size: 1rem;
+        }
+        .podium-spot.first .podium-base {
+            height: 60px;
+        }
+        .podium-spot.second .podium-base {
+            height: 45px;
+        }
+        .podium-spot.third .podium-base {
+            height: 30px;
+        }
+        .leaderboard-table th,
+        .leaderboard-table td {
+            padding: 0.75rem 0.5rem;
+        }
+        .leaderboard-table th {
+            font-size: 0.625rem;
+        }
+        .user-avatar-small {
+            width: 32px;
+            height: 32px;
+            font-size: 0.75rem;
+        }
+        .user-info h4 {
+            font-size: 0.8125rem;
+        }
+        .user-info p {
+            font-size: 0.625rem;
+        }
+        .level-badge {
+            font-size: 0.625rem;
+            padding: 0.125rem 0.375rem;
+        }
+        .xp-cell {
+            font-size: 0.875rem;
+        }
+    }
+
+    /* Dark Mode Styles */
+    [data-theme="dark"] .leaderboard-header h1 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .period-tab {
+        background: #1E293B;
+        border-color: #334155;
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .period-tab:hover {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .period-tab.active {
+        background: var(--primary-600);
+        color: white;
+        border-color: var(--primary-600);
+    }
+
+    [data-theme="dark"] .podium-name {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .podium-xp {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .podium-avatar {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .leaderboard-card {
+        background: #1E293B;
+    }
+
+    [data-theme="dark"] .leaderboard-table th {
+        background: #334155;
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .leaderboard-table td {
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .leaderboard-table tr:hover td {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .leaderboard-table tr.current-user td {
+        background: rgba(99, 102, 241, 0.15);
+    }
+
+    [data-theme="dark"] .user-info h4 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .user-info p {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .xp-cell {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .level-badge {
+        background: rgba(99, 102, 241, 0.2);
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .empty-state h3 {
+        color: #F1F5F9;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="leaderboard-container">
+    <div class="leaderboard-header">
+        <h1><i class="fas fa-crown"></i> {% trans "Leaderboard" %}</h1>
+        <p class="text-gray">{% trans "See how you rank against other learners" %}</p>
+    </div>
+
+    <!-- Period Tabs -->
+    <div class="period-tabs">
+        <a href="?period=all" class="period-tab {% if period == 'all' %}active{% endif %}">{% trans "All Time" %}</a>
+        <a href="?period=monthly" class="period-tab {% if period == 'monthly' %}active{% endif %}">{% trans "This Month" %}</a>
+        <a href="?period=weekly" class="period-tab {% if period == 'weekly' %}active{% endif %}">{% trans "This Week" %}</a>
+    </div>
+
+    {% if user.is_authenticated and user_rank %}
+    <!-- User's Current Rank -->
+    <div class="user-rank-card">
+        <div class="user-rank-info">
+            <div class="user-rank-number">#{{ user_rank }}<span>th</span></div>
+            <div class="user-rank-details">
+                <h3>{{ user.get_full_name|default:user.username }}</h3>
+                <p>Level {{ user_points.level }} - {{ user_points.level_title }}</p>
+            </div>
+        </div>
+        <div class="user-rank-xp">
+            <div class="xp-value">
+                {% if period == 'weekly' %}
+                {{ user_points.weekly_points }}
+                {% elif period == 'monthly' %}
+                {{ user_points.monthly_points }}
+                {% else %}
+                {{ user_points.total_points }}
+                {% endif %}
+            </div>
+            <div class="xp-label">XP</div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if leaders %}
+    <!-- Top 3 Podium -->
+    {% if leaders|length >= 3 %}
+    <div class="podium">
+        <!-- 2nd Place -->
+        <div class="podium-spot second">
+            <div class="podium-avatar">
+                {% if leaders.1.user.profile.avatar %}
+                <img src="{{ leaders.1.user.profile.avatar.url }}" alt="">
+                {% else %}
+                {{ leaders.1.user.username.0|upper }}
+                {% endif %}
+            </div>
+            <div class="podium-name">{{ leaders.1.user.username }}</div>
+            <div class="podium-xp">
+                {% if period == 'weekly' %}{{ leaders.1.weekly_points }}{% elif period == 'monthly' %}{{ leaders.1.monthly_points }}{% else %}{{ leaders.1.total_points }}{% endif %} XP
+            </div>
+            <div class="podium-base">2</div>
+        </div>
+
+        <!-- 1st Place -->
+        <div class="podium-spot first">
+            <div class="podium-avatar">
+                <i class="fas fa-crown podium-crown"></i>
+                {% if leaders.0.user.profile.avatar %}
+                <img src="{{ leaders.0.user.profile.avatar.url }}" alt="">
+                {% else %}
+                {{ leaders.0.user.username.0|upper }}
+                {% endif %}
+            </div>
+            <div class="podium-name">{{ leaders.0.user.username }}</div>
+            <div class="podium-xp">
+                {% if period == 'weekly' %}{{ leaders.0.weekly_points }}{% elif period == 'monthly' %}{{ leaders.0.monthly_points }}{% else %}{{ leaders.0.total_points }}{% endif %} XP
+            </div>
+            <div class="podium-base">1</div>
+        </div>
+
+        <!-- 3rd Place -->
+        <div class="podium-spot third">
+            <div class="podium-avatar">
+                {% if leaders.2.user.profile.avatar %}
+                <img src="{{ leaders.2.user.profile.avatar.url }}" alt="">
+                {% else %}
+                {{ leaders.2.user.username.0|upper }}
+                {% endif %}
+            </div>
+            <div class="podium-name">{{ leaders.2.user.username }}</div>
+            <div class="podium-xp">
+                {% if period == 'weekly' %}{{ leaders.2.weekly_points }}{% elif period == 'monthly' %}{{ leaders.2.monthly_points }}{% else %}{{ leaders.2.total_points }}{% endif %} XP
+            </div>
+            <div class="podium-base">3</div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Full Leaderboard Table -->
+    <div class="leaderboard-card">
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>{% trans "Rank" %}</th>
+                    <th>{% trans "User" %}</th>
+                    <th>{% trans "Level" %}</th>
+                    <th style="text-align: right;">{% trans "XP" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for leader in leaders %}
+                <tr {% if user.is_authenticated and leader.user == user %}class="current-user"{% endif %}>
+                    <td class="rank-cell {% if forloop.counter <= 3 %}top-3{% endif %}">
+                        {% if forloop.counter == 1 %}
+                        <span class="rank-1"><i class="fas fa-trophy"></i></span>
+                        {% elif forloop.counter == 2 %}
+                        <span class="rank-2"><i class="fas fa-medal"></i></span>
+                        {% elif forloop.counter == 3 %}
+                        <span class="rank-3"><i class="fas fa-award"></i></span>
+                        {% else %}
+                        {{ forloop.counter }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        <div class="user-cell">
+                            <div class="user-avatar-small">
+                                {% if leader.user.profile.avatar %}
+                                <img src="{{ leader.user.profile.avatar.url }}" alt="">
+                                {% else %}
+                                {{ leader.user.username.0|upper }}
+                                {% endif %}
+                            </div>
+                            <div class="user-info">
+                                <h4>{{ leader.user.username }}</h4>
+                                <p>{{ leader.level_title }}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="level-badge">
+                            <i class="fas fa-star"></i> {{ leader.level }}
+                        </span>
+                    </td>
+                    <td class="xp-cell" style="text-align: right;">
+                        {% if period == 'weekly' %}
+                        {{ leader.weekly_points }}
+                        {% elif period == 'monthly' %}
+                        {{ leader.monthly_points }}
+                        {% else %}
+                        {{ leader.total_points }}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <i class="fas fa-users" style="font-size: 3rem; margin-bottom: 1rem; color: var(--gray-300);"></i>
+        <h3>{% trans "No Rankings Yet" %}</h3>
+        <p>{% trans "Start learning to appear on the leaderboard!" %}</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

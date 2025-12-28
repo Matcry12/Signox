@@ -1,0 +1,470 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Profile" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .profile-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    .profile-header {
+        background: var(--card-bg);
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-cover {
+        height: 120px;
+        background: linear-gradient(135deg, var(--primary-400) 0%, var(--primary-600) 100%);
+        position: relative;
+    }
+
+    .profile-main {
+        display: flex;
+        align-items: flex-end;
+        gap: 1.5rem;
+        padding: 0 1.5rem;
+        margin-top: -40px;
+        position: relative;
+    }
+
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+        background: var(--primary-300);
+        border-radius: 50%;
+        border: 4px solid white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        font-size: 2rem;
+        font-weight: 700;
+        color: white;
+        box-shadow: var(--shadow-lg);
+        flex-shrink: 0;
+    }
+
+    .profile-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .profile-details {
+        flex: 1;
+        padding-top: 3rem;
+        padding-bottom: 1rem;
+    }
+
+    .profile-name {
+        font-weight: 700;
+        color: var(--gray-800);
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .profile-email {
+        font-size: 0.875rem;
+        color: var(--gray-500);
+    }
+
+    .profile-stats {
+        display: flex;
+        gap: 2rem;
+        padding: 1rem 1.5rem;
+        border-top: 1px solid var(--gray-100);
+        margin-top: 1rem;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-600);
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+        color: var(--gray-500);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .profile-content {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Sidebar */
+    .profile-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .sidebar-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.875rem 1rem;
+        background: var(--card-bg);
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow-sm);
+        color: var(--gray-700);
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .sidebar-link:hover {
+        background: var(--gray-50);
+        transform: translateX(4px);
+    }
+
+    .sidebar-link i {
+        width: 20px;
+        color: var(--primary-500);
+    }
+
+    .sidebar-link.danger {
+        color: #991B1B;
+    }
+
+    .sidebar-link.danger i {
+        color: #991B1B;
+    }
+
+    /* Edit Form */
+    .edit-card {
+        background: var(--card-bg);
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+    }
+
+    .edit-header {
+        background: var(--gray-50);
+        padding: 1rem 1.5rem;
+        font-weight: 600;
+        color: var(--gray-700);
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .edit-body {
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    /* Avatar Upload */
+    .avatar-upload {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .avatar-preview {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid var(--gray-200);
+        background: var(--gray-100);
+    }
+
+    .avatar-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .avatar-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray-400);
+        font-size: 2rem;
+    }
+
+    .avatar-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .avatar-current {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8125rem;
+        color: var(--gray-500);
+        cursor: pointer;
+    }
+
+    .avatar-current input {
+        width: 16px;
+        height: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .profile-container {
+            padding: 1rem;
+        }
+
+        .profile-main {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: -50px;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+        }
+
+        .profile-stats {
+            justify-content: center;
+        }
+
+        .profile-content {
+            grid-template-columns: 1fr;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Dark Mode Styles */
+    [data-theme="dark"] .profile-header {
+        background: #1E293B;
+    }
+
+    [data-theme="dark"] .profile-avatar {
+        border-color: #1E293B;
+    }
+
+    [data-theme="dark"] .profile-name {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .profile-email {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .profile-stats {
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .stat-value {
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .stat-label {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .sidebar-link {
+        background: #1E293B;
+        color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .sidebar-link:hover {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .sidebar-link i {
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .sidebar-link.danger {
+        color: #FCA5A5;
+    }
+
+    [data-theme="dark"] .sidebar-link.danger i {
+        color: #FCA5A5;
+    }
+
+    [data-theme="dark"] .edit-card {
+        background: #1E293B;
+    }
+
+    [data-theme="dark"] .edit-header {
+        background: #334155;
+        color: #F1F5F9;
+        border-color: #475569;
+    }
+
+    [data-theme="dark"] .avatar-preview {
+        border-color: #475569;
+        background: #334155;
+    }
+
+    [data-theme="dark"] .avatar-placeholder {
+        color: #64748B;
+    }
+
+    [data-theme="dark"] .avatar-current {
+        color: #94A3B8;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <!-- Profile Header -->
+    <div class="profile-header">
+        <div class="profile-cover"></div>
+        <div class="profile-main">
+            <div class="profile-avatar">
+                {% if user.profile.avatar %}
+                    <img src="{{ user.profile.avatar.url }}" alt="{{ user.username }}">
+                {% else %}
+                    {{ user.username.0|upper }}
+                {% endif %}
+            </div>
+            <div class="profile-details">
+                <h1 class="profile-name">{{ user.get_full_name|default:user.username }}</h1>
+                <p class="profile-email">{{ user.email }}</p>
+            </div>
+        </div>
+        <div class="profile-stats">
+            <div class="stat-item">
+                <div class="stat-value">{{ stats.completed_lessons }}</div>
+                <div class="stat-label">{% trans "Lessons" %}</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">{{ stats.quiz_attempts }}</div>
+                <div class="stat-label">{% trans "Quizzes" %}</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">{{ stats.forum_posts }}</div>
+                <div class="stat-label">{% trans "Posts" %}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="profile-content">
+        <!-- Sidebar -->
+        <div class="profile-sidebar">
+            <a href="{% url 'saved_lessons' %}" class="sidebar-link">
+                <i class="fas fa-bookmark"></i> {% trans "Saved Items" %}
+            </a>
+            <a href="{% url 'dashboard' %}" class="sidebar-link">
+                <i class="fas fa-chart-line"></i> {% trans "Learning Progress" %}
+            </a>
+            <a href="{% url 'quiz_list' %}" class="sidebar-link">
+                <i class="fas fa-question-circle"></i> {% trans "Quiz History" %}
+            </a>
+            <a href="{% url 'logout' %}" class="sidebar-link danger">
+                <i class="fas fa-sign-out-alt"></i> {% trans "Logout" %}
+            </a>
+        </div>
+
+        <!-- Edit Form -->
+        <div class="edit-card">
+            <div class="edit-header">
+                <i class="fas fa-edit"></i> {% trans "Edit Profile" %}
+            </div>
+            <div class="edit-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label class="form-label">{% trans "Avatar" %}</label>
+                        <div class="avatar-upload">
+                            <div class="avatar-preview">
+                                {% if user.profile.avatar %}
+                                <img src="{{ user.profile.avatar.url }}" alt="{% trans 'Current avatar' %}" id="avatar-preview-img">
+                                {% else %}
+                                <div class="avatar-placeholder" id="avatar-preview-img">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="avatar-actions">
+                                <label for="id_avatar" class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-camera"></i> {% trans "Choose Photo" %}
+                                </label>
+                                <input type="file" name="avatar" id="id_avatar" accept="image/*"
+                                       style="display: none;" onchange="previewAvatar(this)">
+                                {% if user.profile.avatar %}
+                                <label class="avatar-current">
+                                    <input type="checkbox" name="avatar-clear"> {% trans "Remove current photo" %}
+                                </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">{% trans "First Name" %}</label>
+                            {{ user_form.first_name }}
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">{% trans "Last Name" %}</label>
+                            {{ user_form.last_name }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">{% trans "Username" %}</label>
+                        {{ user_form.username }}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">{% trans "Email" %}</label>
+                        {{ user_form.email }}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">{% trans "Bio" %}</label>
+                        {{ profile_form.bio }}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">{% trans "Skill Level" %}</label>
+                        {{ profile_form.skill_level }}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-save"></i> {% trans "Save Changes" %}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function previewAvatar(input) {
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.querySelector('.avatar-preview');
+            preview.innerHTML = '<img src="' + e.target.result + '" alt="Preview">';
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Sơ & Diễn Đàn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen p-4 flex justify-center items-start gap-8 flex-wrap">
+
+    <!-- Left Side: User Profile Widget -->
+    <div class="w-full max-w-sm bg-white rounded-lg shadow-lg overflow-hidden h-fit">
+        <!-- Cover Photo -->
+        <div class="h-24 bg-orange-100 relative">
+             <div class="absolute -bottom-8 left-6">
+                 <div class="w-16 h-16 bg-gray-300 rounded-full border-4 border-white"></div>
+             </div>
+             <div class="absolute top-4 right-4 text-xs font-bold text-gray-500 tracking-widest">TRANG CÁ NHÂN</div>
+        </div>
+        
+        <!-- Profile Info -->
+        <div class="pt-10 px-6 pb-6">
+            <h2 class="font-bold text-gray-800">NAME USER</h2>
+            <p class="text-xs text-gray-500 mb-6">ID: 2051120XXX</p>
+            
+            <!-- Accordion Menu -->
+            <div class="space-y-2">
+                <div class="bg-blue-100 p-3 rounded text-sm font-semibold text-blue-800 cursor-pointer flex justify-between items-center hover:bg-blue-200">
+                    MỤC ĐÃ LƯU
+                </div>
+                <div class="bg-gray-100 p-3 rounded text-sm font-semibold text-gray-700 cursor-pointer flex justify-between items-center hover:bg-gray-200">
+                    TIẾN ĐỘ HỌC TẬP
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="bg-blue-100 p-3 rounded text-sm font-semibold text-blue-800 cursor-pointer flex justify-between items-center hover:bg-blue-200 opacity-50">
+                    <!-- Placeholder for third item from image -->
+                    &nbsp;
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Side: Forum Feed -->
+    <div class="w-full max-w-md bg-white rounded-lg shadow-lg overflow-hidden min-h-[600px]">
+        
+        <!-- Header -->
+        <div class="bg-blue-300 p-4 flex items-center gap-2">
+            <div class="w-8 h-8 bg-white rounded-full"></div>
+            <span class="font-bold text-white">web name</span>
+        </div>
+        
+        <!-- Nav Tabs -->
+        <div class="flex border-b text-sm">
+             <div class="flex-1 py-2 text-center text-gray-500 hover:bg-gray-50 cursor-pointer">Trang chủ</div>
+             <div class="flex-1 py-2 text-center bg-blue-50 text-blue-600 font-bold border-b-2 border-blue-500">Diễn đàn</div>
+             <div class="flex-1 py-2 text-center text-gray-500 hover:bg-gray-50 cursor-pointer">Luyện tập</div>
+             <div class="flex-1 py-2 text-center text-gray-500 hover:bg-gray-50 cursor-pointer">Thư viện</div>
+             <div class="flex-1 py-2 text-center bg-white flex items-center justify-center">
+                 <button class="bg-white border rounded-full px-2 text-xs py-1 shadow-sm uppercase">Tìm kiếm</button>
+             </div>
+        </div>
+
+        <!-- Create Post -->
+        <div class="p-4 bg-gray-50 border-b">
+            <h3 class="font-bold text-gray-700 mb-2">Bài mới đăng</h3>
+            <button class="bg-blue-200 text-blue-800 px-4 py-1 rounded text-sm font-bold mb-3 shadow-sm">Đăng bài</button>
+            <div class="flex gap-2">
+                <div class="w-1/2 bg-gray-200 h-24 rounded shadow-inner flex items-center justify-center text-gray-400 text-xs">Bài đăng</div>
+                <div class="w-1/2 bg-gray-200 h-24 rounded shadow-inner flex items-center justify-center text-gray-400 text-xs">Nội dung nổi bật</div>
+            </div>
+        </div>
+
+        <!-- Feed List -->
+        <div class="p-4 space-y-4 bg-gray-50">
+            <!-- Nav breadcrumb style -->
+            <div class="flex gap-2 text-xs mb-2">
+                <span class="bg-white px-2 py-1 rounded shadow-sm">Trang chủ</span>
+                <span class="bg-blue-100 px-2 py-1 rounded shadow-sm">Diễn đàn</span>
+                <span class="ml-auto flex items-center bg-white px-2 py-1 rounded-full border">
+                    <i class="fas fa-search text-gray-400 mr-1"></i> name user
+                </span>
+            </div>
+
+            <!-- Post Card 1 -->
+            <div class="bg-white p-3 rounded shadow-sm border">
+                <div class="flex gap-3 mb-2">
+                    <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
+                    <div>
+                        <div class="text-xs font-bold text-gray-800">USER #1</div>
+                        <div class="text-[10px] text-gray-400">Đã đăng vào 01/12/202X</div>
+                    </div>
+                </div>
+                <div class="bg-gray-200 h-32 w-full rounded mb-2"></div>
+                <div class="h-4 bg-gray-100 rounded w-3/4"></div>
+            </div>
+            
+            <!-- Post Card 2 -->
+            <div class="bg-white p-3 rounded shadow-sm border flex gap-3">
+                 <div class="w-10 h-10 bg-white border rounded-full shrink-0"></div>
+                 <div class="flex-1">
+                     <div class="text-xs font-bold mb-1">NAME USER</div>
+                     <div class="bg-gray-200 h-16 w-full rounded"></div>
+                 </div>
+            </div>
+
+             <!-- Post Card 3 -->
+            <div class="bg-white p-3 rounded shadow-sm border flex gap-3">
+                 <div class="w-10 h-10 bg-white border rounded-full shrink-0"></div>
+                 <div class="flex-1">
+                     <div class="text-xs font-bold mb-1">NAME USER</div>
+                     <div class="bg-gray-200 h-16 w-full rounded"></div>
+                 </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

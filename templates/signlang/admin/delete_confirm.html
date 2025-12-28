@@ -1,0 +1,141 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Delete" %} {{ item_type }}{% endblock %}
+{% block page_title %}{% trans "Delete" %} {{ item_type }}{% endblock %}
+
+{% block content %}
+<div class="delete-confirm-container">
+    <div class="delete-confirm-card">
+        <div class="delete-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h2>{% trans "Are you sure?" %}</h2>
+        <p class="delete-message">
+            {% trans "You are about to delete this" %} {{ item_type }}:
+        </p>
+        <div class="delete-item-name">
+            {{ item_name }}
+        </div>
+        <p class="delete-warning">
+            <i class="fas fa-info-circle"></i>
+            {% trans "This action cannot be undone." %}
+        </p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="delete-actions">
+                <button type="submit" class="btn btn-danger">
+                    <i class="fas fa-trash"></i> {% trans "Yes, Delete" %}
+                </button>
+                <a href="{{ cancel_url }}" class="btn btn-secondary">
+                    <i class="fas fa-times"></i> {% trans "Cancel" %}
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .delete-confirm-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 2rem 0;
+    }
+
+    .delete-confirm-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        padding: 2.5rem 3rem;
+        text-align: center;
+        width: 100%;
+        max-width: 550px;
+        border: 1px solid var(--gray-200);
+    }
+
+    .delete-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #FEE2E2, #FECACA);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+    }
+
+    .delete-icon i {
+        font-size: 2rem;
+        color: #DC2626;
+    }
+
+    .delete-confirm-card h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gray-800);
+        margin-bottom: 0.75rem;
+    }
+
+    .delete-message {
+        color: var(--gray-500);
+        font-size: 0.9375rem;
+        margin-bottom: 1rem;
+    }
+
+    .delete-item-name {
+        font-weight: 600;
+        font-size: 1.125rem;
+        color: var(--gray-800);
+        padding: 1rem 1.5rem;
+        background: var(--gray-50);
+        border: 1px solid var(--gray-200);
+        border-radius: 10px;
+        margin-bottom: 1.25rem;
+        word-break: break-word;
+    }
+
+    .delete-warning {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #B91C1C;
+        font-size: 0.875rem;
+        font-weight: 500;
+        background: #FEF2F2;
+        padding: 0.625rem 1rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+
+    .delete-warning i {
+        font-size: 0.875rem;
+    }
+
+    .delete-actions {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+    }
+
+    .delete-actions .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9375rem;
+    }
+
+    @media (max-width: 640px) {
+        .delete-confirm-card {
+            padding: 2rem 1.5rem;
+            margin: 0 1rem;
+        }
+
+        .delete-actions {
+            flex-direction: column;
+        }
+
+        .delete-actions .btn {
+            width: 100%;
+        }
+    }
+</style>
+{% endblock %}

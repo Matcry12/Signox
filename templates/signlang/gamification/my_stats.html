@@ -1,0 +1,578 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "My Stats" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .stats-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    .stats-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .stats-header h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--gray-800);
+    }
+
+    /* Level Card */
+    .level-showcase {
+        background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+        border-radius: 1.5rem;
+        padding: 2rem;
+        color: white;
+        margin-bottom: 2rem;
+        text-align: center;
+        box-shadow: var(--shadow-xl);
+    }
+
+    .level-badge-large {
+        width: 100px;
+        height: 100px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        border: 4px solid rgba(255,255,255,0.3);
+    }
+
+    .level-title-large {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .level-xp-large {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 1rem 0;
+    }
+
+    .level-xp-large span {
+        font-size: 1rem;
+        opacity: 0.8;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .stat-box {
+        background: var(--card-bg);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+    }
+
+    .stat-box h3 {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--gray-500);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.75rem;
+    }
+
+    .stat-box .value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gray-800);
+    }
+
+    .stat-box .subtext {
+        font-size: 0.8125rem;
+        color: var(--gray-500);
+        margin-top: 0.25rem;
+    }
+
+    .stat-box .icon {
+        float: right;
+        font-size: 2rem;
+        color: var(--gray-200);
+    }
+
+    /* Streak Section */
+    .streak-section {
+        background: var(--card-bg);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        margin-bottom: 2rem;
+    }
+
+    .streak-section h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--gray-700);
+        margin-bottom: 1rem;
+    }
+
+    .streak-display {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .streak-fire {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #FFA500, #FF4500);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+        box-shadow: 0 0 30px rgba(255, 69, 0, 0.4);
+    }
+
+    .streak-info .current {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--gray-800);
+    }
+
+    .streak-info .current span {
+        font-size: 1rem;
+        color: var(--gray-500);
+    }
+
+    .streak-info .best {
+        font-size: 0.875rem;
+        color: var(--gray-500);
+    }
+
+    /* Activity Calendar */
+    .activity-section {
+        background: var(--card-bg);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        margin-bottom: 2rem;
+    }
+
+    .activity-section h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--gray-700);
+        margin-bottom: 1rem;
+    }
+
+    .activity-grid {
+        display: flex;
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+
+    .activity-day {
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+        background: var(--gray-100);
+    }
+
+    .activity-day.level-1 { background: var(--primary-200); }
+    .activity-day.level-2 { background: var(--primary-400); }
+    .activity-day.level-3 { background: var(--primary-600); }
+    .activity-day.level-4 { background: var(--primary-800); }
+
+    /* Points Breakdown */
+    .points-breakdown {
+        background: var(--card-bg);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        margin-bottom: 2rem;
+    }
+
+    .points-breakdown h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--gray-700);
+        margin-bottom: 1rem;
+    }
+
+    .breakdown-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--gray-100);
+    }
+
+    .breakdown-item:last-child {
+        border-bottom: none;
+    }
+
+    .breakdown-label {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--gray-600);
+    }
+
+    .breakdown-label i {
+        width: 24px;
+        text-align: center;
+    }
+
+    .breakdown-value {
+        font-weight: 700;
+        color: var(--gray-800);
+    }
+
+    .breakdown-bar {
+        height: 8px;
+        background: var(--gray-100);
+        border-radius: 9999px;
+        margin-top: 0.5rem;
+        overflow: hidden;
+    }
+
+    .breakdown-fill {
+        height: 100%;
+        border-radius: 9999px;
+    }
+
+    .breakdown-fill.lessons { background: var(--primary-500); }
+    .breakdown-fill.quizzes { background: var(--purple-500); }
+    .breakdown-fill.streaks { background: #F59E0B; }
+    .breakdown-fill.badges { background: var(--success); }
+
+    /* Recent Quizzes */
+    .quiz-history {
+        background: var(--card-bg);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+    }
+
+    .quiz-history h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--gray-700);
+        margin-bottom: 1rem;
+    }
+
+    .quiz-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--gray-100);
+    }
+
+    .quiz-item:last-child {
+        border-bottom: none;
+    }
+
+    .quiz-info h4 {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--gray-800);
+    }
+
+    .quiz-info p {
+        font-size: 0.75rem;
+        color: var(--gray-500);
+    }
+
+    .quiz-score {
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+    }
+
+    .quiz-score.passed { background: #D1FAE5; color: #059669; }
+    .quiz-score.failed { background: #FEE2E2; color: #DC2626; }
+
+    @media (max-width: 640px) {
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .streak-display {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    /* Dark Mode Styles */
+    [data-theme="dark"] .stats-header h1 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .stat-box,
+    [data-theme="dark"] .streak-section,
+    [data-theme="dark"] .activity-section,
+    [data-theme="dark"] .points-breakdown,
+    [data-theme="dark"] .quiz-history {
+        background: #1E293B;
+    }
+
+    [data-theme="dark"] .stat-box h3,
+    [data-theme="dark"] .streak-section h3,
+    [data-theme="dark"] .activity-section h3,
+    [data-theme="dark"] .points-breakdown h3,
+    [data-theme="dark"] .quiz-history h3 {
+        color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .stat-box .value {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .stat-box .subtext {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .stat-box .icon {
+        color: #334155;
+    }
+
+    [data-theme="dark"] .streak-info .current {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .streak-info .current span,
+    [data-theme="dark"] .streak-info .best {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .activity-day {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .breakdown-item {
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .breakdown-label {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .breakdown-value {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .breakdown-bar {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .quiz-item {
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .quiz-info h4 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .quiz-info p {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .quiz-score.passed {
+        background: rgba(34, 197, 94, 0.2);
+        color: #86EFAC;
+    }
+
+    [data-theme="dark"] .quiz-score.failed {
+        background: rgba(239, 68, 68, 0.2);
+        color: #FCA5A5;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="stats-container">
+    <div class="stats-header">
+        <h1><i class="fas fa-chart-bar"></i> {% trans "My Statistics" %}</h1>
+    </div>
+
+    <!-- Level Showcase -->
+    <div class="level-showcase">
+        <div class="level-badge-large">{{ stats.points.level }}</div>
+        <div class="level-title-large">{{ stats.points.level_title }}</div>
+        <div class="level-xp-large">
+            {{ stats.points.total_points }} <span>XP</span>
+        </div>
+        <div class="level-progress" style="background: rgba(255,255,255,0.2); height: 8px; border-radius: 9999px; max-width: 300px; margin: 0 auto;">
+            <div style="background: var(--card-bg); height: 100%; border-radius: 9999px; width: {{ stats.points.level_progress_percent }}%;"></div>
+        </div>
+        <p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.875rem;">
+            {{ stats.points.points_to_next_level }} XP {% trans "to" %} {% trans "Level" %} {{ stats.points.level|add:1 }}
+        </p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+        <div class="stat-box">
+            <i class="fas fa-book icon"></i>
+            <h3>{% trans "Lessons Completed" %}</h3>
+            <div class="value">{{ stats.lessons_completed }}</div>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-check-circle icon"></i>
+            <h3>{% trans "Quizzes Passed" %}</h3>
+            <div class="value">{{ stats.quizzes_passed }}</div>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-medal icon"></i>
+            <h3>{% trans "Badges Earned" %}</h3>
+            <div class="value">{{ stats.badges_earned }} / {{ stats.badges_total }}</div>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-trophy icon"></i>
+            <h3>{% trans "Global Rank" %}</h3>
+            <div class="value">#{{ stats.rank }}</div>
+        </div>
+    </div>
+
+    <!-- Streak Section -->
+    <div class="streak-section">
+        <h3><i class="fas fa-fire"></i> {% trans "Learning Streak" %}</h3>
+        <div class="streak-display">
+            <div class="streak-fire">
+                <i class="fas fa-fire"></i>
+            </div>
+            <div class="streak-info">
+                <div class="current">{{ stats.streak.current_streak }} <span>{% trans "days" %}</span></div>
+                <div class="best">
+                    <i class="fas fa-crown"></i> {% trans "Best streak" %}: {{ stats.streak.longest_streak }} {% trans "days" %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Streak Freeze -->
+        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--bg-tertiary);">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                        <i class="fas fa-snowflake" style="color: #38BDF8;"></i>
+                        <strong>{% trans "Streak Freeze" %}</strong>
+                    </div>
+                    <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">
+                        {% trans "Protect your streak when you can't study." %} {{ stats.streak.freeze_count }} {% trans "freeze" %}{% if stats.streak.freeze_count != 1 %}s{% endif %} {% trans "available this month" %}.
+                    </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    {% for i in "12" %}
+                        {% if forloop.counter <= stats.streak.freeze_count %}
+                        <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #38BDF8, #0EA5E9); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-snowflake" style="color: white; font-size: 0.875rem;"></i>
+                        </div>
+                        {% else %}
+                        <div style="width: 32px; height: 32px; background: var(--bg-tertiary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-snowflake" style="color: var(--text-secondary); font-size: 0.875rem; opacity: 0.5;"></i>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if stats.streak.can_use_freeze_today %}
+                    <form action="{% url 'use_streak_freeze' %}" method="post" style="margin-left: 0.5rem;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm" style="background: linear-gradient(135deg, #38BDF8, #0EA5E9); color: white;" onclick="return confirm('{% trans "Use a streak freeze to protect your streak today?" %}')">
+                            <i class="fas fa-shield-alt"></i> {% trans "Use Freeze" %}
+                        </button>
+                    </form>
+                    {% elif stats.streak.freeze_used_date == today %}
+                    <span class="badge" style="background: #D1FAE5; color: #059669; margin-left: 0.5rem;">
+                        <i class="fas fa-check"></i> {% trans "Protected Today" %}
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Points Breakdown -->
+    <div class="points-breakdown">
+        <h3><i class="fas fa-coins"></i> {% trans "Points Breakdown" %}</h3>
+        {% with total=stats.points.total_points %}
+        <div class="breakdown-item">
+            <div class="breakdown-label">
+                <i class="fas fa-book text-primary"></i> {% trans "From Lessons" %}
+            </div>
+            <div class="breakdown-value">{{ stats.points.points_from_lessons }} XP</div>
+        </div>
+        <div class="breakdown-bar">
+            <div class="breakdown-fill lessons" style="width: {% widthratio stats.points.points_from_lessons total 100 %}%;"></div>
+        </div>
+
+        <div class="breakdown-item">
+            <div class="breakdown-label">
+                <i class="fas fa-question-circle" style="color: var(--purple-500);"></i> {% trans "From Quizzes" %}
+            </div>
+            <div class="breakdown-value">{{ stats.points.points_from_quizzes }} XP</div>
+        </div>
+        <div class="breakdown-bar">
+            <div class="breakdown-fill quizzes" style="width: {% widthratio stats.points.points_from_quizzes total 100 %}%;"></div>
+        </div>
+
+        <div class="breakdown-item">
+            <div class="breakdown-label">
+                <i class="fas fa-fire" style="color: #F59E0B;"></i> {% trans "From Streaks" %}
+            </div>
+            <div class="breakdown-value">{{ stats.points.points_from_streaks }} XP</div>
+        </div>
+        <div class="breakdown-bar">
+            <div class="breakdown-fill streaks" style="width: {% widthratio stats.points.points_from_streaks total 100 %}%;"></div>
+        </div>
+
+        <div class="breakdown-item">
+            <div class="breakdown-label">
+                <i class="fas fa-medal" style="color: var(--success);"></i> {% trans "From Badges" %}
+            </div>
+            <div class="breakdown-value">{{ stats.points.points_from_badges }} XP</div>
+        </div>
+        <div class="breakdown-bar">
+            <div class="breakdown-fill badges" style="width: {% widthratio stats.points.points_from_badges total 100 %}%;"></div>
+        </div>
+        {% endwith %}
+    </div>
+
+    <!-- Recent Quiz Attempts -->
+    {% if quiz_attempts %}
+    <div class="quiz-history">
+        <h3><i class="fas fa-history"></i> {% trans "Recent Quiz Attempts" %}</h3>
+        {% for attempt in quiz_attempts %}
+        <div class="quiz-item">
+            <div class="quiz-info">
+                <h4>{{ attempt.quiz.title }}</h4>
+                <p>{{ attempt.started_at|date:"M d, Y H:i" }}</p>
+            </div>
+            <span class="quiz-score {% if attempt.passed %}passed{% else %}failed{% endif %}">
+                {{ attempt.score }}/{{ attempt.max_score }}
+            </span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Quick Links -->
+    <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+        <a href="{% url 'achievements' %}" class="btn btn-primary">
+            <i class="fas fa-trophy"></i> {% trans "View Achievements" %}
+        </a>
+        <a href="{% url 'leaderboard' %}" class="btn btn-secondary">
+            <i class="fas fa-crown"></i> {% trans "Leaderboard" %}
+        </a>
+    </div>
+</div>
+{% endblock %}

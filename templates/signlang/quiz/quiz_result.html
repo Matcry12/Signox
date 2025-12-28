@@ -1,0 +1,392 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Quiz Results" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .result-header {
+        padding: 3rem 1rem;
+        text-align: center;
+        color: white;
+    }
+
+    .result-header.passed {
+        background: linear-gradient(135deg, var(--secondary-color) 0%, #059669 100%);
+    }
+
+    .result-header.failed {
+        background: linear-gradient(135deg, var(--danger-color) 0%, #DC2626 100%);
+    }
+
+    .result-icon {
+        width: 80px;
+        height: 80px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+    }
+
+    .result-score {
+        font-size: 3rem;
+        font-weight: 700;
+    }
+
+    .result-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .result-card {
+        margin-bottom: 1rem;
+    }
+
+    .result-card.correct {
+        border-left: 4px solid var(--secondary-color);
+    }
+
+    .result-card.incorrect {
+        border-left: 4px solid var(--danger-color);
+    }
+
+    .result-indicator {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .answer-row {
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .answer-row.your-answer {
+        color: var(--danger-color);
+    }
+
+    .answer-row.correct-answer {
+        color: var(--secondary-color);
+        font-weight: 500;
+    }
+
+    .explanation-box {
+        background: var(--bg-secondary);
+        border-radius: var(--radius-md);
+        padding: 1rem;
+        margin-top: 1rem;
+        border-left: 3px solid var(--primary-color);
+    }
+
+    .explanation-box .label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+    }
+
+    .explanation-box p {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+
+    /* Dark Mode */
+    [data-theme="dark"] .explanation-box {
+        background: #334155;
+        border-left-color: #6366F1;
+    }
+
+    [data-theme="dark"] .explanation-box .label {
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .explanation-box p {
+        color: #CBD5E1;
+    }
+
+    /* Best Score & History */
+    .new-best-banner {
+        background: linear-gradient(135deg, #F59E0B, #D97706);
+        color: white;
+        padding: 0.75rem 1rem;
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+        animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.3); }
+        50% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+    }
+
+    .stats-row {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .stat-box {
+        flex: 1;
+        background: var(--bg-secondary);
+        padding: 1rem;
+        border-radius: var(--radius-md);
+        text-align: center;
+    }
+
+    .stat-box .value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    .stat-box .label {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+    }
+
+    .stat-box.highlight {
+        background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+        color: white;
+    }
+
+    .stat-box.highlight .value,
+    .stat-box.highlight .label {
+        color: white;
+    }
+
+    .attempt-history {
+        margin-top: 2rem;
+    }
+
+    .attempt-history h3 {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .attempt-list {
+        background: var(--bg-secondary);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+    }
+
+    .attempt-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .attempt-item:last-child {
+        border-bottom: none;
+    }
+
+    .attempt-item.current {
+        background: rgba(99, 102, 241, 0.1);
+    }
+
+    .attempt-item.best {
+        background: rgba(245, 158, 11, 0.1);
+    }
+
+    .attempt-score {
+        font-weight: 600;
+    }
+
+    .attempt-score.passed {
+        color: var(--secondary-color);
+    }
+
+    .attempt-score.failed {
+        color: var(--danger-color);
+    }
+
+    .attempt-date {
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+    }
+
+    .attempt-badge {
+        font-size: 0.6875rem;
+        padding: 0.125rem 0.5rem;
+        border-radius: 9999px;
+        font-weight: 600;
+    }
+
+    .attempt-badge.current {
+        background: var(--primary-500);
+        color: white;
+    }
+
+    .attempt-badge.best {
+        background: #F59E0B;
+        color: white;
+    }
+
+    [data-theme="dark"] .stat-box {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .attempt-list {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .attempt-item {
+        border-color: #475569;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="result-header {% if passed %}passed{% else %}failed{% endif %}">
+    <div class="result-icon">
+        {% if passed %}
+        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        {% else %}
+        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        {% endif %}
+    </div>
+    <div class="result-score">{{ percentage }}%</div>
+    <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">{% if passed %}{% trans "Congratulations!" %}{% else %}{% trans "Keep Practicing!" %}{% endif %}</h1>
+    <p>{% trans "You scored" %} {{ score }} {% trans "out of" %} {{ max_score }} {% trans "points" %}</p>
+</div>
+
+<div class="container">
+    <div class="result-container">
+        <!-- New Personal Best Banner -->
+        {% if is_new_best and total_attempts > 1 %}
+        <div class="new-best-banner">
+            <i class="fas fa-trophy" style="font-size: 1.5rem;"></i>
+            <div>
+                <strong>{% trans "New Personal Best!" %}</strong>
+                <span style="opacity: 0.9;">{% trans "You've beaten your previous high score!" %}</span>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-box {% if is_new_best %}highlight{% endif %}">
+                <div class="value">{{ percentage }}%</div>
+                <div class="label">{% trans "This Attempt" %}</div>
+            </div>
+            <div class="stat-box">
+                <div class="value">{% if best_attempt %}{{ best_attempt.score }}/{{ best_attempt.max_score }}{% else %}--{% endif %}</div>
+                <div class="label">{% trans "Best Score" %}</div>
+            </div>
+            <div class="stat-box">
+                <div class="value">{{ total_attempts }}</div>
+                <div class="label">{% trans "Total Attempts" %}</div>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center mb-3">
+            <h2>{% trans "Review Your Answers" %}</h2>
+            <div class="flex gap-1">
+                <a href="{% url 'quiz_detail' quiz.id %}" class="btn btn-primary">{% trans "Retry Quiz" %}</a>
+                {% if quiz.lesson %}
+                <a href="{% url 'lesson_detail' quiz.lesson.slug %}" class="btn btn-secondary">{% trans "Back to Lesson" %}</a>
+                {% else %}
+                <a href="{% url 'quiz_list' %}" class="btn btn-secondary">{% trans "Back to Quizzes" %}</a>
+                {% endif %}
+            </div>
+        </div>
+
+        {% for result in results %}
+        <div class="card result-card {% if result.is_correct %}correct{% else %}incorrect{% endif %}">
+            <div class="card-body">
+                <div class="result-indicator">
+                    {% if result.is_correct %}
+                    <svg width="20" height="20" fill="none" stroke="var(--secondary-color)" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span style="color: var(--secondary-color);">{% trans "Correct" %}</span>
+                    {% else %}
+                    <svg width="20" height="20" fill="none" stroke="var(--danger-color)" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                    <span style="color: var(--danger-color);">{% trans "Incorrect" %}</span>
+                    {% endif %}
+                </div>
+
+                <p style="font-weight: 500; margin-bottom: 1rem;">{{ result.question.question_text }}</p>
+
+                {% if not result.is_correct %}
+                <div class="answer-row your-answer">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                    {% trans "Your answer" %}: {{ result.selected.answer_text|default:_("No answer") }}
+                </div>
+                {% endif %}
+
+                <div class="answer-row correct-answer">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M5 13l4 4L19 7"/>
+                    </svg>
+                    {% trans "Correct answer" %}: {{ result.correct.answer_text }}
+                </div>
+
+                {% if result.correct.explanation %}
+                <div class="explanation-box">
+                    <div class="label"><i class="fas fa-lightbulb"></i> {% trans "Explanation" %}</div>
+                    <p>{{ result.correct.explanation }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- Attempt History -->
+        {% if user_attempts %}
+        <div class="attempt-history">
+            <h3><i class="fas fa-history"></i> {% trans "Your Attempt History" %}</h3>
+            <div class="attempt-list">
+                {% for att in user_attempts %}
+                <div class="attempt-item {% if att.id == attempt.id %}current{% endif %} {% if att.id == best_attempt.id %}best{% endif %}">
+                    <div>
+                        <span class="attempt-score {% if att.passed %}passed{% else %}failed{% endif %}">
+                            {{ att.score }}/{{ att.max_score }}
+                            ({% widthratio att.score att.max_score 100 %}%)
+                        </span>
+                        <span class="attempt-date">{{ att.started_at|date:"M d, Y H:i" }}</span>
+                    </div>
+                    <div class="flex gap-1">
+                        {% if att.id == attempt.id %}
+                        <span class="attempt-badge current">{% trans "Current" %}</span>
+                        {% endif %}
+                        {% if att.id == best_attempt.id %}
+                        <span class="attempt-badge best"><i class="fas fa-crown"></i> {% trans "Best" %}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="text-center mt-4">
+            <a href="{% url 'quiz_list' %}" class="btn btn-outline">{% trans "View All Quizzes" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

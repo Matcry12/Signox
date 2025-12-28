@@ -1,0 +1,51 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Categories" %}{% endblock %}
+{% block page_title %}{% trans "Categories" %}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>{% trans "Lesson Categories" %}</h3>
+        <a href="{% url 'admin_category_create' %}" class="btn btn-primary">{% trans "Add Category" %}</a>
+    </div>
+    <div class="card-body" style="padding: 0;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{% trans "Icon" %}</th>
+                    <th>{% trans "Name" %}</th>
+                    <th>{% trans "Slug" %}</th>
+                    <th>{% trans "Lessons" %}</th>
+                    <th>{% trans "Order" %}</th>
+                    <th>{% trans "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category in categories %}
+                <tr>
+                    <td style="font-size: 1.5rem;">{{ category.icon|default:"📁" }}</td>
+                    <td><strong>{{ category.name }}</strong></td>
+                    <td><code>{{ category.slug }}</code></td>
+                    <td><span class="badge badge-primary">{{ category.lesson_count }}</span></td>
+                    <td>{{ category.order }}</td>
+                    <td>
+                        <div class="flex gap-1">
+                            <a href="{% url 'admin_category_edit' category.id %}" class="btn btn-secondary btn-sm">{% trans "Edit" %}</a>
+                            <a href="{% url 'admin_category_delete' category.id %}" class="btn btn-danger btn-sm">{% trans "Delete" %}</a>
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" style="text-align: center; padding: 2rem; color: var(--gray-500);">
+                        {% trans "No categories yet." %} <a href="{% url 'admin_category_create' %}">{% trans "Create one" %}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

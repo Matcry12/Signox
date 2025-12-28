@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Register" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .auth-container {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+    }
+
+    .auth-card {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .auth-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .auth-header h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .auth-header p {
+        color: var(--text-secondary);
+    }
+
+    .auth-footer {
+        text-align: center;
+        margin-top: 1.5rem;
+        color: var(--text-secondary);
+    }
+
+    .auth-footer a {
+        color: var(--primary-color);
+        font-weight: 500;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .error-list {
+        color: var(--danger-color);
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        list-style: none;
+    }
+
+    /* Dark Mode */
+    [data-theme="dark"] .auth-header h1 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .auth-footer a {
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .error-list {
+        color: #FCA5A5;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h1>{% trans "Create Account" %}</h1>
+            <p>{% trans "Start your sign language learning journey" %}</p>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="id_first_name">{% trans "First Name" %}</label>
+                            {{ form.first_name }}
+                            {% if form.first_name.errors %}
+                            <ul class="error-list">{% for e in form.first_name.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="id_last_name">{% trans "Last Name" %}</label>
+                            {{ form.last_name }}
+                            {% if form.last_name.errors %}
+                            <ul class="error-list">{% for e in form.last_name.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_username">{% trans "Username" %}</label>
+                        {{ form.username }}
+                        {% if form.username.errors %}
+                        <ul class="error-list">{% for e in form.username.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_email">{% trans "Email" %}</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                        <ul class="error-list">{% for e in form.email.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_password1">{% trans "Password" %}</label>
+                        {{ form.password1 }}
+                        {% if form.password1.errors %}
+                        <ul class="error-list">{% for e in form.password1.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_password2">{% trans "Confirm Password" %}</label>
+                        {{ form.password2 }}
+                        {% if form.password2.errors %}
+                        <ul class="error-list">{% for e in form.password2.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+                        {% endif %}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                        {% trans "Create Account" %}
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="auth-footer">
+            {% trans "Already have an account?" %} <a href="{% url 'login' %}">{% trans "Sign in" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

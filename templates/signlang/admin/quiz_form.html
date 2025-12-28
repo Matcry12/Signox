@@ -1,0 +1,112 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block title %}{{ action }} {% trans "Quiz" %}{% endblock %}
+{% block page_title %}{{ action }} {% trans "Quiz" %}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label class="form-label">{% trans "Title" %} *</label>
+                    <input type="text" name="title" class="form-control" value="{{ quiz.title|default:'' }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">{% trans "Lesson" %} *</label>
+                    <select name="lesson" class="form-control" required>
+                        <option value="">{% trans "Select Lesson" %}</option>
+                        {% for lesson in lessons %}
+                        <option value="{{ lesson.id }}" {% if quiz.lesson_id == lesson.id %}selected{% endif %}>{{ lesson.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Description" %} ({% trans "Markdown supported" %})</label>
+                <div class="markdown-help" style="background: var(--bg-secondary); padding: 0.75rem; border-radius: var(--radius-md); margin-bottom: 0.5rem; font-size: 0.8rem;">
+                    <strong>{% trans "Formatting:" %}</strong> <code>**bold**</code>, <code>*italic*</code>, <code>## Header</code>, <code>- list item</code>
+                </div>
+                <textarea name="description" class="form-control" rows="3" style="font-family: 'Consolas', 'Monaco', monospace;">{{ quiz.description|default:'' }}</textarea>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label class="form-label">{% trans "Passing Score (%)" %} *</label>
+                    <input type="number" name="passing_score" class="form-control" value="{{ quiz.passing_score|default:70 }}" min="0" max="100" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">{% trans "Time Limit (minutes)" %}</label>
+                    <input type="number" name="time_limit" class="form-control" value="{{ quiz.time_limit|default:0 }}" min="0">
+                    <small style="color: var(--gray-500);">{% trans "Set 0 for no time limit" %}</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-check">
+                    <input type="checkbox" name="is_active" {% if quiz.is_active %}checked{% elif not quiz %}checked{% endif %}>
+                    {% trans "Active" %}
+                </label>
+            </div>
+
+            <div class="flex gap-1 mt-2">
+                <button type="submit" class="btn btn-primary">{{ action }} {% trans "Quiz" %}</button>
+                <a href="{% url 'admin_quiz_list' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% if quiz and quiz.id %}
+<div class="card mt-2">
+    <div class="card-header">
+        <h3>{% trans "Questions" %} ({{ quiz.questions.count }})</h3>
+        <a href="{% url 'admin_question_create' quiz.id %}" class="btn btn-primary">{% trans "Add Question" %}</a>
+    </div>
+    <div class="card-body" style="padding: 0;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{% trans "Question" %}</th>
+                    <th>{% trans "Type" %}</th>
+                    <th>{% trans "Points" %}</th>
+                    <th>{% trans "Answers" %}</th>
+                    <th>{% trans "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for question in quiz.questions.all %}
+                <tr>
+                    <td>{{ question.question_text|truncatewords:15 }}</td>
+                    <td>{{ question.get_question_type_display }}</td>
+                    <td>{{ question.points }}</td>
+                    <td>{{ question.answers.count }}</td>
+                    <td>
+                        <div class="flex gap-1">
+                            <a href="{% url 'admin_question_edit' question.id %}" class="btn btn-secondary btn-sm">{% trans "Edit" %}</a>
+                            <form method="post" action="{% url 'admin_question_delete' question.id %}" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('{% trans "Delete this question?" %}')">{% trans "Delete" %}</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 2rem; color: var(--gray-500);">
+                        {% trans "No questions yet." %} <a href="{% url 'admin_question_create' quiz.id %}">{% trans "Add one" %}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

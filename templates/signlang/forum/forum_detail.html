@@ -1,0 +1,331 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ post.title }} - {% trans "Forum" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .post-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+    }
+
+    .author-info {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .author-avatar {
+        width: 56px;
+        height: 56px;
+        background: var(--bg-tertiary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+    .author-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .post-content {
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+    }
+
+    .post-media {
+        margin: 1.5rem 0;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+    }
+
+    .post-media img, .post-media video {
+        max-width: 100%;
+    }
+
+    .post-actions {
+        display: flex;
+        gap: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--bg-tertiary);
+    }
+
+    .action-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: var(--radius-md);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9375rem;
+        color: var(--text-secondary);
+        transition: all 0.2s;
+    }
+
+    .action-btn:hover {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+    }
+
+    .action-btn.liked {
+        color: var(--danger-color);
+    }
+
+    .comments-section {
+        margin-top: 2rem;
+    }
+
+    .comment {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--bg-tertiary);
+    }
+
+    .comment:last-child {
+        border-bottom: none;
+    }
+
+    .comment-avatar {
+        width: 40px;
+        height: 40px;
+        background: var(--bg-tertiary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        color: var(--primary-color);
+        flex-shrink: 0;
+    }
+
+    .comment-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .comment-author {
+        font-weight: 500;
+        margin-right: 0.5rem;
+    }
+
+    .comment-time {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    .comment-content {
+        margin-top: 0.25rem;
+    }
+
+    /* Dark Mode Styles */
+    [data-theme="dark"] .author-avatar {
+        background: #334155;
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .post-content {
+        color: #CBD5E1;
+    }
+
+    [data-theme="dark"] .post-actions {
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .action-btn {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .action-btn:hover {
+        background: #334155;
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .comment {
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .comment-avatar {
+        background: #334155;
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .comment-author {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .comment-content {
+        color: #CBD5E1;
+    }
+
+    [data-theme="dark"] .post-media {
+        background: #1E293B;
+    }
+
+    [data-theme="dark"] h1 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] h2 {
+        color: #F1F5F9;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="post-container">
+        <a href="{% url 'forum_list' %}" class="btn btn-secondary mb-3">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+            {% trans "Back to Forum" %}
+        </a>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="post-header">
+                    <div class="author-info">
+                        <div class="author-avatar">
+                            {% if post.author.profile.avatar %}
+                                <img src="{{ post.author.profile.avatar.url }}" alt="{{ post.author.username }}">
+                            {% else %}
+                                {{ post.author.username.0|upper }}
+                            {% endif %}
+                        </div>
+                        <div>
+                            <div style="font-weight: 500;">{{ post.author.get_full_name|default:post.author.username }}</div>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">{{ post.created_at|date:"M d, Y, H:i" }}</div>
+                        </div>
+                    </div>
+
+                    {% if user == post.author %}
+                    <div class="flex gap-1">
+                        <a href="{% url 'forum_edit' post.id %}" class="btn btn-secondary">{% trans "Edit" %}</a>
+                        <a href="{% url 'forum_delete' post.id %}" class="btn btn-danger">{% trans "Delete" %}</a>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <h1 style="font-size: 1.75rem; margin-bottom: 1rem;">{{ post.title }}</h1>
+
+                <div class="post-content">
+                    {{ post.content|linebreaks }}
+                </div>
+
+                {% if post.image %}
+                <div class="post-media">
+                    <img src="{{ post.image.url }}" alt="Post image">
+                </div>
+                {% endif %}
+
+                {% if post.video %}
+                <div class="post-media">
+                    <video controls>
+                        <source src="{{ post.video.url }}" type="video/mp4">
+                    </video>
+                </div>
+                {% endif %}
+
+                <div class="post-actions">
+                    {% if user.is_authenticated %}
+                    <form action="{% url 'like_post' post.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="action-btn {% if is_liked %}liked{% endif %}">
+                            <svg width="20" height="20" fill="{% if is_liked %}currentColor{% else %}none{% endif %}" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                            {{ post.like_count }} {% trans "Like" %}{% if post.like_count != 1 %}s{% endif %}
+                        </button>
+                    </form>
+                    {% else %}
+                    <span class="action-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                        {{ post.like_count }} {% trans "Like" %}{% if post.like_count != 1 %}s{% endif %}
+                    </span>
+                    {% endif %}
+
+                    <span class="action-btn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                        {{ post.comment_count }} {% trans "Comment" %}{% if post.comment_count != 1 %}s{% endif %}
+                    </span>
+
+                    {% if user.is_authenticated and user != post.author %}
+                    <a href="{% url 'report_post' post.id %}" class="action-btn" style="margin-left: auto;">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+                        </svg>
+                        {% trans "Report" %}
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <div class="card">
+                <div class="card-header">
+                    <h2 style="font-size: 1.25rem;">{% trans "Comments" %} ({{ comments.count }})</h2>
+                </div>
+                <div class="card-body">
+                    {% if user.is_authenticated %}
+                    <form method="post" style="margin-bottom: 1.5rem;">
+                        {% csrf_token %}
+                        {{ comment_form.content }}
+                        <button type="submit" class="btn btn-primary mt-1">{% trans "Post Comment" %}</button>
+                    </form>
+                    {% else %}
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <a href="{% url 'login' %}" style="color: var(--primary-color);">{% trans "Login" %}</a> {% trans "to leave a comment." %}
+                    </p>
+                    {% endif %}
+
+                    {% for comment in comments %}
+                    <div class="comment">
+                        <div class="comment-avatar">
+                            {% if comment.author.profile.avatar %}
+                                <img src="{{ comment.author.profile.avatar.url }}" alt="{{ comment.author.username }}">
+                            {% else %}
+                                {{ comment.author.username.0|upper }}
+                            {% endif %}
+                        </div>
+                        <div>
+                            <div>
+                                <span class="comment-author">{{ comment.author.get_full_name|default:comment.author.username }}</span>
+                                <span class="comment-time">{{ comment.created_at|timesince }} {% trans "ago" %}</span>
+                            </div>
+                            <div class="comment-content">{{ comment.content }}</div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p style="color: var(--text-secondary); text-align: center;">{% trans "No comments yet. Be the first to comment!" %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

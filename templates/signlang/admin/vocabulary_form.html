@@ -1,0 +1,73 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block title %}{{ action }} {% trans "Vocabulary" %}{% endblock %}
+{% block page_title %}{{ action }} {% trans "Vocabulary" %} - {{ lesson.title }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Word" %} *</label>
+                <input type="text" name="word" class="form-control" value="{{ vocab.word|default:'' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Meaning" %} *</label>
+                <input type="text" name="meaning" class="form-control" value="{{ vocab.meaning|default:'' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Description" %} ({% trans "Markdown supported" %})</label>
+                <div class="markdown-help" style="background: var(--bg-secondary); padding: 0.75rem; border-radius: var(--radius-md); margin-bottom: 0.5rem; font-size: 0.8rem;">
+                    <strong>{% trans "Formatting:" %}</strong> <code>**bold**</code>, <code>*italic*</code>, <code>- list item</code>
+                </div>
+                <textarea name="description" class="form-control" rows="3" style="font-family: 'Consolas', 'Monaco', monospace;">{{ vocab.description|default:'' }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Image" %}</label>
+                {% if vocab.image %}
+                <div class="file-current">
+                    <img src="{{ vocab.image.url }}" alt="Current image">
+                    <div class="file-current-info">
+                        <div class="file-current-label">{% trans "Current Image" %}</div>
+                        <div class="file-current-name">{{ vocab.image.name }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                <input type="file" name="image" class="form-control" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Video File" %}</label>
+                {% if vocab.video %}
+                <div class="file-current">
+                    <div class="file-current-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <div class="file-current-info">
+                        <div class="file-current-label">{% trans "Current Video" %}</div>
+                        <div class="file-current-name">{{ vocab.video.name }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                <input type="file" name="video" class="form-control" accept="video/*">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">{% trans "Order" %}</label>
+                <input type="number" name="order" class="form-control" value="{{ vocab.order|default:0 }}">
+            </div>
+
+            <div class="flex gap-1 mt-2">
+                <button type="submit" class="btn btn-primary">{{ action }} {% trans "Vocabulary" %}</button>
+                <a href="{% url 'admin_vocabulary_list' lesson.id %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

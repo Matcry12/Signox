@@ -1,0 +1,73 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Vocabulary" %} - {{ lesson.title }}{% endblock %}
+{% block page_title %}{% trans "Vocabulary" %}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <div>
+            <h3>{{ lesson.title }}</h3>
+            <p style="color: var(--gray-500); margin: 0;">{% trans "Vocabulary items for this lesson" %}</p>
+        </div>
+        <a href="{% url 'admin_vocabulary_create' lesson.id %}" class="btn btn-primary">{% trans "Add Vocabulary" %}</a>
+    </div>
+    <div class="card-body" style="padding: 0;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{% trans "Word" %}</th>
+                    <th>{% trans "Image" %}</th>
+                    <th>{% trans "Video" %}</th>
+                    <th>{% trans "Order" %}</th>
+                    <th>{% trans "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for vocab in vocabularies %}
+                <tr>
+                    <td>
+                        <strong>{{ vocab.word }}</strong>
+                        {% if vocab.description %}
+                        <br><small style="color: var(--gray-500);">{{ vocab.description|truncatewords:10 }}</small>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if vocab.image %}
+                        <img src="{{ vocab.image.url }}" style="max-width: 60px; border-radius: 4px;">
+                        {% else %}
+                        <span style="color: var(--gray-400);">-</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if vocab.video %}
+                        <span class="badge badge-success">{% trans "Yes" %}</span>
+                        {% else %}
+                        <span style="color: var(--gray-400);">-</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ vocab.order }}</td>
+                    <td>
+                        <div class="flex gap-1">
+                            <a href="{% url 'admin_vocabulary_edit' vocab.id %}" class="btn btn-secondary btn-sm">{% trans "Edit" %}</a>
+                            <a href="{% url 'admin_vocabulary_delete' vocab.id %}" class="btn btn-danger btn-sm">{% trans "Delete" %}</a>
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 2rem; color: var(--gray-500);">
+                        {% trans "No vocabulary yet." %} <a href="{% url 'admin_vocabulary_create' lesson.id %}">{% trans "Add one" %}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="mt-2">
+    <a href="{% url 'admin_lesson_list' %}" class="btn btn-secondary">{% trans "Back to Lessons" %}</a>
+</div>
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends 'signlang/admin/base_admin.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Reports" %}{% endblock %}
+{% block page_title %}{% trans "Reports" %}{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+    <h2>{% trans "Content Reports" %}{% if page_obj %} ({{ page_obj.paginator.count }}){% endif %}</h2>
+    <div class="filter-tabs">
+        <a href="{% url 'admin_report_list' %}" class="filter-tab {% if not request.GET.status %}active{% endif %}">{% trans "All" %}</a>
+        <a href="?status=pending" class="filter-tab {% if request.GET.status == 'pending' %}active{% endif %}">{% trans "Pending" %}</a>
+        <a href="?status=resolved" class="filter-tab {% if request.GET.status == 'resolved' %}active{% endif %}">{% trans "Resolved" %}</a>
+    </div>
+</div>
+
+<div class="table-container">
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>{% trans "Content" %}</th>
+                <th>{% trans "Reason" %}</th>
+                <th>{% trans "Reporter" %}</th>
+                <th>{% trans "Date" %}</th>
+                <th>{% trans "Status" %}</th>
+                <th style="width: 100px;">{% trans "Actions" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in reports %}
+            <tr>
+                <td>
+                    {% if report.post %}
+                        <strong>{% trans "Post:" %}</strong> {{ report.post.title|truncatewords:5 }}
+                    {% else %}
+                        <span style="color: var(--gray-400);">{% trans "Deleted Content" %}</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <span class="badge badge-{% if report.reason == 'spam' %}danger{% elif report.reason == 'inappropriate' %}warning{% else %}secondary{% endif %}">
+                        {{ report.get_reason_display }}
+                    </span>
+                </td>
+                <td>{{ report.reporter.username }}</td>
+                <td>{{ report.created_at|date:"M d, Y H:i" }}</td>
+                <td>
+                    {% if report.status == 'resolved' %}
+                        <span class="badge badge-success">{% trans "Resolved" %}</span>
+                    {% elif report.status == 'reviewed' %}
+                        <span class="badge badge-info">{% trans "Reviewed" %}</span>
+                    {% else %}
+                        <span class="badge badge-warning">{% trans "Pending" %}</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if report.status != 'resolved' %}
+                    <form method="post" action="{% url 'admin_report_resolve' report.id %}" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="action" value="resolve">
+                        <button type="submit" class="btn btn-success btn-sm">
+                            <i class="fas fa-check"></i> {% trans "Resolve" %}
+                        </button>
+                    </form>
+                    {% else %}
+                    <span style="color: var(--gray-400);">-</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">
+                    <div class="empty-state">
+                        <i class="fas fa-flag"></i>
+                        <p>{% trans "No reports found" %}</p>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include 'signlang/admin/includes/pagination.html' %}
+
+<style>
+    .filter-tabs {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .filter-tab {
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        border: 1px solid var(--gray-200);
+        background: var(--card-bg);
+        color: var(--gray-600);
+        text-decoration: none;
+        transition: all 0.15s ease;
+    }
+
+    .filter-tab:hover {
+        background: var(--gray-50);
+    }
+
+    .filter-tab.active {
+        background: var(--primary-500);
+        color: white;
+        border-color: var(--primary-500);
+    }
+</style>
+{% endblock %}

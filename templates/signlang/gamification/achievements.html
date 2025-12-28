@@ -1,0 +1,507 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Achievements" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .achievements-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    .achievements-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .achievements-header h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--gray-800);
+        margin-bottom: 0.5rem;
+    }
+
+    /* Stats Summary */
+    .stats-summary {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .stat-card {
+        background: var(--card-bg);
+        border-radius: 1rem;
+        padding: 1.25rem;
+        text-align: center;
+        box-shadow: var(--shadow);
+    }
+
+    .stat-card .icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.75rem;
+        font-size: 1.25rem;
+    }
+
+    .stat-card .icon.primary { background: var(--primary-100); color: var(--primary-600); }
+    .stat-card .icon.warning { background: #FEF3C7; color: #D97706; }
+    .stat-card .icon.success { background: #D1FAE5; color: #059669; }
+    .stat-card .icon.purple { background: var(--purple-100); color: var(--purple-500); }
+
+    .stat-card .value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gray-800);
+    }
+
+    .stat-card .label {
+        font-size: 0.75rem;
+        color: var(--gray-500);
+        margin-top: 0.25rem;
+    }
+
+    /* Level Progress */
+    .level-card {
+        background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+        border-radius: 1rem;
+        padding: 1.5rem;
+        color: white;
+        margin-bottom: 2rem;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .level-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .level-info h3 {
+        font-size: 0.875rem;
+        font-weight: 600;
+        opacity: 0.9;
+    }
+
+    .level-info .level-number {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .level-info .level-title {
+        font-size: 1rem;
+        opacity: 0.8;
+    }
+
+    .level-xp {
+        text-align: right;
+    }
+
+    .level-xp .total {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .level-xp .label {
+        font-size: 0.75rem;
+        opacity: 0.8;
+    }
+
+    .level-progress {
+        background: rgba(255,255,255,0.2);
+        height: 8px;
+        border-radius: 9999px;
+        overflow: hidden;
+    }
+
+    .level-progress-fill {
+        background: var(--card-bg);
+        height: 100%;
+        border-radius: 9999px;
+        transition: width 0.5s ease;
+    }
+
+    .level-progress-text {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        margin-top: 0.5rem;
+        opacity: 0.8;
+    }
+
+    /* Badge Groups */
+    .badge-group {
+        margin-bottom: 2rem;
+    }
+
+    .badge-group-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--gray-700);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .badge-group-title i {
+        color: var(--primary-500);
+    }
+
+    .badges-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+
+    .badge-card {
+        background: var(--card-bg);
+        border-radius: 1rem;
+        padding: 1.25rem;
+        text-align: center;
+        box-shadow: var(--shadow);
+        position: relative;
+        transition: all 0.2s;
+    }
+
+    .badge-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .badge-card.locked {
+        opacity: 0.5;
+        filter: grayscale(1);
+    }
+
+    .badge-card.earned {
+        border: 2px solid var(--primary-400);
+    }
+
+    .badge-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.75rem;
+        font-size: 1.5rem;
+    }
+
+    .badge-icon.bronze { background: linear-gradient(135deg, #CD7F32, #8B4513); color: white; }
+    .badge-icon.silver { background: linear-gradient(135deg, #C0C0C0, #808080); color: white; }
+    .badge-icon.gold { background: linear-gradient(135deg, #FFD700, #FFA500); color: white; }
+    .badge-icon.platinum { background: linear-gradient(135deg, #E5E4E2, #A0B2C6); color: #1a1a2e; }
+    .badge-icon.diamond { background: linear-gradient(135deg, #B9F2FF, #87CEEB); color: #1a1a2e; }
+
+    .badge-card h4 {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 0.25rem;
+    }
+
+    .badge-card p {
+        font-size: 0.6875rem;
+        color: var(--gray-500);
+        line-height: 1.4;
+    }
+
+    .badge-reward {
+        margin-top: 0.5rem;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        color: var(--primary-600);
+    }
+
+    .badge-earned-date {
+        margin-top: 0.5rem;
+        font-size: 0.625rem;
+        color: var(--success);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+    }
+
+    .badge-checkmark {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 24px;
+        height: 24px;
+        background: var(--success);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.75rem;
+    }
+
+    /* Progress bar for locked badges */
+    .badge-progress {
+        margin-top: 0.5rem;
+    }
+
+    .badge-progress-bar {
+        height: 4px;
+        background: var(--gray-200);
+        border-radius: 9999px;
+        overflow: hidden;
+    }
+
+    .badge-progress-fill {
+        height: 100%;
+        background: var(--primary-400);
+        border-radius: 9999px;
+    }
+
+    @media (max-width: 640px) {
+        .stats-summary {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .badges-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .achievements-container {
+            padding: 1.5rem 0.75rem;
+        }
+        .achievements-header h1 {
+            font-size: 1.375rem;
+        }
+        .level-card {
+            padding: 1.25rem;
+        }
+        .level-header {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+        .level-info .level-number {
+            font-size: 1.75rem;
+        }
+        .level-xp {
+            text-align: center;
+        }
+        .level-xp .total {
+            font-size: 1.25rem;
+        }
+        .stats-summary {
+            gap: 0.75rem;
+        }
+        .stat-card {
+            padding: 1rem;
+        }
+        .stat-card .icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+        .stat-card .value {
+            font-size: 1.25rem;
+        }
+        .stat-card .label {
+            font-size: 0.6875rem;
+        }
+        .badge-group-title {
+            font-size: 0.9375rem;
+        }
+        .badges-grid {
+            gap: 0.75rem;
+        }
+        .badge-card {
+            padding: 1rem;
+        }
+        .badge-icon {
+            width: 48px;
+            height: 48px;
+            font-size: 1.125rem;
+        }
+        .badge-card h4 {
+            font-size: 0.75rem;
+        }
+        .badge-card p {
+            font-size: 0.625rem;
+        }
+        .badge-reward {
+            font-size: 0.625rem;
+        }
+    }
+
+    /* Dark Mode Styles */
+    [data-theme="dark"] .achievements-header h1 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .stat-card {
+        background: #1E293B;
+    }
+
+    [data-theme="dark"] .stat-card .value {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .stat-card .label {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .stat-card .icon.primary {
+        background: rgba(99, 102, 241, 0.2);
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .stat-card .icon.warning {
+        background: rgba(245, 158, 11, 0.2);
+        color: #FCD34D;
+    }
+
+    [data-theme="dark"] .stat-card .icon.success {
+        background: rgba(34, 197, 94, 0.2);
+        color: #86EFAC;
+    }
+
+    [data-theme="dark"] .stat-card .icon.purple {
+        background: rgba(139, 92, 246, 0.2);
+        color: #C4B5FD;
+    }
+
+    [data-theme="dark"] .badge-group-title {
+        color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .badge-card {
+        background: #1E293B;
+    }
+
+    [data-theme="dark"] .badge-card h4 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .badge-card p {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .badge-reward {
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .badge-progress-bar {
+        background: #334155;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="achievements-container">
+    <div class="achievements-header">
+        <h1><i class="fas fa-trophy"></i> {% trans "Your Achievements" %}</h1>
+        <p class="text-gray">{{ earned_count }} / {{ total_count }} {% trans "badges earned" %}</p>
+    </div>
+
+    <!-- Level Progress Card -->
+    <div class="level-card">
+        <div class="level-header">
+            <div class="level-info">
+                <h3>{% trans "Current Level" %}</h3>
+                <div class="level-number">{{ stats.points.level }}</div>
+                <div class="level-title">{{ stats.points.level_title }}</div>
+            </div>
+            <div class="level-xp">
+                <div class="total">{{ stats.points.total_points }}</div>
+                <div class="label">{% trans "Total XP" %}</div>
+            </div>
+        </div>
+        <div class="level-progress">
+            <div class="level-progress-fill" style="width: {{ stats.points.level_progress_percent }}%;"></div>
+        </div>
+        <div class="level-progress-text">
+            <span>{% trans "Level" %} {{ stats.points.level }}</span>
+            <span>{{ stats.points.points_to_next_level }} XP {% trans "to" %} {% trans "Level" %} {{ stats.points.level|add:1 }}</span>
+        </div>
+    </div>
+
+    <!-- Stats Summary -->
+    <div class="stats-summary">
+        <div class="stat-card">
+            <div class="icon primary">
+                <i class="fas fa-fire"></i>
+            </div>
+            <div class="value">{{ stats.streak.current_streak }}</div>
+            <div class="label">{% trans "Day Streak" %}</div>
+        </div>
+        <div class="stat-card">
+            <div class="icon warning">
+                <i class="fas fa-medal"></i>
+            </div>
+            <div class="value">{{ earned_count }}</div>
+            <div class="label">{% trans "Badges Earned" %}</div>
+        </div>
+        <div class="stat-card">
+            <div class="icon success">
+                <i class="fas fa-book"></i>
+            </div>
+            <div class="value">{{ stats.lessons_completed }}</div>
+            <div class="label">{% trans "Lessons Done" %}</div>
+        </div>
+        <div class="stat-card">
+            <div class="icon purple">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="value">{{ stats.quizzes_passed }}</div>
+            <div class="label">{% trans "Quizzes Passed" %}</div>
+        </div>
+    </div>
+
+    <!-- Badge Groups -->
+    {% for type, badges in badge_groups.items %}
+    <div class="badge-group">
+        <h3 class="badge-group-title">
+            {% if type == 'lesson' %}
+            <i class="fas fa-book"></i> {% trans "Lesson Milestones" %}
+            {% elif type == 'quiz' %}
+            <i class="fas fa-question-circle"></i> {% trans "Quiz Achievements" %}
+            {% elif type == 'streak' %}
+            <i class="fas fa-fire"></i> {% trans "Streak Achievements" %}
+            {% else %}
+            <i class="fas fa-star"></i> {% trans "Special Achievements" %}
+            {% endif %}
+        </h3>
+        <div class="badges-grid">
+            {% for item in badges %}
+            <div class="badge-card {% if item.earned %}earned{% else %}locked{% endif %}">
+                {% if item.earned %}
+                <div class="badge-checkmark">
+                    <i class="fas fa-check"></i>
+                </div>
+                {% endif %}
+                <div class="badge-icon {{ item.badge.color }}">
+                    <i class="fas {{ item.badge.icon }}"></i>
+                </div>
+                <h4>{{ item.badge.name }}</h4>
+                <p>{{ item.badge.description }}</p>
+                <div class="badge-reward">+{{ item.badge.points_reward }} XP</div>
+                {% if item.earned %}
+                <div class="badge-earned-date">
+                    <i class="fas fa-check-circle"></i> {{ item.earned_at|date:"M d, Y" }}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

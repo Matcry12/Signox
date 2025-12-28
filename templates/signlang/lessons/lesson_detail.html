@@ -1,0 +1,611 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load markdown_extras %}
+{% load quiz_extras %}
+
+{% block title %}{{ lesson.title }} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .lesson-header {
+        background: var(--bg-primary);
+        padding: 2rem 1rem;
+        border-bottom: 1px solid var(--bg-tertiary);
+    }
+
+    .breadcrumb {
+        display: flex;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+    }
+
+    .breadcrumb a {
+        color: var(--primary-color);
+    }
+
+    .lesson-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .lesson-meta {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .lesson-grid {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+        .lesson-grid {
+            grid-template-columns: 1fr;
+        }
+        .sidebar-card {
+            position: static;
+        }
+    }
+
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+        background: #000;
+        margin-bottom: 2rem;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .lesson-content {
+        line-height: 1.8;
+    }
+
+    .lesson-content h2 {
+        font-size: 1.5rem;
+        margin: 2rem 0 1rem;
+    }
+
+    /* Markdown content styles */
+    .markdown-content h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin: 1.5rem 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--primary-color);
+    }
+
+    .markdown-content h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 1.5rem 0 0.75rem;
+        color: var(--primary-color);
+    }
+
+    .markdown-content h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 1.25rem 0 0.5rem;
+    }
+
+    .markdown-content h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 1rem 0 0.5rem;
+    }
+
+    .markdown-content p {
+        margin: 0.75rem 0;
+        line-height: 1.8;
+    }
+
+    .markdown-content ul, .markdown-content ol {
+        margin: 0.75rem 0;
+        padding-left: 1.5rem;
+    }
+
+    .markdown-content li {
+        margin: 0.4rem 0;
+        line-height: 1.6;
+    }
+
+    .markdown-content ul li {
+        list-style-type: disc;
+    }
+
+    .markdown-content ol li {
+        list-style-type: decimal;
+    }
+
+    .markdown-content strong {
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .markdown-content em {
+        font-style: italic;
+    }
+
+    .markdown-content code {
+        background: var(--bg-tertiary);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-family: 'Consolas', 'Monaco', monospace;
+        font-size: 0.9em;
+    }
+
+    .markdown-content pre {
+        background: var(--bg-tertiary);
+        padding: 1rem;
+        border-radius: var(--radius-md);
+        overflow-x: auto;
+        margin: 1rem 0;
+    }
+
+    .markdown-content pre code {
+        background: none;
+        padding: 0;
+    }
+
+    .markdown-content blockquote {
+        border-left: 4px solid var(--primary-color);
+        padding-left: 1rem;
+        margin: 1rem 0;
+        color: var(--text-secondary);
+        font-style: italic;
+    }
+
+    .markdown-content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+    }
+
+    .markdown-content th, .markdown-content td {
+        border: 1px solid var(--bg-tertiary);
+        padding: 0.75rem;
+        text-align: left;
+    }
+
+    .markdown-content th {
+        background: var(--bg-secondary);
+        font-weight: 600;
+    }
+
+    .markdown-content hr {
+        border: none;
+        border-top: 1px solid var(--bg-tertiary);
+        margin: 1.5rem 0;
+    }
+
+    .markdown-content a {
+        color: var(--primary-color);
+        text-decoration: underline;
+    }
+
+    .markdown-content a:hover {
+        text-decoration: none;
+    }
+
+    .vocabulary-section {
+        margin-top: 2rem;
+    }
+
+    .vocabulary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .vocab-card {
+        background: var(--bg-secondary);
+        border-radius: var(--radius-md);
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .vocab-card .word {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .vocab-card .meaning {
+        color: var(--text-secondary);
+    }
+
+    .sidebar-card {
+        position: sticky;
+        top: 80px;
+    }
+
+    .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .related-lesson {
+        display: flex;
+        gap: 1rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--bg-tertiary);
+    }
+
+    .related-lesson:last-child {
+        border-bottom: none;
+    }
+
+    .related-thumbnail {
+        width: 60px;
+        height: 45px;
+        background: var(--bg-tertiary);
+        border-radius: var(--radius-sm);
+        flex-shrink: 0;
+    }
+
+    .related-info h4 {
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Dark Mode Styles */
+    [data-theme="dark"] .lesson-header {
+        background: #1E293B;
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .lesson-title {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .breadcrumb {
+        color: #64748B;
+    }
+
+    [data-theme="dark"] .breadcrumb a {
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .lesson-content {
+        color: #CBD5E1;
+    }
+
+    [data-theme="dark"] .lesson-content h2 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .vocab-card {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .vocab-card .word {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .vocab-card .meaning {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .related-lesson {
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .related-thumbnail {
+        background: #475569;
+    }
+
+    [data-theme="dark"] .related-info h4 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .vocabulary-section h2 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .btn-outline {
+        background: #1E293B;
+        border-color: #475569;
+        color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .btn-outline:hover {
+        background: #334155;
+    }
+
+    /* Dark Mode Markdown Styles */
+    [data-theme="dark"] .markdown-content h1,
+    [data-theme="dark"] .markdown-content h2,
+    [data-theme="dark"] .markdown-content h3,
+    [data-theme="dark"] .markdown-content h4 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .markdown-content h1 {
+        border-bottom-color: #6366F1;
+    }
+
+    [data-theme="dark"] .markdown-content h2 {
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .markdown-content strong {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .markdown-content code {
+        background: #334155;
+        color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .markdown-content pre {
+        background: #1E293B;
+        border: 1px solid #334155;
+    }
+
+    [data-theme="dark"] .markdown-content blockquote {
+        border-left-color: #6366F1;
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .markdown-content th {
+        background: #334155;
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .markdown-content th,
+    [data-theme="dark"] .markdown-content td {
+        border-color: #475569;
+    }
+
+    [data-theme="dark"] .markdown-content hr {
+        border-top-color: #475569;
+    }
+
+    [data-theme="dark"] .markdown-content a {
+        color: #A5B4FC;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="lesson-header">
+    <div class="container" style="padding: 0;">
+        <div class="breadcrumb">
+            <a href="{% url 'lesson_list' %}">{% trans "Lessons" %}</a>
+            <span>/</span>
+            <a href="{% url 'lesson_list_by_category' lesson.category.slug %}">{{ lesson.category.name }}</a>
+            <span>/</span>
+            <span>{{ lesson.title }}</span>
+        </div>
+        <h1 class="lesson-title">{{ lesson.title }}</h1>
+        <div class="lesson-meta">
+            <span class="badge badge-{% if lesson.difficulty == 'easy' %}success{% elif lesson.difficulty == 'medium' %}warning{% else %}danger{% endif %}">
+                {{ lesson.get_difficulty_display }}
+            </span>
+            <span style="color: var(--text-secondary);">{{ lesson.category.name }}</span>
+            {% if user_progress %}
+            <span class="badge badge-{% if user_progress.status == 'completed' %}success{% else %}primary{% endif %}">
+                {{ user_progress.get_status_display }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="lesson-grid">
+        <!-- Main Content -->
+        <div>
+            {% if lesson.video_url %}
+            <div class="video-container">
+                <iframe src="{{ lesson.video_url|youtube_embed }}" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Video: {{ lesson.title }}"></iframe>
+            </div>
+            {% endif %}
+
+            <div class="card">
+                <div class="card-body lesson-content">
+                    <h2>{% trans "About this Lesson" %}</h2>
+                    <p>{{ lesson.description }}</p>
+
+                    <h2>{% trans "Content" %}</h2>
+                    <div class="markdown-content">
+                        {{ lesson.content|markdown }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vocabulary Section -->
+            {% if vocabularies %}
+            <div class="vocabulary-section">
+                <div class="flex justify-between items-center">
+                    <h2 style="font-size: 1.5rem;">{% trans "Vocabulary" %} ({{ vocabularies.count }})</h2>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'flashcard_mode' lesson.slug %}" class="btn btn-primary">{% trans "Flashcard Mode" %}</a>
+                    {% endif %}
+                </div>
+                <div class="vocabulary-grid">
+                    {% for vocab in vocabularies %}
+                    <div class="vocab-card">
+                        {% if vocab.image %}
+                        <img src="{{ vocab.image.url }}" alt="{{ vocab.word }}" style="max-width: 100%; border-radius: var(--radius-sm); margin-bottom: 0.5rem;">
+                        {% endif %}
+                        <div class="word">{{ vocab.word }}</div>
+                        <div class="meaning">{{ vocab.meaning }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Sidebar -->
+        <div>
+            <div class="card sidebar-card">
+                <div class="card-body">
+                    {% if user.is_authenticated %}
+                    <div class="action-buttons">
+                        <form action="{% url 'save_lesson' lesson.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn {% if is_saved %}btn-secondary{% else %}btn-outline{% endif %}" style="width: 100%;">
+                                {% if is_saved %}
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                                    {% trans "Saved" %}
+                                {% else %}
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                                    {% trans "Save Lesson" %}
+                                {% endif %}
+                            </button>
+                        </form>
+
+                        {% if vocabularies %}
+                        <a href="{% url 'flashcard_mode' lesson.slug %}" class="btn btn-outline">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                            {% trans "Practice Flashcards" %}
+                        </a>
+                        {% endif %}
+                    </div>
+
+                    <!-- Learning Progress Section -->
+                    {% if learning_stats %}
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--bg-tertiary);">
+                        <h4 style="font-size: 0.875rem; margin-bottom: 0.75rem; color: var(--text-secondary);">{% trans "Learning Progress" %}</h4>
+
+                        <!-- Overall Progress Bar -->
+                        <div style="margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 0.25rem;">
+                                <span>{% trans "Overall" %}</span>
+                                <span style="font-weight: 600;">{{ learning_stats.overall_progress }}%</span>
+                            </div>
+                            <div style="height: 8px; background: var(--bg-tertiary); border-radius: 9999px; overflow: hidden;">
+                                <div style="height: 100%; width: {{ learning_stats.overall_progress }}%; background: linear-gradient(90deg, var(--primary-color), #7C3AED); border-radius: 9999px; transition: width 0.5s;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Detailed Progress -->
+                        {% if learning_stats.has_vocabulary %}
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--bg-tertiary);">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-clone" style="color: {% if learning_stats.vocab_mastery >= 70 %}var(--secondary-color){% else %}var(--text-secondary){% endif %};"></i>
+                                <span style="font-size: 0.8125rem;">{% trans "Flashcards" %}</span>
+                            </div>
+                            <div style="text-align: right;">
+                                <span style="font-size: 0.875rem; font-weight: 600; color: {% if learning_stats.vocab_mastery >= 70 %}var(--secondary-color){% else %}var(--text-primary){% endif %};">
+                                    {{ learning_stats.vocab_mastery }}%
+                                </span>
+                                <div style="font-size: 0.6875rem; color: var(--text-secondary);">
+                                    {{ learning_stats.vocab_reviewed }}/{{ learning_stats.vocab_total }} {% trans "reviewed" %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {% if learning_stats.has_quiz %}
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-question-circle" style="color: {% if learning_stats.quiz_passed %}var(--secondary-color){% else %}var(--text-secondary){% endif %};"></i>
+                                <span style="font-size: 0.8125rem;">{% trans "Quiz" %}</span>
+                            </div>
+                            <div style="text-align: right;">
+                                {% if learning_stats.quiz_passed %}
+                                <span style="font-size: 0.875rem; font-weight: 600; color: var(--secondary-color);">
+                                    <i class="fas fa-check"></i> {% trans "Passed" %}
+                                </span>
+                                {% elif learning_stats.quiz_best_score is not None %}
+                                <span style="font-size: 0.875rem; font-weight: 600; color: var(--danger-color);">
+                                    {% trans "Best" %}: {{ learning_stats.quiz_best_score }}
+                                </span>
+                                {% else %}
+                                <span style="font-size: 0.8125rem; color: var(--text-secondary);">{% trans "Not attempted" %}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- Completion Status -->
+                        <div style="margin-top: 1rem;">
+                            {% if user_progress.status == 'completed' %}
+                            <div style="background: linear-gradient(135deg, var(--secondary-color), #059669); color: white; padding: 0.75rem 1rem; border-radius: var(--radius-md); text-align: center;">
+                                <i class="fas fa-check-circle"></i> {% trans "Lesson Completed!" %}
+                            </div>
+                            {% else %}
+                            <div style="background: var(--bg-secondary); padding: 0.75rem 1rem; border-radius: var(--radius-md); font-size: 0.8125rem; margin-bottom: 0.75rem;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem; color: var(--text-primary);">{% trans "To auto-complete:" %}</div>
+                                <ul style="margin: 0; padding-left: 1.25rem; color: var(--text-secondary);">
+                                    {% if learning_stats.has_vocabulary and learning_stats.vocab_mastery < 70 %}
+                                    <li>{% trans "Achieve 70%+ mastery on flashcards" %}</li>
+                                    {% endif %}
+                                    {% if learning_stats.has_quiz and not learning_stats.quiz_passed %}
+                                    <li>{% trans "Pass the lesson quiz" %}</li>
+                                    {% endif %}
+                                    {% if not learning_stats.has_vocabulary and not learning_stats.has_quiz %}
+                                    <li>{% trans "Review the lesson content" %}</li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <!-- Manual Complete Option -->
+                            <form action="{% url 'complete_lesson' lesson.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline" style="width: 100%; font-size: 0.8125rem;">
+                                    <i class="fas fa-check"></i> {% trans "Mark as Complete Manually" %}
+                                </button>
+                            </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% else %}
+                    <!-- Fallback for non-authenticated viewing (won't have learning_stats) -->
+                    {% if user_progress.status == 'completed' %}
+                    <div class="btn btn-success" style="width: 100%; cursor: default; margin-top: 1rem;">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        {% trans "Completed!" %}
+                    </div>
+                    {% endif %}
+                    {% endif %}
+                    {% else %}
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">{% trans "Sign in to track your progress and save lessons." %}</p>
+                    <a href="{% url 'login' %}" class="btn btn-primary" style="width: 100%;">{% trans "Sign In" %}</a>
+                    {% endif %}
+                </div>
+
+                {% if related_lessons %}
+                <div class="card-header">
+                    <h3 style="font-size: 1rem;">{% trans "Related Lessons" %}</h3>
+                </div>
+                <div class="card-body" style="padding-top: 0;">
+                    {% for rel in related_lessons %}
+                    <a href="{% url 'lesson_detail' rel.slug %}" class="related-lesson">
+                        <div class="related-thumbnail"></div>
+                        <div class="related-info">
+                            <h4>{{ rel.title|truncatewords:5 }}</h4>
+                            <span class="badge badge-{% if rel.difficulty == 'easy' %}success{% elif rel.difficulty == 'medium' %}warning{% else %}danger{% endif %}" style="font-size: 0.7rem;">
+                                {{ rel.get_difficulty_display }}
+                            </span>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

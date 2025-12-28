@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load markdown_extras %}
+{% load quiz_extras %}
+
+{% block title %}{{ video.title }} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .video-player {
+        background: #000;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+    }
+
+    .video-player video {
+        width: 100%;
+        max-height: 500px;
+    }
+
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video-info h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .video-meta {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+    }
+
+    .related-video {
+        display: flex;
+        gap: 1rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--bg-tertiary);
+    }
+
+    .related-video:last-child {
+        border-bottom: none;
+    }
+
+    .related-thumbnail {
+        width: 120px;
+        height: 68px;
+        background: var(--bg-tertiary);
+        border-radius: var(--radius-sm);
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+
+    .related-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Dark Mode Styles */
+    [data-theme="dark"] .video-info h1 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .video-meta {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .card-body h2,
+    [data-theme="dark"] .card-body h3,
+    [data-theme="dark"] .card-header h3 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .card-body p {
+        color: #CBD5E1;
+    }
+
+    [data-theme="dark"] .related-video {
+        border-color: #334155;
+    }
+
+    [data-theme="dark"] .related-thumbnail {
+        background: #475569;
+    }
+
+    [data-theme="dark"] .related-video h4 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .btn-outline {
+        background: #1E293B;
+        border-color: #475569;
+        color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .btn-outline:hover {
+        background: #334155;
+    }
+
+    /* Markdown content styles */
+    .markdown-content h1 { font-size: 1.5rem; font-weight: 700; margin: 1.25rem 0 0.75rem; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; }
+    .markdown-content h2 { font-size: 1.25rem; font-weight: 600; margin: 1.25rem 0 0.5rem; color: var(--primary-color); }
+    .markdown-content h3 { font-size: 1.1rem; font-weight: 600; margin: 1rem 0 0.5rem; }
+    .markdown-content p { margin: 0.5rem 0; }
+    .markdown-content ul, .markdown-content ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+    .markdown-content li { margin: 0.25rem 0; }
+    .markdown-content ul li { list-style-type: disc; }
+    .markdown-content ol li { list-style-type: decimal; }
+    .markdown-content strong { font-weight: 600; }
+    .markdown-content code { background: var(--bg-tertiary); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.9em; }
+    .markdown-content pre { background: var(--bg-tertiary); padding: 1rem; border-radius: var(--radius-md); overflow-x: auto; margin: 0.75rem 0; }
+    .markdown-content pre code { background: none; padding: 0; }
+    .markdown-content blockquote { border-left: 4px solid var(--primary-color); padding-left: 1rem; margin: 0.75rem 0; color: var(--text-secondary); font-style: italic; }
+    .markdown-content a { color: var(--primary-color); text-decoration: underline; }
+
+    [data-theme="dark"] .markdown-content h1, [data-theme="dark"] .markdown-content h2, [data-theme="dark"] .markdown-content h3 { color: #F1F5F9; }
+    [data-theme="dark"] .markdown-content h2 { color: #A5B4FC; }
+    [data-theme="dark"] .markdown-content code { background: #334155; color: #E2E8F0; }
+    [data-theme="dark"] .markdown-content pre { background: #1E293B; border: 1px solid #334155; }
+    [data-theme="dark"] .markdown-content blockquote { border-left-color: #6366F1; color: #94A3B8; }
+    [data-theme="dark"] .markdown-content a { color: #A5B4FC; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 350px; gap: 2rem;">
+        <!-- Main Content -->
+        <div>
+            <div class="video-player">
+                {% if video.video_file %}
+                <video controls>
+                    <source src="{{ video.video_file.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                {% elif video.video_url %}
+                <div class="video-container">
+                    <iframe src="{{ video.video_url|youtube_embed }}" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Video: {{ video.title }}"></iframe>
+                </div>
+                {% else %}
+                <div style="padding: 3rem; text-align: center; color: white;">
+                    {% trans "Video not available" %}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="video-info">
+                <h1>{{ video.title }}</h1>
+                <div class="video-meta">
+                    <span>{{ video.view_count }} {% trans "views" %}</span>
+                    <span>{{ video.created_at|date:"M d, Y" }}</span>
+                    <span class="badge badge-{% if video.difficulty == 'easy' %}success{% elif video.difficulty == 'medium' %}warning{% else %}danger{% endif %}">
+                        {{ video.get_difficulty_display }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h2 style="font-size: 1.125rem; margin-bottom: 1rem;">{% trans "About this video" %}</h2>
+                    <div class="markdown-content" style="line-height: 1.8;">
+                        {{ video.description|markdown }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 style="font-size: 1rem;">{% trans "Related Videos" %}</h3>
+                </div>
+                <div class="card-body" style="padding: 0.5rem 1rem;">
+                    {% for rel in related_videos %}
+                    <a href="{% url 'video_detail' rel.slug %}" class="related-video">
+                        <div class="related-thumbnail">
+                            {% if rel.thumbnail %}
+                            <img src="{{ rel.thumbnail.url }}" alt="{{ rel.title }}">
+                            {% endif %}
+                        </div>
+                        <div>
+                            <h4 style="font-size: 0.875rem; margin-bottom: 0.25rem;">{{ rel.title|truncatewords:6 }}</h4>
+                            <span style="font-size: 0.75rem; color: var(--text-secondary);">{{ rel.view_count }} {% trans "views" %}</span>
+                        </div>
+                    </a>
+                    {% empty %}
+                    <p style="color: var(--text-secondary); text-align: center; padding: 1rem;">{% trans "No related videos" %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="card mt-2">
+                <div class="card-body">
+                    <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">{% trans "Category" %}</h3>
+                    <a href="{% url 'video_list' %}?category={{ video.category.slug }}" class="btn btn-outline" style="width: 100%;">
+                        {{ video.category.name }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

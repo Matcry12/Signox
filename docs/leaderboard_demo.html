@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Xếp Hạng & Ôn Tập</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .leaderboard-bg {
+            background-color: #FFFBEB; /* Light yellow bg */
+            background-image: radial-gradient(#FDE68A 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .podium-1 { height: 140px; border-bottom: 4px solid #F59E0B; }
+        .podium-2 { height: 100px; border-bottom: 4px solid #9CA3AF; }
+        .podium-3 { height: 80px; border-bottom: 4px solid #D97706; }
+        
+        /* Custom scrollbar for the list if needed */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #d1d5db; 
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen p-0 md:p-4">
+
+    <!-- Main Wide Container -->
+    <div class="w-full max-w-6xl mx-auto bg-white shadow-xl overflow-hidden min-h-screen md:min-h-0 md:rounded-2xl flex flex-col">
+        
+        <!-- Header / Logo -->
+        <header class="p-4 flex justify-between items-center border-b bg-white z-10 sticky top-0 md:relative">
+            <div class="flex items-center gap-2 text-gray-700 font-bold text-lg md:text-xl">
+                <i class="fas fa-hands-asl-interpreting text-blue-500 text-2xl"></i> LOGO
+            </div>
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-500">
+                <a href="#" class="hover:text-blue-500 transition">Trang chủ</a>
+                <a href="#" class="hover:text-blue-500 transition">Diễn đàn</a>
+                <a href="#" class="text-blue-500">Xếp hạng</a>
+                <a href="#" class="hover:text-blue-500 transition">Thư viện</a>
+            </div>
+            <button class="bg-blue-600 hover:bg-blue-700 transition text-white px-5 py-2 rounded-full text-sm font-bold shadow-md">Đăng nhập</button>
+        </header>
+
+        <!-- Navbar Middle (Mobile Only - User Info) -->
+        <div class="bg-blue-500 p-4 flex items-center gap-3 text-white md:hidden">
+            <div class="w-10 h-10 bg-white rounded-full border-2 border-blue-200"></div>
+            <span class="font-bold text-lg">web name</span>
+            <i class="fas fa-bars ml-auto text-2xl cursor-pointer"></i>
+        </div>
+
+        <main class="flex-grow">
+            <!-- LEADERBOARD SECTION -->
+            <section class="leaderboard-bg p-4 md:p-8 pb-10">
+                <div class="text-center mb-8 relative">
+                     <div class="inline-block bg-white px-10 py-3 rounded-full border-4 border-pink-200 shadow-md transform hover:scale-105 transition duration-300 cursor-default">
+                         <h2 class="text-xl md:text-2xl font-bold text-red-500 uppercase tracking-[0.2em] drop-shadow-sm">
+                             <i class="fas fa-trophy mr-2 text-yellow-400"></i>Bảng Xếp Hạng
+                         </h2>
+                     </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    
+                    <!-- Podium (Left on Desktop, Top on Mobile) -->
+                    <div class="w-full md:w-1/2 flex justify-center items-end gap-2 md:gap-4 mt-4 order-1 md:order-1">
+                        <!-- 2nd Place -->
+                        <div class="flex flex-col items-center group">
+                            <div class="w-14 h-14 md:w-20 md:h-20 bg-gray-200 rounded-full border-4 border-gray-400 mb-[-15px] z-10 relative overflow-hidden shadow-lg group-hover:-translate-y-2 transition duration-300">
+                                <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Felix" class="w-full h-full object-cover bg-gray-100">
+                            </div>
+                            <div class="podium-2 w-20 md:w-28 bg-gradient-to-b from-gray-100 to-gray-300 rounded-t-lg flex items-center justify-center shadow-lg relative">
+                                <div class="w-6 h-6 md:w-8 md:h-8 bg-gray-500 rounded-full text-white text-xs md:text-sm flex items-center justify-center font-bold absolute -top-3 md:-top-4 border-2 border-white">2</div>
+                                <span class="font-bold text-gray-600 mt-4">Alex</span>
+                            </div>
+                        </div>
+                        <!-- 1st Place -->
+                        <div class="flex flex-col items-center group">
+                            <i class="fas fa-crown text-yellow-500 mb-2 text-2xl md:text-4xl animate-bounce drop-shadow-md"></i>
+                            <div class="w-20 h-20 md:w-28 md:h-28 bg-yellow-100 rounded-full border-4 border-yellow-500 mb-[-20px] z-10 relative overflow-hidden shadow-lg group-hover:-translate-y-2 transition duration-300">
+                                <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Aneka" class="w-full h-full object-cover bg-yellow-50">
+                            </div>
+                            <div class="podium-1 w-24 md:w-36 bg-gradient-to-b from-yellow-100 to-yellow-300 rounded-t-lg flex items-center justify-center shadow-xl relative">
+                                 <div class="w-8 h-8 md:w-10 md:h-10 bg-yellow-500 rounded-full text-white text-sm md:text-lg flex items-center justify-center font-bold absolute -top-4 md:-top-5 border-2 border-white">1</div>
+                                 <span class="font-bold text-yellow-800 mt-6 text-lg">Sarah</span>
+                            </div>
+                        </div>
+                        <!-- 3rd Place -->
+                        <div class="flex flex-col items-center group">
+                            <div class="w-14 h-14 md:w-20 md:h-20 bg-orange-100 rounded-full border-4 border-orange-400 mb-[-15px] z-10 relative overflow-hidden shadow-lg group-hover:-translate-y-2 transition duration-300">
+                                <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Bob" class="w-full h-full object-cover bg-orange-50">
+                            </div>
+                            <div class="podium-3 w-20 md:w-28 bg-gradient-to-b from-orange-100 to-orange-300 rounded-t-lg flex items-center justify-center shadow-lg relative">
+                                <div class="w-6 h-6 md:w-8 md:h-8 bg-orange-500 rounded-full text-white text-xs md:text-sm flex items-center justify-center font-bold absolute -top-3 md:-top-4 border-2 border-white">3</div>
+                                <span class="font-bold text-orange-800 mt-2">John</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User List (Right on Desktop, Bottom on Mobile) -->
+                    <div class="w-full md:w-1/2 order-2 md:order-2">
+                        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-4 md:p-6 border-2 border-pink-200 shadow-lg h-full max-h-[300px] overflow-y-auto custom-scroll">
+                            <h3 class="font-bold text-gray-500 mb-4 uppercase text-xs tracking-wider">Thứ hạng của bạn</h3>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-pink-50 to-white p-3 rounded-xl border border-pink-100 mb-4 shadow-sm transform hover:scale-[1.02] transition">
+                                <div class="flex items-center gap-4">
+                                    <span class="text-pink-500 font-black text-lg w-6">14</span>
+                                    <div class="w-10 h-10 bg-gray-200 rounded-full overflow-hidden border border-gray-300">
+                                        <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=You" class="w-full h-full">
+                                    </div>
+                                    <span class="text-base font-bold text-gray-800">Bạn (web name)</span>
+                                </div>
+                                <span class="px-3 py-1 bg-pink-100 text-pink-600 text-xs font-bold rounded-full">1250 XP</span>
+                            </div>
+                            
+                            <h3 class="font-bold text-gray-400 mb-2 uppercase text-xs tracking-wider">Top Khác</h3>
+                            <div class="space-y-2">
+                                <!-- List items -->
+                                <div class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition border-b border-gray-100">
+                                    <div class="flex items-center gap-4">
+                                        <span class="text-gray-400 font-bold w-6">4</span>
+                                        <div class="w-8 h-8 bg-gray-200 rounded-full overflow-hidden"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=4" class="w-full h-full"></div>
+                                        <span class="text-sm font-semibold text-gray-600">user_name_04</span>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-400">980 XP</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition border-b border-gray-100">
+                                    <div class="flex items-center gap-4">
+                                        <span class="text-gray-400 font-bold w-6">5</span>
+                                        <div class="w-8 h-8 bg-gray-200 rounded-full overflow-hidden"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=5" class="w-full h-full"></div>
+                                        <span class="text-sm font-semibold text-gray-600">user_name_05</span>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-400">950 XP</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition border-b border-gray-100">
+                                    <div class="flex items-center gap-4">
+                                        <span class="text-gray-400 font-bold w-6">6</span>
+                                        <div class="w-8 h-8 bg-gray-200 rounded-full overflow-hidden"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=6" class="w-full h-full"></div>
+                                        <span class="text-sm font-semibold text-gray-600">user_name_06</span>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-400">800 XP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PRACTICE TABS (Mobile Only) -->
+            <div class="flex bg-blue-500 text-white text-sm md:hidden sticky top-0 z-10 shadow-md">
+                <div class="flex-1 py-3 text-center cursor-pointer hover:bg-blue-600">Trang chủ</div>
+                <div class="flex-1 py-3 text-center cursor-pointer hover:bg-blue-600">Diễn đàn</div>
+                <div class="flex-1 py-3 text-center bg-white text-blue-600 font-bold border-t-4 border-blue-800">Luyện tập</div>
+                <div class="flex-1 py-3 text-center cursor-pointer hover:bg-blue-600">Thư viện</div>
+            </div>
+
+            <!-- PRACTICE SECTION -->
+            <section class="p-6 md:p-10 bg-white">
+                <div class="flex items-center justify-center mb-8">
+                     <div class="h-1 bg-gray-200 w-16 rounded mr-4"></div>
+                     <h3 class="text-center text-xl md:text-2xl font-black text-gray-700 uppercase tracking-wide">Cùng ôn tập nào!</h3>
+                     <div class="h-1 bg-gray-200 w-16 rounded ml-4"></div>
+                </div>
+                
+                <!-- Grid Layout for Wider Screens -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                    
+                    <!-- COLUMN 1: Topic Selection -->
+                    <div class="bg-blue-50 p-6 rounded-2xl shadow-inner border border-blue-100 h-full">
+                         <h4 class="font-bold text-blue-800 mb-4 flex items-center"><i class="fas fa-list-ul mr-2"></i> Danh sách chủ đề</h4>
+                        
+                        <!-- Active Topic -->
+                        <div class="bg-white p-4 rounded-xl shadow-md mb-4 border-l-4 border-blue-500 flex justify-between items-center transform transition hover:scale-[1.01]">
+                            <div>
+                                <span class="font-bold text-blue-900 block">CHỦ ĐỀ 1: GIA ĐÌNH</span>
+                                <span class="text-xs text-gray-500">10 câu hỏi • Đang học</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                 <div class="w-8 h-8 rounded-full border-2 border-blue-500 flex items-center justify-center text-blue-500 text-xs font-bold">80%</div>
+                                 <button class="bg-red-500 hover:bg-red-600 text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center transition animate-pulse">
+                                     <i class="fas fa-play ml-1"></i>
+                                 </button>
+                            </div>
+                        </div>
+
+                        <!-- Inactive Topic -->
+                        <div class="bg-white p-4 rounded-xl shadow-sm mb-3 opacity-60 flex justify-between items-center hover:opacity-100 transition cursor-pointer">
+                            <div>
+                                <span class="font-bold text-gray-700 block">CHỦ ĐỀ 2: TRƯỜNG HỌC</span>
+                                <div class="h-2 w-24 bg-gray-200 rounded mt-2 overflow-hidden">
+                                    <div class="h-full bg-green-500 w-1/3"></div>
+                                </div>
+                            </div>
+                             <div class="w-6 h-6 rounded-full border-2 border-gray-400"></div>
+                        </div>
+
+                        <!-- Locked Topic -->
+                        <div class="bg-white p-4 rounded-xl shadow-sm opacity-40 flex justify-between items-center grayscale">
+                            <div>
+                                <span class="font-bold text-gray-700 block">CHỦ ĐỀ 3: CÔNG VIỆC</span>
+                                <span class="text-xs text-gray-500"><i class="fas fa-lock mr-1"></i>Hoàn thành chủ đề trước để mở</span>
+                            </div>
+                             <div class="w-6 h-6 rounded-full border-2 border-gray-400"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- COLUMN 2: Quiz Preview / Interactive Area -->
+                     <div class="bg-yellow-50 rounded-2xl overflow-hidden shadow-lg border-2 border-yellow-200 h-full flex flex-col">
+                         <!-- Question Header -->
+                         <div class="bg-yellow-100 p-6 text-center border-b border-yellow-200 flex-grow flex flex-col justify-center">
+                             <div class="flex justify-between w-full mb-2">
+                                 <span class="text-xs font-bold text-yellow-600 bg-yellow-200 px-2 py-1 rounded">CÂU 1/10</span>
+                                 <span class="text-xs font-bold text-red-500"><i class="far fa-clock mr-1"></i>00:15</span>
+                             </div>
+                             
+                             <h4 class="font-bold text-gray-800 text-lg mb-4">Kí hiệu này có nghĩa là gì?</h4>
+                             
+                             <div class="relative w-full max-w-sm mx-auto aspect-video bg-gray-800 rounded-lg shadow-inner flex items-center justify-center group cursor-pointer overflow-hidden">
+                                 <!-- Fake Video UI -->
+                                 <img src="https://media.istockphoto.com/id/1146494784/photo/man-using-sign-language.jpg?s=612x612&w=0&k=20&c=N2a7O9yB1L2Z5e5l6J8o8q7b5n3m9k0j2h4g6f8d1s=" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition">
+                                 <i class="fas fa-play-circle text-white text-6xl absolute drop-shadow-lg group-hover:scale-110 transition duration-300"></i>
+                             </div>
+                         </div>
+
+                         <!-- Answers -->
+                         <div class="p-6 bg-white grid grid-cols-1 md:grid-cols-2 gap-4">
+                             <button class="bg-red-500 hover:bg-red-600 border-b-4 border-red-700 text-white py-4 rounded-xl shadow active:border-b-0 active:translate-y-1 transition flex items-center px-4">
+                                 <div class="w-8 h-8 bg-red-700 rounded flex items-center justify-center mr-3 font-bold">A</div>
+                                 <span class="font-semibold">Đáp án A</span>
+                             </button>
+                             <button class="bg-blue-500 hover:bg-blue-600 border-b-4 border-blue-700 text-white py-4 rounded-xl shadow active:border-b-0 active:translate-y-1 transition flex items-center px-4">
+                                 <div class="w-8 h-8 bg-blue-700 rounded flex items-center justify-center mr-3 font-bold">B</div>
+                                 <span class="font-semibold">Đáp án B</span>
+                             </button>
+                             <button class="bg-yellow-400 hover:bg-yellow-500 border-b-4 border-yellow-600 text-white py-4 rounded-xl shadow active:border-b-0 active:translate-y-1 transition flex items-center px-4">
+                                 <div class="w-8 h-8 bg-yellow-600 rounded flex items-center justify-center mr-3 font-bold">C</div>
+                                 <span class="font-semibold">Đáp án C</span>
+                             </button>
+                             <button class="bg-green-500 hover:bg-green-600 border-b-4 border-green-700 text-white py-4 rounded-xl shadow active:border-b-0 active:translate-y-1 transition flex items-center px-4">
+                                 <div class="w-8 h-8 bg-green-700 rounded flex items-center justify-center mr-3 font-bold">D</div>
+                                 <span class="font-semibold">Đáp án D</span>
+                             </button>
+                         </div>
+                     </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

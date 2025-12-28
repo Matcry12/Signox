@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Login" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .auth-container {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+    }
+
+    .auth-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .auth-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .auth-header h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .auth-header p {
+        color: var(--text-secondary);
+    }
+
+    .auth-footer {
+        text-align: center;
+        margin-top: 1.5rem;
+        color: var(--text-secondary);
+    }
+
+    .auth-footer a {
+        color: var(--primary-color);
+        font-weight: 500;
+    }
+
+    /* Dark Mode */
+    [data-theme="dark"] .auth-header h1 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .auth-footer a {
+        color: #A5B4FC;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h1>{% trans "Welcome Back" %}</h1>
+            <p>{% trans "Sign in to continue learning" %}</p>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+
+                    {% if form.errors %}
+                    <div class="alert alert-error">
+                        {% trans "Invalid username or password. Please try again." %}
+                    </div>
+                    {% endif %}
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_username">{% trans "Username" %}</label>
+                        <input type="text" name="username" id="id_username" class="form-control" required autofocus autocomplete="username">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="id_password">{% trans "Password" %}</label>
+                        <input type="password" name="password" id="id_password" class="form-control" required autocomplete="current-password">
+                    </div>
+
+                    <div style="text-align: right; margin-top: 0.5rem;">
+                        <a href="{% url 'password_reset' %}" style="font-size: 0.875rem; color: var(--primary-color);">{% trans "Forgot Password?" %}</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                        {% trans "Sign In" %}
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="auth-footer">
+            {% trans "Don't have an account?" %} <a href="{% url 'register' %}">{% trans "Sign up" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,265 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ quiz.title }} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .quiz-header {
+        background: linear-gradient(135deg, var(--primary-color) 0%, #7C3AED 100%);
+        color: white;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .quiz-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .question-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .question-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        font-weight: 600;
+        margin-right: 0.75rem;
+    }
+
+    .question-text {
+        font-size: 1.125rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+    .answer-options {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .answer-option {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        background: var(--bg-secondary);
+        border: 2px solid transparent;
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .answer-option:hover {
+        background: var(--bg-tertiary);
+    }
+
+    .answer-option input[type="radio"] {
+        margin-right: 1rem;
+        width: 20px;
+        height: 20px;
+        accent-color: var(--primary-color);
+    }
+
+    .answer-option.selected {
+        border-color: var(--primary-color);
+        background: rgba(79, 70, 229, 0.1);
+    }
+
+    .submit-section {
+        text-align: center;
+        padding: 2rem;
+        background: var(--bg-primary);
+        border-radius: var(--radius-lg);
+        margin-top: 2rem;
+    }
+
+    /* Dark Mode Styles */
+    [data-theme="dark"] .question-text {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .answer-option {
+        background: #334155;
+        color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .answer-option:hover {
+        background: #475569;
+    }
+
+    [data-theme="dark"] .answer-option.selected {
+        background: rgba(99, 102, 241, 0.2);
+        border-color: #6366F1;
+    }
+
+    [data-theme="dark"] .submit-section {
+        background: #1E293B;
+    }
+
+    /* Previous Attempts Section */
+    .previous-attempts {
+        background: var(--bg-secondary);
+        border-radius: var(--radius-lg);
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .previous-attempts h3 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .best-score-card {
+        background: linear-gradient(135deg, #F59E0B, #D97706);
+        color: white;
+        padding: 1rem 1.25rem;
+        border-radius: var(--radius-md);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .best-score-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .attempts-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .attempt-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 0.875rem;
+    }
+
+    .attempt-row:last-child {
+        border-bottom: none;
+    }
+
+    .attempt-row .score {
+        font-weight: 600;
+    }
+
+    .attempt-row .score.passed {
+        color: var(--secondary-color);
+    }
+
+    .attempt-row .score.failed {
+        color: var(--danger-color);
+    }
+
+    [data-theme="dark"] .previous-attempts {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .attempt-row {
+        border-color: #475569;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="quiz-header">
+    <h1>{{ quiz.title }}</h1>
+    <p>{{ quiz.questions.count }} {% trans "Questions" %} | {% trans "Pass Score" %}: {{ quiz.passing_score }}%</p>
+</div>
+
+<div class="container">
+    <div class="quiz-container">
+        <!-- Previous Attempts Section -->
+        {% if best_attempt %}
+        <div class="previous-attempts">
+            <h3><i class="fas fa-history"></i> {% trans "Your Previous Attempts" %}</h3>
+            <div class="best-score-card">
+                <div>
+                    <div style="font-size: 0.75rem; opacity: 0.9;"><i class="fas fa-crown"></i> {% trans "Best Score" %}</div>
+                    <div class="best-score-value">{{ best_attempt.score }}/{{ best_attempt.max_score }}</div>
+                </div>
+                <div style="text-align: right;">
+                    <div style="font-size: 0.875rem;">{% widthratio best_attempt.score best_attempt.max_score 100 %}%</div>
+                    <div style="font-size: 0.75rem; opacity: 0.8;">{{ best_attempt.started_at|date:"M d, Y" }}</div>
+                </div>
+            </div>
+            {% if user_attempts %}
+            <div class="attempts-list">
+                <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                    {% trans "Recent attempts" %} ({{ total_attempts }} {% trans "total" %})
+                </div>
+                {% for att in user_attempts %}
+                <div class="attempt-row">
+                    <span class="score {% if att.passed %}passed{% else %}failed{% endif %}">
+                        {{ att.score }}/{{ att.max_score }} ({% widthratio att.score att.max_score 100 %}%)
+                    </span>
+                    <span style="color: var(--text-secondary);">{{ att.started_at|date:"M d, Y H:i" }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <form method="post" id="quizForm">
+            {% csrf_token %}
+
+            {% for question in questions %}
+            <div class="card question-card">
+                <div class="card-body">
+                    <div class="question-text">
+                        <span class="question-number">{{ forloop.counter }}</span>
+                        {{ question.question_text }}
+                    </div>
+
+                    {% if question.video %}
+                    <div style="margin-bottom: 1rem;">
+                        <video controls style="max-width: 100%; border-radius: var(--radius-md);">
+                            <source src="{{ question.video.url }}" type="video/mp4">
+                            {% trans "Your browser does not support the video tag." %}
+                        </video>
+                    </div>
+                    {% endif %}
+
+                    {% if question.image %}
+                    <img src="{{ question.image.url }}" alt="{% trans 'Question image' %}" style="max-width: 100%; border-radius: var(--radius-md); margin-bottom: 1rem;">
+                    {% endif %}
+
+                    <div class="answer-options">
+                        {% for answer in question.answers.all %}
+                        <label class="answer-option" onclick="this.classList.add('selected'); Array.from(this.parentElement.children).forEach(el => { if(el !== this) el.classList.remove('selected'); });">
+                            <input type="radio" name="question_{{ question.id }}" value="{{ answer.id }}" required>
+                            {{ answer.answer_text }}
+                        </label>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="submit-section">
+                <p style="margin-bottom: 1rem; color: var(--text-secondary);">{% trans "Make sure you've answered all questions before submitting." %}</p>
+                <button type="submit" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1rem;">
+                    {% trans "Submit Quiz" %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

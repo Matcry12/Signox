@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}Categories - Signox{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 style="font-size: 2rem; margin-bottom: 1.5rem;">{% trans "Browse Categories" %}</h1>
+
+    <div class="grid grid-3">
+        {% for category in categories %}
+        <a href="{% url 'lesson_list_by_category' category.slug %}" class="card" style="text-align: center; padding: 2rem; transition: transform 0.2s, box-shadow 0.2s;">
+            <div style="width: 64px; height: 64px; background: var(--bg-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem;">
+                {{ category.icon|default:"📚" }}
+            </div>
+            <h3 style="margin-bottom: 0.5rem;">{{ category.name }}</h3>
+            <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem;">{{ category.description|truncatewords:15 }}</p>
+            <span class="badge badge-primary">{{ category.lesson_count }} {% trans "Lessons" %}</span>
+        </a>
+        {% empty %}
+        <div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+            <p style="color: var(--text-secondary);">{% trans "No categories available yet." %}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

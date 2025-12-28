@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Notifications" %} - Signox{% endblock %}
+
+{% block extra_css %}
+<style>
+    .notifications-container {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    .notifications-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .notifications-header h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gray-800);
+    }
+
+    .notifications-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .notification-card {
+        background: var(--card-bg);
+        border-radius: 0.75rem;
+        padding: 1rem;
+        box-shadow: var(--shadow);
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        transition: all 0.2s;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .notification-card:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateX(4px);
+    }
+
+    .notification-card.unread {
+        border-left: 4px solid var(--primary-500);
+        background: var(--primary-50);
+    }
+
+    .notification-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 1.125rem;
+    }
+
+    .notification-icon.primary { background: var(--primary-100); color: var(--primary-600); }
+    .notification-icon.success { background: #D1FAE5; color: #059669; }
+    .notification-icon.warning { background: #FEF3C7; color: #D97706; }
+    .notification-icon.bronze { background: linear-gradient(135deg, #CD7F32, #8B4513); color: white; }
+    .notification-icon.silver { background: linear-gradient(135deg, #C0C0C0, #808080); color: white; }
+    .notification-icon.gold { background: linear-gradient(135deg, #FFD700, #FFA500); color: white; }
+    .notification-icon.platinum { background: linear-gradient(135deg, #E5E4E2, #A0B2C6); color: #1a1a2e; }
+    .notification-icon.diamond { background: linear-gradient(135deg, #B9F2FF, #87CEEB); color: #1a1a2e; }
+
+    .notification-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .notification-content h4 {
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 0.25rem;
+    }
+
+    .notification-content p {
+        font-size: 0.8125rem;
+        color: var(--gray-600);
+        line-height: 1.4;
+    }
+
+    .notification-time {
+        font-size: 0.6875rem;
+        color: var(--gray-400);
+        margin-top: 0.5rem;
+    }
+
+    .notification-action {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        color: var(--primary-600);
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 4rem 1rem;
+        color: var(--gray-500);
+    }
+
+    .empty-state i {
+        font-size: 4rem;
+        color: var(--gray-300);
+        margin-bottom: 1rem;
+    }
+
+    .unread-badge {
+        background: var(--primary-500);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+
+    /* Dark Mode Styles */
+    [data-theme="dark"] .notifications-header h1 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .notification-card {
+        background: #1E293B;
+    }
+
+    [data-theme="dark"] .notification-card:hover {
+        background: #334155;
+    }
+
+    [data-theme="dark"] .notification-card.unread {
+        background: rgba(99, 102, 241, 0.1);
+    }
+
+    [data-theme="dark"] .notification-content h4 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .notification-content p {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .notification-time {
+        color: #64748B;
+    }
+
+    [data-theme="dark"] .notification-icon.primary {
+        background: rgba(99, 102, 241, 0.2);
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .notification-icon.success {
+        background: rgba(34, 197, 94, 0.2);
+        color: #86EFAC;
+    }
+
+    [data-theme="dark"] .notification-icon.warning {
+        background: rgba(245, 158, 11, 0.2);
+        color: #FCD34D;
+    }
+
+    [data-theme="dark"] .empty-state {
+        color: #94A3B8;
+    }
+
+    [data-theme="dark"] .empty-state h3 {
+        color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .empty-state i {
+        color: #475569;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="notifications-container">
+    <div class="notifications-header">
+        <h1>
+            <i class="fas fa-bell"></i> {% trans "Notifications" %}
+            {% if unread_count > 0 %}
+            <span class="unread-badge">{{ unread_count }} {% trans "new" %}</span>
+            {% endif %}
+        </h1>
+        {% if notifications %}
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-secondary btn-sm">
+                <i class="fas fa-check-double"></i> {% trans "Mark All Read" %}
+            </button>
+        </form>
+        {% endif %}
+    </div>
+
+    {% if notifications %}
+    <div class="notifications-list">
+        {% for notification in notifications %}
+        <a href="{% url 'mark_notification_read' notification.id %}" class="notification-card {% if not notification.is_read %}unread{% endif %}">
+            <div class="notification-icon {{ notification.color }}">
+                <i class="fas {{ notification.icon }}"></i>
+            </div>
+            <div class="notification-content">
+                <h4>{{ notification.title }}</h4>
+                <p>{{ notification.message }}</p>
+                <div class="notification-time">
+                    <i class="fas fa-clock"></i> {{ notification.created_at|timesince }} {% trans "ago" %}
+                </div>
+                {% if notification.link %}
+                <div class="notification-action">
+                    {% trans "View Details" %} <i class="fas fa-arrow-right"></i>
+                </div>
+                {% endif %}
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <i class="fas fa-bell-slash"></i>
+        <h3>{% trans "No Notifications" %}</h3>
+        <p>{% trans "You're all caught up! Keep learning to earn achievements." %}</p>
+        <a href="{% url 'lesson_list' %}" class="btn btn-primary mt-2">
+            <i class="fas fa-book"></i> {% trans "Browse Lessons" %}
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

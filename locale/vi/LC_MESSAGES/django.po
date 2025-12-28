@@ -1,0 +1,1990 @@
+# Vietnamese translations for Signox
+# Copyright (C) 2025 Signox
+# This file is distributed under the same license as the Signox package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Signox 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-19 00:00+0700\n"
+"PO-Revision-Date: 2025-12-19 00:00+0700\n"
+"Last-Translator: Signox Team\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+# Navigation
+msgid "Home"
+msgstr "Trang chủ"
+
+msgid "Lessons"
+msgstr "Bài học"
+
+msgid "Dictionary"
+msgstr "Từ điển"
+
+msgid "Videos"
+msgstr "Video"
+
+msgid "Quizzes"
+msgstr "Bài kiểm tra"
+
+msgid "Forum"
+msgstr "Diễn đàn"
+
+msgid "Dashboard"
+msgstr "Bảng điều khiển"
+
+msgid "Profile"
+msgstr "Hồ sơ"
+
+msgid "Login"
+msgstr "Đăng nhập"
+
+msgid "Register"
+msgstr "Đăng ký"
+
+msgid "Logout"
+msgstr "Đăng xuất"
+
+# Common
+msgid "Search"
+msgstr "Tìm kiếm"
+
+msgid "Save"
+msgstr "Lưu"
+
+msgid "Cancel"
+msgstr "Hủy"
+
+msgid "Submit"
+msgstr "Gửi"
+
+msgid "Back"
+msgstr "Quay lại"
+
+msgid "Next"
+msgstr "Tiếp theo"
+
+msgid "Previous"
+msgstr "Trước đó"
+
+msgid "Loading..."
+msgstr "Đang tải..."
+
+msgid "View All"
+msgstr "Xem tất cả"
+
+# Home Page
+msgid "Learn Sign Language"
+msgstr "Học Ngôn ngữ Ký hiệu"
+
+msgid "Breaking language barriers through Sign Language education. Study and share together."
+msgstr "Phá vỡ rào cản ngôn ngữ thông qua giáo dục Ngôn ngữ Ký hiệu. Học tập và chia sẻ cùng nhau."
+
+msgid "Start Learning"
+msgstr "Bắt đầu học"
+
+msgid "Browse Lessons"
+msgstr "Xem bài học"
+
+msgid "Community"
+msgstr "Cộng đồng"
+
+# Lessons
+msgid "All Lessons"
+msgstr "Tất cả bài học"
+
+msgid "Categories"
+msgstr "Danh mục"
+
+msgid "Difficulty"
+msgstr "Độ khó"
+
+msgid "Easy"
+msgstr "Dễ"
+
+msgid "Medium"
+msgstr "Trung bình"
+
+msgid "Hard"
+msgstr "Khó"
+
+msgid "Completed"
+msgstr "Hoàn thành"
+
+msgid "In Progress"
+msgstr "Đang học"
+
+msgid "Not Started"
+msgstr "Chưa bắt đầu"
+
+msgid "Save Lesson"
+msgstr "Lưu bài học"
+
+msgid "Saved"
+msgstr "Đã lưu"
+
+msgid "Saved Lessons"
+msgstr "Bài học đã lưu"
+
+msgid "Practice Flashcards"
+msgstr "Luyện tập Flashcard"
+
+msgid "Flashcard Mode"
+msgstr "Chế độ Flashcard"
+
+msgid "Mark as Complete"
+msgstr "Đánh dấu hoàn thành"
+
+msgid "Learning Progress"
+msgstr "Tiến độ học tập"
+
+msgid "Vocabulary"
+msgstr "Từ vựng"
+
+msgid "Related Lessons"
+msgstr "Bài học liên quan"
+
+# Flashcard
+msgid "Again"
+msgstr "Lại"
+
+msgid "Good"
+msgstr "Tốt"
+
+msgid "Mastery"
+msgstr "Thành thạo"
+
+msgid "Due Today"
+msgstr "Hôm nay"
+
+msgid "Total Cards"
+msgstr "Tổng số thẻ"
+
+msgid "Tap to reveal meaning"
+msgstr "Nhấn để xem nghĩa"
+
+msgid "How well did you know this?"
+msgstr "Bạn biết từ này tốt như thế nào?"
+
+msgid "Session Complete!"
+msgstr "Hoàn thành phiên học!"
+
+msgid "Great job reviewing your flashcards."
+msgstr "Làm tốt lắm khi ôn tập flashcard."
+
+msgid "Cards Reviewed"
+msgstr "Thẻ đã ôn"
+
+msgid "Practice Again"
+msgstr "Luyện tập lại"
+
+msgid "Back to Lesson"
+msgstr "Quay lại bài học"
+
+# Quiz
+msgid "Start Quiz"
+msgstr "Bắt đầu kiểm tra"
+
+msgid "Retry Quiz"
+msgstr "Làm lại"
+
+msgid "Submit Quiz"
+msgstr "Nộp bài"
+
+msgid "Questions"
+msgstr "Câu hỏi"
+
+msgid "to pass"
+msgstr "để đạt"
+
+msgid "Your Best Score"
+msgstr "Điểm cao nhất"
+
+msgid "Best Score"
+msgstr "Điểm cao nhất"
+
+msgid "Passed"
+msgstr "Đã đạt"
+
+msgid "attempts"
+msgstr "lần thử"
+
+msgid "attempt"
+msgstr "lần thử"
+
+msgid "Quiz Results"
+msgstr "Kết quả kiểm tra"
+
+msgid "Congratulations!"
+msgstr "Chúc mừng!"
+
+msgid "Keep Practicing!"
+msgstr "Hãy tiếp tục luyện tập!"
+
+msgid "Review Your Answers"
+msgstr "Xem lại câu trả lời"
+
+msgid "Correct"
+msgstr "Đúng"
+
+msgid "Incorrect"
+msgstr "Sai"
+
+msgid "Your answer"
+msgstr "Câu trả lời của bạn"
+
+msgid "Correct answer"
+msgstr "Đáp án đúng"
+
+msgid "Explanation"
+msgstr "Giải thích"
+
+msgid "New Personal Best!"
+msgstr "Kỷ lục mới!"
+
+msgid "This Attempt"
+msgstr "Lần này"
+
+msgid "Total Attempts"
+msgstr "Tổng số lần"
+
+msgid "Your Attempt History"
+msgstr "Lịch sử làm bài"
+
+msgid "Your Previous Attempts"
+msgstr "Các lần làm trước"
+
+# Dashboard
+msgid "Welcome back"
+msgstr "Chào mừng trở lại"
+
+msgid "Continue your learning journey"
+msgstr "Tiếp tục hành trình học tập"
+
+msgid "Level"
+msgstr "Cấp độ"
+
+msgid "Total XP"
+msgstr "Tổng XP"
+
+msgid "Day Streak"
+msgstr "Chuỗi ngày"
+
+msgid "Lessons Done"
+msgstr "Bài học hoàn thành"
+
+msgid "Progress"
+msgstr "Tiến độ"
+
+msgid "Badges"
+msgstr "Huy hiệu"
+
+msgid "Learning Activity"
+msgstr "Hoạt động học tập"
+
+msgid "active days"
+msgstr "ngày hoạt động"
+
+msgid "XP earned"
+msgstr "XP kiếm được"
+
+msgid "Recommended For You"
+msgstr "Gợi ý cho bạn"
+
+msgid "Recent Activity"
+msgstr "Hoạt động gần đây"
+
+msgid "No recent activity"
+msgstr "Không có hoạt động gần đây"
+
+msgid "Take a Quiz"
+msgstr "Làm bài kiểm tra"
+
+msgid "Achievements"
+msgstr "Thành tựu"
+
+msgid "Leaderboard"
+msgstr "Bảng xếp hạng"
+
+msgid "My Stats"
+msgstr "Thống kê"
+
+# Dictionary
+msgid "Search words..."
+msgstr "Tìm từ..."
+
+msgid "All Categories"
+msgstr "Tất cả danh mục"
+
+msgid "words found"
+msgstr "từ được tìm thấy"
+
+# Forum
+msgid "Create Post"
+msgstr "Tạo bài viết"
+
+msgid "Edit Post"
+msgstr "Sửa bài viết"
+
+msgid "Delete Post"
+msgstr "Xóa bài viết"
+
+msgid "Comments"
+msgstr "Bình luận"
+
+msgid "Reply"
+msgstr "Trả lời"
+
+msgid "Like"
+msgstr "Thích"
+
+msgid "Report"
+msgstr "Báo cáo"
+
+# Auth
+msgid "Email"
+msgstr "Email"
+
+msgid "Password"
+msgstr "Mật khẩu"
+
+msgid "Confirm Password"
+msgstr "Xác nhận mật khẩu"
+
+msgid "Username"
+msgstr "Tên đăng nhập"
+
+msgid "First Name"
+msgstr "Tên"
+
+msgid "Last Name"
+msgstr "Họ"
+
+msgid "Remember me"
+msgstr "Ghi nhớ đăng nhập"
+
+msgid "Forgot Password?"
+msgstr "Quên mật khẩu?"
+
+msgid "Reset Password"
+msgstr "Đặt lại mật khẩu"
+
+msgid "Create Account"
+msgstr "Tạo tài khoản"
+
+msgid "Already have an account?"
+msgstr "Đã có tài khoản?"
+
+msgid "Don't have an account?"
+msgstr "Chưa có tài khoản?"
+
+# Footer
+msgid "Quick Links"
+msgstr "Liên kết nhanh"
+
+msgid "Account"
+msgstr "Tài khoản"
+
+msgid "Support"
+msgstr "Hỗ trợ"
+
+msgid "Help Center"
+msgstr "Trung tâm trợ giúp"
+
+msgid "Contact Us"
+msgstr "Liên hệ"
+
+msgid "Privacy Policy"
+msgstr "Chính sách bảo mật"
+
+msgid "About Us"
+msgstr "Về chúng tôi"
+
+# Misc
+msgid "Less"
+msgstr "Ít hơn"
+
+msgid "More"
+msgstr "Nhiều hơn"
+
+msgid "ago"
+msgstr "trước"
+
+msgid "No activity"
+msgstr "Không có hoạt động"
+
+msgid "Sign in to track your progress and save lessons."
+msgstr "Đăng nhập để theo dõi tiến độ và lưu bài học."
+
+msgid "Sign In"
+msgstr "Đăng nhập"
+
+msgid "Sign up"
+msgstr "Đăng ký"
+
+msgid "Sign in to continue learning"
+msgstr "Đăng nhập để tiếp tục học"
+
+msgid "Invalid username or password. Please try again."
+msgstr "Tên đăng nhập hoặc mật khẩu không hợp lệ. Vui lòng thử lại."
+
+msgid "Start your sign language learning journey"
+msgstr "Bắt đầu hành trình học ngôn ngữ ký hiệu của bạn"
+
+msgid "Saved Items"
+msgstr "Mục đã lưu"
+
+msgid "Quiz History"
+msgstr "Lịch sử bài kiểm tra"
+
+msgid "Edit Profile"
+msgstr "Chỉnh sửa hồ sơ"
+
+msgid "Avatar"
+msgstr "Ảnh đại diện"
+
+msgid "Current avatar"
+msgstr "Ảnh đại diện hiện tại"
+
+msgid "Choose Photo"
+msgstr "Chọn ảnh"
+
+msgid "Remove current photo"
+msgstr "Xóa ảnh hiện tại"
+
+msgid "Bio"
+msgstr "Tiểu sử"
+
+msgid "Skill Level"
+msgstr "Trình độ"
+
+msgid "Save Changes"
+msgstr "Lưu thay đổi"
+
+msgid "Enter your email to receive reset instructions"
+msgstr "Nhập email để nhận hướng dẫn đặt lại mật khẩu"
+
+msgid "Please enter a valid email address."
+msgstr "Vui lòng nhập địa chỉ email hợp lệ."
+
+msgid "Email Address"
+msgstr "Địa chỉ Email"
+
+msgid "Send Reset Link"
+msgstr "Gửi liên kết đặt lại"
+
+msgid "Remember your password?"
+msgstr "Bạn nhớ mật khẩu?"
+
+msgid "Posts"
+msgstr "Bài viết"
+
+# Dictionary Page
+msgid "Browse all"
+msgstr "Xem tất cả"
+
+msgid "vocabulary words"
+msgstr "từ vựng"
+
+msgid "Search for a word or meaning..."
+msgstr "Tìm kiếm từ hoặc nghĩa..."
+
+msgid "Filter by category:"
+msgstr "Lọc theo danh mục:"
+
+msgid "Showing"
+msgstr "Hiển thị"
+
+msgid "word"
+msgstr "từ"
+
+msgid "matching"
+msgstr "khớp với"
+
+msgid "in selected category"
+msgstr "trong danh mục đã chọn"
+
+msgid "No vocabulary found"
+msgstr "Không tìm thấy từ vựng"
+
+msgid "No words matching"
+msgstr "Không có từ nào khớp với"
+
+msgid "Clear Search"
+msgstr "Xóa tìm kiếm"
+
+msgid "No vocabulary has been added yet."
+msgstr "Chưa có từ vựng nào được thêm."
+
+# About Page
+msgid "About The Project"
+msgstr "Về dự án"
+
+msgid "Our Mission"
+msgstr "Sứ mệnh của chúng tôi"
+
+msgid "The \"Signox\" project was established with the goal of breaking down language barriers. We want to spread the beauty of Sign Language to the community, helping everyone understand and connect with each other more easily. Our platform provides a free, friendly, and open learning environment for all."
+msgstr "Dự án \"Signox\" được thành lập với mục tiêu phá bỏ rào cản ngôn ngữ. Chúng tôi muốn lan tỏa vẻ đẹp của Ngôn ngữ Ký hiệu đến cộng đồng, giúp mọi người hiểu và kết nối với nhau dễ dàng hơn. Nền tảng của chúng tôi cung cấp môi trường học tập miễn phí, thân thiện và mở cho tất cả mọi người."
+
+msgid "Our Goal"
+msgstr "Mục tiêu của chúng tôi"
+
+msgid "Build an open, friendly, and free learning community where everyone can learn sign language at their own pace."
+msgstr "Xây dựng một cộng đồng học tập mở, thân thiện và miễn phí, nơi mọi người có thể học ngôn ngữ ký hiệu theo tốc độ riêng của mình."
+
+msgid "Our Vision"
+msgstr "Tầm nhìn của chúng tôi"
+
+msgid "Develop AI-powered gesture recognition and expand our vocabulary database to serve more learners."
+msgstr "Phát triển nhận dạng cử chỉ bằng AI và mở rộng cơ sở dữ liệu từ vựng để phục vụ nhiều người học hơn."
+
+msgid "What We Offer"
+msgstr "Chúng tôi cung cấp"
+
+msgid "Comprehensive Library"
+msgstr "Thư viện toàn diện"
+
+msgid "Access hundreds of sign language vocabulary with video demonstrations and detailed explanations."
+msgstr "Truy cập hàng trăm từ vựng ngôn ngữ ký hiệu với video minh họa và giải thích chi tiết."
+
+msgid "Community Forum"
+msgstr "Diễn đàn cộng đồng"
+
+msgid "Connect with other learners, ask questions, and share your learning journey."
+msgstr "Kết nối với những người học khác, đặt câu hỏi và chia sẻ hành trình học tập của bạn."
+
+msgid "Structured Learning"
+msgstr "Học tập có cấu trúc"
+
+msgid "Follow organized lessons by topic with quizzes to test your knowledge."
+msgstr "Theo dõi các bài học được tổ chức theo chủ đề với bài kiểm tra để kiểm tra kiến thức của bạn."
+
+msgid "Progress Tracking"
+msgstr "Theo dõi tiến độ"
+
+msgid "Monitor your learning progress and get personalized recommendations."
+msgstr "Theo dõi tiến độ học tập và nhận các gợi ý được cá nhân hóa."
+
+msgid "Our Team"
+msgstr "Đội ngũ của chúng tôi"
+
+msgid "Team Member 1"
+msgstr "Thành viên 1"
+
+msgid "Team Member 2"
+msgstr "Thành viên 2"
+
+msgid "Team Member 3"
+msgstr "Thành viên 3"
+
+msgid "Team Member 4"
+msgstr "Thành viên 4"
+
+msgid "Developer"
+msgstr "Lập trình viên"
+
+msgid "Designer"
+msgstr "Thiết kế"
+
+msgid "Content Creator"
+msgstr "Tạo nội dung"
+
+msgid "Researcher"
+msgstr "Nghiên cứu"
+
+# Search Results
+msgid "Found"
+msgstr "Tìm thấy"
+
+msgid "result"
+msgstr "kết quả"
+
+msgid "for"
+msgstr "cho"
+
+msgid "No results found"
+msgstr "Không tìm thấy kết quả"
+
+msgid "We couldn't find anything matching"
+msgstr "Chúng tôi không tìm thấy gì khớp với"
+
+msgid "Search tips:"
+msgstr "Mẹo tìm kiếm:"
+
+msgid "Check your spelling"
+msgstr "Kiểm tra chính tả"
+
+msgid "Try more general keywords"
+msgstr "Thử dùng từ khóa chung hơn"
+
+msgid "Try different keywords"
+msgstr "Thử dùng từ khóa khác"
+
+msgid "From:"
+msgstr "Từ:"
+
+msgid "Forum Posts"
+msgstr "Bài viết diễn đàn"
+
+msgid "Start Searching"
+msgstr "Bắt đầu tìm kiếm"
+
+msgid "Enter a keyword to search across lessons, videos, vocabulary, and forum posts."
+msgstr "Nhập từ khóa để tìm kiếm trong bài học, video, từ vựng và bài viết diễn đàn."
+
+msgid "Search lessons, videos, vocabulary..."
+msgstr "Tìm kiếm bài học, video, từ vựng..."
+
+# Forum
+msgid "Discuss & Share Knowledge"
+msgstr "Thảo luận & Chia sẻ kiến thức"
+
+msgid "All"
+msgstr "Tất cả"
+
+msgid "Articles"
+msgstr "Bài viết"
+
+msgid "Discussions"
+msgstr "Thảo luận"
+
+msgid "Search posts..."
+msgstr "Tìm kiếm bài viết..."
+
+msgid "New Post"
+msgstr "Bài viết mới"
+
+msgid "Discussion"
+msgstr "Thảo luận"
+
+msgid "Pinned"
+msgstr "Đã ghim"
+
+msgid "No Posts Yet"
+msgstr "Chưa có bài viết"
+
+msgid "Be the first to start a discussion!"
+msgstr "Hãy là người đầu tiên bắt đầu thảo luận!"
+
+msgid "Login to Post"
+msgstr "Đăng nhập để đăng bài"
+
+msgid "Back to Forum"
+msgstr "Quay lại diễn đàn"
+
+msgid "Edit"
+msgstr "Sửa"
+
+msgid "Delete"
+msgstr "Xóa"
+
+msgid "Comment"
+msgstr "Bình luận"
+
+msgid "Post Comment"
+msgstr "Đăng bình luận"
+
+msgid "to leave a comment."
+msgstr "để bình luận."
+
+msgid "No comments yet. Be the first to comment!"
+msgstr "Chưa có bình luận. Hãy là người đầu tiên bình luận!"
+
+msgid "Create New Post"
+msgstr "Tạo bài viết mới"
+
+msgid "Title"
+msgstr "Tiêu đề"
+
+msgid "Enter a descriptive title..."
+msgstr "Nhập tiêu đề mô tả..."
+
+msgid "Content"
+msgstr "Nội dung"
+
+msgid "Share your thoughts, questions, or discoveries..."
+msgstr "Chia sẻ suy nghĩ, câu hỏi hoặc khám phá của bạn..."
+
+msgid "Image (optional)"
+msgstr "Hình ảnh (tùy chọn)"
+
+msgid "Click to upload an image"
+msgstr "Nhấn để tải lên hình ảnh"
+
+msgid "JPG, PNG, GIF up to 10MB"
+msgstr "JPG, PNG, GIF tối đa 10MB"
+
+msgid "Video (optional)"
+msgstr "Video (tùy chọn)"
+
+msgid "Click to upload a video"
+msgstr "Nhấn để tải lên video"
+
+msgid "MP4, WebM up to 100MB"
+msgstr "MP4, WebM tối đa 100MB"
+
+# Video Library
+msgid "Video Library"
+msgstr "Thư viện Video"
+
+msgid "Learn from real-life situation videos"
+msgstr "Học từ các video tình huống thực tế"
+
+msgid "Filters"
+msgstr "Bộ lọc"
+
+msgid "Search videos..."
+msgstr "Tìm kiếm video..."
+
+msgid "All Levels"
+msgstr "Tất cả cấp độ"
+
+msgid "Apply Filters"
+msgstr "Áp dụng bộ lọc"
+
+msgid "Clear"
+msgstr "Xóa"
+
+msgid "views"
+msgstr "lượt xem"
+
+msgid "No Videos Found"
+msgstr "Không tìm thấy video"
+
+msgid "Try adjusting your filters"
+msgstr "Thử điều chỉnh bộ lọc"
+
+msgid "Page"
+msgstr "Trang"
+
+msgid "of"
+msgstr "của"
+
+msgid "Video not available"
+msgstr "Video không khả dụng"
+
+msgid "About this video"
+msgstr "Về video này"
+
+msgid "Related Videos"
+msgstr "Video liên quan"
+
+msgid "No related videos"
+msgstr "Không có video liên quan"
+
+msgid "Category"
+msgstr "Danh mục"
+
+# Admin Panel
+msgid "Admin Panel"
+msgstr "Bảng quản trị"
+
+msgid "Video Categories"
+msgstr "Danh mục Video"
+
+msgid "Featured Cards"
+msgstr "Thẻ nổi bật"
+
+msgid "Management"
+msgstr "Quản lý"
+
+msgid "Users"
+msgstr "Người dùng"
+
+msgid "Reports"
+msgstr "Báo cáo"
+
+msgid "View Site"
+msgstr "Xem trang web"
+
+msgid "Django Admin"
+msgstr "Quản trị Django"
+
+msgid "Administrator"
+msgstr "Quản trị viên"
+
+msgid "Total Users"
+msgstr "Tổng người dùng"
+
+msgid "Pending Reports"
+msgstr "Báo cáo chờ xử lý"
+
+msgid "Recent Users"
+msgstr "Người dùng gần đây"
+
+msgid "Recent Forum Posts"
+msgstr "Bài viết gần đây"
+
+msgid "Joined"
+msgstr "Ngày tham gia"
+
+msgid "Author"
+msgstr "Tác giả"
+
+msgid "Date"
+msgstr "Ngày"
+
+msgid "No users yet"
+msgstr "Chưa có người dùng"
+
+msgid "No posts yet"
+msgstr "Chưa có bài viết"
+
+msgid "Quick Actions"
+msgstr "Thao tác nhanh"
+
+msgid "Add Lesson"
+msgstr "Thêm bài học"
+
+msgid "Add Video"
+msgstr "Thêm video"
+
+msgid "Add Category"
+msgstr "Thêm danh mục"
+
+msgid "Add Quiz"
+msgstr "Thêm bài kiểm tra"
+
+msgid "Actions"
+msgstr "Thao tác"
+
+msgid "Status"
+msgstr "Trạng thái"
+
+msgid "Order"
+msgstr "Thứ tự"
+
+msgid "Published"
+msgstr "Đã xuất bản"
+
+msgid "Draft"
+msgstr "Bản nháp"
+
+msgid "Active"
+msgstr "Hoạt động"
+
+msgid "Inactive"
+msgstr "Không hoạt động"
+
+msgid "Pending"
+msgstr "Chờ xử lý"
+
+msgid "Resolved"
+msgstr "Đã xử lý"
+
+msgid "Reviewed"
+msgstr "Đã xem xét"
+
+msgid "Name"
+msgstr "Tên"
+
+msgid "Description"
+msgstr "Mô tả"
+
+msgid "Slug"
+msgstr "Đường dẫn"
+
+msgid "Icon"
+msgstr "Biểu tượng"
+
+msgid "Thumbnail"
+msgstr "Ảnh đại diện"
+
+msgid "Video URL"
+msgstr "Đường dẫn video"
+
+msgid "Video File"
+msgstr "Tệp video"
+
+msgid "Image"
+msgstr "Hình ảnh"
+
+msgid "Create"
+msgstr "Tạo mới"
+
+msgid "Update"
+msgstr "Cập nhật"
+
+msgid "Add"
+msgstr "Thêm"
+
+msgid "Add New"
+msgstr "Thêm mới"
+
+msgid "Edit Category"
+msgstr "Sửa danh mục"
+
+msgid "Create Category"
+msgstr "Tạo danh mục"
+
+msgid "Edit Lesson"
+msgstr "Sửa bài học"
+
+msgid "Create Lesson"
+msgstr "Tạo bài học"
+
+msgid "Edit Video"
+msgstr "Sửa video"
+
+msgid "Create Video"
+msgstr "Tạo video"
+
+msgid "Edit Quiz"
+msgstr "Sửa bài kiểm tra"
+
+msgid "Create Quiz"
+msgstr "Tạo bài kiểm tra"
+
+msgid "Edit Question"
+msgstr "Sửa câu hỏi"
+
+msgid "Create Question"
+msgstr "Tạo câu hỏi"
+
+msgid "Add Question"
+msgstr "Thêm câu hỏi"
+
+msgid "Edit Featured Card"
+msgstr "Sửa thẻ nổi bật"
+
+msgid "Create Featured Card"
+msgstr "Tạo thẻ nổi bật"
+
+msgid "Manage Vocabulary"
+msgstr "Quản lý từ vựng"
+
+msgid "Add Vocabulary"
+msgstr "Thêm từ vựng"
+
+msgid "Edit Vocabulary"
+msgstr "Sửa từ vựng"
+
+msgid "Word"
+msgstr "Từ"
+
+msgid "Meaning"
+msgstr "Nghĩa"
+
+msgid "No items found"
+msgstr "Không tìm thấy mục nào"
+
+msgid "Create one to get started"
+msgstr "Tạo mới để bắt đầu"
+
+msgid "No categories yet"
+msgstr "Chưa có danh mục"
+
+msgid "No lessons yet"
+msgstr "Chưa có bài học"
+
+msgid "No videos yet"
+msgstr "Chưa có video"
+
+msgid "No quizzes yet"
+msgstr "Chưa có bài kiểm tra"
+
+msgid "No vocabulary yet"
+msgstr "Chưa có từ vựng"
+
+msgid "No reports"
+msgstr "Không có báo cáo"
+
+msgid "Confirm Delete"
+msgstr "Xác nhận xóa"
+
+msgid "Are you sure you want to delete"
+msgstr "Bạn có chắc muốn xóa"
+
+msgid "This action cannot be undone"
+msgstr "Hành động này không thể hoàn tác"
+
+msgid "Yes, Delete"
+msgstr "Có, Xóa"
+
+msgid "No, Cancel"
+msgstr "Không, Hủy"
+
+msgid "Lesson"
+msgstr "Bài học"
+
+msgid "Question"
+msgstr "Câu hỏi"
+
+msgid "Question Type"
+msgstr "Loại câu hỏi"
+
+msgid "Multiple Choice"
+msgstr "Trắc nghiệm"
+
+msgid "True/False"
+msgstr "Đúng/Sai"
+
+msgid "Points"
+msgstr "Điểm"
+
+msgid "Answer"
+msgstr "Câu trả lời"
+
+msgid "Is Correct"
+msgstr "Đáp án đúng"
+
+msgid "Answers"
+msgstr "Các câu trả lời"
+
+msgid "Passing Score"
+msgstr "Điểm đạt"
+
+msgid "Time Limit"
+msgstr "Thời gian"
+
+msgid "minutes"
+msgstr "phút"
+
+msgid "No limit"
+msgstr "Không giới hạn"
+
+msgid "View Count"
+msgstr "Lượt xem"
+
+msgid "Section"
+msgstr "Phần"
+
+msgid "Color"
+msgstr "Màu sắc"
+
+msgid "Link"
+msgstr "Liên kết"
+
+msgid "Reporter"
+msgstr "Người báo cáo"
+
+msgid "Post"
+msgstr "Bài viết"
+
+msgid "Reason"
+msgstr "Lý do"
+
+msgid "Reported At"
+msgstr "Thời gian báo cáo"
+
+msgid "Resolve"
+msgstr "Xử lý"
+
+msgid "Mark as Resolved"
+msgstr "Đánh dấu đã xử lý"
+
+msgid "Spam"
+msgstr "Spam"
+
+msgid "Inappropriate Content"
+msgstr "Nội dung không phù hợp"
+
+msgid "Harassment"
+msgstr "Quấy rối"
+
+msgid "Other"
+msgstr "Khác"
+
+msgid "Basic Information"
+msgstr "Thông tin cơ bản"
+
+msgid "Media"
+msgstr "Phương tiện"
+
+msgid "Settings"
+msgstr "Cài đặt"
+
+msgid "Appearance"
+msgstr "Giao diện"
+
+msgid "Current thumbnail"
+msgstr "Ảnh đại diện hiện tại"
+
+msgid "Current image"
+msgstr "Hình ảnh hiện tại"
+
+msgid "Current video"
+msgstr "Video hiện tại"
+
+msgid "Leave empty to keep current"
+msgstr "Để trống để giữ nguyên"
+
+msgid "to"
+msgstr "đến"
+
+msgid "items"
+msgstr "mục"
+
+msgid "First"
+msgstr "Đầu"
+
+msgid "Last"
+msgstr "Cuối"
+
+msgid "User List"
+msgstr "Danh sách người dùng"
+
+msgid "Report List"
+msgstr "Danh sách báo cáo"
+
+msgid "Lesson List"
+msgstr "Danh sách bài học"
+
+msgid "Video List"
+msgstr "Danh sách video"
+
+msgid "Quiz List"
+msgstr "Danh sách bài kiểm tra"
+
+msgid "Category List"
+msgstr "Danh sách danh mục"
+
+msgid "Total"
+msgstr "Tổng"
+
+msgid "Staff"
+msgstr "Nhân viên"
+
+msgid "Superuser"
+msgstr "Quản trị viên cao cấp"
+
+msgid "User"
+msgstr "Người dùng"
+
+msgid "Date Joined"
+msgstr "Ngày tham gia"
+
+msgid "Last Login"
+msgstr "Đăng nhập cuối"
+
+msgid "Never"
+msgstr "Chưa bao giờ"
+
+msgid "Manage Questions"
+msgstr "Quản lý câu hỏi"
+
+msgid "questions"
+msgstr "câu hỏi"
+
+msgid "No questions yet"
+msgstr "Chưa có câu hỏi"
+
+msgid "View Questions"
+msgstr "Xem câu hỏi"
+
+msgid "View Vocabulary"
+msgstr "Xem từ vựng"
+
+msgid "Back to Quiz"
+msgstr "Quay lại bài kiểm tra"
+
+msgid "Back to List"
+msgstr "Quay lại danh sách"
+
+msgid "is required"
+msgstr "là bắt buộc"
+
+msgid "at least one correct answer"
+msgstr "ít nhất một đáp án đúng"
+
+msgid "Answer text"
+msgstr "Nội dung đáp án"
+
+msgid "Add more answers"
+msgstr "Thêm đáp án"
+
+msgid "Change language"
+msgstr "Đổi ngôn ngữ"
+
+# Gamification - Achievements
+msgid "Your Achievements"
+msgstr "Thành tựu của bạn"
+
+msgid "badges earned"
+msgstr "huy hiệu đã đạt"
+
+msgid "Current Level"
+msgstr "Cấp độ hiện tại"
+
+msgid "Badges Earned"
+msgstr "Huy hiệu đã đạt"
+
+msgid "Quizzes Passed"
+msgstr "Bài kiểm tra đã đạt"
+
+msgid "Lesson Milestones"
+msgstr "Cột mốc bài học"
+
+msgid "Quiz Achievements"
+msgstr "Thành tựu bài kiểm tra"
+
+msgid "Streak Achievements"
+msgstr "Thành tựu chuỗi ngày"
+
+msgid "Special Achievements"
+msgstr "Thành tựu đặc biệt"
+
+# Gamification - Leaderboard
+msgid "See how you rank against other learners"
+msgstr "Xem bạn xếp hạng như thế nào so với những người học khác"
+
+msgid "All Time"
+msgstr "Mọi thời gian"
+
+msgid "This Month"
+msgstr "Tháng này"
+
+msgid "This Week"
+msgstr "Tuần này"
+
+msgid "Rank"
+msgstr "Hạng"
+
+msgid "XP"
+msgstr "XP"
+
+msgid "No Rankings Yet"
+msgstr "Chưa có xếp hạng"
+
+msgid "Start learning to appear on the leaderboard!"
+msgstr "Bắt đầu học để xuất hiện trên bảng xếp hạng!"
+
+# Gamification - My Stats
+msgid "My Statistics"
+msgstr "Thống kê của tôi"
+
+msgid "Lessons Completed"
+msgstr "Bài học đã hoàn thành"
+
+msgid "Global Rank"
+msgstr "Hạng toàn cầu"
+
+msgid "Learning Streak"
+msgstr "Chuỗi học tập"
+
+msgid "days"
+msgstr "ngày"
+
+msgid "Best streak"
+msgstr "Chuỗi tốt nhất"
+
+msgid "Streak Freeze"
+msgstr "Đóng băng chuỗi"
+
+msgid "Protect your streak when you can't study."
+msgstr "Bảo vệ chuỗi học của bạn khi không thể học."
+
+msgid "freeze"
+msgstr "lần đóng băng"
+
+msgid "available this month"
+msgstr "có sẵn trong tháng này"
+
+msgid "Use a streak freeze to protect your streak today?"
+msgstr "Sử dụng đóng băng chuỗi để bảo vệ chuỗi học hôm nay?"
+
+msgid "Use Freeze"
+msgstr "Sử dụng đóng băng"
+
+msgid "Protected Today"
+msgstr "Đã bảo vệ hôm nay"
+
+msgid "Points Breakdown"
+msgstr "Phân tích điểm"
+
+msgid "From Lessons"
+msgstr "Từ bài học"
+
+msgid "From Quizzes"
+msgstr "Từ bài kiểm tra"
+
+msgid "From Streaks"
+msgstr "Từ chuỗi ngày"
+
+msgid "From Badges"
+msgstr "Từ huy hiệu"
+
+msgid "Recent Quiz Attempts"
+msgstr "Lần làm bài gần đây"
+
+msgid "View Achievements"
+msgstr "Xem thành tựu"
+
+# Gamification - Notifications
+msgid "Notifications"
+msgstr "Thông báo"
+
+msgid "new"
+msgstr "mới"
+
+msgid "Mark All Read"
+msgstr "Đánh dấu tất cả đã đọc"
+
+msgid "View Details"
+msgstr "Xem chi tiết"
+
+msgid "No Notifications"
+msgstr "Không có thông báo"
+
+msgid "You're all caught up! Keep learning to earn achievements."
+msgstr "Bạn đã xem hết! Tiếp tục học để nhận thành tựu."
+
+# Category List
+msgid "Browse Categories"
+msgstr "Duyệt danh mục"
+
+msgid "No categories available yet."
+msgstr "Chưa có danh mục nào."
+
+# Forum - Report
+msgid "Report Post"
+msgstr "Báo cáo bài viết"
+
+msgid "Submit Report"
+msgstr "Gửi báo cáo"
+
+# Forum - Delete
+msgid "Are you sure"
+msgstr "Bạn có chắc chắn"
+
+# Forum - Edit
+msgid "Current Image"
+msgstr "Hình ảnh hiện tại"
+
+msgid "Remove"
+msgstr "Xóa"
+
+msgid "Replace"
+msgstr "Thay thế"
+
+msgid "Click to upload"
+msgstr "Nhấn để tải lên"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Current Video"
+msgstr "Video hiện tại"
+
+# Password Reset - Done
+msgid "Email Sent"
+msgstr "Email đã gửi"
+
+msgid "Check Your Email"
+msgstr "Kiểm tra Email của bạn"
+
+msgid "We've sent password reset instructions to your email address. Please check your inbox and follow the link to reset your password."
+msgstr "Chúng tôi đã gửi hướng dẫn đặt lại mật khẩu đến địa chỉ email của bạn. Vui lòng kiểm tra hộp thư và làm theo liên kết để đặt lại mật khẩu."
+
+msgid "Note:"
+msgstr "Lưu ý:"
+
+msgid "If you don't see the email, check your spam folder."
+msgstr "Nếu bạn không thấy email, hãy kiểm tra thư mục spam."
+
+msgid "Back to Sign In"
+msgstr "Quay lại đăng nhập"
+
+# Password Reset - Confirm
+msgid "Set New Password"
+msgstr "Đặt mật khẩu mới"
+
+msgid "Create a strong password for your account"
+msgstr "Tạo mật khẩu mạnh cho tài khoản của bạn"
+
+msgid "Password must:"
+msgstr "Mật khẩu phải:"
+
+msgid "Be at least 8 characters long"
+msgstr "Có ít nhất 8 ký tự"
+
+msgid "Not be entirely numeric"
+msgstr "Không chỉ toàn số"
+
+msgid "Not be too similar to your username"
+msgstr "Không quá giống tên đăng nhập"
+
+msgid "Not be a commonly used password"
+msgstr "Không phải mật khẩu thông dụng"
+
+msgid "New Password"
+msgstr "Mật khẩu mới"
+
+msgid "Invalid or Expired Link"
+msgstr "Liên kết không hợp lệ hoặc đã hết hạn"
+
+msgid "This password reset link is invalid or has expired. Please request a new one."
+msgstr "Liên kết đặt lại mật khẩu này không hợp lệ hoặc đã hết hạn. Vui lòng yêu cầu liên kết mới."
+
+msgid "Request New Link"
+msgstr "Yêu cầu liên kết mới"
+
+# Password Reset - Complete
+msgid "Password Reset Complete!"
+msgstr "Đặt lại mật khẩu hoàn tất!"
+
+msgid "Your password has been successfully changed. You can now sign in with your new password."
+msgstr "Mật khẩu của bạn đã được thay đổi thành công. Bây giờ bạn có thể đăng nhập bằng mật khẩu mới."
+
+msgid "Sign In Now"
+msgstr "Đăng nhập ngay"
+
+# Password Reset - Email
+msgid "Hello"
+msgstr "Xin chào"
+
+msgid "You requested a password reset for your Signox account."
+msgstr "Bạn đã yêu cầu đặt lại mật khẩu cho tài khoản Signox của mình."
+
+msgid "Click the link below to set a new password:"
+msgstr "Nhấp vào liên kết bên dưới để đặt mật khẩu mới:"
+
+msgid "This link will expire in 1 hour for security reasons."
+msgstr "Liên kết này sẽ hết hạn sau 1 giờ vì lý do bảo mật."
+
+msgid "If you didn't request this password reset, you can safely ignore this email. Your password will remain unchanged."
+msgstr "Nếu bạn không yêu cầu đặt lại mật khẩu này, bạn có thể bỏ qua email này. Mật khẩu của bạn sẽ không thay đổi."
+
+msgid "Sign Language Learning Platform"
+msgstr "Nền tảng học Ngôn ngữ Ký hiệu"
+
+# Home Page - Additional
+msgid "Learn More"
+msgstr "Tìm hiểu thêm"
+
+msgid "Learn Sign Language Online"
+msgstr "Học Ngôn ngữ Ký hiệu Trực tuyến"
+
+msgid "Master sign language at your own pace. Interactive lessons, practice quizzes, and a supportive community to help you communicate without barriers."
+msgstr "Thành thạo ngôn ngữ ký hiệu theo tốc độ của bạn. Bài học tương tác, bài kiểm tra thực hành và cộng đồng hỗ trợ giúp bạn giao tiếp không rào cản."
+
+msgid "Create Free Account"
+msgstr "Tạo tài khoản miễn phí"
+
+msgid "Browse by Topic"
+msgstr "Duyệt theo chủ đề"
+
+msgid "Choose a category to start your learning journey"
+msgstr "Chọn một danh mục để bắt đầu hành trình học tập"
+
+msgid "Latest Lessons"
+msgstr "Bài học mới nhất"
+
+msgid "No lessons available yet. New lessons coming soon!"
+msgstr "Chưa có bài học. Bài học mới sẽ sớm ra mắt!"
+
+msgid "Quick Start Phrases"
+msgstr "Cụm từ bắt đầu nhanh"
+
+msgid "Essential phrases for everyday communication"
+msgstr "Các cụm từ thiết yếu cho giao tiếp hàng ngày"
+
+msgid "Common Sentences"
+msgstr "Câu thông dụng"
+
+msgid "Ready to Start Learning?"
+msgstr "Sẵn sàng bắt đầu học?"
+
+msgid "Join thousands of learners and master sign language at your own pace."
+msgstr "Tham gia cùng hàng nghìn người học và thành thạo ngôn ngữ ký hiệu theo tốc độ của bạn."
+
+msgid "Featured Content"
+msgstr "Nội dung nổi bật"
+
+# Lessons Page
+msgid "About this Lesson"
+msgstr "Về bài học này"
+
+msgid "Back to Lessons"
+msgstr "Quay lại bài học"
+
+msgid "Lesson Categories"
+msgstr "Danh mục bài học"
+
+msgid "lesson"
+msgstr "bài học"
+
+msgid "Lesson Completed!"
+msgstr "Hoàn thành bài học!"
+
+msgid "No lessons found"
+msgstr "Không tìm thấy bài học"
+
+msgid "No saved lessons"
+msgstr "Không có bài học đã lưu"
+
+msgid "No Saved Lessons"
+msgstr "Không có bài học đã lưu"
+
+msgid "Save lessons to access them quickly later"
+msgstr "Lưu bài học để truy cập nhanh sau này"
+
+msgid "Search lessons..."
+msgstr "Tìm kiếm bài học..."
+
+msgid "No vocabulary items in this lesson."
+msgstr "Không có từ vựng trong bài học này."
+
+msgid "Vocabulary items for this lesson"
+msgstr "Từ vựng cho bài học này"
+
+msgid "Mark as Complete Manually"
+msgstr "Đánh dấu hoàn thành thủ công"
+
+msgid "To auto-complete:"
+msgstr "Để tự động hoàn thành:"
+
+msgid "Pass the lesson quiz"
+msgstr "Vượt qua bài kiểm tra"
+
+msgid "Achieve 70%+ mastery on flashcards"
+msgstr "Đạt 70%+ thành thạo flashcard"
+
+msgid "Review the lesson content"
+msgstr "Xem lại nội dung bài học"
+
+# Flashcards
+msgid "Flashcard"
+msgstr "Thẻ ghi nhớ"
+
+msgid "Flashcards"
+msgstr "Thẻ ghi nhớ"
+
+msgid "Spaced Repetition Flashcards"
+msgstr "Thẻ ghi nhớ lặp lại cách quãng"
+
+msgid "Add Card"
+msgstr "Thêm thẻ"
+
+msgid "Save Card"
+msgstr "Lưu thẻ"
+
+msgid "Create your first card"
+msgstr "Tạo thẻ đầu tiên"
+
+msgid "Good/Easy"
+msgstr "Tốt/Dễ"
+
+# Quiz Page
+msgid "All Quizzes"
+msgstr "Tất cả bài kiểm tra"
+
+msgid "Back to Quizzes"
+msgstr "Quay lại bài kiểm tra"
+
+msgid "View All Quizzes"
+msgstr "Xem tất cả bài kiểm tra"
+
+msgid "Search quizzes..."
+msgstr "Tìm kiếm bài kiểm tra..."
+
+msgid "quiz"
+msgstr "bài kiểm tra"
+
+msgid "Quiz"
+msgstr "Bài kiểm tra"
+
+msgid "No Quizzes Available"
+msgstr "Không có bài kiểm tra"
+
+msgid "No quizzes found"
+msgstr "Không tìm thấy bài kiểm tra"
+
+msgid "Quizzes will appear here as you progress through lessons."
+msgstr "Bài kiểm tra sẽ xuất hiện ở đây khi bạn học các bài học."
+
+msgid "Not attempted"
+msgstr "Chưa làm"
+
+msgid "Recent attempts"
+msgstr "Lần làm gần đây"
+
+msgid "Test your knowledge and track your progress"
+msgstr "Kiểm tra kiến thức và theo dõi tiến độ"
+
+msgid "Make sure you've answered all questions before submitting."
+msgstr "Hãy chắc chắn đã trả lời tất cả câu hỏi trước khi nộp."
+
+msgid "You scored"
+msgstr "Bạn đạt"
+
+msgid "out of"
+msgstr "trên"
+
+msgid "points"
+msgstr "điểm"
+
+msgid "You've beaten your previous high score!"
+msgstr "Bạn đã vượt qua điểm cao nhất trước đó!"
+
+msgid "Best"
+msgstr "Tốt nhất"
+
+# Dashboard
+msgid "Welcome Back"
+msgstr "Chào mừng trở lại"
+
+msgid "No recommendations yet. Start learning to get personalized suggestions!"
+msgstr "Chưa có gợi ý. Bắt đầu học để nhận gợi ý cá nhân hóa!"
+
+msgid "XP to Level"
+msgstr "XP đến cấp độ"
+
+# Admin Panel
+msgid "All Users"
+msgstr "Tất cả người dùng"
+
+msgid "All Videos"
+msgstr "Tất cả video"
+
+msgid "All Video Categories"
+msgstr "Tất cả danh mục video"
+
+msgid "Search users..."
+msgstr "Tìm kiếm người dùng..."
+
+msgid "No users found"
+msgstr "Không tìm thấy người dùng"
+
+msgid "Content Reports"
+msgstr "Báo cáo nội dung"
+
+msgid "No reports found"
+msgstr "Không tìm thấy báo cáo"
+
+msgid "reviewed"
+msgstr "đã xem xét"
+
+msgid "No categories yet."
+msgstr "Chưa có danh mục."
+
+msgid "No video categories yet."
+msgstr "Chưa có danh mục video."
+
+msgid "No videos found"
+msgstr "Không tìm thấy video"
+
+msgid "No featured cards yet"
+msgstr "Chưa có thẻ nổi bật"
+
+msgid "Featured Card"
+msgstr "Thẻ nổi bật"
+
+msgid "Video Category"
+msgstr "Danh mục video"
+
+msgid "No vocabulary yet."
+msgstr "Chưa có từ vựng."
+
+msgid "No questions yet."
+msgstr "Chưa có câu hỏi."
+
+msgid "No topics available yet. Check back soon!"
+msgstr "Chưa có chủ đề. Hãy quay lại sau!"
+
+# Form Fields
+msgid "Active (visible on site)"
+msgstr "Hoạt động (hiển thị trên trang)"
+
+msgid "Display Order"
+msgstr "Thứ tự hiển thị"
+
+msgid "Lower numbers appear first"
+msgstr "Số nhỏ hơn xuất hiện trước"
+
+msgid "Icon (Emoji)"
+msgstr "Biểu tượng (Emoji)"
+
+msgid "e.g., 👋"
+msgstr "ví dụ: 👋"
+
+msgid "e.g., Daily Communication"
+msgstr "ví dụ: Giao tiếp hàng ngày"
+
+msgid "e.g., /lessons/?category=daily"
+msgstr "ví dụ: /lessons/?category=daily"
+
+msgid "Link URL"
+msgstr "Đường dẫn liên kết"
+
+msgid "Can be relative (/lessons/) or absolute (https://...)"
+msgstr "Có thể là đường dẫn tương đối (/lessons/) hoặc tuyệt đối (https://...)"
+
+msgid "Short description (optional)"
+msgstr "Mô tả ngắn (tùy chọn)"
+
+msgid "Image (Optional)"
+msgstr "Hình ảnh (Tùy chọn)"
+
+msgid "Video File (Optional)"
+msgstr "Tệp video (Tùy chọn)"
+
+msgid "Video URL (YouTube embed)"
+msgstr "Đường dẫn video (nhúng YouTube)"
+
+msgid "Or upload a video file below"
+msgstr "Hoặc tải lên tệp video bên dưới"
+
+msgid "Current Thumbnail"
+msgstr "Ảnh đại diện hiện tại"
+
+msgid "Passing Score (%)"
+msgstr "Điểm đạt (%)"
+
+msgid "Pass Score"
+msgstr "Điểm đạt"
+
+msgid "Time Limit (minutes)"
+msgstr "Giới hạn thời gian (phút)"
+
+msgid "Set 0 for no time limit"
+msgstr "Đặt 0 để không giới hạn thời gian"
+
+msgid "Select Category"
+msgstr "Chọn danh mục"
+
+msgid "Select Lesson"
+msgstr "Chọn bài học"
+
+msgid "Question Text"
+msgstr "Nội dung câu hỏi"
+
+msgid "Add up to 4 answer options. Select the correct answer."
+msgstr "Thêm tối đa 4 tùy chọn đáp án. Chọn đáp án đúng."
+
+msgid "Explanation (shown after quiz)"
+msgstr "Giải thích (hiển thị sau bài kiểm tra)"
+
+msgid "Why this answer is correct/incorrect..."
+msgstr "Tại sao đáp án này đúng/sai..."
+
+msgid "Delete this question?"
+msgstr "Xóa câu hỏi này?"
+
+msgid "Add one"
+msgstr "Thêm một"
+
+msgid "Create one"
+msgstr "Tạo một"
+
+msgid "Markdown supported"
+msgstr "Hỗ trợ Markdown"
+
+# Delete Confirmations
+msgid "Are you sure?"
+msgstr "Bạn có chắc không?"
+
+msgid "This action cannot be undone."
+msgstr "Hành động này không thể hoàn tác."
+
+msgid "You are about to delete this"
+msgstr "Bạn sắp xóa"
+
+msgid "Yes"
+msgstr "Có"
+
+msgid "Deleted Content"
+msgstr "Nội dung đã xóa"
+
+msgid "Post:"
+msgstr "Bài viết:"
+
+# Status and Labels
+msgid "Current"
+msgstr "Hiện tại"
+
+msgid "Created"
+msgstr "Đã tạo"
+
+msgid "Overall"
+msgstr "Tổng quan"
+
+msgid "total"
+msgstr "tổng"
+
+msgid "Related"
+msgstr "Liên quan"
+
+msgid "Type"
+msgstr "Loại"
+
+msgid "Filter"
+msgstr "Lọc"
+
+msgid "Views"
+msgstr "Lượt xem"
+
+msgid "min"
+msgstr "phút"
+
+msgid "Location"
+msgstr "Vị trí"
+
+msgid "Preview"
+msgstr "Xem trước"
+
+msgid "Completed!"
+msgstr "Hoàn thành!"
+
+msgid "Sign in"
+msgstr "Đăng nhập"
+
+msgid "Try adjusting your search or filters"
+msgstr "Thử điều chỉnh tìm kiếm hoặc bộ lọc"
+
+msgid "Your browser does not support the video tag."
+msgstr "Trình duyệt của bạn không hỗ trợ thẻ video."
+
+msgid "Password Reset Complete"
+msgstr "Đặt lại mật khẩu hoàn tất"
+
+# Formatting Guide
+msgid "Formatting:"
+msgstr "Định dạng:"
+
+msgid "Formatting Guide:"
+msgstr "Hướng dẫn định dạng:"
+
+msgid "bold"
+msgstr "đậm"
+
+msgid "italic"
+msgstr "nghiêng"
+
+msgid "inline code"
+msgstr "mã nội tuyến"
+
+msgid "Large header"
+msgstr "Tiêu đề lớn"
+
+msgid "Medium header"
+msgstr "Tiêu đề vừa"
+
+msgid "Small header"
+msgstr "Tiêu đề nhỏ"
+
+msgid "Section header"
+msgstr "Tiêu đề phần"
+
+msgid "Bullet list"
+msgstr "Danh sách đầu dòng"
+
+msgid "Numbered list"
+msgstr "Danh sách đánh số"
+
+msgid "Blockquote"
+msgstr "Trích dẫn"
+
+msgid "Horizontal line"
+msgstr "Đường kẻ ngang"
+
+# Colors
+msgid "Blue"
+msgstr "Xanh dương"
+
+msgid "Green"
+msgstr "Xanh lá"
+
+msgid "Indigo"
+msgstr "Chàm"
+
+msgid "Orange"
+msgstr "Cam"
+
+msgid "Pink"
+msgstr "Hồng"
+
+msgid "Purple"
+msgstr "Tím"
+
+msgid "Red"
+msgstr "Đỏ"
+
+msgid "Teal"
+msgstr "Xanh ngọc"
+
+# Icons/Categories
+msgid "Art/Palette"
+msgstr "Nghệ thuật/Bảng màu"
+
+msgid "Book"
+msgstr "Sách"
+
+msgid "Briefcase"
+msgstr "Cặp tài liệu"
+
+msgid "Calendar"
+msgstr "Lịch"
+
+msgid "Car/Transport"
+msgstr "Xe/Giao thông"
+
+msgid "Clock/Time"
+msgstr "Đồng hồ/Thời gian"
+
+msgid "Comment Dots"
+msgstr "Bình luận"
+
+msgid "Food/Utensils"
+msgstr "Thức ăn/Dụng cụ"
+
+msgid "Graduation Cap"
+msgstr "Mũ tốt nghiệp"
+
+msgid "Heart"
+msgstr "Trái tim"
+
+msgid "Hospital/Medical"
+msgstr "Bệnh viện/Y tế"
+
+msgid "Music"
+msgstr "Âm nhạc"
+
+msgid "Phone"
+msgstr "Điện thoại"
+
+msgid "Shopping"
+msgstr "Mua sắm"
+
+msgid "Sports"
+msgstr "Thể thao"
+
+msgid "Star"
+msgstr "Ngôi sao"
+
+msgid "Travel/Plane"
+msgstr "Du lịch/Máy bay"
+
+# Chatbot
+msgid "Open chat"
+msgstr "Mở trò chuyện"
+
+msgid "Sign Language Assistant"
+msgstr "Trợ lý Ngôn ngữ Ký hiệu"
+
+msgid "Hello! I'm your sign language learning assistant. How can I help you today?"
+msgstr "Xin chào! Tôi là trợ lý học ngôn ngữ ký hiệu của bạn. Tôi có thể giúp gì cho bạn hôm nay?"
+
+msgid "Type your message..."
+msgstr "Nhập tin nhắn..."
+
+msgid "Send message"
+msgstr "Gửi tin nhắn"
+
+# CSV Export
+msgid "Export CSV"
+msgstr "Xuất CSV"
+
+msgid "Export Progress"
+msgstr "Xuất tiến độ"
+
+msgid "Export Vocabulary"
+msgstr "Xuất từ vựng"
+
+msgid "Export Results"
+msgstr "Xuất kết quả"
