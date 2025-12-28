@@ -181,6 +181,9 @@ PASSWORD_RESET_TIMEOUT = 3600  # 1 hour in seconds
 # ============ SECURITY SETTINGS ============
 # These should be enabled in production
 
+# Trust Railway/Heroku proxy headers (required for HTTPS detection behind proxy)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 # HTTPS/SSL Settings (enable in production)
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
