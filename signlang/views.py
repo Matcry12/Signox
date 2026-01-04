@@ -770,6 +770,8 @@ def flashcard_rate(request):
 
 @login_required
 def quiz_list(request):
+    from django.db.models import Exists, OuterRef
+    
     quizzes = Quiz.objects.filter(is_active=True).select_related('lesson')
 
     # Get user's attempts with best (highest) score
@@ -779,7 +781,13 @@ def quiz_list(request):
         best_score=Max('score'),
         max_score=Max('max_score'),
         attempts=Count('id'),
-        has_passed=Max('passed')  # 1 if ever passed, 0 if not
+        has_passed=Exists(
+            QuizAttempt.objects.filter(
+                user=request.user,
+                quiz_id=OuterRef('quiz_id'),
+                passed=True
+            )
+        )
     )
     attempts_dict = {a['quiz_id']: a for a in user_attempts}
 
