@@ -125,10 +125,6 @@ class UserProgress(models.Model):
     class Meta:
         unique_together = ['user', 'lesson']
         verbose_name_plural = "User Progress"
-        indexes = [
-            models.Index(fields=['user', 'status']),
-            models.Index(fields=['user', '-last_accessed']),
-        ]
 
     def __str__(self):
         return f"{self.user.username} - {self.lesson.title}"
@@ -200,12 +196,6 @@ class QuizAttempt(models.Model):
     passed = models.BooleanField(default=False)
     started_at = models.DateTimeField(auto_now_add=True)
     completed_at = models.DateTimeField(blank=True, null=True)
-
-    class Meta:
-        indexes = [
-            models.Index(fields=['user', 'quiz']),
-            models.Index(fields=['user', '-started_at']),
-        ]
 
     def __str__(self):
         return f"{self.user.username} - {self.quiz.title} ({self.score}/{self.max_score})"

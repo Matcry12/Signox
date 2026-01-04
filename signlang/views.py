@@ -91,27 +91,19 @@ def set_language(request):
 
 
 def home(request):
-    # Cache homepage for 5 minutes
-    cache_key = 'home_page_data'
-    context = cache.get(cache_key)
-    
-    if context is None:
-        categories = Category.objects.all()[:6]
-        latest_lessons = Lesson.objects.filter(is_published=True)[:6]
+    categories = Category.objects.all()[:6]
+    latest_lessons = Lesson.objects.filter(is_published=True)[:6]
 
-        # Get dynamic featured cards with caching
-        common_sentences = get_featured_cards('common_sentences')
-        featured_cards = get_featured_cards('featured')
+    # Get dynamic featured cards with caching
+    common_sentences = get_featured_cards('common_sentences')
+    featured_cards = get_featured_cards('featured')
 
-        context = {
-            'categories': categories,
-            'latest_lessons': latest_lessons,
-            'common_sentences': common_sentences,
-            'featured_cards': featured_cards,
-        }
-        # Cache for 5 minutes (300 seconds)
-        cache.set(cache_key, context, 300)
-    
+    context = {
+        'categories': categories,
+        'latest_lessons': latest_lessons,
+        'common_sentences': common_sentences,
+        'featured_cards': featured_cards,
+    }
     return render(request, 'signlang/home.html', context)
 
 
@@ -305,24 +297,15 @@ def activity_calendar_api(request):
 
 @login_required
 def dashboard(request):
-    from django.db.models import Count, Q
-    
     user = request.user
 
     # Ensure gamification records exist
     gamification.ensure_user_gamification(user)
 
-    # Get user progress with optimization
-    progress_list = UserProgress.objects.filter(user=user).select_related('lesson__category')
-    
-    # Use aggregate instead of multiple count() calls
-    progress_stats = progress_list.aggregate(
-        completed=Count('id', filter=Q(status='completed')),
-        in_progress=Count('id', filter=Q(status='in_progress'))
-    )
-    completed_count = progress_stats['completed']
-    in_progress_count = progress_stats['in_progress']
-    
+    # Get user progress
+    progress_list = UserProgress.objects.filter(user=user)
+    completed_count = progress_list.filter(status='completed').count()
+    in_progress_count = progress_list.filter(status='in_progress').count()
     total_lessons = Lesson.objects.filter(is_published=True).count()
 
     # Calculate progress percentage
@@ -331,18 +314,16 @@ def dashboard(request):
     # Get recommended lessons
     recommended_lessons = get_recommendations(user)
 
-    # Get recent activity (already has select_related now)
+    # Get recent activity
     recent_progress = progress_list.order_by('-last_accessed')[:5]
 
-    # Get saved lessons (optimized)
-    saved_lessons = SavedLesson.objects.filter(user=user).select_related('lesson__category')[:5]
+    # Get saved lessons
+    saved_lessons = SavedLesson.objects.filter(user=user).select_related('lesson')[:5]
 
-    # Get gamification data (these are OneToOne, so no optimization needed)
+    # Get gamification data
     user_points = user.points
     user_streak = user.streak
     recent_badges = UserBadge.objects.filter(user=user).select_related('badge')[:3]
-    
-    # Use aggregate for notification count
     unread_notifications = Notification.objects.filter(user=user, is_read=False).count()
 
     # Get activity calendar data (last 20 weeks for compact display)
