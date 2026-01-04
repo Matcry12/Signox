@@ -10,8 +10,8 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Load environment variables from .env file
-load_dotenv(BASE_DIR / '.env')
+# Load environment variables from .env file (override system env vars)
+load_dotenv(BASE_DIR / '.env', override=True)
 
 # Security: SECRET_KEY must be in environment variables
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -21,7 +21,7 @@ if not SECRET_KEY:
         "Please create a .env file with a SECRET_KEY value."
     )
 
-# Debug mode - must be explicitly set
+# Debug mode - load from .env (default: False for safety)
 DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 'yes')
 
 # Groq API for AI Chatbot
@@ -198,7 +198,9 @@ PASSWORD_RESET_TIMEOUT = 3600  # 1 hour in seconds
 # These should be enabled in production
 
 # Trust Railway/Heroku proxy headers (required for HTTPS detection behind proxy)
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# Only enable in production, disable in development
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # HTTPS/SSL Settings (enable in production)
 if not DEBUG:
@@ -237,3 +239,26 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 ALLOWED_IMAGE_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif', 'webp']
 ALLOWED_VIDEO_EXTENSIONS = ['mp4', 'webm', 'avi', 'mov']
 ALLOWED_DOCUMENT_EXTENSIONS = ['pdf', 'doc', 'docx', 'txt']
+
+# ============ CACHING & PERFORMANCE ============
+
+# Cache configuration
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'signox-cache',
+        'TIMEOUT': 300,  # 5 minutes default
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000
+        }
+    }
+}
+
+# Database Connection Pooling (Vercel optimization)
+if not DEBUG:
+    DATABASES['default']['CONN_MAX_AGE'] = 600  # Reuse connections for 10 minutes
+    if DATABASES['default']['ENGINE'] == 'django.db.backends.postgresql':
+        DATABASES['default']['OPTIONS'] = {
+            'connect_timeout': 10,
+            'options': '-c default_transaction_isolation=read_committed'
+        }
