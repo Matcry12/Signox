@@ -174,16 +174,19 @@
     .avatar-upload {
         display: flex;
         align-items: center;
-        gap: 1.5rem;
+        gap: 2rem;
     }
 
     .avatar-preview {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
         overflow: hidden;
-        border: 3px solid var(--gray-200);
+        border: 4px solid var(--primary-300);
         background: var(--gray-100);
+        flex-shrink: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
     }
 
     .avatar-preview img {
@@ -199,13 +202,54 @@
         align-items: center;
         justify-content: center;
         color: var(--gray-400);
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .avatar-actions {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 1rem;
+        flex: 1;
+    }
+
+    .avatar-dropzone {
+        border: 2px dashed var(--primary-300);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: var(--gray-50);
+    }
+
+    .avatar-dropzone:hover {
+        border-color: var(--primary-500);
+        background: var(--primary-50);
+    }
+
+    .avatar-dropzone.drag-over {
+        border-color: var(--primary-600);
+        background: var(--primary-100);
+        box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+    }
+
+    .avatar-dropzone i {
+        font-size: 2rem;
+        color: var(--primary-400);
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .avatar-dropzone-text {
+        font-size: 0.875rem;
+        color: var(--gray-600);
+        margin: 0;
+    }
+
+    .avatar-dropzone-hint {
+        font-size: 0.75rem;
+        color: var(--gray-500);
+        margin: 0.5rem 0 0 0;
     }
 
     .avatar-current {
@@ -220,6 +264,28 @@
     .avatar-current input {
         width: 16px;
         height: 16px;
+    }
+
+    /* Hide default file input widget completely */
+    #id_avatar,
+    #id_avatar-clear,
+    .clearable-file-input,
+    .form-group .form-control-file,
+    [id*="id_avatar"] {
+        display: none !important;
+    }
+
+    /* Hide the entire clearable file input container */
+    #id_avatar_wrapper,
+    .form-control-file-wrapper,
+    .clearable-file-input-wrapper {
+        display: none !important;
+    }
+
+    /* Hide any text related to current file */
+    .form-group p,
+    .form-group .fieldFile {
+        display: none !important;
     }
 
     @media (max-width: 768px) {
@@ -324,6 +390,33 @@
     [data-theme="dark"] .avatar-current {
         color: #94A3B8;
     }
+
+    [data-theme="dark"] .avatar-dropzone {
+        border-color: #475569;
+        background: #0F172A;
+    }
+
+    [data-theme="dark"] .avatar-dropzone:hover {
+        border-color: #A5B4FC;
+        background: #1E293B;
+    }
+
+    [data-theme="dark"] .avatar-dropzone.drag-over {
+        border-color: #818CF8;
+        background: #312E81;
+    }
+
+    [data-theme="dark"] .avatar-dropzone i {
+        color: #A5B4FC;
+    }
+
+    [data-theme="dark"] .avatar-dropzone-text {
+        color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .avatar-dropzone-hint {
+        color: #94A3B8;
+    }
 </style>
 {% endblock %}
 
@@ -401,16 +494,12 @@
                                 {% endif %}
                             </div>
                             <div class="avatar-actions">
-                                <label for="id_avatar" class="btn btn-secondary btn-sm">
-                                    <i class="fas fa-camera"></i> {% trans "Choose Photo" %}
+                                <label for="id_avatar" class="avatar-dropzone" id="avatar-dropzone">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p class="avatar-dropzone-text">{% trans "Click to upload or drag and drop" %}</p>
+                                    <p class="avatar-dropzone-hint">{% trans "PNG, JPG, GIF up to 5MB" %}</p>
                                 </label>
-                                <input type="file" name="avatar" id="id_avatar" accept="image/*"
-                                       style="display: none;" onchange="previewAvatar(this)">
-                                {% if user.profile.avatar %}
-                                <label class="avatar-current">
-                                    <input type="checkbox" name="avatar-clear"> {% trans "Remove current photo" %}
-                                </label>
-                                {% endif %}
+                                {{ profile_form.avatar }}
                             </div>
                         </div>
                     </div>
@@ -456,14 +545,81 @@
 </div>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('id_avatar');
+    const dropzone = document.getElementById('avatar-dropzone');
+    
+    if (!fileInput || !dropzone) return;
+    
+    // Click to upload
+    dropzone.addEventListener('click', function(e) {
+        e.preventDefault();
+        fileInput.click();
+    });
+    
+    // File selection
+    fileInput.addEventListener('change', function() {
+        previewAvatar(this);
+    });
+    
+    // Drag and drop
+    dropzone.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.add('drag-over');
+    });
+    
+    dropzone.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.remove('drag-over');
+    });
+    
+    dropzone.addEventListener('drop', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.remove('drag-over');
+        
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            fileInput.files = e.dataTransfer.files;
+            const event = new Event('change', { bubbles: true });
+            fileInput.dispatchEvent(event);
+        }
+    });
+});
+
 function previewAvatar(input) {
     if (input.files && input.files[0]) {
+        const file = input.files[0];
+        
+        // Validate file type
+        if (!file.type.startsWith('image/')) {
+            alert('Please select a valid image file');
+            return;
+        }
+        
+        // Validate file size (5MB)
+        if (file.size > 5242880) {
+            alert('File size must be less than 5MB');
+            return;
+        }
+        
         const reader = new FileReader();
         reader.onload = function(e) {
-            const preview = document.querySelector('.avatar-preview');
-            preview.innerHTML = '<img src="' + e.target.result + '" alt="Preview">';
+            const preview = document.getElementById('avatar-preview-img');
+            if (preview) {
+                if (preview.tagName === 'IMG') {
+                    preview.src = e.target.result;
+                } else {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = 'Avatar preview';
+                    img.id = 'avatar-preview-img';
+                    preview.parentElement.replaceChild(img, preview);
+                }
+            }
         };
-        reader.readAsDataURL(input.files[0]);
+        reader.readAsDataURL(file);
     }
 }
 </script>

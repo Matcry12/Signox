@@ -443,6 +443,14 @@ def profile(request):
             profile_form.save()
             messages.success(request, 'Profile updated successfully!')
             return redirect('profile')
+        else:
+            # Debug: Show form errors
+            if not user_form.is_valid():
+                for field, errors in user_form.errors.items():
+                    messages.error(request, f'User form - {field}: {", ".join(errors)}')
+            if not profile_form.is_valid():
+                for field, errors in profile_form.errors.items():
+                    messages.error(request, f'Profile form - {field}: {", ".join(errors)}')
     else:
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=user_profile)

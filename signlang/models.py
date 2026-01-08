@@ -20,9 +20,9 @@ LEVEL_TITLES = [
 
 class UserProfile(models.Model):
     SKILL_LEVELS = [
-        ('beginner', 'Beginner'),
-        ('intermediate', 'Intermediate'),
-        ('advanced', 'Advanced'),
+        ('beginner', _('Beginner')),
+        ('intermediate', _('Intermediate')),
+        ('advanced', _('Advanced')),
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
@@ -65,9 +65,9 @@ class Category(models.Model):
 
 class Lesson(models.Model):
     DIFFICULTY_LEVELS = [
-        ('easy', 'Easy'),
-        ('medium', 'Medium'),
-        ('hard', 'Hard'),
+        ('easy', _('Easy')),
+        ('medium', _('Medium')),
+        ('hard', _('Hard')),
     ]
 
     title = models.CharField(max_length=200)
@@ -216,9 +216,9 @@ class VideoCategory(models.Model):
 
 class Video(models.Model):
     DIFFICULTY_LEVELS = [
-        ('easy', 'Easy'),
-        ('medium', 'Medium'),
-        ('hard', 'Hard'),
+        ('easy', _('Easy')),
+        ('medium', _('Medium')),
+        ('hard', _('Hard')),
     ]
 
     title = models.CharField(max_length=200)

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Signox 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-19 00:00+0700\n"
+"POT-Creation-Date: 2026-01-08 17:11+0700\n"
 "PO-Revision-Date: 2025-12-19 00:00+0700\n"
 "Last-Translator: Signox Team\n"
 "Language-Team: Vietnamese\n"
@@ -16,1975 +16,4251 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-# Navigation
-msgid "Home"
-msgstr "Trang chủ"
+#: signlang/models.py:23
+msgid "Beginner"
+msgstr "Người mới bắt đầu"
 
-msgid "Lessons"
-msgstr "Bài học"
+#: signlang/models.py:24
+msgid "Intermediate"
+msgstr "Trung cấp"
 
-msgid "Dictionary"
-msgstr "Từ điển"
+#: signlang/models.py:25
+msgid "Advanced"
+msgstr "Nâng cao"
 
-msgid "Videos"
-msgstr "Video"
-
-msgid "Quizzes"
-msgstr "Bài kiểm tra"
-
-msgid "Forum"
-msgstr "Diễn đàn"
-
-msgid "Dashboard"
-msgstr "Bảng điều khiển"
-
-msgid "Profile"
-msgstr "Hồ sơ"
-
-msgid "Login"
-msgstr "Đăng nhập"
-
-msgid "Register"
-msgstr "Đăng ký"
-
-msgid "Logout"
-msgstr "Đăng xuất"
-
-# Common
-msgid "Search"
-msgstr "Tìm kiếm"
-
-msgid "Save"
-msgstr "Lưu"
-
-msgid "Cancel"
-msgstr "Hủy"
-
-msgid "Submit"
-msgstr "Gửi"
-
-msgid "Back"
-msgstr "Quay lại"
-
-msgid "Next"
-msgstr "Tiếp theo"
-
-msgid "Previous"
-msgstr "Trước đó"
-
-msgid "Loading..."
-msgstr "Đang tải..."
-
-msgid "View All"
-msgstr "Xem tất cả"
-
-# Home Page
-msgid "Learn Sign Language"
-msgstr "Học Ngôn ngữ Ký hiệu"
-
-msgid "Breaking language barriers through Sign Language education. Study and share together."
-msgstr "Phá vỡ rào cản ngôn ngữ thông qua giáo dục Ngôn ngữ Ký hiệu. Học tập và chia sẻ cùng nhau."
-
-msgid "Start Learning"
-msgstr "Bắt đầu học"
-
-msgid "Browse Lessons"
-msgstr "Xem bài học"
-
-msgid "Community"
-msgstr "Cộng đồng"
-
-# Lessons
-msgid "All Lessons"
-msgstr "Tất cả bài học"
-
-msgid "Categories"
-msgstr "Danh mục"
-
-msgid "Difficulty"
-msgstr "Độ khó"
-
+#: signlang/models.py:68 signlang/models.py:219
+#: templates/signlang/admin/lesson_form.html:39
+#: templates/signlang/admin/video_form.html:39
+#: templates/signlang/lessons/flashcard.html:475
+#: templates/signlang/lessons/lesson_list.html:219
+#: templates/signlang/videos/video_list.html:172
 msgid "Easy"
 msgstr "Dễ"
 
+#: signlang/models.py:69 signlang/models.py:220
+#: templates/signlang/admin/lesson_form.html:40
+#: templates/signlang/admin/video_form.html:40
+#: templates/signlang/lessons/lesson_list.html:220
+#: templates/signlang/videos/video_list.html:173
 msgid "Medium"
 msgstr "Trung bình"
 
+#: signlang/models.py:70 signlang/models.py:221
+#: templates/signlang/admin/lesson_form.html:41
+#: templates/signlang/admin/video_form.html:41
+#: templates/signlang/lessons/flashcard.html:467
+#: templates/signlang/lessons/lesson_list.html:221
+#: templates/signlang/videos/video_list.html:174
 msgid "Hard"
 msgstr "Khó"
 
-msgid "Completed"
-msgstr "Hoàn thành"
-
-msgid "In Progress"
-msgstr "Đang học"
-
-msgid "Not Started"
-msgstr "Chưa bắt đầu"
-
-msgid "Save Lesson"
-msgstr "Lưu bài học"
-
-msgid "Saved"
-msgstr "Đã lưu"
-
-msgid "Saved Lessons"
-msgstr "Bài học đã lưu"
-
-msgid "Practice Flashcards"
-msgstr "Luyện tập Flashcard"
-
-msgid "Flashcard Mode"
-msgstr "Chế độ Flashcard"
-
-msgid "Mark as Complete"
-msgstr "Đánh dấu hoàn thành"
-
-msgid "Learning Progress"
-msgstr "Tiến độ học tập"
-
-msgid "Vocabulary"
-msgstr "Từ vựng"
-
-msgid "Related Lessons"
-msgstr "Bài học liên quan"
-
-# Flashcard
-msgid "Again"
-msgstr "Lại"
-
-msgid "Good"
-msgstr "Tốt"
-
-msgid "Mastery"
-msgstr "Thành thạo"
-
-msgid "Due Today"
-msgstr "Hôm nay"
-
-msgid "Total Cards"
-msgstr "Tổng số thẻ"
-
-msgid "Tap to reveal meaning"
-msgstr "Nhấn để xem nghĩa"
-
-msgid "How well did you know this?"
-msgstr "Bạn biết từ này tốt như thế nào?"
-
-msgid "Session Complete!"
-msgstr "Hoàn thành phiên học!"
-
-msgid "Great job reviewing your flashcards."
-msgstr "Làm tốt lắm khi ôn tập flashcard."
-
-msgid "Cards Reviewed"
-msgstr "Thẻ đã ôn"
-
-msgid "Practice Again"
-msgstr "Luyện tập lại"
-
-msgid "Back to Lesson"
-msgstr "Quay lại bài học"
-
-# Quiz
-msgid "Start Quiz"
-msgstr "Bắt đầu kiểm tra"
-
-msgid "Retry Quiz"
-msgstr "Làm lại"
-
-msgid "Submit Quiz"
-msgstr "Nộp bài"
-
-msgid "Questions"
-msgstr "Câu hỏi"
-
-msgid "to pass"
-msgstr "để đạt"
-
-msgid "Your Best Score"
-msgstr "Điểm cao nhất"
-
-msgid "Best Score"
-msgstr "Điểm cao nhất"
-
-msgid "Passed"
-msgstr "Đã đạt"
-
-msgid "attempts"
-msgstr "lần thử"
-
-msgid "attempt"
-msgstr "lần thử"
-
-msgid "Quiz Results"
-msgstr "Kết quả kiểm tra"
-
-msgid "Congratulations!"
-msgstr "Chúc mừng!"
-
-msgid "Keep Practicing!"
-msgstr "Hãy tiếp tục luyện tập!"
-
-msgid "Review Your Answers"
-msgstr "Xem lại câu trả lời"
-
-msgid "Correct"
-msgstr "Đúng"
-
-msgid "Incorrect"
-msgstr "Sai"
-
-msgid "Your answer"
-msgstr "Câu trả lời của bạn"
-
-msgid "Correct answer"
-msgstr "Đáp án đúng"
-
-msgid "Explanation"
-msgstr "Giải thích"
-
-msgid "New Personal Best!"
-msgstr "Kỷ lục mới!"
-
-msgid "This Attempt"
-msgstr "Lần này"
-
-msgid "Total Attempts"
-msgstr "Tổng số lần"
-
-msgid "Your Attempt History"
-msgstr "Lịch sử làm bài"
-
-msgid "Your Previous Attempts"
-msgstr "Các lần làm trước"
-
-# Dashboard
-msgid "Welcome back"
-msgstr "Chào mừng trở lại"
-
-msgid "Continue your learning journey"
-msgstr "Tiếp tục hành trình học tập"
-
-msgid "Level"
-msgstr "Cấp độ"
-
-msgid "Total XP"
-msgstr "Tổng XP"
-
-msgid "Day Streak"
-msgstr "Chuỗi ngày"
-
-msgid "Lessons Done"
-msgstr "Bài học hoàn thành"
-
-msgid "Progress"
-msgstr "Tiến độ"
-
-msgid "Badges"
-msgstr "Huy hiệu"
-
-msgid "Learning Activity"
-msgstr "Hoạt động học tập"
-
-msgid "active days"
-msgstr "ngày hoạt động"
-
-msgid "XP earned"
-msgstr "XP kiếm được"
-
-msgid "Recommended For You"
-msgstr "Gợi ý cho bạn"
-
-msgid "Recent Activity"
-msgstr "Hoạt động gần đây"
-
-msgid "No recent activity"
-msgstr "Không có hoạt động gần đây"
-
-msgid "Take a Quiz"
-msgstr "Làm bài kiểm tra"
-
-msgid "Achievements"
-msgstr "Thành tựu"
-
-msgid "Leaderboard"
-msgstr "Bảng xếp hạng"
-
-msgid "My Stats"
-msgstr "Thống kê"
-
-# Dictionary
-msgid "Search words..."
-msgstr "Tìm từ..."
-
-msgid "All Categories"
-msgstr "Tất cả danh mục"
-
-msgid "words found"
-msgstr "từ được tìm thấy"
-
-# Forum
-msgid "Create Post"
-msgstr "Tạo bài viết"
-
-msgid "Edit Post"
-msgstr "Sửa bài viết"
-
-msgid "Delete Post"
-msgstr "Xóa bài viết"
-
-msgid "Comments"
-msgstr "Bình luận"
-
-msgid "Reply"
-msgstr "Trả lời"
-
-msgid "Like"
-msgstr "Thích"
-
-msgid "Report"
-msgstr "Báo cáo"
-
-# Auth
-msgid "Email"
-msgstr "Email"
-
-msgid "Password"
-msgstr "Mật khẩu"
-
-msgid "Confirm Password"
-msgstr "Xác nhận mật khẩu"
-
-msgid "Username"
-msgstr "Tên đăng nhập"
-
-msgid "First Name"
-msgstr "Tên"
-
-msgid "Last Name"
-msgstr "Họ"
-
-msgid "Remember me"
-msgstr "Ghi nhớ đăng nhập"
-
-msgid "Forgot Password?"
-msgstr "Quên mật khẩu?"
-
-msgid "Reset Password"
-msgstr "Đặt lại mật khẩu"
-
-msgid "Create Account"
-msgstr "Tạo tài khoản"
-
-msgid "Already have an account?"
-msgstr "Đã có tài khoản?"
-
-msgid "Don't have an account?"
-msgstr "Chưa có tài khoản?"
+# Navigation
+#: templates/base.html:1992 templates/signlang/admin/featured_card_form.html:59
+msgid "Home"
+msgstr "Trang chủ"
+
+#: templates/base.html:1995 templates/base.html:2106
+#: templates/signlang/admin/base_admin.html:1324
+#: templates/signlang/admin/category_list.html:20
+#: templates/signlang/admin/dashboard.html:15
+#: templates/signlang/admin/lesson_list.html:4
+#: templates/signlang/admin/lesson_list.html:5
+#: templates/signlang/auth/profile.html:444 templates/signlang/home.html:935
+#: templates/signlang/lessons/category_list.html:18
+#: templates/signlang/lessons/lesson_detail.html:389
+#: templates/signlang/lessons/lesson_list.html:4
+#: templates/signlang/search_results.html:185
+msgid "Lessons"
+msgstr "Bài học"
+
+#: templates/base.html:1998 templates/signlang/dictionary.html:5
+#: templates/signlang/dictionary.html:239
+msgid "Dictionary"
+msgstr "Từ điển"
+
+#: templates/base.html:2001 templates/base.html:2107
+#: templates/signlang/admin/base_admin.html:1334
+#: templates/signlang/admin/dashboard.html:19
+#: templates/signlang/admin/video_category_list.html:19
+#: templates/signlang/admin/video_list.html:4
+#: templates/signlang/admin/video_list.html:5 templates/signlang/home.html:941
+#: templates/signlang/search_results.html:202
+msgid "Videos"
+msgstr "Video"
+
+#: templates/base.html:2004 templates/signlang/admin/base_admin.html:1339
+#: templates/signlang/admin/dashboard.html:23
+#: templates/signlang/admin/quiz_list.html:4
+#: templates/signlang/admin/quiz_list.html:5
+#: templates/signlang/auth/profile.html:448 templates/signlang/home.html:947
+#: templates/signlang/quiz/quiz_list.html:5
+#: templates/signlang/quiz/quiz_list.html:59
+msgid "Quizzes"
+msgstr "Bài kiểm tra"
+
+#: templates/base.html:2007 templates/base.html:2108
+#: templates/signlang/forum/forum_create.html:4
+#: templates/signlang/forum/forum_detail.html:4
+#: templates/signlang/forum/forum_edit.html:4
+#: templates/signlang/forum/forum_list.html:4
+msgid "Forum"
+msgstr "Diễn đàn"
+
+#: templates/base.html:2011 templates/base.html:2116
+#: templates/signlang/admin/base_admin.html:1312
+#: templates/signlang/admin/dashboard.html:4
+#: templates/signlang/admin/dashboard.html:5
+#: templates/signlang/dashboard.html:4
+msgid "Dashboard"
+msgstr "Bảng điều khiển"
+
+#: templates/base.html:2069 templates/base.html:2121
+#: templates/signlang/auth/login.html:4
+#: templates/signlang/forum/forum_detail.html:302
+msgid "Login"
+msgstr "Đăng nhập"
+
+#: templates/base.html:2070 templates/base.html:2122
+#: templates/signlang/auth/register.html:4
+msgid "Register"
+msgstr "Đăng ký"
+
+#: templates/base.html:2101
+msgid ""
+"Breaking language barriers through Sign Language education. Study and share "
+"together."
+msgstr ""
+"Phá vỡ rào cản ngôn ngữ thông qua giáo dục Ngôn ngữ Ký hiệu. Học tập và chia "
+"sẻ cùng nhau."
 
 # Footer
+#: templates/base.html:2104 templates/signlang/admin/base_admin.html:1359
+#: templates/signlang/admin/featured_card_form.html:36
 msgid "Quick Links"
 msgstr "Liên kết nhanh"
 
-msgid "Account"
-msgstr "Tài khoản"
-
-msgid "Support"
-msgstr "Hỗ trợ"
-
-msgid "Help Center"
-msgstr "Trung tâm trợ giúp"
-
-msgid "Contact Us"
-msgstr "Liên hệ"
-
-msgid "Privacy Policy"
-msgstr "Chính sách bảo mật"
-
+#: templates/base.html:2109 templates/signlang/about.html:4
 msgid "About Us"
 msgstr "Về chúng tôi"
 
-# Misc
-msgid "Less"
-msgstr "Ít hơn"
+#: templates/base.html:2113
+msgid "Account"
+msgstr "Tài khoản"
 
-msgid "More"
-msgstr "Nhiều hơn"
+#: templates/base.html:2117 templates/signlang/auth/profile.html:4
+msgid "Profile"
+msgstr "Hồ sơ"
 
-msgid "ago"
-msgstr "trước"
+#: templates/base.html:2118 templates/signlang/dashboard.html:914
+#: templates/signlang/lessons/saved_lessons.html:4
+#: templates/signlang/lessons/saved_lessons.html:8
+msgid "Saved Lessons"
+msgstr "Bài học đã lưu"
 
-msgid "No activity"
-msgstr "Không có hoạt động"
+#: templates/base.html:2119 templates/signlang/admin/base_admin.html:1419
+#: templates/signlang/auth/profile.html:471
+msgid "Logout"
+msgstr "Đăng xuất"
 
-msgid "Sign in to track your progress and save lessons."
-msgstr "Đăng nhập để theo dõi tiến độ và lưu bài học."
+#: templates/base.html:2127
+msgid "Support"
+msgstr "Hỗ trợ"
 
-msgid "Sign In"
-msgstr "Đăng nhập"
+#: templates/base.html:2129
+msgid "Help Center"
+msgstr "Trung tâm trợ giúp"
 
-msgid "Sign up"
-msgstr "Đăng ký"
+#: templates/base.html:2130
+msgid "Contact Us"
+msgstr "Liên hệ"
 
-msgid "Sign in to continue learning"
-msgstr "Đăng nhập để tiếp tục học"
+#: templates/base.html:2131
+msgid "Privacy Policy"
+msgstr "Chính sách bảo mật"
 
-msgid "Invalid username or password. Please try again."
-msgstr "Tên đăng nhập hoặc mật khẩu không hợp lệ. Vui lòng thử lại."
+# Chatbot
+#: templates/base.html:2400
+msgid "Open chat"
+msgstr "Mở trò chuyện"
 
-msgid "Start your sign language learning journey"
-msgstr "Bắt đầu hành trình học ngôn ngữ ký hiệu của bạn"
+#: templates/base.html:2413
+msgid "Sign Language Assistant"
+msgstr "Trợ lý Ngôn ngữ Ký hiệu"
 
-msgid "Saved Items"
-msgstr "Mục đã lưu"
+#: templates/base.html:2418
+msgid ""
+"Hello! I'm your sign language learning assistant. How can I help you today?"
+msgstr ""
+"Xin chào! Tôi là trợ lý học ngôn ngữ ký hiệu của bạn. Tôi có thể giúp gì cho "
+"bạn hôm nay?"
 
-msgid "Quiz History"
-msgstr "Lịch sử bài kiểm tra"
+#: templates/base.html:2422
+msgid "Type your message..."
+msgstr "Nhập tin nhắn..."
 
-msgid "Edit Profile"
-msgstr "Chỉnh sửa hồ sơ"
-
-msgid "Avatar"
-msgstr "Ảnh đại diện"
-
-msgid "Current avatar"
-msgstr "Ảnh đại diện hiện tại"
-
-msgid "Choose Photo"
-msgstr "Chọn ảnh"
-
-msgid "Remove current photo"
-msgstr "Xóa ảnh hiện tại"
-
-msgid "Bio"
-msgstr "Tiểu sử"
-
-msgid "Skill Level"
-msgstr "Trình độ"
-
-msgid "Save Changes"
-msgstr "Lưu thay đổi"
-
-msgid "Enter your email to receive reset instructions"
-msgstr "Nhập email để nhận hướng dẫn đặt lại mật khẩu"
-
-msgid "Please enter a valid email address."
-msgstr "Vui lòng nhập địa chỉ email hợp lệ."
-
-msgid "Email Address"
-msgstr "Địa chỉ Email"
-
-msgid "Send Reset Link"
-msgstr "Gửi liên kết đặt lại"
-
-msgid "Remember your password?"
-msgstr "Bạn nhớ mật khẩu?"
-
-msgid "Posts"
-msgstr "Bài viết"
-
-# Dictionary Page
-msgid "Browse all"
-msgstr "Xem tất cả"
-
-msgid "vocabulary words"
-msgstr "từ vựng"
-
-msgid "Search for a word or meaning..."
-msgstr "Tìm kiếm từ hoặc nghĩa..."
-
-msgid "Filter by category:"
-msgstr "Lọc theo danh mục:"
-
-msgid "Showing"
-msgstr "Hiển thị"
-
-msgid "word"
-msgstr "từ"
-
-msgid "matching"
-msgstr "khớp với"
-
-msgid "in selected category"
-msgstr "trong danh mục đã chọn"
-
-msgid "No vocabulary found"
-msgstr "Không tìm thấy từ vựng"
-
-msgid "No words matching"
-msgstr "Không có từ nào khớp với"
-
-msgid "Clear Search"
-msgstr "Xóa tìm kiếm"
-
-msgid "No vocabulary has been added yet."
-msgstr "Chưa có từ vựng nào được thêm."
+#: templates/base.html:2423
+msgid "Send message"
+msgstr "Gửi tin nhắn"
 
 # About Page
+#: templates/signlang/about.html:218
 msgid "About The Project"
 msgstr "Về dự án"
 
+#: templates/signlang/about.html:228
 msgid "Our Mission"
 msgstr "Sứ mệnh của chúng tôi"
 
-msgid "The \"Signox\" project was established with the goal of breaking down language barriers. We want to spread the beauty of Sign Language to the community, helping everyone understand and connect with each other more easily. Our platform provides a free, friendly, and open learning environment for all."
-msgstr "Dự án \"Signox\" được thành lập với mục tiêu phá bỏ rào cản ngôn ngữ. Chúng tôi muốn lan tỏa vẻ đẹp của Ngôn ngữ Ký hiệu đến cộng đồng, giúp mọi người hiểu và kết nối với nhau dễ dàng hơn. Nền tảng của chúng tôi cung cấp môi trường học tập miễn phí, thân thiện và mở cho tất cả mọi người."
+#: templates/signlang/about.html:230
+msgid "The \\"
+msgstr ""
 
+#: templates/signlang/about.html:238
 msgid "Our Goal"
 msgstr "Mục tiêu của chúng tôi"
 
-msgid "Build an open, friendly, and free learning community where everyone can learn sign language at their own pace."
-msgstr "Xây dựng một cộng đồng học tập mở, thân thiện và miễn phí, nơi mọi người có thể học ngôn ngữ ký hiệu theo tốc độ riêng của mình."
+#: templates/signlang/about.html:239
+msgid ""
+"Build an open, friendly, and free learning community where everyone can "
+"learn sign language at their own pace."
+msgstr ""
+"Xây dựng một cộng đồng học tập mở, thân thiện và miễn phí, nơi mọi người có "
+"thể học ngôn ngữ ký hiệu theo tốc độ riêng của mình."
 
+#: templates/signlang/about.html:242
 msgid "Our Vision"
 msgstr "Tầm nhìn của chúng tôi"
 
-msgid "Develop AI-powered gesture recognition and expand our vocabulary database to serve more learners."
-msgstr "Phát triển nhận dạng cử chỉ bằng AI và mở rộng cơ sở dữ liệu từ vựng để phục vụ nhiều người học hơn."
+#: templates/signlang/about.html:243
+msgid ""
+"Develop AI-powered gesture recognition and expand our vocabulary database to "
+"serve more learners."
+msgstr ""
+"Phát triển nhận dạng cử chỉ bằng AI và mở rộng cơ sở dữ liệu từ vựng để phục "
+"vụ nhiều người học hơn."
 
+#: templates/signlang/about.html:249
 msgid "What We Offer"
 msgstr "Chúng tôi cung cấp"
 
+#: templates/signlang/about.html:256
 msgid "Comprehensive Library"
 msgstr "Thư viện toàn diện"
 
-msgid "Access hundreds of sign language vocabulary with video demonstrations and detailed explanations."
-msgstr "Truy cập hàng trăm từ vựng ngôn ngữ ký hiệu với video minh họa và giải thích chi tiết."
+#: templates/signlang/about.html:257
+msgid ""
+"Access hundreds of sign language vocabulary with video demonstrations and "
+"detailed explanations."
+msgstr ""
+"Truy cập hàng trăm từ vựng ngôn ngữ ký hiệu với video minh họa và giải thích "
+"chi tiết."
 
+#: templates/signlang/about.html:265
+#: templates/signlang/forum/forum_list.html:420
 msgid "Community Forum"
 msgstr "Diễn đàn cộng đồng"
 
-msgid "Connect with other learners, ask questions, and share your learning journey."
-msgstr "Kết nối với những người học khác, đặt câu hỏi và chia sẻ hành trình học tập của bạn."
+#: templates/signlang/about.html:266
+msgid ""
+"Connect with other learners, ask questions, and share your learning journey."
+msgstr ""
+"Kết nối với những người học khác, đặt câu hỏi và chia sẻ hành trình học tập "
+"của bạn."
 
+#: templates/signlang/about.html:274
 msgid "Structured Learning"
 msgstr "Học tập có cấu trúc"
 
+#: templates/signlang/about.html:275
 msgid "Follow organized lessons by topic with quizzes to test your knowledge."
-msgstr "Theo dõi các bài học được tổ chức theo chủ đề với bài kiểm tra để kiểm tra kiến thức của bạn."
+msgstr ""
+"Theo dõi các bài học được tổ chức theo chủ đề với bài kiểm tra để kiểm tra "
+"kiến thức của bạn."
 
+#: templates/signlang/about.html:283
 msgid "Progress Tracking"
 msgstr "Theo dõi tiến độ"
 
+#: templates/signlang/about.html:284
 msgid "Monitor your learning progress and get personalized recommendations."
 msgstr "Theo dõi tiến độ học tập và nhận các gợi ý được cá nhân hóa."
 
+#: templates/signlang/about.html:292
 msgid "Our Team"
 msgstr "Đội ngũ của chúng tôi"
 
+#: templates/signlang/about.html:298
 msgid "Team Member 1"
 msgstr "Thành viên 1"
 
-msgid "Team Member 2"
-msgstr "Thành viên 2"
-
-msgid "Team Member 3"
-msgstr "Thành viên 3"
-
-msgid "Team Member 4"
-msgstr "Thành viên 4"
-
+#: templates/signlang/about.html:299
 msgid "Developer"
 msgstr "Lập trình viên"
 
+#: templates/signlang/about.html:305
+msgid "Team Member 2"
+msgstr "Thành viên 2"
+
+#: templates/signlang/about.html:306
 msgid "Designer"
 msgstr "Thiết kế"
 
+#: templates/signlang/about.html:312
+msgid "Team Member 3"
+msgstr "Thành viên 3"
+
+#: templates/signlang/about.html:313
 msgid "Content Creator"
 msgstr "Tạo nội dung"
 
+#: templates/signlang/about.html:319
+msgid "Team Member 4"
+msgstr "Thành viên 4"
+
+#: templates/signlang/about.html:320
 msgid "Researcher"
 msgstr "Nghiên cứu"
 
-# Search Results
-msgid "Found"
-msgstr "Tìm thấy"
-
-msgid "result"
-msgstr "kết quả"
-
-msgid "for"
-msgstr "cho"
-
-msgid "No results found"
-msgstr "Không tìm thấy kết quả"
-
-msgid "We couldn't find anything matching"
-msgstr "Chúng tôi không tìm thấy gì khớp với"
-
-msgid "Search tips:"
-msgstr "Mẹo tìm kiếm:"
-
-msgid "Check your spelling"
-msgstr "Kiểm tra chính tả"
-
-msgid "Try more general keywords"
-msgstr "Thử dùng từ khóa chung hơn"
-
-msgid "Try different keywords"
-msgstr "Thử dùng từ khóa khác"
-
-msgid "From:"
-msgstr "Từ:"
-
-msgid "Forum Posts"
-msgstr "Bài viết diễn đàn"
-
-msgid "Start Searching"
-msgstr "Bắt đầu tìm kiếm"
-
-msgid "Enter a keyword to search across lessons, videos, vocabulary, and forum posts."
-msgstr "Nhập từ khóa để tìm kiếm trong bài học, video, từ vựng và bài viết diễn đàn."
-
-msgid "Search lessons, videos, vocabulary..."
-msgstr "Tìm kiếm bài học, video, từ vựng..."
-
-# Forum
-msgid "Discuss & Share Knowledge"
-msgstr "Thảo luận & Chia sẻ kiến thức"
-
-msgid "All"
-msgstr "Tất cả"
-
-msgid "Articles"
-msgstr "Bài viết"
-
-msgid "Discussions"
-msgstr "Thảo luận"
-
-msgid "Search posts..."
-msgstr "Tìm kiếm bài viết..."
-
-msgid "New Post"
-msgstr "Bài viết mới"
-
-msgid "Discussion"
-msgstr "Thảo luận"
-
-msgid "Pinned"
-msgstr "Đã ghim"
-
-msgid "No Posts Yet"
-msgstr "Chưa có bài viết"
-
-msgid "Be the first to start a discussion!"
-msgstr "Hãy là người đầu tiên bắt đầu thảo luận!"
-
-msgid "Login to Post"
-msgstr "Đăng nhập để đăng bài"
-
-msgid "Back to Forum"
-msgstr "Quay lại diễn đàn"
-
-msgid "Edit"
-msgstr "Sửa"
-
-msgid "Delete"
-msgstr "Xóa"
-
-msgid "Comment"
-msgstr "Bình luận"
-
-msgid "Post Comment"
-msgstr "Đăng bình luận"
-
-msgid "to leave a comment."
-msgstr "để bình luận."
-
-msgid "No comments yet. Be the first to comment!"
-msgstr "Chưa có bình luận. Hãy là người đầu tiên bình luận!"
-
-msgid "Create New Post"
-msgstr "Tạo bài viết mới"
-
-msgid "Title"
-msgstr "Tiêu đề"
-
-msgid "Enter a descriptive title..."
-msgstr "Nhập tiêu đề mô tả..."
-
-msgid "Content"
-msgstr "Nội dung"
-
-msgid "Share your thoughts, questions, or discoveries..."
-msgstr "Chia sẻ suy nghĩ, câu hỏi hoặc khám phá của bạn..."
-
-msgid "Image (optional)"
-msgstr "Hình ảnh (tùy chọn)"
-
-msgid "Click to upload an image"
-msgstr "Nhấn để tải lên hình ảnh"
-
-msgid "JPG, PNG, GIF up to 10MB"
-msgstr "JPG, PNG, GIF tối đa 10MB"
-
-msgid "Video (optional)"
-msgstr "Video (tùy chọn)"
-
-msgid "Click to upload a video"
-msgstr "Nhấn để tải lên video"
-
-msgid "MP4, WebM up to 100MB"
-msgstr "MP4, WebM tối đa 100MB"
-
-# Video Library
-msgid "Video Library"
-msgstr "Thư viện Video"
-
-msgid "Learn from real-life situation videos"
-msgstr "Học từ các video tình huống thực tế"
-
-msgid "Filters"
-msgstr "Bộ lọc"
-
-msgid "Search videos..."
-msgstr "Tìm kiếm video..."
-
-msgid "All Levels"
-msgstr "Tất cả cấp độ"
-
-msgid "Apply Filters"
-msgstr "Áp dụng bộ lọc"
-
-msgid "Clear"
-msgstr "Xóa"
-
-msgid "views"
-msgstr "lượt xem"
-
-msgid "No Videos Found"
-msgstr "Không tìm thấy video"
-
-msgid "Try adjusting your filters"
-msgstr "Thử điều chỉnh bộ lọc"
-
-msgid "Page"
-msgstr "Trang"
-
-msgid "of"
-msgstr "của"
-
-msgid "Video not available"
-msgstr "Video không khả dụng"
-
-msgid "About this video"
-msgstr "Về video này"
-
-msgid "Related Videos"
-msgstr "Video liên quan"
-
-msgid "No related videos"
-msgstr "Không có video liên quan"
-
-msgid "Category"
-msgstr "Danh mục"
-
 # Admin Panel
+#: templates/signlang/admin/base_admin.html:1305
 msgid "Admin Panel"
 msgstr "Bảng quản trị"
 
+#: templates/signlang/admin/base_admin.html:1315
+#: templates/signlang/admin/lesson_form.html:52
+#: templates/signlang/admin/report_list.html:21
+#: templates/signlang/forum/forum_create.html:157
+#: templates/signlang/forum/forum_edit.html:226
+#: templates/signlang/lessons/lesson_detail.html:425
+msgid "Content"
+msgstr "Nội dung"
+
+#: templates/signlang/admin/base_admin.html:1319
+#: templates/signlang/admin/category_list.html:4
+#: templates/signlang/admin/category_list.html:5
+msgid "Categories"
+msgstr "Danh mục"
+
+#: templates/signlang/admin/base_admin.html:1329
+#: templates/signlang/admin/video_category_list.html:4
+#: templates/signlang/admin/video_category_list.html:5
 msgid "Video Categories"
 msgstr "Danh mục Video"
 
+#: templates/signlang/admin/base_admin.html:1344
+#: templates/signlang/admin/featured_card_list.html:4
+#: templates/signlang/admin/featured_card_list.html:8
 msgid "Featured Cards"
 msgstr "Thẻ nổi bật"
 
+#: templates/signlang/admin/base_admin.html:1347
 msgid "Management"
 msgstr "Quản lý"
 
+#: templates/signlang/admin/base_admin.html:1351
+#: templates/signlang/admin/featured_card_form.html:61
+#: templates/signlang/admin/user_list.html:4
+#: templates/signlang/admin/user_list.html:5
 msgid "Users"
 msgstr "Người dùng"
 
+#: templates/signlang/admin/base_admin.html:1356
+#: templates/signlang/admin/report_list.html:4
+#: templates/signlang/admin/report_list.html:5
 msgid "Reports"
 msgstr "Báo cáo"
 
+#: templates/signlang/admin/base_admin.html:1363
 msgid "View Site"
 msgstr "Xem trang web"
 
+#: templates/signlang/admin/base_admin.html:1368
 msgid "Django Admin"
 msgstr "Quản trị Django"
 
-msgid "Administrator"
-msgstr "Quản trị viên"
-
-msgid "Total Users"
-msgstr "Tổng người dùng"
-
-msgid "Pending Reports"
-msgstr "Báo cáo chờ xử lý"
-
-msgid "Recent Users"
-msgstr "Người dùng gần đây"
-
-msgid "Recent Forum Posts"
-msgstr "Bài viết gần đây"
-
-msgid "Joined"
-msgstr "Ngày tham gia"
-
-msgid "Author"
-msgstr "Tác giả"
-
-msgid "Date"
-msgstr "Ngày"
-
-msgid "No users yet"
-msgstr "Chưa có người dùng"
-
-msgid "No posts yet"
-msgstr "Chưa có bài viết"
-
-msgid "Quick Actions"
-msgstr "Thao tác nhanh"
-
-msgid "Add Lesson"
-msgstr "Thêm bài học"
-
-msgid "Add Video"
-msgstr "Thêm video"
-
-msgid "Add Category"
-msgstr "Thêm danh mục"
-
-msgid "Add Quiz"
-msgstr "Thêm bài kiểm tra"
-
-msgid "Actions"
-msgstr "Thao tác"
-
-msgid "Status"
-msgstr "Trạng thái"
-
-msgid "Order"
-msgstr "Thứ tự"
-
-msgid "Published"
-msgstr "Đã xuất bản"
-
-msgid "Draft"
-msgstr "Bản nháp"
-
-msgid "Active"
-msgstr "Hoạt động"
-
-msgid "Inactive"
-msgstr "Không hoạt động"
-
-msgid "Pending"
-msgstr "Chờ xử lý"
-
-msgid "Resolved"
-msgstr "Đã xử lý"
-
-msgid "Reviewed"
-msgstr "Đã xem xét"
-
-msgid "Name"
-msgstr "Tên"
-
-msgid "Description"
-msgstr "Mô tả"
-
-msgid "Slug"
-msgstr "Đường dẫn"
-
-msgid "Icon"
-msgstr "Biểu tượng"
-
-msgid "Thumbnail"
-msgstr "Ảnh đại diện"
-
-msgid "Video URL"
-msgstr "Đường dẫn video"
-
-msgid "Video File"
-msgstr "Tệp video"
-
-msgid "Image"
-msgstr "Hình ảnh"
-
-msgid "Create"
-msgstr "Tạo mới"
-
-msgid "Update"
-msgstr "Cập nhật"
-
-msgid "Add"
-msgstr "Thêm"
-
-msgid "Add New"
-msgstr "Thêm mới"
-
-msgid "Edit Category"
-msgstr "Sửa danh mục"
-
-msgid "Create Category"
-msgstr "Tạo danh mục"
-
-msgid "Edit Lesson"
-msgstr "Sửa bài học"
-
-msgid "Create Lesson"
-msgstr "Tạo bài học"
-
-msgid "Edit Video"
-msgstr "Sửa video"
-
-msgid "Create Video"
-msgstr "Tạo video"
-
-msgid "Edit Quiz"
-msgstr "Sửa bài kiểm tra"
-
-msgid "Create Quiz"
-msgstr "Tạo bài kiểm tra"
-
-msgid "Edit Question"
-msgstr "Sửa câu hỏi"
-
-msgid "Create Question"
-msgstr "Tạo câu hỏi"
-
-msgid "Add Question"
-msgstr "Thêm câu hỏi"
-
-msgid "Edit Featured Card"
-msgstr "Sửa thẻ nổi bật"
-
-msgid "Create Featured Card"
-msgstr "Tạo thẻ nổi bật"
-
-msgid "Manage Vocabulary"
-msgstr "Quản lý từ vựng"
-
-msgid "Add Vocabulary"
-msgstr "Thêm từ vựng"
-
-msgid "Edit Vocabulary"
-msgstr "Sửa từ vựng"
-
-msgid "Word"
-msgstr "Từ"
-
-msgid "Meaning"
-msgstr "Nghĩa"
-
-msgid "No items found"
-msgstr "Không tìm thấy mục nào"
-
-msgid "Create one to get started"
-msgstr "Tạo mới để bắt đầu"
-
-msgid "No categories yet"
-msgstr "Chưa có danh mục"
-
-msgid "No lessons yet"
-msgstr "Chưa có bài học"
-
-msgid "No videos yet"
-msgstr "Chưa có video"
-
-msgid "No quizzes yet"
-msgstr "Chưa có bài kiểm tra"
-
-msgid "No vocabulary yet"
-msgstr "Chưa có từ vựng"
-
-msgid "No reports"
-msgstr "Không có báo cáo"
-
-msgid "Confirm Delete"
-msgstr "Xác nhận xóa"
-
-msgid "Are you sure you want to delete"
-msgstr "Bạn có chắc muốn xóa"
-
-msgid "This action cannot be undone"
-msgstr "Hành động này không thể hoàn tác"
-
-msgid "Yes, Delete"
-msgstr "Có, Xóa"
-
-msgid "No, Cancel"
-msgstr "Không, Hủy"
-
-msgid "Lesson"
-msgstr "Bài học"
-
-msgid "Question"
-msgstr "Câu hỏi"
-
-msgid "Question Type"
-msgstr "Loại câu hỏi"
-
-msgid "Multiple Choice"
-msgstr "Trắc nghiệm"
-
-msgid "True/False"
-msgstr "Đúng/Sai"
-
-msgid "Points"
-msgstr "Điểm"
-
-msgid "Answer"
-msgstr "Câu trả lời"
-
-msgid "Is Correct"
-msgstr "Đáp án đúng"
-
-msgid "Answers"
-msgstr "Các câu trả lời"
-
-msgid "Passing Score"
-msgstr "Điểm đạt"
-
-msgid "Time Limit"
-msgstr "Thời gian"
-
-msgid "minutes"
-msgstr "phút"
-
-msgid "No limit"
-msgstr "Không giới hạn"
-
-msgid "View Count"
-msgstr "Lượt xem"
-
-msgid "Section"
-msgstr "Phần"
-
-msgid "Color"
-msgstr "Màu sắc"
-
-msgid "Link"
-msgstr "Liên kết"
-
-msgid "Reporter"
-msgstr "Người báo cáo"
-
-msgid "Post"
-msgstr "Bài viết"
-
-msgid "Reason"
-msgstr "Lý do"
-
-msgid "Reported At"
-msgstr "Thời gian báo cáo"
-
-msgid "Resolve"
-msgstr "Xử lý"
-
-msgid "Mark as Resolved"
-msgstr "Đánh dấu đã xử lý"
-
-msgid "Spam"
-msgstr "Spam"
-
-msgid "Inappropriate Content"
-msgstr "Nội dung không phù hợp"
-
-msgid "Harassment"
-msgstr "Quấy rối"
-
-msgid "Other"
-msgstr "Khác"
-
-msgid "Basic Information"
-msgstr "Thông tin cơ bản"
-
-msgid "Media"
-msgstr "Phương tiện"
-
-msgid "Settings"
-msgstr "Cài đặt"
-
-msgid "Appearance"
-msgstr "Giao diện"
-
-msgid "Current thumbnail"
-msgstr "Ảnh đại diện hiện tại"
-
-msgid "Current image"
-msgstr "Hình ảnh hiện tại"
-
-msgid "Current video"
-msgstr "Video hiện tại"
-
-msgid "Leave empty to keep current"
-msgstr "Để trống để giữ nguyên"
-
-msgid "to"
-msgstr "đến"
-
-msgid "items"
-msgstr "mục"
-
-msgid "First"
-msgstr "Đầu"
-
-msgid "Last"
-msgstr "Cuối"
-
-msgid "User List"
-msgstr "Danh sách người dùng"
-
-msgid "Report List"
-msgstr "Danh sách báo cáo"
-
-msgid "Lesson List"
-msgstr "Danh sách bài học"
-
-msgid "Video List"
-msgstr "Danh sách video"
-
-msgid "Quiz List"
-msgstr "Danh sách bài kiểm tra"
-
-msgid "Category List"
-msgstr "Danh sách danh mục"
-
-msgid "Total"
-msgstr "Tổng"
-
-msgid "Staff"
-msgstr "Nhân viên"
-
-msgid "Superuser"
-msgstr "Quản trị viên cao cấp"
-
-msgid "User"
-msgstr "Người dùng"
-
-msgid "Date Joined"
-msgstr "Ngày tham gia"
-
-msgid "Last Login"
-msgstr "Đăng nhập cuối"
-
-msgid "Never"
-msgstr "Chưa bao giờ"
-
-msgid "Manage Questions"
-msgstr "Quản lý câu hỏi"
-
-msgid "questions"
-msgstr "câu hỏi"
-
-msgid "No questions yet"
-msgstr "Chưa có câu hỏi"
-
-msgid "View Questions"
-msgstr "Xem câu hỏi"
-
-msgid "View Vocabulary"
-msgstr "Xem từ vựng"
-
-msgid "Back to Quiz"
-msgstr "Quay lại bài kiểm tra"
-
-msgid "Back to List"
-msgstr "Quay lại danh sách"
-
-msgid "is required"
-msgstr "là bắt buộc"
-
-msgid "at least one correct answer"
-msgstr "ít nhất một đáp án đúng"
-
-msgid "Answer text"
-msgstr "Nội dung đáp án"
-
-msgid "Add more answers"
-msgstr "Thêm đáp án"
-
+#: templates/signlang/admin/base_admin.html:1385
 msgid "Change language"
 msgstr "Đổi ngôn ngữ"
 
+#: templates/signlang/admin/base_admin.html:1415
+msgid "Administrator"
+msgstr "Quản trị viên"
+
+#: templates/signlang/admin/category_form.html:4
+#: templates/signlang/admin/category_form.html:5
+#: templates/signlang/admin/category_form.html:40
+#: templates/signlang/admin/lesson_form.html:27
+#: templates/signlang/admin/lesson_list.html:33
+#: templates/signlang/admin/video_category_form.html:30
+#: templates/signlang/admin/video_form.html:27
+#: templates/signlang/admin/video_list.html:27
+#: templates/signlang/videos/video_detail.html:211
+#: templates/signlang/videos/video_list.html:157
+msgid "Category"
+msgstr "Danh mục"
+
+#: templates/signlang/admin/category_form.html:14
+#: templates/signlang/admin/category_list.html:18
+#: templates/signlang/admin/video_category_form.html:14
+#: templates/signlang/admin/video_category_list.html:17
+msgid "Name"
+msgstr "Tên"
+
+#: templates/signlang/admin/category_form.html:19
+#: templates/signlang/admin/category_list.html:19
+#: templates/signlang/admin/lesson_form.html:20
+#: templates/signlang/admin/video_category_form.html:19
+#: templates/signlang/admin/video_category_list.html:18
+#: templates/signlang/admin/video_form.html:20
+msgid "Slug"
+msgstr "Đường dẫn"
+
+#: templates/signlang/admin/category_form.html:21
+#: templates/signlang/admin/video_category_form.html:21
+msgid "URL-friendly name (e.g., \\"
+msgstr ""
+
+#: templates/signlang/admin/category_form.html:25
+#: templates/signlang/admin/featured_card_form.html:25
+#: templates/signlang/admin/lesson_form.html:47
+#: templates/signlang/admin/quiz_form.html:31
+#: templates/signlang/admin/video_category_form.html:25
+#: templates/signlang/admin/video_form.html:47
+#: templates/signlang/admin/vocabulary_form.html:24
+#: templates/signlang/forum/report.html:26
+msgid "Description"
+msgstr "Mô tả"
+
+#: templates/signlang/admin/category_form.html:30
+msgid "Icon (Emoji)"
+msgstr "Biểu tượng (Emoji)"
+
+#: templates/signlang/admin/category_form.html:31
+msgid "e.g., 👋"
+msgstr "ví dụ: 👋"
+
+#: templates/signlang/admin/category_form.html:35
+#: templates/signlang/admin/category_list.html:21
+#: templates/signlang/admin/featured_card_list.html:27
+#: templates/signlang/admin/lesson_form.html:78
+#: templates/signlang/admin/question_form.html:34
+#: templates/signlang/admin/vocabulary_form.html:62
+#: templates/signlang/admin/vocabulary_list.html:23
+#: venv/lib/python3.13/site-packages/django/forms/formsets.py:484
+#: venv/lib/python3.13/site-packages/django/forms/formsets.py:491
+msgid "Order"
+msgstr "Thứ tự"
+
+#: templates/signlang/admin/category_form.html:41
+#: templates/signlang/admin/delete_confirm.html:31
+#: templates/signlang/admin/featured_card_form.html:129
+#: templates/signlang/admin/lesson_form.html:106
+#: templates/signlang/admin/question_form.html:101
+#: templates/signlang/admin/quiz_form.html:60
+#: templates/signlang/admin/video_category_form.html:31
+#: templates/signlang/admin/video_form.html:107
+#: templates/signlang/admin/vocabulary_form.html:68
+#: templates/signlang/forum/forum_create.html:210
+#: templates/signlang/forum/forum_delete.html:24
+#: templates/signlang/forum/forum_edit.html:314
+#: templates/signlang/forum/report.html:32
+msgid "Cancel"
+msgstr "Hủy"
+
+#: templates/signlang/admin/category_list.html:10
+msgid "Lesson Categories"
+msgstr "Danh mục bài học"
+
+#: templates/signlang/admin/category_list.html:11
+#: templates/signlang/admin/dashboard.html:103
+#: templates/signlang/admin/video_category_list.html:11
+msgid "Add Category"
+msgstr "Thêm danh mục"
+
+#: templates/signlang/admin/category_list.html:17
+#: templates/signlang/admin/featured_card_form.html:54
+msgid "Icon"
+msgstr "Biểu tượng"
+
+#: templates/signlang/admin/category_list.html:22
+#: templates/signlang/admin/featured_card_list.html:29
+#: templates/signlang/admin/lesson_list.html:37
+#: templates/signlang/admin/quiz_form.html:80
+#: templates/signlang/admin/quiz_list.html:34
+#: templates/signlang/admin/report_list.html:26
+#: templates/signlang/admin/user_list.html:35
+#: templates/signlang/admin/video_category_list.html:20
+#: templates/signlang/admin/video_list.html:32
+#: templates/signlang/admin/vocabulary_list.html:24
+msgid "Actions"
+msgstr "Thao tác"
+
+#: templates/signlang/admin/category_list.html:35
+#: templates/signlang/admin/quiz_form.html:92
+#: templates/signlang/admin/video_category_list.html:31
+#: templates/signlang/admin/vocabulary_list.html:53
+#: templates/signlang/forum/forum_detail.html:222
+msgid "Edit"
+msgstr "Sửa"
+
+#: templates/signlang/admin/category_list.html:36
+#: templates/signlang/admin/delete_confirm.html:4
+#: templates/signlang/admin/delete_confirm.html:5
+#: templates/signlang/admin/quiz_form.html:95
+#: templates/signlang/admin/video_category_list.html:32
+#: templates/signlang/admin/vocabulary_list.html:54
+#: templates/signlang/forum/forum_detail.html:223
+#: venv/lib/python3.13/site-packages/django/forms/formsets.py:499
+msgid "Delete"
+msgstr "Xóa"
+
+#: templates/signlang/admin/category_list.html:43
+msgid "No categories yet."
+msgstr "Chưa có danh mục."
+
+#: templates/signlang/admin/category_list.html:43
+#: templates/signlang/admin/video_category_list.html:39
+msgid "Create one"
+msgstr "Tạo một"
+
+#: templates/signlang/admin/dashboard.html:11
+msgid "Total Users"
+msgstr "Tổng người dùng"
+
+#: templates/signlang/admin/dashboard.html:27
+#: templates/signlang/search_results.html:235
+msgid "Forum Posts"
+msgstr "Bài viết diễn đàn"
+
+#: templates/signlang/admin/dashboard.html:31
+msgid "Pending Reports"
+msgstr "Báo cáo chờ xử lý"
+
+#: templates/signlang/admin/dashboard.html:38
+msgid "Recent Users"
+msgstr "Người dùng gần đây"
+
+#: templates/signlang/admin/dashboard.html:39
+#: templates/signlang/admin/dashboard.html:68
+#: templates/signlang/dashboard.html:844 templates/signlang/dashboard.html:915
+#: templates/signlang/home.html:1004
+msgid "View All"
+msgstr "Xem tất cả"
+
+#: templates/signlang/admin/dashboard.html:45
+#: templates/signlang/auth/login.html:77
+#: templates/signlang/auth/profile.html:519
+#: templates/signlang/auth/register.html:106
+msgid "Username"
+msgstr "Tên đăng nhập"
+
+# Auth
+#: templates/signlang/admin/dashboard.html:46
+#: templates/signlang/admin/user_list.html:30
+#: templates/signlang/auth/profile.html:524
+#: templates/signlang/auth/register.html:114
+msgid "Email"
+msgstr "Email"
+
+#: templates/signlang/admin/dashboard.html:47
+#: templates/signlang/admin/user_list.html:32
+msgid "Joined"
+msgstr "Ngày tham gia"
+
+#: templates/signlang/admin/dashboard.html:58
+msgid "No users yet"
+msgstr "Chưa có người dùng"
+
+#: templates/signlang/admin/dashboard.html:67
+msgid "Recent Forum Posts"
+msgstr "Bài viết gần đây"
+
+#: templates/signlang/admin/dashboard.html:74
+#: templates/signlang/admin/featured_card_form.html:18
+#: templates/signlang/admin/featured_card_list.html:24
+#: templates/signlang/admin/lesson_form.html:15
+#: templates/signlang/admin/lesson_list.html:32
+#: templates/signlang/admin/quiz_form.html:15
+#: templates/signlang/admin/quiz_list.html:29
+#: templates/signlang/admin/video_form.html:15
+#: templates/signlang/admin/video_list.html:26
+#: templates/signlang/forum/forum_create.html:151
+#: templates/signlang/forum/forum_edit.html:220
+msgid "Title"
+msgstr "Tiêu đề"
+
+#: templates/signlang/admin/dashboard.html:75
+msgid "Author"
+msgstr "Tác giả"
+
+#: templates/signlang/admin/dashboard.html:76
+#: templates/signlang/admin/report_list.html:24
+msgid "Date"
+msgstr "Ngày"
+
+#: templates/signlang/admin/dashboard.html:87
+msgid "No posts yet"
+msgstr "Chưa có bài viết"
+
+#: templates/signlang/admin/dashboard.html:97
+msgid "Quick Actions"
+msgstr "Thao tác nhanh"
+
+#: templates/signlang/admin/dashboard.html:101
+#: templates/signlang/admin/lesson_list.html:23
+msgid "Add Lesson"
+msgstr "Thêm bài học"
+
+#: templates/signlang/admin/dashboard.html:102
+#: templates/signlang/admin/video_list.html:17
+#: templates/signlang/admin/video_list.html:75
+msgid "Add Video"
+msgstr "Thêm video"
+
+#: templates/signlang/admin/dashboard.html:104
+#: templates/signlang/admin/quiz_list.html:20
+msgid "Add Quiz"
+msgstr "Thêm bài kiểm tra"
+
+# Delete Confirmations
+#: templates/signlang/admin/delete_confirm.html:13
+msgid "Are you sure?"
+msgstr "Bạn có chắc không?"
+
+#: templates/signlang/admin/delete_confirm.html:15
+msgid "You are about to delete this"
+msgstr "Bạn sắp xóa"
+
+#: templates/signlang/admin/delete_confirm.html:22
+msgid "This action cannot be undone."
+msgstr "Hành động này không thể hoàn tác."
+
+#: templates/signlang/admin/delete_confirm.html:28
+#: templates/signlang/forum/forum_delete.html:23
+msgid "Yes, Delete"
+msgstr "Có, Xóa"
+
+#: templates/signlang/admin/featured_card_form.html:4
+#: templates/signlang/admin/featured_card_form.html:8
+msgid "Featured Card"
+msgstr "Thẻ nổi bật"
+
+#: templates/signlang/admin/featured_card_form.html:15
+msgid "Basic Information"
+msgstr "Thông tin cơ bản"
+
+#: templates/signlang/admin/featured_card_form.html:21
+msgid "e.g., Daily Communication"
+msgstr "ví dụ: Giao tiếp hàng ngày"
+
+#: templates/signlang/admin/featured_card_form.html:28
+msgid "Short description (optional)"
+msgstr "Mô tả ngắn (tùy chọn)"
+
+#: templates/signlang/admin/featured_card_form.html:32
+#: templates/signlang/admin/featured_card_list.html:25
+msgid "Section"
+msgstr "Phần"
+
+#: templates/signlang/admin/featured_card_form.html:34
+msgid "Common Sentences"
+msgstr "Câu thông dụng"
+
+#: templates/signlang/admin/featured_card_form.html:35
+msgid "Featured Content"
+msgstr "Nội dung nổi bật"
+
+#: templates/signlang/admin/featured_card_form.html:41
+msgid "Link URL"
+msgstr "Đường dẫn liên kết"
+
+#: templates/signlang/admin/featured_card_form.html:44
+msgid "e.g., /lessons/?category=daily"
+msgstr "ví dụ: /lessons/?category=daily"
+
+#: templates/signlang/admin/featured_card_form.html:45
+msgid "Can be relative (/lessons/) or absolute (https://...)"
+msgstr "Có thể là đường dẫn tương đối (/lessons/) hoặc tuyệt đối (https://...)"
+
+#: templates/signlang/admin/featured_card_form.html:50
+msgid "Appearance"
+msgstr "Giao diện"
+
+#: templates/signlang/admin/featured_card_form.html:56
+msgid "Comment Dots"
+msgstr "Bình luận"
+
+#: templates/signlang/admin/featured_card_form.html:57
+msgid "Graduation Cap"
+msgstr "Mũ tốt nghiệp"
+
+#: templates/signlang/admin/featured_card_form.html:58
+msgid "Briefcase"
+msgstr "Cặp tài liệu"
+
+#: templates/signlang/admin/featured_card_form.html:60
+msgid "Heart"
+msgstr "Trái tim"
+
+#: templates/signlang/admin/featured_card_form.html:62
+msgid "Book"
+msgstr "Sách"
+
+#: templates/signlang/admin/featured_card_form.html:63
+msgid "Star"
+msgstr "Ngôi sao"
+
+#: templates/signlang/admin/featured_card_form.html:64
+msgid "Music"
+msgstr "Âm nhạc"
+
+#: templates/signlang/admin/featured_card_form.html:65
+msgid "Food/Utensils"
+msgstr "Thức ăn/Dụng cụ"
+
+#: templates/signlang/admin/featured_card_form.html:66
+msgid "Travel/Plane"
+msgstr "Du lịch/Máy bay"
+
+#: templates/signlang/admin/featured_card_form.html:67
+msgid "Hospital/Medical"
+msgstr "Bệnh viện/Y tế"
+
+#: templates/signlang/admin/featured_card_form.html:68
+msgid "Shopping"
+msgstr "Mua sắm"
+
+#: templates/signlang/admin/featured_card_form.html:69
+msgid "Sports"
+msgstr "Thể thao"
+
+# Icons/Categories
+#: templates/signlang/admin/featured_card_form.html:70
+msgid "Art/Palette"
+msgstr "Nghệ thuật/Bảng màu"
+
+#: templates/signlang/admin/featured_card_form.html:71
+msgid "Car/Transport"
+msgstr "Xe/Giao thông"
+
+#: templates/signlang/admin/featured_card_form.html:72
+msgid "Phone"
+msgstr "Điện thoại"
+
+#: templates/signlang/admin/featured_card_form.html:73
+msgid "Calendar"
+msgstr "Lịch"
+
+#: templates/signlang/admin/featured_card_form.html:74
+msgid "Clock/Time"
+msgstr "Đồng hồ/Thời gian"
+
+#: templates/signlang/admin/featured_card_form.html:75
+msgid "Location"
+msgstr "Vị trí"
+
+#: templates/signlang/admin/featured_card_form.html:80
+msgid "Color"
+msgstr "Màu sắc"
+
+# Colors
+#: templates/signlang/admin/featured_card_form.html:82
+msgid "Blue"
+msgstr "Xanh dương"
+
+#: templates/signlang/admin/featured_card_form.html:83
+msgid "Teal"
+msgstr "Xanh ngọc"
+
+#: templates/signlang/admin/featured_card_form.html:84
+msgid "Indigo"
+msgstr "Chàm"
+
+#: templates/signlang/admin/featured_card_form.html:85
+msgid "Purple"
+msgstr "Tím"
+
+#: templates/signlang/admin/featured_card_form.html:86
+msgid "Green"
+msgstr "Xanh lá"
+
+#: templates/signlang/admin/featured_card_form.html:87
+msgid "Orange"
+msgstr "Cam"
+
+#: templates/signlang/admin/featured_card_form.html:88
+msgid "Red"
+msgstr "Đỏ"
+
+#: templates/signlang/admin/featured_card_form.html:89
+msgid "Pink"
+msgstr "Hồng"
+
+#: templates/signlang/admin/featured_card_form.html:96
+#: templates/signlang/admin/featured_card_list.html:23
+msgid "Preview"
+msgstr "Xem trước"
+
+#: templates/signlang/admin/featured_card_form.html:105
+msgid "Settings"
+msgstr "Cài đặt"
+
+#: templates/signlang/admin/featured_card_form.html:109
+msgid "Display Order"
+msgstr "Thứ tự hiển thị"
+
+#: templates/signlang/admin/featured_card_form.html:112
+msgid "Lower numbers appear first"
+msgstr "Số nhỏ hơn xuất hiện trước"
+
+# Form Fields
+#: templates/signlang/admin/featured_card_form.html:119
+msgid "Active (visible on site)"
+msgstr "Hoạt động (hiển thị trên trang)"
+
+#: templates/signlang/admin/featured_card_form.html:127
+msgid "Save Card"
+msgstr "Lưu thẻ"
+
+#: templates/signlang/admin/featured_card_list.html:10
+msgid "Add Card"
+msgstr "Thêm thẻ"
+
+#: templates/signlang/admin/featured_card_list.html:16
+msgid "Featured cards appear on the home page in sections like \\"
+msgstr ""
+
+#: templates/signlang/admin/featured_card_list.html:26
+msgid "Link"
+msgstr "Liên kết"
+
+#: templates/signlang/admin/featured_card_list.html:28
+#: templates/signlang/admin/lesson_list.html:35
+#: templates/signlang/admin/quiz_list.html:33
+#: templates/signlang/admin/report_list.html:25
+#: templates/signlang/admin/user_list.html:33
+#: templates/signlang/admin/video_list.html:30
+msgid "Status"
+msgstr "Trạng thái"
+
+#: templates/signlang/admin/featured_card_list.html:60
+#: templates/signlang/admin/quiz_form.html:54
+#: templates/signlang/admin/quiz_list.html:51
+#: templates/signlang/admin/user_list.html:68
+msgid "Active"
+msgstr "Hoạt động"
+
+#: templates/signlang/admin/featured_card_list.html:64
+#: templates/signlang/admin/quiz_list.html:53
+#: templates/signlang/admin/user_list.html:70
+msgid "Inactive"
+msgstr "Không hoạt động"
+
+#: templates/signlang/admin/featured_card_list.html:84
+msgid "No featured cards yet"
+msgstr "Chưa có thẻ nổi bật"
+
+#: templates/signlang/admin/featured_card_list.html:86
+msgid "Create your first card"
+msgstr "Tạo thẻ đầu tiên"
+
+#: templates/signlang/admin/includes/pagination.html:5
+#, python-format
+msgid "Showing %(start)s-%(end)s of %(count)s items"
+msgstr ""
+
+#: templates/signlang/admin/includes/pagination.html:9
+msgid "First"
+msgstr "Đầu"
+
+#: templates/signlang/admin/includes/pagination.html:38
+msgid "Last"
+msgstr "Cuối"
+
+#: templates/signlang/admin/lesson_form.html:4
+#: templates/signlang/admin/lesson_form.html:5
+#: templates/signlang/admin/lesson_form.html:105
+#: templates/signlang/admin/quiz_form.html:20
+#: templates/signlang/admin/quiz_list.html:30
+msgid "Lesson"
+msgstr "Bài học"
+
+#: templates/signlang/admin/lesson_form.html:29
+#: templates/signlang/admin/video_form.html:29
+msgid "Select Category"
+msgstr "Chọn danh mục"
+
+#: templates/signlang/admin/lesson_form.html:37
+#: templates/signlang/admin/lesson_list.html:34
+#: templates/signlang/admin/video_form.html:37
+#: templates/signlang/admin/video_list.html:28
+#: templates/signlang/videos/video_list.html:169
+msgid "Difficulty"
+msgstr "Độ khó"
+
+#: templates/signlang/admin/lesson_form.html:52
+#: templates/signlang/admin/quiz_form.html:31
+#: templates/signlang/admin/video_form.html:47
+#: templates/signlang/admin/vocabulary_form.html:24
+msgid "Markdown supported"
+msgstr "Hỗ trợ Markdown"
+
+#: templates/signlang/admin/lesson_form.html:54
+#: templates/signlang/admin/video_form.html:49
+msgid "Formatting Guide:"
+msgstr "Hướng dẫn định dạng:"
+
+#: templates/signlang/admin/lesson_form.html:56
+msgid "Large header"
+msgstr "Tiêu đề lớn"
+
+#: templates/signlang/admin/lesson_form.html:57
+msgid "Medium header"
+msgstr "Tiêu đề vừa"
+
+#: templates/signlang/admin/lesson_form.html:58
+msgid "Small header"
+msgstr "Tiêu đề nhỏ"
+
+#: templates/signlang/admin/lesson_form.html:59
+#: templates/signlang/admin/video_form.html:52
+msgid "bold"
+msgstr "đậm"
+
+#: templates/signlang/admin/lesson_form.html:60
+#: templates/signlang/admin/video_form.html:53
+msgid "italic"
+msgstr "nghiêng"
+
+#: templates/signlang/admin/lesson_form.html:61
+#: templates/signlang/admin/video_form.html:54
+msgid "Bullet list"
+msgstr "Danh sách đầu dòng"
+
+#: templates/signlang/admin/lesson_form.html:62
+#: templates/signlang/admin/video_form.html:55
+msgid "Numbered list"
+msgstr "Danh sách đánh số"
+
+#: templates/signlang/admin/lesson_form.html:63
+#: templates/signlang/admin/video_form.html:56
+msgid "Blockquote"
+msgstr "Trích dẫn"
+
+#: templates/signlang/admin/lesson_form.html:64
+msgid "inline code"
+msgstr "mã nội tuyến"
+
+#: templates/signlang/admin/lesson_form.html:65
+msgid "Horizontal line"
+msgstr "Đường kẻ ngang"
+
+#: templates/signlang/admin/lesson_form.html:73
+#: templates/signlang/admin/video_form.html:63
+msgid "Video URL (YouTube embed)"
+msgstr "Đường dẫn video (nhúng YouTube)"
+
+#: templates/signlang/admin/lesson_form.html:84
+#: templates/signlang/admin/video_form.html:85
+msgid "Thumbnail"
+msgstr "Ảnh đại diện"
+
+#: templates/signlang/admin/lesson_form.html:89
+#: templates/signlang/admin/video_form.html:90
+msgid "Current Thumbnail"
+msgstr "Ảnh đại diện hiện tại"
+
+#: templates/signlang/admin/lesson_form.html:100
+#: templates/signlang/admin/lesson_list.html:55
+#: templates/signlang/admin/video_form.html:101
+#: templates/signlang/admin/video_list.html:51
+msgid "Published"
+msgstr "Đã xuất bản"
+
+# Lessons
+#: templates/signlang/admin/lesson_list.html:9
+#: templates/signlang/lessons/lesson_list.html:196
+msgid "All Lessons"
+msgstr "Tất cả bài học"
+
+#: templates/signlang/admin/lesson_list.html:13
+#: templates/signlang/lessons/lesson_list.html:216
+msgid "Search lessons..."
+msgstr "Tìm kiếm bài học..."
+
+# CSV Export
+#: templates/signlang/admin/lesson_list.html:17
+#: templates/signlang/admin/user_list.html:17
+msgid "Export CSV"
+msgstr "Xuất CSV"
+
+#: templates/signlang/admin/lesson_list.html:20
+msgid "Export Vocabulary"
+msgstr "Xuất từ vựng"
+
+#: templates/signlang/admin/lesson_list.html:36
+#: templates/signlang/admin/video_list.html:31
+msgid "Created"
+msgstr "Đã tạo"
+
+#: templates/signlang/admin/lesson_list.html:57
+#: templates/signlang/admin/video_list.html:53
+msgid "Draft"
+msgstr "Bản nháp"
+
+#: templates/signlang/admin/lesson_list.html:80
+#: templates/signlang/lessons/lesson_list.html:255
+msgid "No lessons found"
+msgstr "Không tìm thấy bài học"
+
+#: templates/signlang/admin/lesson_list.html:82
+msgid "Create Lesson"
+msgstr "Tạo bài học"
+
+#: templates/signlang/admin/question_form.html:4
+#: templates/signlang/admin/question_form.html:5
+#: templates/signlang/admin/question_form.html:100
+#: templates/signlang/admin/quiz_form.html:76
+msgid "Question"
+msgstr "Câu hỏi"
+
+#: templates/signlang/admin/question_form.html:14
+msgid "Question Text"
+msgstr "Nội dung câu hỏi"
+
+#: templates/signlang/admin/question_form.html:20
+msgid "Question Type"
+msgstr "Loại câu hỏi"
+
+#: templates/signlang/admin/question_form.html:22
+msgid "Multiple Choice"
+msgstr "Trắc nghiệm"
+
+#: templates/signlang/admin/question_form.html:23
+msgid "True/False"
+msgstr "Đúng/Sai"
+
+#: templates/signlang/admin/question_form.html:28
+#: templates/signlang/admin/quiz_form.html:78
+msgid "Points"
+msgstr "Điểm"
+
+#: templates/signlang/admin/question_form.html:39
+msgid "Image (Optional)"
+msgstr "Hình ảnh (Tùy chọn)"
+
+# Forum - Edit
+#: templates/signlang/admin/question_form.html:44
+#: templates/signlang/admin/vocabulary_form.html:37
+#: templates/signlang/forum/forum_edit.html:237
+msgid "Current Image"
+msgstr "Hình ảnh hiện tại"
+
+#: templates/signlang/admin/question_form.html:53
+msgid "Video File (Optional)"
+msgstr "Tệp video (Tùy chọn)"
+
+#: templates/signlang/admin/question_form.html:60
+#: templates/signlang/admin/video_form.html:76
+#: templates/signlang/admin/vocabulary_form.html:53
+#: templates/signlang/forum/forum_edit.html:277
+msgid "Current Video"
+msgstr "Video hiện tại"
+
+#: templates/signlang/admin/question_form.html:70
+#: templates/signlang/admin/quiz_form.html:79
+msgid "Answers"
+msgstr "Các câu trả lời"
+
+#: templates/signlang/admin/question_form.html:71
+msgid "Add up to 4 answer options. Select the correct answer."
+msgstr "Thêm tối đa 4 tùy chọn đáp án. Chọn đáp án đúng."
+
+#: templates/signlang/admin/question_form.html:78
+msgid "Answer"
+msgstr "Câu trả lời"
+
+#: templates/signlang/admin/question_form.html:86
+#: templates/signlang/quiz/quiz_result.html:322
+msgid "Correct"
+msgstr "Đúng"
+
+#: templates/signlang/admin/question_form.html:91
+msgid "Explanation (shown after quiz)"
+msgstr "Giải thích (hiển thị sau bài kiểm tra)"
+
+#: templates/signlang/admin/question_form.html:92
+msgid "Why this answer is correct/incorrect..."
+msgstr "Tại sao đáp án này đúng/sai..."
+
+#: templates/signlang/admin/quiz_form.html:4
+#: templates/signlang/admin/quiz_form.html:5
+#: templates/signlang/admin/quiz_form.html:59
+#: templates/signlang/lessons/lesson_detail.html:523
+msgid "Quiz"
+msgstr "Bài kiểm tra"
+
+#: templates/signlang/admin/quiz_form.html:22
+msgid "Select Lesson"
+msgstr "Chọn bài học"
+
+# Formatting Guide
+#: templates/signlang/admin/quiz_form.html:33
+#: templates/signlang/admin/vocabulary_form.html:26
+msgid "Formatting:"
+msgstr "Định dạng:"
+
+#: templates/signlang/admin/quiz_form.html:40
+#, fuzzy, python-format
+#| msgid "Passing Score (%)"
+msgid "Passing Score (%%)"
+msgstr "Điểm đạt (%)"
+
+#: templates/signlang/admin/quiz_form.html:45
+msgid "Time Limit (minutes)"
+msgstr "Giới hạn thời gian (phút)"
+
+#: templates/signlang/admin/quiz_form.html:47
+msgid "Set 0 for no time limit"
+msgstr "Đặt 0 để không giới hạn thời gian"
+
+#: templates/signlang/admin/quiz_form.html:69
+#: templates/signlang/admin/quiz_list.html:31
+#: templates/signlang/quiz/quiz_detail.html:183
+#: templates/signlang/quiz/quiz_list.html:70
+msgid "Questions"
+msgstr "Câu hỏi"
+
+#: templates/signlang/admin/quiz_form.html:70
+msgid "Add Question"
+msgstr "Thêm câu hỏi"
+
+#: templates/signlang/admin/quiz_form.html:77
+msgid "Type"
+msgstr "Loại"
+
+#: templates/signlang/admin/quiz_form.html:95
+msgid "Delete this question?"
+msgstr "Xóa câu hỏi này?"
+
+#: templates/signlang/admin/quiz_form.html:103
+msgid "No questions yet."
+msgstr "Chưa có câu hỏi."
+
+#: templates/signlang/admin/quiz_form.html:103
+#: templates/signlang/admin/vocabulary_list.html:61
+msgid "Add one"
+msgstr "Thêm một"
+
+# Quiz Page
+#: templates/signlang/admin/quiz_list.html:9
+msgid "All Quizzes"
+msgstr "Tất cả bài kiểm tra"
+
+#: templates/signlang/admin/quiz_list.html:13
+msgid "Search quizzes..."
+msgstr "Tìm kiếm bài kiểm tra..."
+
+#: templates/signlang/admin/quiz_list.html:17
+msgid "Export Results"
+msgstr "Xuất kết quả"
+
+#: templates/signlang/admin/quiz_list.html:32
+#: templates/signlang/quiz/quiz_detail.html:183
+msgid "Pass Score"
+msgstr "Điểm đạt"
+
+#: templates/signlang/admin/quiz_list.html:75
+msgid "No quizzes found"
+msgstr "Không tìm thấy bài kiểm tra"
+
+#: templates/signlang/admin/quiz_list.html:77
+msgid "Create Quiz"
+msgstr "Tạo bài kiểm tra"
+
+#: templates/signlang/admin/report_list.html:9
+msgid "Content Reports"
+msgstr "Báo cáo nội dung"
+
+#: templates/signlang/admin/report_list.html:11
+#: templates/signlang/dictionary.html:255
+#: templates/signlang/forum/forum_list.html:427
+#: templates/signlang/lessons/lesson_list.html:206
+msgid "All"
+msgstr "Tất cả"
+
+#: templates/signlang/admin/report_list.html:12
+#: templates/signlang/admin/report_list.html:52
+msgid "Pending"
+msgstr "Chờ xử lý"
+
+#: templates/signlang/admin/report_list.html:13
+#: templates/signlang/admin/report_list.html:48
+msgid "Resolved"
+msgstr "Đã xử lý"
+
+#: templates/signlang/admin/report_list.html:22
+#: templates/signlang/forum/report.html:21
+msgid "Reason"
+msgstr "Lý do"
+
+#: templates/signlang/admin/report_list.html:23
+msgid "Reporter"
+msgstr "Người báo cáo"
+
+#: templates/signlang/admin/report_list.html:34
+msgid "Post:"
+msgstr "Bài viết:"
+
+#: templates/signlang/admin/report_list.html:36
+msgid "Deleted Content"
+msgstr "Nội dung đã xóa"
+
+#: templates/signlang/admin/report_list.html:50
+msgid "Reviewed"
+msgstr "Đã xem xét"
+
+#: templates/signlang/admin/report_list.html:61
+msgid "Resolve"
+msgstr "Xử lý"
+
+#: templates/signlang/admin/report_list.html:74
+msgid "No reports found"
+msgstr "Không tìm thấy báo cáo"
+
+# Admin Panel
+#: templates/signlang/admin/user_list.html:9
+msgid "All Users"
+msgstr "Tất cả người dùng"
+
+#: templates/signlang/admin/user_list.html:13
+msgid "Search users..."
+msgstr "Tìm kiếm người dùng..."
+
+#: templates/signlang/admin/user_list.html:20
+msgid "Export Progress"
+msgstr "Xuất tiến độ"
+
+#: templates/signlang/admin/user_list.html:29
+#: templates/signlang/admin/user_list.html:62
+#: templates/signlang/gamification/leaderboard.html:595
+msgid "User"
+msgstr "Người dùng"
+
+#: templates/signlang/admin/user_list.html:31
+msgid "Role"
+msgstr ""
+
+# Admin Panel
+#: templates/signlang/admin/user_list.html:56
+#, fuzzy
+#| msgid "Admin Panel"
+msgid "Admin"
+msgstr "Bảng quản trị"
+
+#: templates/signlang/admin/user_list.html:58
+msgid "Staff"
+msgstr "Nhân viên"
+
+#: templates/signlang/admin/user_list.html:60
+#, fuzzy
+#| msgid "Researcher"
+msgid "Teacher"
+msgstr "Nghiên cứu"
+
+#: templates/signlang/admin/user_list.html:79
+msgid "Remove Teacher Role"
+msgstr ""
+
+#: templates/signlang/admin/user_list.html:83
+#, fuzzy
+#| msgid "Researcher"
+msgid "Make Teacher"
+msgstr "Nghiên cứu"
+
+#: templates/signlang/admin/user_list.html:99
+msgid "No users found"
+msgstr "Không tìm thấy người dùng"
+
+#: templates/signlang/admin/video_category_form.html:4
+#: templates/signlang/admin/video_category_form.html:5
+msgid "Video Category"
+msgstr "Danh mục video"
+
+#: templates/signlang/admin/video_category_list.html:10
+msgid "All Video Categories"
+msgstr "Tất cả danh mục video"
+
+#: templates/signlang/admin/video_category_list.html:39
+msgid "No video categories yet."
+msgstr "Chưa có danh mục video."
+
+#: templates/signlang/admin/video_form.html:4
+#: templates/signlang/admin/video_form.html:5
+#: templates/signlang/admin/video_form.html:106
+#: templates/signlang/admin/vocabulary_list.html:22
+#: templates/signlang/forum/forum_edit.html:269
+msgid "Video"
+msgstr "Video"
+
+#: templates/signlang/admin/video_form.html:51
+msgid "Section header"
+msgstr "Tiêu đề phần"
+
+#: templates/signlang/admin/video_form.html:65
+msgid "Or upload a video file below"
+msgstr "Hoặc tải lên tệp video bên dưới"
+
+#: templates/signlang/admin/video_form.html:69
+#: templates/signlang/admin/vocabulary_form.html:46
+msgid "Video File"
+msgstr "Tệp video"
+
+#: templates/signlang/admin/video_list.html:9
+msgid "All Videos"
+msgstr "Tất cả video"
+
+#: templates/signlang/admin/video_list.html:13
+#: templates/signlang/videos/video_list.html:153
+msgid "Search videos..."
+msgstr "Tìm kiếm video..."
+
+#: templates/signlang/admin/video_list.html:29
+msgid "Views"
+msgstr "Lượt xem"
+
+#: templates/signlang/admin/video_list.html:73
+msgid "No videos found"
+msgstr "Không tìm thấy video"
+
+#: templates/signlang/admin/vocabulary_form.html:4
+#: templates/signlang/admin/vocabulary_form.html:5
+#: templates/signlang/admin/vocabulary_form.html:67
+#: templates/signlang/admin/vocabulary_list.html:4
+#: templates/signlang/admin/vocabulary_list.html:5
+#: templates/signlang/lessons/lesson_detail.html:436
+#: templates/signlang/search_results.html:219
+msgid "Vocabulary"
+msgstr "Từ vựng"
+
+#: templates/signlang/admin/vocabulary_form.html:14
+#: templates/signlang/admin/vocabulary_list.html:20
+msgid "Word"
+msgstr "Từ"
+
+#: templates/signlang/admin/vocabulary_form.html:19
+msgid "Meaning"
+msgstr "Nghĩa"
+
+#: templates/signlang/admin/vocabulary_form.html:32
+#: templates/signlang/admin/vocabulary_list.html:21
+#: templates/signlang/forum/forum_edit.html:231
+#: venv/lib/python3.13/site-packages/django/db/models/fields/files.py:420
+msgid "Image"
+msgstr "Hình ảnh"
+
+#: templates/signlang/admin/vocabulary_list.html:12
+msgid "Vocabulary items for this lesson"
+msgstr "Từ vựng cho bài học này"
+
+#: templates/signlang/admin/vocabulary_list.html:14
+msgid "Add Vocabulary"
+msgstr "Thêm từ vựng"
+
+#: templates/signlang/admin/vocabulary_list.html:45
+#: venv/lib/python3.13/site-packages/django/forms/widgets.py:867
+msgid "Yes"
+msgstr "Có"
+
+#: templates/signlang/admin/vocabulary_list.html:61
+msgid "No vocabulary yet."
+msgstr "Chưa có từ vựng."
+
+#: templates/signlang/admin/vocabulary_list.html:71
+msgid "Back to Lessons"
+msgstr "Quay lại bài học"
+
+# Dashboard
+#: templates/signlang/auth/login.html:61
+msgid "Welcome Back"
+msgstr "Chào mừng trở lại"
+
+#: templates/signlang/auth/login.html:62
+msgid "Sign in to continue learning"
+msgstr "Đăng nhập để tiếp tục học"
+
+#: templates/signlang/auth/login.html:72
+msgid "Invalid username or password. Please try again."
+msgstr "Tên đăng nhập hoặc mật khẩu không hợp lệ. Vui lòng thử lại."
+
+#: templates/signlang/auth/login.html:82
+#: templates/signlang/auth/register.html:122
+msgid "Password"
+msgstr "Mật khẩu"
+
+#: templates/signlang/auth/login.html:87
+msgid "Forgot Password?"
+msgstr "Quên mật khẩu?"
+
+#: templates/signlang/auth/login.html:91
+#: templates/signlang/lessons/lesson_detail.html:585
+msgid "Sign In"
+msgstr "Đăng nhập"
+
+#: templates/signlang/auth/login.html:98
+msgid "Don't have an account?"
+msgstr "Chưa có tài khoản?"
+
+#: templates/signlang/auth/login.html:98
+msgid "Sign up"
+msgstr "Đăng ký"
+
+#: templates/signlang/auth/password_reset.html:4
+#: templates/signlang/auth/password_reset.html:61
+#: templates/signlang/auth/password_reset_confirm.html:123
+msgid "Reset Password"
+msgstr "Đặt lại mật khẩu"
+
+#: templates/signlang/auth/password_reset.html:62
+msgid "Enter your email to receive reset instructions"
+msgstr "Nhập email để nhận hướng dẫn đặt lại mật khẩu"
+
+#: templates/signlang/auth/password_reset.html:72
+msgid "Please enter a valid email address."
+msgstr "Vui lòng nhập địa chỉ email hợp lệ."
+
+#: templates/signlang/auth/password_reset.html:77
+msgid "Email Address"
+msgstr "Địa chỉ Email"
+
+#: templates/signlang/auth/password_reset.html:82
+msgid "Send Reset Link"
+msgstr "Gửi liên kết đặt lại"
+
+#: templates/signlang/auth/password_reset.html:89
+msgid "Remember your password?"
+msgstr "Bạn nhớ mật khẩu?"
+
+#: templates/signlang/auth/password_reset.html:89
+#: templates/signlang/auth/register.html:145
+msgid "Sign in"
+msgstr "Đăng nhập"
+
+#: templates/signlang/auth/password_reset_complete.html:4
+msgid "Password Reset Complete"
+msgstr "Đặt lại mật khẩu hoàn tất"
+
+# Password Reset - Complete
+#: templates/signlang/auth/password_reset_complete.html:60
+msgid "Password Reset Complete!"
+msgstr "Đặt lại mật khẩu hoàn tất!"
+
+#: templates/signlang/auth/password_reset_complete.html:61
+msgid ""
+"Your password has been successfully changed. You can now sign in with your "
+"new password."
+msgstr ""
+"Mật khẩu của bạn đã được thay đổi thành công. Bây giờ bạn có thể đăng nhập "
+"bằng mật khẩu mới."
+
+#: templates/signlang/auth/password_reset_complete.html:65
+msgid "Sign In Now"
+msgstr "Đăng nhập ngay"
+
+# Password Reset - Confirm
+#: templates/signlang/auth/password_reset_confirm.html:4
+#: templates/signlang/auth/password_reset_confirm.html:82
+msgid "Set New Password"
+msgstr "Đặt mật khẩu mới"
+
+#: templates/signlang/auth/password_reset_confirm.html:83
+msgid "Create a strong password for your account"
+msgstr "Tạo mật khẩu mạnh cho tài khoản của bạn"
+
+#: templates/signlang/auth/password_reset_confirm.html:103
+msgid "Password must:"
+msgstr "Mật khẩu phải:"
+
+#: templates/signlang/auth/password_reset_confirm.html:105
+msgid "Be at least 8 characters long"
+msgstr "Có ít nhất 8 ký tự"
+
+#: templates/signlang/auth/password_reset_confirm.html:106
+msgid "Not be entirely numeric"
+msgstr "Không chỉ toàn số"
+
+#: templates/signlang/auth/password_reset_confirm.html:107
+msgid "Not be too similar to your username"
+msgstr "Không quá giống tên đăng nhập"
+
+#: templates/signlang/auth/password_reset_confirm.html:108
+msgid "Not be a commonly used password"
+msgstr "Không phải mật khẩu thông dụng"
+
+#: templates/signlang/auth/password_reset_confirm.html:113
+msgid "New Password"
+msgstr "Mật khẩu mới"
+
+#: templates/signlang/auth/password_reset_confirm.html:118
+#: templates/signlang/auth/register.html:130
+msgid "Confirm Password"
+msgstr "Xác nhận mật khẩu"
+
+#: templates/signlang/auth/password_reset_confirm.html:128
+msgid "Invalid or Expired Link"
+msgstr "Liên kết không hợp lệ hoặc đã hết hạn"
+
+#: templates/signlang/auth/password_reset_confirm.html:129
+msgid ""
+"This password reset link is invalid or has expired. Please request a new one."
+msgstr ""
+"Liên kết đặt lại mật khẩu này không hợp lệ hoặc đã hết hạn. Vui lòng yêu cầu "
+"liên kết mới."
+
+#: templates/signlang/auth/password_reset_confirm.html:132
+msgid "Request New Link"
+msgstr "Yêu cầu liên kết mới"
+
+#: templates/signlang/auth/password_reset_confirm.html:139
+#: templates/signlang/auth/password_reset_done.html:82
+msgid "Back to Sign In"
+msgstr "Quay lại đăng nhập"
+
+# Password Reset - Done
+#: templates/signlang/auth/password_reset_done.html:4
+msgid "Email Sent"
+msgstr "Email đã gửi"
+
+#: templates/signlang/auth/password_reset_done.html:74
+msgid "Check Your Email"
+msgstr "Kiểm tra Email của bạn"
+
+#: templates/signlang/auth/password_reset_done.html:75
+msgid ""
+"We've sent password reset instructions to your email address. Please check "
+"your inbox and follow the link to reset your password."
+msgstr ""
+"Chúng tôi đã gửi hướng dẫn đặt lại mật khẩu đến địa chỉ email của bạn. Vui "
+"lòng kiểm tra hộp thư và làm theo liên kết để đặt lại mật khẩu."
+
+#: templates/signlang/auth/password_reset_done.html:77
+msgid "Note:"
+msgstr "Lưu ý:"
+
+#: templates/signlang/auth/password_reset_done.html:77
+msgid "If you don't see the email, check your spam folder."
+msgstr "Nếu bạn không thấy email, hãy kiểm tra thư mục spam."
+
+# Password Reset - Email
+#: templates/signlang/auth/password_reset_email.html:3
+msgid "Hello"
+msgstr "Xin chào"
+
+#: templates/signlang/auth/password_reset_email.html:5
+msgid "You requested a password reset for your Signox account."
+msgstr "Bạn đã yêu cầu đặt lại mật khẩu cho tài khoản Signox của mình."
+
+#: templates/signlang/auth/password_reset_email.html:7
+msgid "Click the link below to set a new password:"
+msgstr "Nhấp vào liên kết bên dưới để đặt mật khẩu mới:"
+
+#: templates/signlang/auth/password_reset_email.html:11
+msgid "This link will expire in 1 hour for security reasons."
+msgstr "Liên kết này sẽ hết hạn sau 1 giờ vì lý do bảo mật."
+
+#: templates/signlang/auth/password_reset_email.html:13
+msgid ""
+"If you didn't request this password reset, you can safely ignore this email. "
+"Your password will remain unchanged."
+msgstr ""
+"Nếu bạn không yêu cầu đặt lại mật khẩu này, bạn có thể bỏ qua email này. Mật "
+"khẩu của bạn sẽ không thay đổi."
+
+#: templates/signlang/auth/password_reset_email.html:16
+msgid "Sign Language Learning Platform"
+msgstr "Nền tảng học Ngôn ngữ Ký hiệu"
+
+#: templates/signlang/auth/profile.html:452
+msgid "Posts"
+msgstr "Bài viết"
+
+#: templates/signlang/auth/profile.html:462
+msgid "Saved Items"
+msgstr "Mục đã lưu"
+
+#: templates/signlang/auth/profile.html:465
+#: templates/signlang/lessons/lesson_detail.html:488
+msgid "Learning Progress"
+msgstr "Tiến độ học tập"
+
+#: templates/signlang/auth/profile.html:468
+msgid "Quiz History"
+msgstr "Lịch sử bài kiểm tra"
+
+#: templates/signlang/auth/profile.html:478
+msgid "Edit Profile"
+msgstr "Chỉnh sửa hồ sơ"
+
+#: templates/signlang/auth/profile.html:485
+msgid "Avatar"
+msgstr "Ảnh đại diện"
+
+#: templates/signlang/auth/profile.html:489
+msgid "Current avatar"
+msgstr "Ảnh đại diện hiện tại"
+
+#: templates/signlang/auth/profile.html:499
+#, fuzzy
+#| msgid "Click to upload a video"
+msgid "Click to upload or drag and drop"
+msgstr "Nhấn để tải lên video"
+
+#: templates/signlang/auth/profile.html:500
+#, fuzzy
+#| msgid "JPG, PNG, GIF up to 10MB"
+msgid "PNG, JPG, GIF up to 5MB"
+msgstr "JPG, PNG, GIF tối đa 10MB"
+
+#: templates/signlang/auth/profile.html:509
+#: templates/signlang/auth/register.html:89
+msgid "First Name"
+msgstr "Tên"
+
+#: templates/signlang/auth/profile.html:513
+#: templates/signlang/auth/register.html:97
+msgid "Last Name"
+msgstr "Họ"
+
+#: templates/signlang/auth/profile.html:529
+msgid "Bio"
+msgstr "Tiểu sử"
+
+#: templates/signlang/auth/profile.html:534
+msgid "Skill Level"
+msgstr "Trình độ"
+
+#: templates/signlang/auth/profile.html:539
+#: templates/signlang/forum/forum_edit.html:312
+msgid "Save Changes"
+msgstr "Lưu thay đổi"
+
+#: templates/signlang/auth/register.html:78
+#: templates/signlang/auth/register.html:138
+msgid "Create Account"
+msgstr "Tạo tài khoản"
+
+#: templates/signlang/auth/register.html:79
+msgid "Start your sign language learning journey"
+msgstr "Bắt đầu hành trình học ngôn ngữ ký hiệu của bạn"
+
+#: templates/signlang/auth/register.html:145
+msgid "Already have an account?"
+msgstr "Đã có tài khoản?"
+
+# Dashboard
+#: templates/signlang/dashboard.html:746
+msgid "Welcome back"
+msgstr "Chào mừng trở lại"
+
+#: templates/signlang/dashboard.html:747
+msgid "Continue your learning journey"
+msgstr "Tiếp tục hành trình học tập"
+
+#: templates/signlang/dashboard.html:759
+#: templates/signlang/gamification/achievements.html:431
+#: templates/signlang/gamification/achievements.html:432
+#: templates/signlang/gamification/leaderboard.html:596
+#: templates/signlang/gamification/my_stats.html:419
+msgid "Level"
+msgstr "Cấp độ"
+
+#: templates/signlang/dashboard.html:765
+#: templates/signlang/gamification/achievements.html:424
+msgid "Total XP"
+msgstr "Tổng XP"
+
+#: templates/signlang/dashboard.html:773
+msgid "XP to Level"
+msgstr "XP đến cấp độ"
+
+#: templates/signlang/dashboard.html:780
+#: templates/signlang/gamification/achievements.html:443
+msgid "Day Streak"
+msgstr "Chuỗi ngày"
+
+#: templates/signlang/dashboard.html:790
+#: templates/signlang/gamification/achievements.html:457
+msgid "Lessons Done"
+msgstr "Bài học hoàn thành"
+
+#: templates/signlang/dashboard.html:795
+msgid "In Progress"
+msgstr "Đang học"
+
+#: templates/signlang/dashboard.html:800
+msgid "Progress"
+msgstr "Tiến độ"
+
+#: templates/signlang/dashboard.html:805
+msgid "Badges"
+msgstr "Huy hiệu"
+
+#: templates/signlang/dashboard.html:812
+msgid "Learning Activity"
+msgstr "Hoạt động học tập"
+
+#: templates/signlang/dashboard.html:814
+msgid "active days"
+msgstr "ngày hoạt động"
+
+#: templates/signlang/dashboard.html:815 templates/signlang/dashboard.html:1028
+msgid "XP earned"
+msgstr "XP kiếm được"
+
+# Misc
+#: templates/signlang/dashboard.html:824
+msgid "Less"
+msgstr "Ít hơn"
+
+#: templates/signlang/dashboard.html:832
+msgid "More"
+msgstr "Nhiều hơn"
+
+#: templates/signlang/dashboard.html:843
+msgid "Recommended For You"
+msgstr "Gợi ý cho bạn"
+
+#: templates/signlang/dashboard.html:871
+msgid "No recommendations yet. Start learning to get personalized suggestions!"
+msgstr "Chưa có gợi ý. Bắt đầu học để nhận gợi ý cá nhân hóa!"
+
+#: templates/signlang/dashboard.html:872 templates/signlang/dashboard.html:945
+#: templates/signlang/gamification/notifications.html:236
+#: templates/signlang/lessons/saved_lessons.html:44
+msgid "Browse Lessons"
+msgstr "Xem bài học"
+
+#: templates/signlang/dashboard.html:883
+msgid "Recent Activity"
+msgstr "Hoạt động gần đây"
+
+#: templates/signlang/dashboard.html:901 templates/signlang/dashboard.html:930
+#: templates/signlang/forum/forum_detail.html:318
+#: templates/signlang/gamification/notifications.html:219
+#: templates/signlang/lessons/saved_lessons.html:31
+#: templates/signlang/search_results.html:242
+msgid "ago"
+msgstr "trước"
+
+#: templates/signlang/dashboard.html:905
+msgid "No recent activity"
+msgstr "Không có hoạt động gần đây"
+
+#: templates/signlang/dashboard.html:930
+#: templates/signlang/lessons/lesson_detail.html:467
+#: templates/signlang/lessons/saved_lessons.html:31
+msgid "Saved"
+msgstr "Đã lưu"
+
+#: templates/signlang/dashboard.html:934
+msgid "No saved lessons"
+msgstr "Không có bài học đã lưu"
+
+#: templates/signlang/dashboard.html:946
+msgid "Take a Quiz"
+msgstr "Làm bài kiểm tra"
+
+#: templates/signlang/dashboard.html:947
+#: templates/signlang/gamification/achievements.html:4
+msgid "Achievements"
+msgstr "Thành tựu"
+
+#: templates/signlang/dashboard.html:948
+#: templates/signlang/gamification/leaderboard.html:4
+#: templates/signlang/gamification/leaderboard.html:498
+#: templates/signlang/gamification/my_stats.html:574
+msgid "Leaderboard"
+msgstr "Bảng xếp hạng"
+
+#: templates/signlang/dashboard.html:949
+#: templates/signlang/gamification/my_stats.html:4
+msgid "My Stats"
+msgstr "Thống kê"
+
+#: templates/signlang/dashboard.html:1029
+msgid "lesson"
+msgstr "bài học"
+
+#: templates/signlang/dashboard.html:1030
+msgid "quiz"
+msgstr "bài kiểm tra"
+
+#: templates/signlang/dashboard.html:1032
+msgid "No activity"
+msgstr "Không có hoạt động"
+
+# Dictionary Page
+#: templates/signlang/dictionary.html:240
+msgid "Browse all"
+msgstr "Xem tất cả"
+
+#: templates/signlang/dictionary.html:240
+msgid "vocabulary words"
+msgstr "từ vựng"
+
+#: templates/signlang/dictionary.html:246
+msgid "Search for a word or meaning..."
+msgstr "Tìm kiếm từ hoặc nghĩa..."
+
+#: templates/signlang/dictionary.html:253
+msgid "Filter by category:"
+msgstr "Lọc theo danh mục:"
+
+#: templates/signlang/dictionary.html:284
+msgid "Showing"
+msgstr "Hiển thị"
+
+#: templates/signlang/dictionary.html:284
+msgid "word"
+msgstr "từ"
+
+#: templates/signlang/dictionary.html:285
+msgid "matching"
+msgstr "khớp với"
+
+#: templates/signlang/dictionary.html:286
+msgid "in selected category"
+msgstr "trong danh mục đã chọn"
+
+#: templates/signlang/dictionary.html:310
+msgid "No vocabulary found"
+msgstr "Không tìm thấy từ vựng"
+
+#: templates/signlang/dictionary.html:312
+msgid "No words matching"
+msgstr "Không có từ nào khớp với"
+
+#: templates/signlang/dictionary.html:313
+msgid "Clear Search"
+msgstr "Xóa tìm kiếm"
+
+#: templates/signlang/dictionary.html:315
+msgid "No vocabulary has been added yet."
+msgstr "Chưa có từ vựng nào được thêm."
+
+# Forum
+#: templates/signlang/forum/forum_create.html:4
+#: templates/signlang/forum/forum_create.html:208
+#: templates/signlang/forum/forum_list.html:486
+msgid "Create Post"
+msgstr "Tạo bài viết"
+
+#: templates/signlang/forum/forum_create.html:142
+msgid "Create New Post"
+msgstr "Tạo bài viết mới"
+
+#: templates/signlang/forum/forum_create.html:153
+msgid "Enter a descriptive title..."
+msgstr "Nhập tiêu đề mô tả..."
+
+#: templates/signlang/forum/forum_create.html:159
+msgid "Share your thoughts, questions, or discoveries..."
+msgstr "Chia sẻ suy nghĩ, câu hỏi hoặc khám phá của bạn..."
+
+#: templates/signlang/forum/forum_create.html:163
+msgid "Image (optional)"
+msgstr "Hình ảnh (tùy chọn)"
+
+#: templates/signlang/forum/forum_create.html:166
+msgid "Click to upload an image"
+msgstr "Nhấn để tải lên hình ảnh"
+
+#: templates/signlang/forum/forum_create.html:167
+msgid "JPG, PNG, GIF up to 10MB"
+msgstr "JPG, PNG, GIF tối đa 10MB"
+
+#: templates/signlang/forum/forum_create.html:184
+msgid "Video (optional)"
+msgstr "Video (tùy chọn)"
+
+#: templates/signlang/forum/forum_create.html:187
+msgid "Click to upload a video"
+msgstr "Nhấn để tải lên video"
+
+#: templates/signlang/forum/forum_create.html:188
+msgid "MP4, WebM up to 100MB"
+msgstr "MP4, WebM tối đa 100MB"
+
+#: templates/signlang/forum/forum_delete.html:15
+msgid "Delete Post"
+msgstr "Xóa bài viết"
+
+# Forum - Delete
+#: templates/signlang/forum/forum_delete.html:17
+msgid "Are you sure"
+msgstr "Bạn có chắc chắn"
+
+#: templates/signlang/forum/forum_delete.html:17
+msgid "This action cannot be undone"
+msgstr "Hành động này không thể hoàn tác"
+
+#: templates/signlang/forum/forum_detail.html:200
+msgid "Back to Forum"
+msgstr "Quay lại diễn đàn"
+
+#: templates/signlang/forum/forum_detail.html:256
+#: templates/signlang/forum/forum_detail.html:264
+msgid "Like"
+msgstr "Thích"
+
+#: templates/signlang/forum/forum_detail.html:272
+msgid "Comment"
+msgstr "Bình luận"
+
+#: templates/signlang/forum/forum_detail.html:280
+msgid "Report"
+msgstr "Báo cáo"
+
+#: templates/signlang/forum/forum_detail.html:291
+msgid "Comments"
+msgstr "Bình luận"
+
+#: templates/signlang/forum/forum_detail.html:298
+msgid "Post Comment"
+msgstr "Đăng bình luận"
+
+#: templates/signlang/forum/forum_detail.html:302
+msgid "to leave a comment."
+msgstr "để bình luận."
+
+#: templates/signlang/forum/forum_detail.html:324
+msgid "No comments yet. Be the first to comment!"
+msgstr "Chưa có bình luận. Hãy là người đầu tiên bình luận!"
+
+#: templates/signlang/forum/forum_edit.html:4
+#: templates/signlang/forum/forum_edit.html:211
+msgid "Edit Post"
+msgstr "Sửa bài viết"
+
+#: templates/signlang/forum/forum_edit.html:243
+#: templates/signlang/forum/forum_edit.html:283
+msgid "Remove"
+msgstr "Xóa"
+
+#: templates/signlang/forum/forum_edit.html:251
+#: templates/signlang/forum/forum_edit.html:291
+msgid "Replace"
+msgstr "Thay thế"
+
+#: templates/signlang/forum/forum_edit.html:251
+#: templates/signlang/forum/forum_edit.html:291
+msgid "Click to upload"
+msgstr "Nhấn để tải lên"
+
+# Forum
+#: templates/signlang/forum/forum_list.html:421
+msgid "Discuss & Share Knowledge"
+msgstr "Thảo luận & Chia sẻ kiến thức"
+
+#: templates/signlang/forum/forum_list.html:428
+msgid "Articles"
+msgstr "Bài viết"
+
+#: templates/signlang/forum/forum_list.html:429
+msgid "Discussions"
+msgstr "Thảo luận"
+
+#: templates/signlang/forum/forum_list.html:433
+msgid "Search posts..."
+msgstr "Tìm kiếm bài viết..."
+
+#: templates/signlang/forum/forum_list.html:438
+msgid "New Post"
+msgstr "Bài viết mới"
+
+#: templates/signlang/forum/forum_list.html:450
+msgid "Discussion"
+msgstr "Thảo luận"
+
+#: templates/signlang/forum/forum_list.html:459
+msgid "Pinned"
+msgstr "Đã ghim"
+
+#: templates/signlang/forum/forum_list.html:483
+msgid "No Posts Yet"
+msgstr "Chưa có bài viết"
+
+#: templates/signlang/forum/forum_list.html:484
+msgid "Be the first to start a discussion!"
+msgstr "Hãy là người đầu tiên bắt đầu thảo luận!"
+
+#: templates/signlang/forum/forum_list.html:488
+msgid "Login to Post"
+msgstr "Đăng nhập để đăng bài"
+
+# Forum - Report
+#: templates/signlang/forum/report.html:9
+msgid "Report Post"
+msgstr "Báo cáo bài viết"
+
+#: templates/signlang/forum/report.html:31
+msgid "Submit Report"
+msgstr "Gửi báo cáo"
+
 # Gamification - Achievements
+#: templates/signlang/gamification/achievements.html:410
 msgid "Your Achievements"
 msgstr "Thành tựu của bạn"
 
+#: templates/signlang/gamification/achievements.html:411
 msgid "badges earned"
 msgstr "huy hiệu đã đạt"
 
+#: templates/signlang/gamification/achievements.html:418
 msgid "Current Level"
 msgstr "Cấp độ hiện tại"
 
+#: templates/signlang/gamification/achievements.html:432
+#: templates/signlang/gamification/my_stats.html:419
+msgid "to"
+msgstr "đến"
+
+#: templates/signlang/gamification/achievements.html:450
+#: templates/signlang/gamification/my_stats.html:437
 msgid "Badges Earned"
 msgstr "Huy hiệu đã đạt"
 
+#: templates/signlang/gamification/achievements.html:464
+#: templates/signlang/gamification/my_stats.html:432
 msgid "Quizzes Passed"
 msgstr "Bài kiểm tra đã đạt"
 
+#: templates/signlang/gamification/achievements.html:473
 msgid "Lesson Milestones"
 msgstr "Cột mốc bài học"
 
+#: templates/signlang/gamification/achievements.html:475
 msgid "Quiz Achievements"
 msgstr "Thành tựu bài kiểm tra"
 
+#: templates/signlang/gamification/achievements.html:477
 msgid "Streak Achievements"
 msgstr "Thành tựu chuỗi ngày"
 
+#: templates/signlang/gamification/achievements.html:479
 msgid "Special Achievements"
 msgstr "Thành tựu đặc biệt"
 
 # Gamification - Leaderboard
+#: templates/signlang/gamification/leaderboard.html:499
 msgid "See how you rank against other learners"
 msgstr "Xem bạn xếp hạng như thế nào so với những người học khác"
 
+#: templates/signlang/gamification/leaderboard.html:504
 msgid "All Time"
 msgstr "Mọi thời gian"
 
+#: templates/signlang/gamification/leaderboard.html:505
 msgid "This Month"
 msgstr "Tháng này"
 
+#: templates/signlang/gamification/leaderboard.html:506
 msgid "This Week"
 msgstr "Tuần này"
 
+#: templates/signlang/gamification/leaderboard.html:594
 msgid "Rank"
 msgstr "Hạng"
 
+#: templates/signlang/gamification/leaderboard.html:597
 msgid "XP"
 msgstr "XP"
 
+#: templates/signlang/gamification/leaderboard.html:651
 msgid "No Rankings Yet"
 msgstr "Chưa có xếp hạng"
 
+#: templates/signlang/gamification/leaderboard.html:652
 msgid "Start learning to appear on the leaderboard!"
 msgstr "Bắt đầu học để xuất hiện trên bảng xếp hạng!"
 
 # Gamification - My Stats
+#: templates/signlang/gamification/my_stats.html:405
 msgid "My Statistics"
 msgstr "Thống kê của tôi"
 
+#: templates/signlang/gamification/my_stats.html:427
 msgid "Lessons Completed"
 msgstr "Bài học đã hoàn thành"
 
+#: templates/signlang/gamification/my_stats.html:442
 msgid "Global Rank"
 msgstr "Hạng toàn cầu"
 
+#: templates/signlang/gamification/my_stats.html:449
 msgid "Learning Streak"
 msgstr "Chuỗi học tập"
 
+#: templates/signlang/gamification/my_stats.html:455
+#: templates/signlang/gamification/my_stats.html:457
 msgid "days"
 msgstr "ngày"
 
+#: templates/signlang/gamification/my_stats.html:457
 msgid "Best streak"
 msgstr "Chuỗi tốt nhất"
 
+#: templates/signlang/gamification/my_stats.html:468
 msgid "Streak Freeze"
 msgstr "Đóng băng chuỗi"
 
+#: templates/signlang/gamification/my_stats.html:471
 msgid "Protect your streak when you can't study."
 msgstr "Bảo vệ chuỗi học của bạn khi không thể học."
 
+#: templates/signlang/gamification/my_stats.html:471
 msgid "freeze"
 msgstr "lần đóng băng"
 
+#: templates/signlang/gamification/my_stats.html:471
 msgid "available this month"
 msgstr "có sẵn trong tháng này"
 
+#: templates/signlang/gamification/my_stats.html:490
 msgid "Use a streak freeze to protect your streak today?"
 msgstr "Sử dụng đóng băng chuỗi để bảo vệ chuỗi học hôm nay?"
 
+#: templates/signlang/gamification/my_stats.html:491
 msgid "Use Freeze"
 msgstr "Sử dụng đóng băng"
 
+#: templates/signlang/gamification/my_stats.html:496
 msgid "Protected Today"
 msgstr "Đã bảo vệ hôm nay"
 
+#: templates/signlang/gamification/my_stats.html:506
 msgid "Points Breakdown"
 msgstr "Phân tích điểm"
 
+#: templates/signlang/gamification/my_stats.html:510
 msgid "From Lessons"
 msgstr "Từ bài học"
 
+#: templates/signlang/gamification/my_stats.html:520
 msgid "From Quizzes"
 msgstr "Từ bài kiểm tra"
 
+#: templates/signlang/gamification/my_stats.html:530
 msgid "From Streaks"
 msgstr "Từ chuỗi ngày"
 
+#: templates/signlang/gamification/my_stats.html:540
 msgid "From Badges"
 msgstr "Từ huy hiệu"
 
+#: templates/signlang/gamification/my_stats.html:553
 msgid "Recent Quiz Attempts"
 msgstr "Lần làm bài gần đây"
 
+#: templates/signlang/gamification/my_stats.html:571
 msgid "View Achievements"
 msgstr "Xem thành tựu"
 
 # Gamification - Notifications
+#: templates/signlang/gamification/notifications.html:4
+#: templates/signlang/gamification/notifications.html:193
 msgid "Notifications"
 msgstr "Thông báo"
 
+#: templates/signlang/gamification/notifications.html:195
 msgid "new"
 msgstr "mới"
 
+#: templates/signlang/gamification/notifications.html:202
 msgid "Mark All Read"
 msgstr "Đánh dấu tất cả đã đọc"
 
+#: templates/signlang/gamification/notifications.html:223
 msgid "View Details"
 msgstr "Xem chi tiết"
 
+#: templates/signlang/gamification/notifications.html:233
 msgid "No Notifications"
 msgstr "Không có thông báo"
 
+#: templates/signlang/gamification/notifications.html:234
 msgid "You're all caught up! Keep learning to earn achievements."
 msgstr "Bạn đã xem hết! Tiếp tục học để nhận thành tựu."
 
-# Category List
-msgid "Browse Categories"
-msgstr "Duyệt danh mục"
+# Home Page
+#: templates/signlang/home.html:4
+msgid "Learn Sign Language"
+msgstr "Học Ngôn ngữ Ký hiệu"
 
-msgid "No categories available yet."
-msgstr "Chưa có danh mục nào."
-
-# Forum - Report
-msgid "Report Post"
-msgstr "Báo cáo bài viết"
-
-msgid "Submit Report"
-msgstr "Gửi báo cáo"
-
-# Forum - Delete
-msgid "Are you sure"
-msgstr "Bạn có chắc chắn"
-
-# Forum - Edit
-msgid "Current Image"
-msgstr "Hình ảnh hiện tại"
-
-msgid "Remove"
-msgstr "Xóa"
-
-msgid "Replace"
-msgstr "Thay thế"
-
-msgid "Click to upload"
-msgstr "Nhấn để tải lên"
-
-msgid "Video"
-msgstr "Video"
-
-msgid "Current Video"
-msgstr "Video hiện tại"
-
-# Password Reset - Done
-msgid "Email Sent"
-msgstr "Email đã gửi"
-
-msgid "Check Your Email"
-msgstr "Kiểm tra Email của bạn"
-
-msgid "We've sent password reset instructions to your email address. Please check your inbox and follow the link to reset your password."
-msgstr "Chúng tôi đã gửi hướng dẫn đặt lại mật khẩu đến địa chỉ email của bạn. Vui lòng kiểm tra hộp thư và làm theo liên kết để đặt lại mật khẩu."
-
-msgid "Note:"
-msgstr "Lưu ý:"
-
-msgid "If you don't see the email, check your spam folder."
-msgstr "Nếu bạn không thấy email, hãy kiểm tra thư mục spam."
-
-msgid "Back to Sign In"
-msgstr "Quay lại đăng nhập"
-
-# Password Reset - Confirm
-msgid "Set New Password"
-msgstr "Đặt mật khẩu mới"
-
-msgid "Create a strong password for your account"
-msgstr "Tạo mật khẩu mạnh cho tài khoản của bạn"
-
-msgid "Password must:"
-msgstr "Mật khẩu phải:"
-
-msgid "Be at least 8 characters long"
-msgstr "Có ít nhất 8 ký tự"
-
-msgid "Not be entirely numeric"
-msgstr "Không chỉ toàn số"
-
-msgid "Not be too similar to your username"
-msgstr "Không quá giống tên đăng nhập"
-
-msgid "Not be a commonly used password"
-msgstr "Không phải mật khẩu thông dụng"
-
-msgid "New Password"
-msgstr "Mật khẩu mới"
-
-msgid "Invalid or Expired Link"
-msgstr "Liên kết không hợp lệ hoặc đã hết hạn"
-
-msgid "This password reset link is invalid or has expired. Please request a new one."
-msgstr "Liên kết đặt lại mật khẩu này không hợp lệ hoặc đã hết hạn. Vui lòng yêu cầu liên kết mới."
-
-msgid "Request New Link"
-msgstr "Yêu cầu liên kết mới"
-
-# Password Reset - Complete
-msgid "Password Reset Complete!"
-msgstr "Đặt lại mật khẩu hoàn tất!"
-
-msgid "Your password has been successfully changed. You can now sign in with your new password."
-msgstr "Mật khẩu của bạn đã được thay đổi thành công. Bây giờ bạn có thể đăng nhập bằng mật khẩu mới."
-
-msgid "Sign In Now"
-msgstr "Đăng nhập ngay"
-
-# Password Reset - Email
-msgid "Hello"
-msgstr "Xin chào"
-
-msgid "You requested a password reset for your Signox account."
-msgstr "Bạn đã yêu cầu đặt lại mật khẩu cho tài khoản Signox của mình."
-
-msgid "Click the link below to set a new password:"
-msgstr "Nhấp vào liên kết bên dưới để đặt mật khẩu mới:"
-
-msgid "This link will expire in 1 hour for security reasons."
-msgstr "Liên kết này sẽ hết hạn sau 1 giờ vì lý do bảo mật."
-
-msgid "If you didn't request this password reset, you can safely ignore this email. Your password will remain unchanged."
-msgstr "Nếu bạn không yêu cầu đặt lại mật khẩu này, bạn có thể bỏ qua email này. Mật khẩu của bạn sẽ không thay đổi."
-
-msgid "Sign Language Learning Platform"
-msgstr "Nền tảng học Ngôn ngữ Ký hiệu"
-
-# Home Page - Additional
-msgid "Learn More"
-msgstr "Tìm hiểu thêm"
-
+#: templates/signlang/home.html:898
 msgid "Learn Sign Language Online"
 msgstr "Học Ngôn ngữ Ký hiệu Trực tuyến"
 
-msgid "Master sign language at your own pace. Interactive lessons, practice quizzes, and a supportive community to help you communicate without barriers."
-msgstr "Thành thạo ngôn ngữ ký hiệu theo tốc độ của bạn. Bài học tương tác, bài kiểm tra thực hành và cộng đồng hỗ trợ giúp bạn giao tiếp không rào cản."
+#: templates/signlang/home.html:902
+msgid ""
+"Master sign language at your own pace. Interactive lessons, practice "
+"quizzes, and a supportive community to help you communicate without barriers."
+msgstr ""
+"Thành thạo ngôn ngữ ký hiệu theo tốc độ của bạn. Bài học tương tác, bài kiểm "
+"tra thực hành và cộng đồng hỗ trợ giúp bạn giao tiếp không rào cản."
 
-msgid "Create Free Account"
-msgstr "Tạo tài khoản miễn phí"
+#: templates/signlang/home.html:906
+msgid "Start Learning"
+msgstr "Bắt đầu học"
 
+# Home Page - Additional
+#: templates/signlang/home.html:909
+msgid "Learn More"
+msgstr "Tìm hiểu thêm"
+
+#: templates/signlang/home.html:929
+msgid "Community"
+msgstr "Cộng đồng"
+
+#: templates/signlang/home.html:956
 msgid "Browse by Topic"
 msgstr "Duyệt theo chủ đề"
 
+#: templates/signlang/home.html:957
 msgid "Choose a category to start your learning journey"
 msgstr "Chọn một danh mục để bắt đầu hành trình học tập"
 
-msgid "Latest Lessons"
-msgstr "Bài học mới nhất"
-
-msgid "No lessons available yet. New lessons coming soon!"
-msgstr "Chưa có bài học. Bài học mới sẽ sớm ra mắt!"
-
-msgid "Quick Start Phrases"
-msgstr "Cụm từ bắt đầu nhanh"
-
-msgid "Essential phrases for everyday communication"
-msgstr "Các cụm từ thiết yếu cho giao tiếp hàng ngày"
-
-msgid "Common Sentences"
-msgstr "Câu thông dụng"
-
-msgid "Ready to Start Learning?"
-msgstr "Sẵn sàng bắt đầu học?"
-
-msgid "Join thousands of learners and master sign language at your own pace."
-msgstr "Tham gia cùng hàng nghìn người học và thành thạo ngôn ngữ ký hiệu theo tốc độ của bạn."
-
-msgid "Featured Content"
-msgstr "Nội dung nổi bật"
-
-# Lessons Page
-msgid "About this Lesson"
-msgstr "Về bài học này"
-
-msgid "Back to Lessons"
-msgstr "Quay lại bài học"
-
-msgid "Lesson Categories"
-msgstr "Danh mục bài học"
-
-msgid "lesson"
-msgstr "bài học"
-
-msgid "Lesson Completed!"
-msgstr "Hoàn thành bài học!"
-
-msgid "No lessons found"
-msgstr "Không tìm thấy bài học"
-
-msgid "No saved lessons"
-msgstr "Không có bài học đã lưu"
-
-msgid "No Saved Lessons"
-msgstr "Không có bài học đã lưu"
-
-msgid "Save lessons to access them quickly later"
-msgstr "Lưu bài học để truy cập nhanh sau này"
-
-msgid "Search lessons..."
-msgstr "Tìm kiếm bài học..."
-
-msgid "No vocabulary items in this lesson."
-msgstr "Không có từ vựng trong bài học này."
-
-msgid "Vocabulary items for this lesson"
-msgstr "Từ vựng cho bài học này"
-
-msgid "Mark as Complete Manually"
-msgstr "Đánh dấu hoàn thành thủ công"
-
-msgid "To auto-complete:"
-msgstr "Để tự động hoàn thành:"
-
-msgid "Pass the lesson quiz"
-msgstr "Vượt qua bài kiểm tra"
-
-msgid "Achieve 70%+ mastery on flashcards"
-msgstr "Đạt 70%+ thành thạo flashcard"
-
-msgid "Review the lesson content"
-msgstr "Xem lại nội dung bài học"
-
-# Flashcards
-msgid "Flashcard"
-msgstr "Thẻ ghi nhớ"
-
-msgid "Flashcards"
-msgstr "Thẻ ghi nhớ"
-
-msgid "Spaced Repetition Flashcards"
-msgstr "Thẻ ghi nhớ lặp lại cách quãng"
-
-msgid "Add Card"
-msgstr "Thêm thẻ"
-
-msgid "Save Card"
-msgstr "Lưu thẻ"
-
-msgid "Create your first card"
-msgstr "Tạo thẻ đầu tiên"
-
-msgid "Good/Easy"
-msgstr "Tốt/Dễ"
-
-# Quiz Page
-msgid "All Quizzes"
-msgstr "Tất cả bài kiểm tra"
-
-msgid "Back to Quizzes"
-msgstr "Quay lại bài kiểm tra"
-
-msgid "View All Quizzes"
-msgstr "Xem tất cả bài kiểm tra"
-
-msgid "Search quizzes..."
-msgstr "Tìm kiếm bài kiểm tra..."
-
-msgid "quiz"
-msgstr "bài kiểm tra"
-
-msgid "Quiz"
-msgstr "Bài kiểm tra"
-
-msgid "No Quizzes Available"
-msgstr "Không có bài kiểm tra"
-
-msgid "No quizzes found"
-msgstr "Không tìm thấy bài kiểm tra"
-
-msgid "Quizzes will appear here as you progress through lessons."
-msgstr "Bài kiểm tra sẽ xuất hiện ở đây khi bạn học các bài học."
-
-msgid "Not attempted"
-msgstr "Chưa làm"
-
-msgid "Recent attempts"
-msgstr "Lần làm gần đây"
-
-msgid "Test your knowledge and track your progress"
-msgstr "Kiểm tra kiến thức và theo dõi tiến độ"
-
-msgid "Make sure you've answered all questions before submitting."
-msgstr "Hãy chắc chắn đã trả lời tất cả câu hỏi trước khi nộp."
-
-msgid "You scored"
-msgstr "Bạn đạt"
-
-msgid "out of"
-msgstr "trên"
-
-msgid "points"
-msgstr "điểm"
-
-msgid "You've beaten your previous high score!"
-msgstr "Bạn đã vượt qua điểm cao nhất trước đó!"
-
-msgid "Best"
-msgstr "Tốt nhất"
-
-# Dashboard
-msgid "Welcome Back"
-msgstr "Chào mừng trở lại"
-
-msgid "No recommendations yet. Start learning to get personalized suggestions!"
-msgstr "Chưa có gợi ý. Bắt đầu học để nhận gợi ý cá nhân hóa!"
-
-msgid "XP to Level"
-msgstr "XP đến cấp độ"
-
-# Admin Panel
-msgid "All Users"
-msgstr "Tất cả người dùng"
-
-msgid "All Videos"
-msgstr "Tất cả video"
-
-msgid "All Video Categories"
-msgstr "Tất cả danh mục video"
-
-msgid "Search users..."
-msgstr "Tìm kiếm người dùng..."
-
-msgid "No users found"
-msgstr "Không tìm thấy người dùng"
-
-msgid "Content Reports"
-msgstr "Báo cáo nội dung"
-
-msgid "No reports found"
-msgstr "Không tìm thấy báo cáo"
-
-msgid "reviewed"
-msgstr "đã xem xét"
-
-msgid "No categories yet."
-msgstr "Chưa có danh mục."
-
-msgid "No video categories yet."
-msgstr "Chưa có danh mục video."
-
-msgid "No videos found"
-msgstr "Không tìm thấy video"
-
-msgid "No featured cards yet"
-msgstr "Chưa có thẻ nổi bật"
-
-msgid "Featured Card"
-msgstr "Thẻ nổi bật"
-
-msgid "Video Category"
-msgstr "Danh mục video"
-
-msgid "No vocabulary yet."
-msgstr "Chưa có từ vựng."
-
-msgid "No questions yet."
-msgstr "Chưa có câu hỏi."
-
+#: templates/signlang/home.html:972
 msgid "No topics available yet. Check back soon!"
 msgstr "Chưa có chủ đề. Hãy quay lại sau!"
 
-# Form Fields
-msgid "Active (visible on site)"
-msgstr "Hoạt động (hiển thị trên trang)"
+#: templates/signlang/home.html:983
+msgid "Quick Start Phrases"
+msgstr "Cụm từ bắt đầu nhanh"
 
-msgid "Display Order"
-msgstr "Thứ tự hiển thị"
+#: templates/signlang/home.html:984
+msgid "Essential phrases for everyday communication"
+msgstr "Các cụm từ thiết yếu cho giao tiếp hàng ngày"
 
-msgid "Lower numbers appear first"
-msgstr "Số nhỏ hơn xuất hiện trước"
+#: templates/signlang/home.html:1003
+msgid "Latest Lessons"
+msgstr "Bài học mới nhất"
 
-msgid "Icon (Emoji)"
-msgstr "Biểu tượng (Emoji)"
+#: templates/signlang/home.html:1029
+msgid "No lessons available yet. New lessons coming soon!"
+msgstr "Chưa có bài học. Bài học mới sẽ sớm ra mắt!"
 
-msgid "e.g., 👋"
-msgstr "ví dụ: 👋"
+#: templates/signlang/home.html:1038
+msgid "Ready to Start Learning?"
+msgstr "Sẵn sàng bắt đầu học?"
 
-msgid "e.g., Daily Communication"
-msgstr "ví dụ: Giao tiếp hàng ngày"
+#: templates/signlang/home.html:1039
+msgid "Join thousands of learners and master sign language at your own pace."
+msgstr ""
+"Tham gia cùng hàng nghìn người học và thành thạo ngôn ngữ ký hiệu theo tốc "
+"độ của bạn."
 
-msgid "e.g., /lessons/?category=daily"
-msgstr "ví dụ: /lessons/?category=daily"
+#: templates/signlang/home.html:1041
+msgid "Create Free Account"
+msgstr "Tạo tài khoản miễn phí"
 
-msgid "Link URL"
-msgstr "Đường dẫn liên kết"
+# Category List
+#: templates/signlang/lessons/category_list.html:8
+msgid "Browse Categories"
+msgstr "Duyệt danh mục"
 
-msgid "Can be relative (/lessons/) or absolute (https://...)"
-msgstr "Có thể là đường dẫn tương đối (/lessons/) hoặc tuyệt đối (https://...)"
+#: templates/signlang/lessons/category_list.html:22
+msgid "No categories available yet."
+msgstr "Chưa có danh mục nào."
 
-msgid "Short description (optional)"
-msgstr "Mô tả ngắn (tùy chọn)"
+# Flashcards
+#: templates/signlang/lessons/flashcard.html:4
+msgid "Flashcard"
+msgstr "Thẻ ghi nhớ"
 
-msgid "Image (Optional)"
-msgstr "Hình ảnh (Tùy chọn)"
+#: templates/signlang/lessons/flashcard.html:414
+#: templates/signlang/lessons/flashcard.html:525
+#: templates/signlang/quiz/quiz_result.html:307
+msgid "Back to Lesson"
+msgstr "Quay lại bài học"
 
-msgid "Video File (Optional)"
-msgstr "Tệp video (Tùy chọn)"
+#: templates/signlang/lessons/flashcard.html:417
+msgid "Spaced Repetition Flashcards"
+msgstr "Thẻ ghi nhớ lặp lại cách quãng"
 
-msgid "Video URL (YouTube embed)"
-msgstr "Đường dẫn video (nhúng YouTube)"
+#: templates/signlang/lessons/flashcard.html:424
+msgid "Mastery"
+msgstr "Thành thạo"
 
-msgid "Or upload a video file below"
-msgstr "Hoặc tải lên tệp video bên dưới"
+#: templates/signlang/lessons/flashcard.html:431
+msgid "Due Today"
+msgstr "Hôm nay"
 
-msgid "Current Thumbnail"
-msgstr "Ảnh đại diện hiện tại"
+#: templates/signlang/lessons/flashcard.html:435
+msgid "Total Cards"
+msgstr "Tổng số thẻ"
 
-msgid "Passing Score (%)"
-msgstr "Điểm đạt (%)"
+#: templates/signlang/lessons/flashcard.html:448
+msgid "Tap to reveal meaning"
+msgstr "Nhấn để xem nghĩa"
 
-msgid "Pass Score"
-msgstr "Điểm đạt"
+#: templates/signlang/lessons/flashcard.html:459
+msgid "How well did you know this?"
+msgstr "Bạn biết từ này tốt như thế nào?"
 
-msgid "Time Limit (minutes)"
-msgstr "Giới hạn thời gian (phút)"
+# Flashcard
+#: templates/signlang/lessons/flashcard.html:463
+msgid "Again"
+msgstr "Lại"
 
-msgid "Set 0 for no time limit"
-msgstr "Đặt 0 để không giới hạn thời gian"
+#: templates/signlang/lessons/flashcard.html:471
+msgid "Good"
+msgstr "Tốt"
 
-msgid "Select Category"
-msgstr "Chọn danh mục"
+#: templates/signlang/lessons/flashcard.html:511
+msgid "Session Complete!"
+msgstr "Hoàn thành phiên học!"
 
-msgid "Select Lesson"
-msgstr "Chọn bài học"
+#: templates/signlang/lessons/flashcard.html:512
+msgid "Great job reviewing your flashcards."
+msgstr "Làm tốt lắm khi ôn tập flashcard."
 
-msgid "Question Text"
-msgstr "Nội dung câu hỏi"
+#: templates/signlang/lessons/flashcard.html:516
+msgid "Cards Reviewed"
+msgstr "Thẻ đã ôn"
 
-msgid "Add up to 4 answer options. Select the correct answer."
-msgstr "Thêm tối đa 4 tùy chọn đáp án. Chọn đáp án đúng."
+#: templates/signlang/lessons/flashcard.html:520
+msgid "Good/Easy"
+msgstr "Tốt/Dễ"
 
-msgid "Explanation (shown after quiz)"
-msgstr "Giải thích (hiển thị sau bài kiểm tra)"
+#: templates/signlang/lessons/flashcard.html:524
+msgid "Practice Again"
+msgstr "Luyện tập lại"
 
-msgid "Why this answer is correct/incorrect..."
-msgstr "Tại sao đáp án này đúng/sai..."
+#: templates/signlang/lessons/flashcard.html:542
+msgid "No vocabulary items in this lesson."
+msgstr "Không có từ vựng trong bài học này."
 
-msgid "Delete this question?"
-msgstr "Xóa câu hỏi này?"
+# Lessons Page
+#: templates/signlang/lessons/lesson_detail.html:422
+msgid "About this Lesson"
+msgstr "Về bài học này"
 
-msgid "Add one"
-msgstr "Thêm một"
+#: templates/signlang/lessons/lesson_detail.html:438
+msgid "Flashcard Mode"
+msgstr "Chế độ Flashcard"
 
-msgid "Create one"
-msgstr "Tạo một"
+#: templates/signlang/lessons/lesson_detail.html:470
+msgid "Save Lesson"
+msgstr "Lưu bài học"
 
-msgid "Markdown supported"
-msgstr "Hỗ trợ Markdown"
+#: templates/signlang/lessons/lesson_detail.html:480
+msgid "Practice Flashcards"
+msgstr "Luyện tập Flashcard"
 
-# Delete Confirmations
-msgid "Are you sure?"
-msgstr "Bạn có chắc không?"
-
-msgid "This action cannot be undone."
-msgstr "Hành động này không thể hoàn tác."
-
-msgid "You are about to delete this"
-msgstr "Bạn sắp xóa"
-
-msgid "Yes"
-msgstr "Có"
-
-msgid "Deleted Content"
-msgstr "Nội dung đã xóa"
-
-msgid "Post:"
-msgstr "Bài viết:"
-
-# Status and Labels
-msgid "Current"
-msgstr "Hiện tại"
-
-msgid "Created"
-msgstr "Đã tạo"
-
+#: templates/signlang/lessons/lesson_detail.html:493
 msgid "Overall"
 msgstr "Tổng quan"
 
-msgid "total"
-msgstr "tổng"
+#: templates/signlang/lessons/lesson_detail.html:506
+msgid "Flashcards"
+msgstr "Thẻ ghi nhớ"
 
-msgid "Related"
-msgstr "Liên quan"
+#: templates/signlang/lessons/lesson_detail.html:513
+msgid "reviewed"
+msgstr "đã xem xét"
 
-msgid "Type"
-msgstr "Loại"
+#: templates/signlang/lessons/lesson_detail.html:528
+#: templates/signlang/quiz/quiz_list.html:82
+msgid "Passed"
+msgstr "Đã đạt"
 
-msgid "Filter"
-msgstr "Lọc"
+#: templates/signlang/lessons/lesson_detail.html:532
+#: templates/signlang/quiz/quiz_result.html:378
+msgid "Best"
+msgstr "Tốt nhất"
 
-msgid "Views"
-msgstr "Lượt xem"
+#: templates/signlang/lessons/lesson_detail.html:535
+msgid "Not attempted"
+msgstr "Chưa làm"
 
-msgid "min"
-msgstr "phút"
+#: templates/signlang/lessons/lesson_detail.html:545
+msgid "Lesson Completed!"
+msgstr "Hoàn thành bài học!"
 
-msgid "Location"
-msgstr "Vị trí"
+#: templates/signlang/lessons/lesson_detail.html:549
+msgid "To auto-complete:"
+msgstr "Để tự động hoàn thành:"
 
-msgid "Preview"
-msgstr "Xem trước"
+#: templates/signlang/lessons/lesson_detail.html:552
+#, fuzzy, python-format
+#| msgid "Achieve 70%+ mastery on flashcards"
+msgid "Achieve 70%%+ mastery on flashcards"
+msgstr "Đạt 70%+ thành thạo flashcard"
 
+#: templates/signlang/lessons/lesson_detail.html:555
+msgid "Pass the lesson quiz"
+msgstr "Vượt qua bài kiểm tra"
+
+#: templates/signlang/lessons/lesson_detail.html:558
+msgid "Review the lesson content"
+msgstr "Xem lại nội dung bài học"
+
+#: templates/signlang/lessons/lesson_detail.html:566
+msgid "Mark as Complete Manually"
+msgstr "Đánh dấu hoàn thành thủ công"
+
+#: templates/signlang/lessons/lesson_detail.html:579
 msgid "Completed!"
 msgstr "Hoàn thành!"
 
-msgid "Sign in"
-msgstr "Đăng nhập"
+#: templates/signlang/lessons/lesson_detail.html:584
+msgid "Sign in to track your progress and save lessons."
+msgstr "Đăng nhập để theo dõi tiến độ và lưu bài học."
 
+#: templates/signlang/lessons/lesson_detail.html:591
+msgid "Related Lessons"
+msgstr "Bài học liên quan"
+
+#: templates/signlang/lessons/lesson_list.html:218
+#: templates/signlang/videos/video_list.html:171
+msgid "All Levels"
+msgstr "Tất cả cấp độ"
+
+#: templates/signlang/lessons/lesson_list.html:223
+msgid "Filter"
+msgstr "Lọc"
+
+#: templates/signlang/lessons/lesson_list.html:256
 msgid "Try adjusting your search or filters"
 msgstr "Thử điều chỉnh tìm kiếm hoặc bộ lọc"
 
+#: templates/signlang/lessons/lesson_list.html:265
+#: templates/signlang/videos/video_list.html:232
+msgid "Previous"
+msgstr "Trước đó"
+
+#: templates/signlang/lessons/lesson_list.html:277
+#: templates/signlang/videos/video_list.html:238
+msgid "Next"
+msgstr "Tiếp theo"
+
+#: templates/signlang/lessons/saved_lessons.html:42
+msgid "No Saved Lessons"
+msgstr "Không có bài học đã lưu"
+
+#: templates/signlang/lessons/saved_lessons.html:43
+msgid "Save lessons to access them quickly later"
+msgstr "Lưu bài học để truy cập nhanh sau này"
+
+#: templates/signlang/quiz/quiz_detail.html:191
+msgid "Your Previous Attempts"
+msgstr "Các lần làm trước"
+
+#: templates/signlang/quiz/quiz_detail.html:194
+#: templates/signlang/quiz/quiz_list.html:80
+#: templates/signlang/quiz/quiz_result.html:294
+msgid "Best Score"
+msgstr "Điểm cao nhất"
+
+#: templates/signlang/quiz/quiz_detail.html:205
+msgid "Recent attempts"
+msgstr "Lần làm gần đây"
+
+#: templates/signlang/quiz/quiz_detail.html:205
+msgid "total"
+msgstr "tổng"
+
+#: templates/signlang/quiz/quiz_detail.html:235
 msgid "Your browser does not support the video tag."
 msgstr "Trình duyệt của bạn không hỗ trợ thẻ video."
 
-msgid "Password Reset Complete"
-msgstr "Đặt lại mật khẩu hoàn tất"
+#: templates/signlang/quiz/quiz_detail.html:241
+#, fuzzy
+#| msgid "Question Type"
+msgid "Question image"
+msgstr "Loại câu hỏi"
 
-# Formatting Guide
-msgid "Formatting:"
-msgstr "Định dạng:"
+#: templates/signlang/quiz/quiz_detail.html:257
+msgid "Make sure you've answered all questions before submitting."
+msgstr "Hãy chắc chắn đã trả lời tất cả câu hỏi trước khi nộp."
 
-msgid "Formatting Guide:"
-msgstr "Hướng dẫn định dạng:"
+#: templates/signlang/quiz/quiz_detail.html:259
+msgid "Submit Quiz"
+msgstr "Nộp bài"
 
-msgid "bold"
-msgstr "đậm"
+#: templates/signlang/quiz/quiz_list.html:60
+msgid "Test your knowledge and track your progress"
+msgstr "Kiểm tra kiến thức và theo dõi tiến độ"
 
-msgid "italic"
-msgstr "nghiêng"
+#: templates/signlang/quiz/quiz_list.html:67
+#, fuzzy
+#| msgid "Test your knowledge and track your progress"
+msgid "Test your knowledge"
+msgstr "Kiểm tra kiến thức và theo dõi tiến độ"
 
-msgid "inline code"
-msgstr "mã nội tuyến"
+#: templates/signlang/quiz/quiz_list.html:71
+msgid "to pass"
+msgstr "để đạt"
 
-msgid "Large header"
-msgstr "Tiêu đề lớn"
+#: templates/signlang/quiz/quiz_list.html:73
+msgid "min"
+msgstr "phút"
 
-msgid "Medium header"
-msgstr "Tiêu đề vừa"
+#: templates/signlang/quiz/quiz_list.html:86
+msgid "attempt"
+msgstr "lần thử"
 
-msgid "Small header"
-msgstr "Tiêu đề nhỏ"
+#: templates/signlang/quiz/quiz_list.html:91
+#: templates/signlang/quiz/quiz_result.html:305
+msgid "Retry Quiz"
+msgstr "Làm lại"
 
-msgid "Section header"
-msgstr "Tiêu đề phần"
+# Quiz
+#: templates/signlang/quiz/quiz_list.html:91
+msgid "Start Quiz"
+msgstr "Bắt đầu kiểm tra"
 
-msgid "Bullet list"
-msgstr "Danh sách đầu dòng"
+#: templates/signlang/quiz/quiz_list.html:96
+msgid "Related"
+msgstr "Liên quan"
 
-msgid "Numbered list"
-msgstr "Danh sách đánh số"
+#: templates/signlang/quiz/quiz_list.html:106
+msgid "No Quizzes Available"
+msgstr "Không có bài kiểm tra"
 
-msgid "Blockquote"
-msgstr "Trích dẫn"
+#: templates/signlang/quiz/quiz_list.html:107
+msgid "Quizzes will appear here as you progress through lessons."
+msgstr "Bài kiểm tra sẽ xuất hiện ở đây khi bạn học các bài học."
 
-msgid "Horizontal line"
-msgstr "Đường kẻ ngang"
+#: templates/signlang/quiz/quiz_result.html:4
+msgid "Quiz Results"
+msgstr "Kết quả kiểm tra"
 
-# Colors
-msgid "Blue"
-msgstr "Xanh dương"
+#: templates/signlang/quiz/quiz_result.html:269
+msgid "Congratulations!"
+msgstr "Chúc mừng!"
 
-msgid "Green"
-msgstr "Xanh lá"
+#: templates/signlang/quiz/quiz_result.html:269
+msgid "Keep Practicing!"
+msgstr "Hãy tiếp tục luyện tập!"
 
-msgid "Indigo"
-msgstr "Chàm"
+#: templates/signlang/quiz/quiz_result.html:270
+msgid "You scored"
+msgstr "Bạn đạt"
 
-msgid "Orange"
-msgstr "Cam"
+#: templates/signlang/quiz/quiz_result.html:270
+msgid "out of"
+msgstr "trên"
 
-msgid "Pink"
-msgstr "Hồng"
+#: templates/signlang/quiz/quiz_result.html:270
+msgid "points"
+msgstr "điểm"
 
-msgid "Purple"
-msgstr "Tím"
+#: templates/signlang/quiz/quiz_result.html:280
+msgid "New Personal Best!"
+msgstr "Kỷ lục mới!"
 
-msgid "Red"
-msgstr "Đỏ"
+#: templates/signlang/quiz/quiz_result.html:281
+msgid "You've beaten your previous high score!"
+msgstr "Bạn đã vượt qua điểm cao nhất trước đó!"
 
-msgid "Teal"
-msgstr "Xanh ngọc"
+#: templates/signlang/quiz/quiz_result.html:290
+msgid "This Attempt"
+msgstr "Lần này"
 
-# Icons/Categories
-msgid "Art/Palette"
-msgstr "Nghệ thuật/Bảng màu"
+#: templates/signlang/quiz/quiz_result.html:298
+msgid "Total Attempts"
+msgstr "Tổng số lần"
 
-msgid "Book"
-msgstr "Sách"
+#: templates/signlang/quiz/quiz_result.html:303
+msgid "Review Your Answers"
+msgstr "Xem lại câu trả lời"
 
-msgid "Briefcase"
-msgstr "Cặp tài liệu"
+#: templates/signlang/quiz/quiz_result.html:309
+msgid "Back to Quizzes"
+msgstr "Quay lại bài kiểm tra"
 
-msgid "Calendar"
-msgstr "Lịch"
+#: templates/signlang/quiz/quiz_result.html:327
+msgid "Incorrect"
+msgstr "Sai"
 
-msgid "Car/Transport"
-msgstr "Xe/Giao thông"
+#: templates/signlang/quiz/quiz_result.html:338
+msgid "Your answer"
+msgstr "Câu trả lời của bạn"
 
-msgid "Clock/Time"
-msgstr "Đồng hồ/Thời gian"
+#: templates/signlang/quiz/quiz_result.html:338
+#, fuzzy
+#| msgid "Your answer"
+msgid "No answer"
+msgstr "Câu trả lời của bạn"
 
-msgid "Comment Dots"
-msgstr "Bình luận"
+#: templates/signlang/quiz/quiz_result.html:346
+msgid "Correct answer"
+msgstr "Đáp án đúng"
 
-msgid "Food/Utensils"
-msgstr "Thức ăn/Dụng cụ"
+#: templates/signlang/quiz/quiz_result.html:351
+msgid "Explanation"
+msgstr "Giải thích"
 
-msgid "Graduation Cap"
-msgstr "Mũ tốt nghiệp"
+#: templates/signlang/quiz/quiz_result.html:362
+msgid "Your Attempt History"
+msgstr "Lịch sử làm bài"
 
-msgid "Heart"
-msgstr "Trái tim"
+# Status and Labels
+#: templates/signlang/quiz/quiz_result.html:375
+msgid "Current"
+msgstr "Hiện tại"
 
-msgid "Hospital/Medical"
-msgstr "Bệnh viện/Y tế"
+#: templates/signlang/quiz/quiz_result.html:388
+msgid "View All Quizzes"
+msgstr "Xem tất cả bài kiểm tra"
 
-msgid "Music"
-msgstr "Âm nhạc"
+# Common
+#: templates/signlang/search_results.html:4
+#: templates/signlang/videos/video_list.html:152
+msgid "Search"
+msgstr "Tìm kiếm"
 
-msgid "Phone"
-msgstr "Điện thoại"
+#: templates/signlang/search_results.html:154
+msgid "Search lessons, videos, vocabulary..."
+msgstr "Tìm kiếm bài học, video, từ vựng..."
 
-msgid "Shopping"
-msgstr "Mua sắm"
+# Search Results
+#: templates/signlang/search_results.html:159
+msgid "Found"
+msgstr "Tìm thấy"
 
-msgid "Sports"
-msgstr "Thể thao"
+#: templates/signlang/search_results.html:159
+msgid "result"
+msgstr "kết quả"
 
-msgid "Star"
-msgstr "Ngôi sao"
+#: templates/signlang/search_results.html:159
+msgid "for"
+msgstr "cho"
 
-msgid "Travel/Plane"
-msgstr "Du lịch/Máy bay"
+#: templates/signlang/search_results.html:169
+msgid "No results found"
+msgstr "Không tìm thấy kết quả"
 
-# Chatbot
-msgid "Open chat"
-msgstr "Mở trò chuyện"
+#: templates/signlang/search_results.html:170
+msgid "We couldn't find anything matching"
+msgstr "Chúng tôi không tìm thấy gì khớp với"
 
-msgid "Sign Language Assistant"
-msgstr "Trợ lý Ngôn ngữ Ký hiệu"
+#: templates/signlang/search_results.html:172
+msgid "Search tips:"
+msgstr "Mẹo tìm kiếm:"
 
-msgid "Hello! I'm your sign language learning assistant. How can I help you today?"
-msgstr "Xin chào! Tôi là trợ lý học ngôn ngữ ký hiệu của bạn. Tôi có thể giúp gì cho bạn hôm nay?"
+#: templates/signlang/search_results.html:174
+msgid "Check your spelling"
+msgstr "Kiểm tra chính tả"
 
-msgid "Type your message..."
-msgstr "Nhập tin nhắn..."
+#: templates/signlang/search_results.html:175
+msgid "Try more general keywords"
+msgstr "Thử dùng từ khóa chung hơn"
 
-msgid "Send message"
+#: templates/signlang/search_results.html:176
+msgid "Try different keywords"
+msgstr "Thử dùng từ khóa khác"
+
+#: templates/signlang/search_results.html:209
+#: templates/signlang/videos/video_detail.html:166
+#: templates/signlang/videos/video_detail.html:200
+#: templates/signlang/videos/video_list.html:203
+msgid "views"
+msgstr "lượt xem"
+
+#: templates/signlang/search_results.html:225
+msgid "From:"
+msgstr "Từ:"
+
+#: templates/signlang/search_results.html:253
+msgid "Start Searching"
+msgstr "Bắt đầu tìm kiếm"
+
+#: templates/signlang/search_results.html:254
+msgid ""
+"Enter a keyword to search across lessons, videos, vocabulary, and forum "
+"posts."
+msgstr ""
+"Nhập từ khóa để tìm kiếm trong bài học, video, từ vựng và bài viết diễn đàn."
+
+#: templates/signlang/videos/video_detail.html:158
+msgid "Video not available"
+msgstr "Video không khả dụng"
+
+#: templates/signlang/videos/video_detail.html:176
+msgid "About this video"
+msgstr "Về video này"
+
+#: templates/signlang/videos/video_detail.html:188
+msgid "Related Videos"
+msgstr "Video liên quan"
+
+#: templates/signlang/videos/video_detail.html:204
+msgid "No related videos"
+msgstr "Không có video liên quan"
+
+# Video Library
+#: templates/signlang/videos/video_list.html:4
+#: templates/signlang/videos/video_list.html:139
+msgid "Video Library"
+msgstr "Thư viện Video"
+
+#: templates/signlang/videos/video_list.html:140
+msgid "Learn from real-life situation videos"
+msgstr "Học từ các video tình huống thực tế"
+
+#: templates/signlang/videos/video_list.html:147
+msgid "Filters"
+msgstr "Bộ lọc"
+
+#: templates/signlang/videos/video_list.html:159
+msgid "All Categories"
+msgstr "Tất cả danh mục"
+
+#: templates/signlang/videos/video_list.html:178
+msgid "Apply Filters"
+msgstr "Áp dụng bộ lọc"
+
+#: templates/signlang/videos/video_list.html:179
+#: venv/lib/python3.13/site-packages/django/forms/widgets.py:527
+msgid "Clear"
+msgstr "Xóa"
+
+#: templates/signlang/videos/video_list.html:221
+msgid "No Videos Found"
+msgstr "Không tìm thấy video"
+
+#: templates/signlang/videos/video_list.html:222
+msgid "Try adjusting your filters"
+msgstr "Thử điều chỉnh bộ lọc"
+
+#: templates/signlang/videos/video_list.html:235
+msgid "Page"
+msgstr "Trang"
+
+#: templates/signlang/videos/video_list.html:235
+msgid "of"
+msgstr "của"
+
+#: venv/lib/python3.13/site-packages/django/contrib/messages/apps.py:16
+#, fuzzy
+#| msgid "Send message"
+msgid "Messages"
 msgstr "Gửi tin nhắn"
 
-# CSV Export
-msgid "Export CSV"
-msgstr "Xuất CSV"
+#: venv/lib/python3.13/site-packages/django/contrib/sitemaps/apps.py:8
+msgid "Site Maps"
+msgstr ""
 
-msgid "Export Progress"
-msgstr "Xuất tiến độ"
+#: venv/lib/python3.13/site-packages/django/contrib/staticfiles/apps.py:9
+msgid "Static Files"
+msgstr ""
 
-msgid "Export Vocabulary"
-msgstr "Xuất từ vựng"
+#: venv/lib/python3.13/site-packages/django/contrib/syndication/apps.py:7
+#, fuzzy
+#| msgid "Section"
+msgid "Syndication"
+msgstr "Phần"
 
-msgid "Export Results"
-msgstr "Xuất kết quả"
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: venv/lib/python3.13/site-packages/django/core/paginator.py:30
+msgid "…"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/paginator.py:32
+msgid "That page number is not an integer"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/paginator.py:33
+msgid "That page number is less than 1"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/paginator.py:34
+msgid "That page contains no results"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:22
+#, fuzzy
+#| msgid "Please enter a valid email address."
+msgid "Enter a valid value."
+msgstr "Vui lòng nhập địa chỉ email hợp lệ."
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:70
+#, fuzzy
+#| msgid "Please enter a valid email address."
+msgid "Enter a valid domain name."
+msgstr "Vui lòng nhập địa chỉ email hợp lệ."
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:153
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:775
+msgid "Enter a valid URL."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:200
+msgid "Enter a valid integer."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:211
+#, fuzzy
+#| msgid "Please enter a valid email address."
+msgid "Enter a valid email address."
+msgstr "Vui lòng nhập địa chỉ email hợp lệ."
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: venv/lib/python3.13/site-packages/django/core/validators.py:289
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:297
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:309
+#: venv/lib/python3.13/site-packages/django/core/validators.py:318
+#: venv/lib/python3.13/site-packages/django/core/validators.py:332
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2220
+#, fuzzy, python-format
+#| msgid "Please enter a valid email address."
+msgid "Enter a valid %(protocol)s address."
+msgstr "Vui lòng nhập địa chỉ email hợp lệ."
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:311
+msgid "IPv4"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:320
+#: venv/lib/python3.13/site-packages/django/utils/ipv6.py:43
+msgid "IPv6"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:334
+msgid "IPv4 or IPv6"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:375
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:381
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:416
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:425
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:434
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:441
+#, python-format
+msgid ""
+"Ensure this value is a multiple of step size %(limit_value)s, starting from "
+"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:473
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:491
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:514
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:366
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:405
+msgid "Enter a number."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:516
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:521
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:526
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:597
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/core/validators.py:659
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/base.py:1600
+#: venv/lib/python3.13/site-packages/django/forms/models.py:908
+msgid "and"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/base.py:1602
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/constraints.py:22
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:134
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:135
+#, fuzzy
+#| msgid "This action cannot be undone."
+msgid "This field cannot be null."
+msgstr "Hành động này không thể hoàn tác."
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:136
+#, fuzzy
+#| msgid "This action cannot be undone."
+msgid "This field cannot be blank."
+msgstr "Hành động này không thể hoàn tác."
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:137
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:141
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:180
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1162
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1163
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1165
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1215
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1217
+msgid "String (unlimited)"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1326
+msgid "Comma-separated integers"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1427
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1431
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1566
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1435
+msgid "Date (without time)"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1562
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1570
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1575
+msgid "Date (with time)"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1702
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1704
+msgid "Decimal number"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1864
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1868
+#, fuzzy
+#| msgid "Description"
+msgid "Duration"
+msgstr "Mô tả"
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1920
+#, fuzzy
+#| msgid "Email Address"
+msgid "Email address"
+msgstr "Địa chỉ Email"
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1945
+msgid "File path"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2023
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2025
+msgid "Floating point number"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2065
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2067
+msgid "Integer"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2163
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2180
+#, fuzzy
+#| msgid "Small header"
+msgid "Small integer"
+msgstr "Tiêu đề nhỏ"
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2188
+msgid "IPv4 address"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2219
+#, fuzzy
+#| msgid "Email Address"
+msgid "IP address"
+msgstr "Địa chỉ Email"
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2310
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2311
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2313
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2364
+msgid "Positive big integer"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2379
+msgid "Positive integer"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2394
+msgid "Positive small integer"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2410
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2446
+msgid "Text"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2526
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2530
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2534
+#, fuzzy
+#| msgid "All Time"
+msgid "Time"
+msgstr "Mọi thời gian"
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2642
+msgid "URL"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2666
+msgid "Raw binary data"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2731
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2733
+msgid "Universally unique identifier"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/files.py:244
+msgid "File"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/json.py:24
+msgid "A JSON object"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/json.py:26
+msgid "Value must be valid JSON."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/related.py:979
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/related.py:982
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/related.py:1276
+msgid "One-to-one relationship"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/related.py:1333
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/related.py:1335
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/db/models/fields/related.py:1383
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: venv/lib/python3.13/site-packages/django/forms/boundfield.py:185
+msgid ":?.!"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:95
+#, fuzzy
+#| msgid "is required"
+msgid "This field is required."
+msgstr "là bắt buộc"
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:315
+msgid "Enter a whole number."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:486
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:1267
+msgid "Enter a valid date."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:509
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:1268
+msgid "Enter a valid time."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:536
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:570
+msgid "Enter a valid duration."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:571
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:640
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:641
+msgid "No file was submitted."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:642
+msgid "The submitted file is empty."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:644
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:649
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:717
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:889
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:975
+#: venv/lib/python3.13/site-packages/django/forms/models.py:1592
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:977
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:1096
+#: venv/lib/python3.13/site-packages/django/forms/models.py:1590
+msgid "Enter a list of values."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:1097
+#, fuzzy
+#| msgid "Enter a descriptive title..."
+msgid "Enter a complete value."
+msgstr "Nhập tiêu đề mô tả..."
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:1339
+msgid "Enter a valid UUID."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/fields.py:1369
+msgid "Enter a valid JSON."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: venv/lib/python3.13/site-packages/django/forms/forms.py:97
+msgid ":"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/forms.py:239
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/formsets.py:61
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/formsets.py:65
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/forms/formsets.py:70
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/forms/models.py:901
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/models.py:906
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/models.py:913
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/models.py:922
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/models.py:1359
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/models.py:1450
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/models.py:1594
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/utils.py:229
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+# Status and Labels
+#: venv/lib/python3.13/site-packages/django/forms/widgets.py:528
+#, fuzzy
+#| msgid "Current"
+msgid "Currently"
+msgstr "Hiện tại"
+
+#: venv/lib/python3.13/site-packages/django/forms/widgets.py:529
+#, fuzzy
+#| msgid "Save Changes"
+msgid "Change"
+msgstr "Lưu thay đổi"
+
+#: venv/lib/python3.13/site-packages/django/forms/widgets.py:866
+msgid "Unknown"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/forms/widgets.py:868
+msgid "No"
+msgstr ""
+
+#. Translators: Please do not add spaces around commas.
+#: venv/lib/python3.13/site-packages/django/template/defaultfilters.py:873
+msgid "yes,no,maybe"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/template/defaultfilters.py:903
+#: venv/lib/python3.13/site-packages/django/template/defaultfilters.py:920
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/template/defaultfilters.py:922
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/template/defaultfilters.py:924
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/template/defaultfilters.py:926
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/template/defaultfilters.py:928
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/template/defaultfilters.py:930
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dateformat.py:74
+msgid "p.m."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dateformat.py:75
+msgid "a.m."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dateformat.py:80
+msgid "PM"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dateformat.py:81
+msgid "AM"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dateformat.py:153
+msgid "midnight"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dateformat.py:155
+msgid "noon"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:7
+msgid "Monday"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:8
+msgid "Tuesday"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:9
+msgid "Wednesday"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:10
+msgid "Thursday"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:11
+msgid "Friday"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:12
+msgid "Saturday"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:13
+msgid "Sunday"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:16
+msgid "Mon"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:17
+msgid "Tue"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:18
+#, fuzzy
+#| msgid "Red"
+msgid "Wed"
+msgstr "Đỏ"
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:19
+msgid "Thu"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:20
+msgid "Fri"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:21
+#, fuzzy
+#| msgid "Status"
+msgid "Sat"
+msgstr "Trạng thái"
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:22
+msgid "Sun"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:25
+msgid "January"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:26
+msgid "February"
+msgstr ""
+
+# Common
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:27
+#, fuzzy
+#| msgid "Search"
+msgid "March"
+msgstr "Tìm kiếm"
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:28
+msgid "April"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:29
+#, fuzzy
+#| msgid "Mastery"
+msgid "May"
+msgstr "Thành thạo"
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:30
+msgid "June"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:31
+msgid "July"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:32
+msgid "August"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:33
+#, fuzzy
+#| msgid "Remember me"
+msgid "September"
+msgstr "Ghi nhớ đăng nhập"
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:34
+msgid "October"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:35
+msgid "November"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:36
+#, fuzzy
+#| msgid "Remember me"
+msgid "December"
+msgstr "Ghi nhớ đăng nhập"
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:39
+msgid "jan"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:40
+msgid "feb"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:41
+msgid "mar"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:42
+msgid "apr"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:43
+msgid "may"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:44
+msgid "jun"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:45
+msgid "jul"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:46
+#, fuzzy
+#| msgid "ago"
+msgid "aug"
+msgstr "trước"
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:47
+msgid "sep"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:48
+#, fuzzy
+#| msgid "Correct"
+msgid "oct"
+msgstr "Đúng"
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:49
+msgid "nov"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:50
+msgid "dec"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+# Common
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:55
+#, fuzzy
+#| msgid "Search"
+msgctxt "abbrev. month"
+msgid "March"
+msgstr "Tìm kiếm"
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:57
+#, fuzzy
+#| msgid "Mastery"
+msgctxt "abbrev. month"
+msgid "May"
+msgstr "Thành thạo"
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+# Common
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:69
+#, fuzzy
+#| msgid "Search"
+msgctxt "alt. month"
+msgid "March"
+msgstr "Tìm kiếm"
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:71
+#, fuzzy
+#| msgid "Mastery"
+msgctxt "alt. month"
+msgid "May"
+msgstr "Thành thạo"
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:75
+#, fuzzy
+#| msgid "Remember me"
+msgctxt "alt. month"
+msgid "September"
+msgstr "Ghi nhớ đăng nhập"
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/dates.py:78
+#, fuzzy
+#| msgid "Remember me"
+msgctxt "alt. month"
+msgid "December"
+msgstr "Ghi nhớ đăng nhập"
+
+#: venv/lib/python3.13/site-packages/django/utils/ipv6.py:20
+#, fuzzy
+#| msgid "Please enter a valid email address."
+msgid "This is not a valid IPv6 address."
+msgstr "Vui lòng nhập địa chỉ email hợp lệ."
+
+#: venv/lib/python3.13/site-packages/django/utils/text.py:76
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/text.py:287
+#, fuzzy
+#| msgid "for"
+msgid "or"
+msgstr "cho"
+
+#. Translators: This string is used as a separator between list elements
+#: venv/lib/python3.13/site-packages/django/utils/text.py:306
+#: venv/lib/python3.13/site-packages/django/utils/timesince.py:135
+msgid ", "
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/utils/timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/utils/timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/utils/timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/utils/timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/utils/timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/utils/timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] ""
+
+#: venv/lib/python3.13/site-packages/django/views/csrf.py:29
+msgid "Forbidden"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/csrf.py:30
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/csrf.py:34
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/csrf.py:40
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/csrf.py:45
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/csrf.py:54
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/csrf.py:60
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/csrf.py:66
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/generic/dates.py:44
+msgid "No year specified"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/generic/dates.py:64
+#: venv/lib/python3.13/site-packages/django/views/generic/dates.py:115
+#: venv/lib/python3.13/site-packages/django/views/generic/dates.py:214
+msgid "Date out of range"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/generic/dates.py:94
+msgid "No month specified"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/generic/dates.py:147
+msgid "No day specified"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/generic/dates.py:194
+msgid "No week specified"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/generic/dates.py:353
+#: venv/lib/python3.13/site-packages/django/views/generic/dates.py:384
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/generic/dates.py:680
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/generic/dates.py:720
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/generic/detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/generic/list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/generic/list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/generic/list.py:173
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/static.py:49
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/static.py:51
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/static.py:68
+#: venv/lib/python3.13/site-packages/django/views/templates/directory_index.html:8
+#: venv/lib/python3.13/site-packages/django/views/templates/directory_index.html:11
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:7
+#: venv/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:204
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:208
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:217
+#, fuzzy
+#| msgid "Django Admin"
+msgid "Django Documentation"
+msgstr "Quản trị Django"
+
+#: venv/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:218
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:226
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:227
+msgid "Get started with Django"
+msgstr ""
+
+#: venv/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:235
+#, fuzzy
+#| msgid "Community"
+msgid "Django Community"
+msgstr "Cộng đồng"
+
+#: venv/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:236
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#~ msgid "Save"
+#~ msgstr "Lưu"
+
+#~ msgid "Submit"
+#~ msgstr "Gửi"
+
+#~ msgid "Back"
+#~ msgstr "Quay lại"
+
+#~ msgid "Loading..."
+#~ msgstr "Đang tải..."
+
+#~ msgid "Completed"
+#~ msgstr "Hoàn thành"
+
+#~ msgid "Not Started"
+#~ msgstr "Chưa bắt đầu"
+
+#~ msgid "Mark as Complete"
+#~ msgstr "Đánh dấu hoàn thành"
+
+#~ msgid "Your Best Score"
+#~ msgstr "Điểm cao nhất"
+
+#~ msgid "attempts"
+#~ msgstr "lần thử"
+
+# Dictionary
+#~ msgid "Search words..."
+#~ msgstr "Tìm từ..."
+
+#~ msgid "words found"
+#~ msgstr "từ được tìm thấy"
+
+#~ msgid "Reply"
+#~ msgstr "Trả lời"
+
+#~ msgid "Choose Photo"
+#~ msgstr "Chọn ảnh"
+
+#~ msgid "Remove current photo"
+#~ msgstr "Xóa ảnh hiện tại"
+
+#~ msgid ""
+#~ "The \"Signox\" project was established with the goal of breaking down "
+#~ "language barriers. We want to spread the beauty of Sign Language to the "
+#~ "community, helping everyone understand and connect with each other more "
+#~ "easily. Our platform provides a free, friendly, and open learning "
+#~ "environment for all."
+#~ msgstr ""
+#~ "Dự án \"Signox\" được thành lập với mục tiêu phá bỏ rào cản ngôn ngữ. "
+#~ "Chúng tôi muốn lan tỏa vẻ đẹp của Ngôn ngữ Ký hiệu đến cộng đồng, giúp "
+#~ "mọi người hiểu và kết nối với nhau dễ dàng hơn. Nền tảng của chúng tôi "
+#~ "cung cấp môi trường học tập miễn phí, thân thiện và mở cho tất cả mọi "
+#~ "người."
+
+#~ msgid "Video URL"
+#~ msgstr "Đường dẫn video"
+
+#~ msgid "Create"
+#~ msgstr "Tạo mới"
+
+#~ msgid "Update"
+#~ msgstr "Cập nhật"
+
+#~ msgid "Add"
+#~ msgstr "Thêm"
+
+#~ msgid "Add New"
+#~ msgstr "Thêm mới"
+
+#~ msgid "Edit Category"
+#~ msgstr "Sửa danh mục"
+
+#~ msgid "Create Category"
+#~ msgstr "Tạo danh mục"
+
+#~ msgid "Edit Lesson"
+#~ msgstr "Sửa bài học"
+
+#~ msgid "Edit Video"
+#~ msgstr "Sửa video"
+
+#~ msgid "Create Video"
+#~ msgstr "Tạo video"
+
+#~ msgid "Edit Quiz"
+#~ msgstr "Sửa bài kiểm tra"
+
+#~ msgid "Edit Question"
+#~ msgstr "Sửa câu hỏi"
+
+#~ msgid "Create Question"
+#~ msgstr "Tạo câu hỏi"
+
+#~ msgid "Edit Featured Card"
+#~ msgstr "Sửa thẻ nổi bật"
+
+#~ msgid "Create Featured Card"
+#~ msgstr "Tạo thẻ nổi bật"
+
+#~ msgid "Manage Vocabulary"
+#~ msgstr "Quản lý từ vựng"
+
+#~ msgid "Edit Vocabulary"
+#~ msgstr "Sửa từ vựng"
+
+#~ msgid "No items found"
+#~ msgstr "Không tìm thấy mục nào"
+
+#~ msgid "Create one to get started"
+#~ msgstr "Tạo mới để bắt đầu"
+
+#~ msgid "No categories yet"
+#~ msgstr "Chưa có danh mục"
+
+#~ msgid "No lessons yet"
+#~ msgstr "Chưa có bài học"
+
+#~ msgid "No videos yet"
+#~ msgstr "Chưa có video"
+
+#~ msgid "No quizzes yet"
+#~ msgstr "Chưa có bài kiểm tra"
+
+#~ msgid "No vocabulary yet"
+#~ msgstr "Chưa có từ vựng"
+
+#~ msgid "No reports"
+#~ msgstr "Không có báo cáo"
+
+#~ msgid "Confirm Delete"
+#~ msgstr "Xác nhận xóa"
+
+#~ msgid "Are you sure you want to delete"
+#~ msgstr "Bạn có chắc muốn xóa"
+
+#~ msgid "No, Cancel"
+#~ msgstr "Không, Hủy"
+
+#~ msgid "Is Correct"
+#~ msgstr "Đáp án đúng"
+
+#~ msgid "Passing Score"
+#~ msgstr "Điểm đạt"
+
+#~ msgid "Time Limit"
+#~ msgstr "Thời gian"
+
+#~ msgid "minutes"
+#~ msgstr "phút"
+
+#~ msgid "No limit"
+#~ msgstr "Không giới hạn"
+
+#~ msgid "View Count"
+#~ msgstr "Lượt xem"
+
+#~ msgid "Post"
+#~ msgstr "Bài viết"
+
+#~ msgid "Reported At"
+#~ msgstr "Thời gian báo cáo"
+
+#~ msgid "Mark as Resolved"
+#~ msgstr "Đánh dấu đã xử lý"
+
+#~ msgid "Spam"
+#~ msgstr "Spam"
+
+#~ msgid "Inappropriate Content"
+#~ msgstr "Nội dung không phù hợp"
+
+#~ msgid "Harassment"
+#~ msgstr "Quấy rối"
+
+#~ msgid "Other"
+#~ msgstr "Khác"
+
+#~ msgid "Media"
+#~ msgstr "Phương tiện"
+
+#~ msgid "Current thumbnail"
+#~ msgstr "Ảnh đại diện hiện tại"
+
+#~ msgid "Current image"
+#~ msgstr "Hình ảnh hiện tại"
+
+#~ msgid "Current video"
+#~ msgstr "Video hiện tại"
+
+#~ msgid "Leave empty to keep current"
+#~ msgstr "Để trống để giữ nguyên"
+
+#~ msgid "items"
+#~ msgstr "mục"
+
+#~ msgid "User List"
+#~ msgstr "Danh sách người dùng"
+
+#~ msgid "Report List"
+#~ msgstr "Danh sách báo cáo"
+
+#~ msgid "Lesson List"
+#~ msgstr "Danh sách bài học"
+
+#~ msgid "Video List"
+#~ msgstr "Danh sách video"
+
+#~ msgid "Quiz List"
+#~ msgstr "Danh sách bài kiểm tra"
+
+#~ msgid "Category List"
+#~ msgstr "Danh sách danh mục"
+
+#~ msgid "Total"
+#~ msgstr "Tổng"
+
+#~ msgid "Superuser"
+#~ msgstr "Quản trị viên cao cấp"
+
+#~ msgid "Date Joined"
+#~ msgstr "Ngày tham gia"
+
+#~ msgid "Last Login"
+#~ msgstr "Đăng nhập cuối"
+
+#~ msgid "Never"
+#~ msgstr "Chưa bao giờ"
+
+#~ msgid "Manage Questions"
+#~ msgstr "Quản lý câu hỏi"
+
+#~ msgid "questions"
+#~ msgstr "câu hỏi"
+
+#~ msgid "No questions yet"
+#~ msgstr "Chưa có câu hỏi"
+
+#~ msgid "View Questions"
+#~ msgstr "Xem câu hỏi"
+
+#~ msgid "View Vocabulary"
+#~ msgstr "Xem từ vựng"
+
+#~ msgid "Back to Quiz"
+#~ msgstr "Quay lại bài kiểm tra"
+
+#~ msgid "Back to List"
+#~ msgstr "Quay lại danh sách"
+
+#~ msgid "at least one correct answer"
+#~ msgstr "ít nhất một đáp án đúng"
+
+#~ msgid "Answer text"
+#~ msgstr "Nội dung đáp án"
+
+#~ msgid "Add more answers"
+#~ msgstr "Thêm đáp án"

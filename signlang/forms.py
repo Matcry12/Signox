@@ -78,7 +78,11 @@ class UserUpdateForm(forms.ModelForm):
     def clean_email(self):
         """Validate email uniqueness (excluding current user)"""
         email = self.cleaned_data.get('email', '').lower().strip()
-        if User.objects.filter(email__iexact=email).exclude(pk=self.instance.pk).exists():
+        # Only validate if email has actually changed
+        if self.instance and self.instance.email.lower() == email:
+            return email
+        # Check if email exists for other users
+        if User.objects.filter(email__iexact=email).exists():
             raise forms.ValidationError('This email address is already in use.')
         return email
 
@@ -102,6 +106,10 @@ class ProfileUpdateForm(forms.ModelForm):
         fields = ['avatar', 'bio', 'skill_level']
         widgets = {
             'bio': forms.Textarea(attrs={'rows': 4}),
+            'avatar': forms.FileInput(attrs={
+                'class': 'form-control-file',
+                'accept': 'image/*',
+            })
         }
 
     def __init__(self, *args, **kwargs):
@@ -109,8 +117,6 @@ class ProfileUpdateForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             if field_name != 'avatar':
                 field.widget.attrs['class'] = 'form-control'
-            else:
-                field.widget.attrs['class'] = 'form-control-file'
 
 
 class ForumPostForm(forms.ModelForm):
