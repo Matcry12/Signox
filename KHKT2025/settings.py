@@ -7,6 +7,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 import dj_database_url
+import cloudinary
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -53,6 +54,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'signlang',
 ]
 
@@ -160,11 +163,18 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+# Cloudinary configuration for media uploads
+cloudinary.config(
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    api_key=os.environ.get('CLOUDINARY_API_KEY'),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET'),
+)
+
 # Whitenoise for serving static files in production
-# Use basic storage for Vercel serverless compatibility
+# Use Cloudinary for media uploads (avatars, etc.)
 STORAGES = {
     "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
@@ -172,8 +182,15 @@ STORAGES = {
 }
 
 # Media files (user uploads)
+# For production on Railway, use persistent storage (e.g., /var/data)
+if os.environ.get('RAILWAY_ENVIRONMENT'):
+    # Railway persistent volume
+    MEDIA_ROOT = '/var/data/media'
+else:
+    # Local development
+    MEDIA_ROOT = BASE_DIR / 'media'
+
 MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
